@@ -39,4 +39,4 @@ python3 -m http.server 8000
 
 ## 项目状态
 
-这是一个首版原型。项目名称、许可证及远程仓库地址待所有者确认；在许可证确定前，请勿把本项目视为已授予复用权。
+这是一个首版原型，公开仓库位于 [jinhefeng/ui-words-for-ai](https://github.com/jinhefeng/ui-words-for-ai)。项目许可证尚未选择；在许可证确定前，请勿把本项目视为已授予复用权。
