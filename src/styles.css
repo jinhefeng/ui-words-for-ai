@@ -1629,7 +1629,8 @@ footer .footer-version {
 .hero-suggestions { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-top:13px; color:#8b9388; font-size:11px }
 .hero-suggestions button { padding:4px 9px; border:1px solid #e2e6de; border-radius:20px; background:#fff; color:#626c61; cursor:pointer; font-size:11px }
 .hero-suggestions button:hover,.filter-chip:hover { border-color:#9fb28e; color:var(--green) }
-.page-tabs { max-width:1120px; margin:0 auto; padding:20px 0 0; display:flex; gap:6px; border-bottom:1px solid var(--line) }
+.page-tabs { max-width:1120px; margin:0 auto; padding:20px 0 0; display:flex; gap:6px; overflow-x:auto; border-bottom:1px solid var(--line); scrollbar-width:thin }
+.page-tab { flex:none; white-space:nowrap }
 .page-tab { position:relative; padding:11px 14px; color:#7b8479; font-size:12px }
 .page-tab.active { color:var(--green); font-weight:600 }
 .page-tab.active::after { content:""; position:absolute; right:12px; bottom:-1px; left:12px; height:2px; background:var(--green) }
@@ -1959,8 +1960,10 @@ footer .footer-version {
 }
 @media(max-width:520px) {
   .topbar { padding:0 13px }
-  .topbar nav { gap:10px }
-  .nav-link { font-size:10px!important }
+  .brand small { display:none }
+  .topbar nav { max-width:calc(100vw - 182px); gap:3px; margin-left:8px; overflow-x:auto; scrollbar-width:none }
+  .topbar nav::-webkit-scrollbar { display:none }
+  .nav-link { flex:none; white-space:nowrap; font-size:9px!important }
   .topbar-cta { width:34px; justify-content:center; padding:0; border:0 }
   .topbar-cta span:first-child { display:none }
   .hero { padding-right:19px; padding-left:19px }
@@ -2093,4 +2096,28 @@ footer .footer-version {
   border-color:#a64b3c;
   background:#a64b3c;
   color:#fff
+}
+
+/* Content-author help */
+.help-note { display:flex; flex-direction:column; gap:3px; margin:0 0 12px; padding:12px 14px; border-left:2px solid #99b28b; background:#f6f8f3; color:#657160; font-size:11px }
+.help-note strong { color:#4c6944; font-weight:600 }
+.help-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px }
+.help-card { min-width:0; padding:15px 16px; border:1px solid #e3e8e0; border-radius:8px; background:#fff }
+.help-card-heading { display:flex; align-items:center; gap:10px; margin-bottom:8px }
+.help-number { display:grid; width:28px; height:28px; place-items:center; flex:none; border-radius:50%; background:#eef3e9; color:#68805f; font:10px var(--mono) }
+.help-card-heading .fact-label { font-size:8px }
+.help-card-heading h3 { margin:2px 0 0; color:#43513f; font-size:14px; line-height:1.4 }
+.help-card>p { margin:0; color:#687363; font-size:10px; line-height:1.75 }
+.help-card ul { display:grid; gap:5px; margin:9px 0 10px; padding-left:17px; color:#687363; font-size:10px; line-height:1.7 }
+.help-card code { padding:1px 4px; border-radius:3px; background:#f3f5f0; color:#51634b; font:9px var(--mono); overflow-wrap:anywhere }
+.help-file-link { color:var(--green); font-size:10px; font-weight:600; text-decoration:none }
+.help-file-link:hover { text-decoration:underline }
+.help-workflow { display:grid; grid-template-columns:minmax(190px,.75fr) minmax(0,1.5fr) auto; align-items:center; gap:12px; margin-top:12px; padding:14px; border:1px solid #e3e8e0; border-radius:8px; background:#fafbf9 }
+.help-workflow h3 { margin:4px 0 0; color:#4b5947; font-size:13px }
+.help-workflow>p { margin:0; color:#687363; font-size:10px; line-height:1.7 }
+.help-contribute-link { white-space:nowrap; text-decoration:none }
+.help-footnote { margin:9px 0 0; color:#8a9387; font-size:9px; line-height:1.7 }
+@media(max-width:760px) {
+  .help-grid { grid-template-columns:1fr }
+  .help-workflow { grid-template-columns:1fr; gap:8px }
 }

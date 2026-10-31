@@ -26,7 +26,7 @@
 | 决策引擎 | `src/lib/decision-engine.js` | 以纯函数按答案筛选匹配分支 | 不读 DOM，不修改数据，也不调用网络 |
 | 示例注册表 | `src/lib/demo-catalog.js` | 将已知模式 ID 映射为原生 HTML 交互预览 | 只运行仓库内的受控示例；数据不能注入脚本 |
 | 指令生成器 | `src/lib/prompt-builder.js` | 组合目标、场景、推荐理由、模式和行为要求 | 不依赖模型服务；返回普通文本 |
-| 网站壳与路由 | `index.html`、`src/app.js`、`src/styles.css` | 导航、搜索、俗语索引和详情、案例详情、专业术语索引、渲染和交互事件 | 调用数据与纯函数模块，不重复实现分支规则 |
+| 网站壳与路由 | `index.html`、`src/app.js`、`src/styles.css` | 五入口导航、搜索、俗语索引和详情、场景详情、术语索引、内容帮助页、渲染和交互事件 | 调用数据与纯函数模块，不重复实现分支规则 |
 
 ```mermaid
 flowchart LR
@@ -69,7 +69,7 @@ flowchart LR
 ## 页面与数据流
 
 1. `index.html` 提供品牌、导航、首页说明、搜索入口和 `#app-root`。
-2. `src/app.js` 从相对路径加载 JSON，按 `#explore`、`#colloquial/:id`、`#cases/:id` 和 `#patterns/:id` 等轻量 hash 状态渲染页面。
+2. `src/app.js` 从相对路径加载 JSON，按“按需求找 → 按俗语找 → 按术语找 → 按场景找 → 帮助说明”的五入口导航，以及 `#explore`、`#colloquial/:id`、`#patterns/:id`、`#cases/:id`、`#help` 等轻量 hash 状态渲染页面。
 3. 用户在案例详情中选择条件；`decision-engine.js` 根据 `when` 返回匹配的分支。
 4. UI 展示推荐模式、理由、对照模式以及对应的本地 HTML 示例。
 5. `prompt-builder.js` 组合内容，先呈现中文交互叫法、用户目标、场景、行为和注意点；结果显示在可编辑文本框中，由用户发起复制。

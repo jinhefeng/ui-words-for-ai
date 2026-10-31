@@ -44,7 +44,7 @@ function navigate(page, id = "") {
 
 function syncRoute() {
   const [, page = "explore", id] = location.hash.match(/^#([^/]+)\/?(.*)$/) ?? [];
-  state.page = ["explore", "colloquial", "cases", "patterns"].includes(page) ? page : "explore";
+  state.page = ["explore", "colloquial", "patterns", "cases", "help"].includes(page) ? page : "explore";
   state.caseId = state.page === "cases" && id ? decodeURIComponent(id) : null;
   state.colloquialId = state.page === "colloquial" && id ? decodeURIComponent(id) : null;
   state.patternId = state.page === "patterns" && id ? decodeURIComponent(id) : state.patternId;
@@ -90,7 +90,7 @@ function renderExplore() {
     <div class="section-heading"><div><p class="eyebrow">START WITH WHAT YOU WANT TO DO</p><h2>你想让用户完成什么？</h2><p>先挑一个熟悉的场景，不用先知道它的专业名称；也可以直接从“弹框”“文本框”这样的俗语找起。</p></div><span class="content-count">${cases.length} 个案例 · ${colloquialisms.length} 个俗语</span></div>
     <div class="family-grid">${families.map(renderFamilyCard).join("")}</div>
     <div class="colloquial-entry"><div><span class="fact-label">START FROM WORDS YOU ALREADY USE</span><h3>你平时会怎么说？</h3><p>一个俗语可能有几种意思。点开看看每种做法有什么效果。</p></div><div class="colloquial-chips">${["弹框","文本框","选择框","下拉框","提示"].map((word) => `<button type="button" class="phrase-chip" data-colloquial="${escapeHtml(word)}">${escapeHtml(word)} ↗</button>`).join("")}</div></div>
-    <div class="section-footer"><span>按完整场景继续了解</span><button class="text-link" type="button" data-page="cases">浏览全部案例 →</button></div>
+    <div class="section-footer"><span>按完整场景继续了解</span><button class="text-link" type="button" data-page="cases">转到“按场景找” →</button></div>
   </section>`;
 }
 
@@ -155,7 +155,7 @@ function renderCaseDetail() {
   }).join("");
   const conditional = resolved ? item.recommendations.filter((recommendation) => recommendation.primaryPatternId !== primaryRecommendation.primaryPatternId) : [];
   return `<section class="content-section case-detail-content">
-    <button class="back-link" type="button" data-page="cases">← 返回案例库</button>
+    <button class="back-link" type="button" data-page="cases">← 返回按场景找</button>
     <div class="case-intro"><span class="case-family-tag">${escapeHtml(family?.icon ?? "✳")} ${escapeHtml(family?.label ?? "")}</span><p class="eyebrow">A REAL BEGINNER REQUEST</p><h2>${escapeHtml(item.phrase)}</h2><p>${escapeHtml(item.goal)}</p></div>
     <div class="case-context"><strong>场景补充</strong><p>${escapeHtml(item.context)}</p></div>
     <div class="case-decision-layout"><div class="decision-questions"><div class="decision-heading"><span class="step-number">01</span><div><h3>先想清楚一个关键条件</h3><p>这个答案会改变适合的界面做法。</p></div></div>${answerText}<button class="reset-answer" type="button" data-reset-answer>清除选择，重新比较</button></div>
@@ -229,14 +229,32 @@ function renderPatterns() {
   </section>`;
 }
 
+function renderHelp() {
+  const contributionUrl = "https://github.com/jinhefeng/ui-words-for-ai/blob/main/CONTRIBUTING.md";
+  const dataUrl = (file) => `https://github.com/jinhefeng/ui-words-for-ai/blob/main/src/data/${file}`;
+  return `<section class="content-section help-content">
+    <div class="section-heading"><div><p class="eyebrow">HELP · ADD AND IMPROVE CONTENT</p><h2>怎样补充教程内容？</h2><p>内容按“需求入口、俗语、术语、具体场景”分别维护。先看下面每类应该写什么，再打开对应的数据文件补充。</p></div><span class="content-count">4 类内容 · 静态文件维护</span></div>
+    <div class="help-note"><strong>先写用户的话，再决定要不要增加术语。</strong><span>具体场景通常引用已有的术语；只有交互行为确实不同，才新增术语和预览。</span></div>
+    <div class="help-grid">
+      <article class="help-card"><div class="help-card-heading"><span class="help-number">01</span><div><span class="fact-label">需求入口 · 归纳一类目标</span><h3>增加一个“按需求找”的入口</h3></div></div><p>用于归纳一组相近的用户目标，例如输入、选择、反馈。它是场景分类；每个具体说法和判断过程仍写在“场景”里。</p><ul><li>编辑 <code>src/data/families.json</code>。</li><li>填写稳定的 <code>id</code>、面向用户的 <code>label</code>、简短 <code>description</code> 和图标。</li><li>先确认现有分类放不下多个相关场景，再增加新分类。</li></ul><a class="help-file-link" href="${dataUrl("families.json")}" target="_blank" rel="noreferrer">查看需求分类文件 ↗</a></article>
+      <article class="help-card"><div class="help-card-heading"><span class="help-number">02</span><div><span class="fact-label">俗语 · 用户平时怎么说</span><h3>补充一个俗语及其多种意思</h3></div></div><p>保留小白真实会用的词。一个俗语可以对应多个界面做法；别急着把它改成专业术语。</p><ul><li>编辑 <code>src/data/colloquialisms.json</code>。</li><li>填写 <code>phrase</code>、<code>aliases</code>、解释范围的 <code>description</code> 和帮助区分意思的 <code>question</code>。</li><li>用 <code>patternIds</code> 对应多个术语，用 <code>caseIds</code> 连接具体场景。</li></ul><a class="help-file-link" href="${dataUrl("colloquialisms.json")}" target="_blank" rel="noreferrer">查看俗语文件 ↗</a></article>
+      <article class="help-card"><div class="help-card-heading"><span class="help-number">03</span><div><span class="fact-label">术语 · 一种明确的交互做法</span><h3>新增一种确实不同的界面做法</h3></div></div><p>先检查已有做法能否复用。展示名称先用小白听得懂的中文，专业名称作为补充。</p><ul><li>编辑 <code>src/data/patterns.json</code>，补齐 <code>localName</code>、<code>term</code>、适用条件、注意点和中文提示词。</li><li>引用一个需求分类的 <code>family</code>，并设置唯一 <code>demoId</code>。</li><li>在 <code>src/lib/demo-catalog.js</code> 注册本地可操作预览；不要把 HTML 或脚本写进 JSON。</li></ul><a class="help-file-link" href="${dataUrl("patterns.json")}" target="_blank" rel="noreferrer">查看术语文件 ↗</a></article>
+      <article class="help-card"><div class="help-card-heading"><span class="help-number">04</span><div><span class="fact-label">场景 · 一件具体的用户任务</span><h3>增加一个“按场景找”的案例</h3></div></div><p>从真实的新手原话和用户目标开始。用会影响做法的问题区分选项，不要提前假定用户想要哪个组件。</p><ul><li>编辑 <code>src/data/cases.json</code>，填写 <code>title</code>、<code>phrase</code>、<code>goal</code>、<code>context</code> 和搜索词。</li><li>选择已有需求分类，并添加用户听得懂的 <code>questions</code> 和选项。</li><li>用 <code>recommendations</code> 的 <code>when</code> 连接答案与已有术语，写明推荐理由。</li></ul><a class="help-file-link" href="${dataUrl("cases.json")}" target="_blank" rel="noreferrer">查看场景文件 ↗</a></article>
+    </div>
+    <div class="help-workflow"><div><span class="fact-label">建议的补充顺序</span><h3>从一个真实说法，补齐一条内容链</h3></div><p>先增加具体场景 → 再检查能否复用现有术语 → 补上相关俗语和需求分类 → 本地浏览器查看名称、关系和预览 → 提交修改。</p><a class="copy-button help-contribute-link" href="${contributionUrl}" target="_blank" rel="noreferrer">打开完整贡献指南 ↗</a></div>
+    <p class="help-footnote">教程使用静态 JSON 和本地 HTML 示例，不需要数据库或服务器逻辑。字段细节、推荐规则和提交前检查见贡献指南。</p>
+  </section>`;
+}
+
 function render() {
   updateShell();
   if (!root) return;
   root.setAttribute("aria-busy", "false");
   root.innerHTML = state.page === "explore" ? renderExplore()
     : state.page === "colloquial" ? (state.colloquialId ? renderColloquialDetail() : renderColloquialIndex())
+    : state.page === "patterns" ? renderPatterns()
       : state.page === "cases" ? (state.caseId ? renderCaseDetail() : renderCases())
-        : renderPatterns();
+        : renderHelp();
 }
 
 function notify(message) {
