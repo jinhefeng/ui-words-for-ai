@@ -17,9 +17,9 @@
         <span>UI Words <small>说准一点</small></span>
       </a>
       <nav class="main-nav" aria-label="主导航">
-        <button class="nav-link active" type="button" data-page="explore">按需求找</button>
+        <button class="nav-link active" type="button" data-page="explore">按需求找 <span class="nav-count" id="family-count"></span></button>
         <button class="nav-link" type="button" data-page="colloquial">按俗语找 <span class="nav-count" id="colloquial-count"></span></button>
-        <button class="nav-link" type="button" data-page="patterns">按术语找</button>
+        <button class="nav-link" type="button" data-page="patterns">按术语找 <span class="nav-count" id="pattern-count"></span></button>
         <button class="nav-link" type="button" data-page="cases">按场景找 <span class="nav-count" id="case-count"></span></button>
         <button class="nav-link" type="button" data-page="help">帮助说明</button>
       </nav>
@@ -60,14 +60,6 @@
         <span class="step-connector" aria-hidden="true">→</span>
         <div><span class="step-number">04</span><p><strong>试一试，再给 AI</strong><small>操作组件，复制更清楚的指令。</small></p></div>
       </section>
-
-      <div class="page-tabs" role="tablist" aria-label="内容浏览方式">
-        <button type="button" role="tab" aria-selected="true" class="page-tab active" data-page="explore">按需求找</button>
-        <button type="button" role="tab" aria-selected="false" class="page-tab" data-page="colloquial">按俗语找 <span id="tab-colloquial-count"></span></button>
-        <button type="button" role="tab" aria-selected="false" class="page-tab" data-page="patterns">按术语找</button>
-        <button type="button" role="tab" aria-selected="false" class="page-tab" data-page="cases">按场景找 <span id="tab-case-count"></span></button>
-        <button type="button" role="tab" aria-selected="false" class="page-tab" data-page="help">帮助说明</button>
-      </div>
 
       <div id="app-root" aria-live="polite" aria-busy="true">
         <div class="loading-shell"><span class="loading-dot"></span><p>正在整理需求和案例…</p></div>
