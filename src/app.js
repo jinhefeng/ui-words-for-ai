@@ -2,18 +2,20 @@ import { getRecommendations, getRelatedPatternIds } from "./lib/decision-engine.
 import { renderDemo } from "./lib/demo-catalog.js";
 import { buildPrompt } from "./lib/prompt-builder.js";
 
-const [families, cases, patterns] = await Promise.all([
+const [families, cases, patterns, colloquialisms] = await Promise.all([
   fetch(new URL("./data/families.json", import.meta.url)).then((response) => response.json()),
   fetch(new URL("./data/cases.json", import.meta.url)).then((response) => response.json()),
   fetch(new URL("./data/patterns.json", import.meta.url)).then((response) => response.json()),
+  fetch(new URL("./data/colloquialisms.json", import.meta.url)).then((response) => response.json()),
 ]);
 
 const root = document.querySelector("#app-root");
 const toastRegion = document.querySelector("#toast-region");
 const patternById = new Map(patterns.map((pattern) => [pattern.id, pattern]));
+const colloquialById = new Map(colloquialisms.map((item) => [item.id, item]));
 const familyById = new Map(families.map((family) => [family.id, family]));
 const patternsByFamily = new Map(families.map((family) => [family.id, patterns.filter((pattern) => pattern.family === family.id)]));
-const state = { page: "explore", familyId: null, caseId: null, patternId: patterns[0]?.id, query: "", answers: {} };
+const state = { page: "explore", familyId: null, caseId: null, colloquialId: null, patternId: patterns[0]?.id, query: "", answers: {} };
 let toastTimer;
 
 function escapeHtml(value = "") {
@@ -21,7 +23,14 @@ function escapeHtml(value = "") {
 }
 
 function currentCase() { return cases.find((item) => item.id === state.caseId); }
-function patternLink(patternId, label = "查看术语说明") {
+function currentColloquial() { return colloquialById.get(state.colloquialId); }
+function findColloquial(value) {
+  const query = String(value ?? "").trim().toLocaleLowerCase();
+  if (!query) return null;
+  return colloquialisms.find((item) => [item.phrase, ...(item.aliases ?? [])].some((label) => label.toLocaleLowerCase() === query))
+    ?? colloquialisms.find((item) => [item.phrase, ...(item.aliases ?? [])].some((label) => label.toLocaleLowerCase().includes(query) || query.includes(label.toLocaleLowerCase())));
+}
+function patternLink(patternId, label = "看标准叫法") {
   const pattern = patternById.get(patternId);
   if (!pattern) return "";
   return `<button class="text-link" type="button" data-pattern="${escapeHtml(pattern.id)}">${escapeHtml(label)} ↗</button>`;
@@ -35,10 +44,12 @@ function navigate(page, id = "") {
 
 function syncRoute() {
   const [, page = "explore", id] = location.hash.match(/^#([^/]+)\/?(.*)$/) ?? [];
-  state.page = ["explore", "cases", "patterns"].includes(page) ? page : "explore";
+  state.page = ["explore", "colloquial", "cases", "patterns"].includes(page) ? page : "explore";
   state.caseId = state.page === "cases" && id ? decodeURIComponent(id) : null;
+  state.colloquialId = state.page === "colloquial" && id ? decodeURIComponent(id) : null;
   state.patternId = state.page === "patterns" && id ? decodeURIComponent(id) : state.patternId;
   if (state.caseId && !cases.some((item) => item.id === state.caseId)) state.caseId = null;
+  if (state.colloquialId && !colloquialById.has(state.colloquialId)) state.colloquialId = null;
   if (state.patternId && !patternById.has(state.patternId)) state.patternId = patterns[0]?.id;
   if (state.page !== "cases") state.familyId = null;
   render();
@@ -54,10 +65,12 @@ function updateShell() {
   const isExplore = state.page === "explore";
   document.querySelector(".hero")?.classList.toggle("hidden-section", !isExplore);
   document.querySelector(".lesson-strip")?.classList.toggle("hidden-section", !isExplore);
-  document.querySelector(".page-tabs")?.classList.toggle("hidden-section", Boolean(state.caseId));
+  document.querySelector(".page-tabs")?.classList.toggle("hidden-section", Boolean(state.caseId || state.colloquialId));
   const count = String(cases.length);
   document.querySelector("#case-count").textContent = count;
   document.querySelector("#tab-case-count").textContent = `(${count})`;
+  document.querySelector("#colloquial-count").textContent = String(colloquialisms.length);
+  document.querySelector("#tab-colloquial-count").textContent = `(${colloquialisms.length})`;
 }
 
 function renderFamilyCard(family) {
@@ -74,9 +87,10 @@ function renderFamilyCard(family) {
 function renderExplore() {
   const totalPatterns = patterns.length;
   return `<section class="content-section explore-content">
-    <div class="section-heading"><div><p class="eyebrow">START WITH WHAT YOU WANT TO DO</p><h2>你想让用户完成什么？</h2><p>先挑一个熟悉的场景，不用先知道它的专业名称。</p></div><span class="content-count">${cases.length} 个案例 · ${totalPatterns} 个术语</span></div>
+    <div class="section-heading"><div><p class="eyebrow">START WITH WHAT YOU WANT TO DO</p><h2>你想让用户完成什么？</h2><p>先挑一个熟悉的场景，不用先知道它的专业名称；也可以直接从“弹框”“文本框”这样的俗语找起。</p></div><span class="content-count">${cases.length} 个案例 · ${colloquialisms.length} 个俗语</span></div>
     <div class="family-grid">${families.map(renderFamilyCard).join("")}</div>
-    <div class="section-footer"><span>还不确定从哪里开始？</span><button class="text-link" type="button" data-page="cases">浏览全部新手说法 →</button></div>
+    <div class="colloquial-entry"><div><span class="fact-label">START FROM WORDS YOU ALREADY USE</span><h3>你平时会怎么说？</h3><p>一个俗语可能有几种意思。点开看看每种做法有什么效果。</p></div><div class="colloquial-chips">${["弹框","文本框","选择框","下拉框","提示"].map((word) => `<button type="button" class="phrase-chip" data-colloquial="${escapeHtml(word)}">${escapeHtml(word)} ↗</button>`).join("")}</div></div>
+    <div class="section-footer"><span>按完整场景继续了解</span><button class="text-link" type="button" data-page="cases">浏览全部案例 →</button></div>
   </section>`;
 }
 
@@ -114,10 +128,10 @@ function recommendationCard(recommendation, main = true, pending = false) {
   const supporting = (recommendation.supportingPatternIds ?? []).map((id) => patternById.get(id)).filter(Boolean);
   return `<article class="recommendation-card ${main ? "recommended" : "alternative-recommendation"} ${pending ? "pending-recommendation" : ""}">
     <div class="recommendation-label"><span>${pending ? "一种可能做法" : main ? "✳ 推荐做法" : "条件不同，也可以这样"}</span>${patternLink(pattern.id)}</div>
-    <div class="pattern-card-title"><div><h3>${escapeHtml(pattern.term)}</h3><span>${escapeHtml(pattern.localName)}</span></div><span class="pattern-stamp" aria-hidden="true">${escapeHtml(familyById.get(pattern.family)?.icon ?? "✳")}</span></div>
+    <div class="pattern-card-title"><div><h3>${escapeHtml(pattern.localName)}</h3><span>专业名称：${escapeHtml(pattern.term)}</span></div><span class="pattern-stamp" aria-hidden="true">${escapeHtml(familyById.get(pattern.family)?.icon ?? "✳")}</span></div>
     <p class="pattern-summary">${escapeHtml(pattern.summary)}</p><p class="recommendation-reason">${escapeHtml(recommendation.reason)}</p>
-    ${supporting.length ? `<div class="pattern-combination"><strong>通常还会搭配</strong>${supporting.map((item) => patternLink(item.id, `${item.term} · ${item.localName}`)).join("")}</div>` : ""}
-    ${alternatives.length ? `<div class="pattern-alternatives"><strong>相近做法</strong>${alternatives.map((item) => patternLink(item.id, `${item.term} · ${item.localName}`)).join("")}</div>` : ""}
+    ${supporting.length ? `<div class="pattern-combination"><strong>通常还会搭配</strong>${supporting.map((item) => patternLink(item.id, item.localName)).join("")}</div>` : ""}
+    ${alternatives.length ? `<div class="pattern-alternatives"><strong>相近做法</strong>${alternatives.map((item) => patternLink(item.id, item.localName)).join("")}</div>` : ""}
   </article>`;
 }
 
@@ -134,6 +148,7 @@ function renderCaseDetail() {
   const { recommendations, resolved } = getRecommendations(item, answers);
   const primaryRecommendation = recommendations[0];
   const primaryPattern = patternById.get(primaryRecommendation?.primaryPatternId);
+  const relatedColloquial = colloquialisms.find((entry) => primaryPattern && entry.patternIds.includes(primaryPattern.id));
   const answerText = item.questions.map((question) => {
     const chosen = answers[question.id];
     return `<fieldset class="question-block"><legend>${escapeHtml(question.prompt)}</legend><div class="answer-options">${question.options.map((option) => `<button type="button" class="answer-option ${chosen === option.id ? "selected" : ""}" data-question="${escapeHtml(question.id)}" data-option="${escapeHtml(option.id)}" aria-pressed="${chosen === option.id}"><span class="answer-radio" aria-hidden="true"></span><span><strong>${escapeHtml(option.label)}</strong>${option.hint ? `<small>${escapeHtml(option.hint)}</small>` : ""}</span></button>`).join("")}</div></fieldset>`;
@@ -148,20 +163,51 @@ function renderCaseDetail() {
       ${recommendations.map((recommendation, index) => recommendationCard(recommendation, resolved && index === 0, !resolved)).join("")}
       ${conditional.length ? `<details class="other-conditions"><summary>如果情况不同，还有这些选择</summary><div>${conditional.map((recommendation) => recommendationCard(recommendation, false)).join("")}</div></details>` : ""}</div>
     </div>
-    ${resolved && primaryPattern ? `<section class="try-pattern"><div class="decision-heading"><span class="step-number">03</span><div><h3>动手试试这个模式</h3><p>这是一个可操作的 HTML 示例，看看它怎样回应用户。</p></div></div><div class="demo-panel"><div class="demo-panel-heading"><span><strong>${escapeHtml(primaryPattern.term)}</strong><small>${escapeHtml(primaryPattern.localName)}</small></span><span class="demo-live"><i></i> LIVE HTML</span></div><div class="demo-stage" data-demo-id="${escapeHtml(primaryPattern.demoId)}">${renderDemo(primaryPattern)}</div><p class="demo-caption">试着点击、输入或切换选项。</p></div>${renderPrompt(item, primaryRecommendation, primaryPattern)}</section>` : `<div class="choose-condition-note"><span aria-hidden="true">↑</span><div><strong>选中一个条件，继续看演示和 AI 指令</strong><p>不同的用户目标可能需要不同组件；我们不会在条件不清楚时替你猜。</p></div></div>`}
-    <div class="case-next"><span>这类模式也会出现在其他需求中。</span><button type="button" class="text-link" data-page="patterns">去术语索引浏览 ${patterns.length} 个名称 ↗</button></div>
+    ${resolved && primaryPattern ? `<section class="try-pattern"><div class="decision-heading"><span class="step-number">03</span><div><h3>动手试试这种做法</h3><p>先用容易理解的中文名称；专业名称只是补充。</p></div></div><div class="demo-panel"><div class="demo-panel-heading"><span><strong>${escapeHtml(primaryPattern.localName)}</strong><small>专业名称：${escapeHtml(primaryPattern.term)}</small></span><span class="demo-live"><i></i> LIVE HTML</span></div><div class="demo-stage" data-demo-id="${escapeHtml(primaryPattern.demoId)}">${renderDemo(primaryPattern)}</div><p class="demo-caption">试着点击、输入或切换选项。</p></div>${renderPrompt(item, primaryRecommendation, primaryPattern)}</section>` : `<div class="choose-condition-note"><span aria-hidden="true">↑</span><div><strong>选中一个条件，继续看演示和 AI 指令</strong><p>不同的做法会产生不同效果；条件没说清楚时，会先把可能性展开给你看。</p></div></div>`}
+    <div class="case-next"><span>想从熟悉的词继续？</span><button type="button" class="text-link" ${relatedColloquial ? `data-colloquial-id="${escapeHtml(relatedColloquial.id)}"` : 'data-colloquial="弹框"'}>去“${escapeHtml(relatedColloquial?.phrase ?? "弹框")}”里比较 ↗</button></div>
   </section>`;
 }
 
 function renderPatternRow(pattern) {
   const selected = pattern.id === state.patternId;
-  return `<button type="button" class="pattern-row ${selected ? "selected" : ""}" data-pattern-select="${escapeHtml(pattern.id)}" aria-pressed="${selected}"><span class="pattern-row-icon">${escapeHtml(familyById.get(pattern.family)?.icon ?? "✳")}</span><span><strong>${escapeHtml(pattern.term)}</strong><small>${escapeHtml(pattern.localName)}</small></span><span class="row-arrow" aria-hidden="true">↗</span></button>`;
+  return `<button type="button" class="pattern-row ${selected ? "selected" : ""}" data-pattern-select="${escapeHtml(pattern.id)}" aria-pressed="${selected}"><span class="pattern-row-icon">${escapeHtml(familyById.get(pattern.family)?.icon ?? "✳")}</span><span><strong>${escapeHtml(pattern.localName)}</strong><small>专业名称：${escapeHtml(pattern.term)}</small></span><span class="row-arrow" aria-hidden="true">↗</span></button>`;
 }
 
 function renderPatternDetail(pattern) {
   if (!pattern) return `<div class="detail-empty"><span>⌕</span><p>选择一个术语，查看它什么时候适合使用。</p></div>`;
   const related = cases.filter((item) => item.recommendations.some((recommendation) => getRelatedPatternIds(recommendation).includes(pattern.id)));
-  return `<article class="pattern-detail"><div class="detail-topline"><span class="detail-number">${String(patterns.indexOf(pattern) + 1).padStart(2, "0")} / INTERACTION PATTERN</span><span class="detail-category">${escapeHtml(familyById.get(pattern.family)?.label ?? "")}</span></div><div class="detail-title-row"><div><h3>${escapeHtml(pattern.term)}</h3><span class="local-name">${escapeHtml(pattern.localName)}</span></div><span class="detail-spark" aria-hidden="true">✳</span></div><p class="detail-summary">${escapeHtml(pattern.summary)}</p><div class="detail-facts"><div><span class="fact-label">适合什么时候用</span><p>${escapeHtml(pattern.useWhen)}</p></div><div><span class="fact-label">不适合这些情况</span><p>${escapeHtml(pattern.avoidWhen)}</p></div></div><p class="contrast-note"><span aria-hidden="true">↔</span><span>${escapeHtml(pattern.contrast)}</span></p><div class="demo-heading"><div><span class="fact-label">TRY IT YOURSELF</span><strong>HTML 交互预览</strong></div><span class="demo-live"><i></i> LIVE HTML</span></div><div class="demo-panel"><div class="demo-stage" data-demo-id="${escapeHtml(pattern.demoId)}">${renderDemo(pattern)}</div></div><div class="pattern-use-cases"><span class="fact-label">从这些新手说法进入</span>${related.map((item) => `<button class="related-case" type="button" data-case="${escapeHtml(item.id)}"><span>${escapeHtml(item.phrase)}</span><b>↗</b></button>`).join("") || "<p>关联案例正在整理中。</p>"}</div><div class="prompt-card"><div class="prompt-card-head"><span class="fact-label">COPY THIS INTO YOUR AI TOOL</span><button class="copy-button" type="button" data-copy-pattern="${escapeHtml(pattern.id)}">复制示例指令</button></div><p>${escapeHtml(pattern.promptExample)}</p></div></article>`;
+  const colloquialUses = colloquialisms.filter((item) => item.patternIds.includes(pattern.id));
+  return `<article class="pattern-detail"><div class="detail-topline"><span class="detail-number">${String(patterns.indexOf(pattern) + 1).padStart(2, "0")} / 专业名称</span><span class="detail-category">${escapeHtml(familyById.get(pattern.family)?.label ?? "")}</span></div><div class="detail-title-row"><div><h3>${escapeHtml(pattern.localName)}</h3><span class="local-name">对应的专业名称：${escapeHtml(pattern.term)}</span></div><span class="detail-spark" aria-hidden="true">✳</span></div><p class="detail-summary">${escapeHtml(pattern.summary)}</p><div class="detail-facts"><div><span class="fact-label">适合什么时候用</span><p>${escapeHtml(pattern.useWhen)}</p></div><div><span class="fact-label">不适合这些情况</span><p>${escapeHtml(pattern.avoidWhen)}</p></div></div><p class="contrast-note"><span aria-hidden="true">↔</span><span>${escapeHtml(pattern.userEffect ?? pattern.contrast)}</span></p><div class="demo-heading"><div><span class="fact-label">TRY IT YOURSELF</span><strong>看看这种做法</strong></div><span class="demo-live"><i></i> LIVE HTML</span></div><div class="demo-panel"><div class="demo-stage" data-demo-id="${escapeHtml(pattern.demoId)}">${renderDemo(pattern)}</div></div><div class="pattern-use-cases"><span class="fact-label">大家可能会怎么说</span>${colloquialUses.map((item) => `<button class="related-case" type="button" data-colloquial-id="${escapeHtml(item.id)}"><span>“${escapeHtml(item.phrase)}”</span><b>↗</b></button>`).join("") || "<p>相关说法正在整理中。</p>"}</div><div class="pattern-use-cases"><span class="fact-label">从这些真实需求进入</span>${related.map((item) => `<button class="related-case" type="button" data-case="${escapeHtml(item.id)}"><span>${escapeHtml(item.phrase)}</span><b>↗</b></button>`).join("") || "<p>关联案例正在整理中。</p>"}</div><div class="prompt-card"><div class="prompt-card-head"><span class="fact-label">复制给 AI 的中文说法</span><button class="copy-button" type="button" data-copy-pattern="${escapeHtml(pattern.id)}">复制示例指令</button></div><p>${escapeHtml(pattern.promptExample)}</p></div></article>`;
+}
+
+function renderColloquialCard(item) {
+  const previewNames = item.patternIds.slice(0, 4).map((id) => patternById.get(id)?.localName).filter(Boolean);
+  return `<button type="button" class="colloquial-card" data-colloquial-id="${escapeHtml(item.id)}"><span class="colloquial-card-top"><span class="colloquial-quote">“${escapeHtml(item.phrase)}”</span><span class="colloquial-count">${item.patternIds.length} 种可能</span></span><span class="colloquial-card-copy">${escapeHtml(item.description)}</span><span class="colloquial-aliases">你也可能会说：${(item.aliases ?? []).slice(0, 4).map(escapeHtml).join(" · ")}</span><span class="colloquial-preview-names">${previewNames.map(escapeHtml).join("　·　")}</span><span class="case-card-arrow" aria-hidden="true">↗</span></button>`;
+}
+
+function renderColloquialIndex() {
+  const query = state.query.trim().toLocaleLowerCase();
+  const visible = colloquialisms.filter((item) => {
+    const names = item.patternIds.map((id) => patternById.get(id)?.localName ?? "");
+    return [item.phrase, item.description, item.question, ...(item.aliases ?? []), ...names].join(" ").toLocaleLowerCase().includes(query);
+  });
+  return `<section class="content-section colloquial-content"><div class="section-heading"><div><p class="eyebrow">START WITH WORDS YOU ALREADY USE</p><h2>俗语：你平时会怎么说？</h2><p>“弹框”“文本框”“下拉框”这些日常说法很常见，但一个词可能指好几种做法。点开看看它们的样子、效果、适用场景和要留意的地方。</p></div><span class="content-count">${visible.length} / ${colloquialisms.length} 个常用说法</span></div><div class="colloquial-note"><span>这不是你说错了。</span>日常词语本来就比较宽泛；这里帮你把它可能对应的界面做法逐个展开，再决定怎么告诉 AI。</div><label class="pattern-search"><span aria-hidden="true">⌕</span><input id="colloquial-search-input" type="search" value="${escapeHtml(state.query)}" placeholder="搜“弹框”“文本框”“点头像弹出”…" /><kbd>/</kbd></label><div class="colloquial-grid">${visible.map(renderColloquialCard).join("") || `<div class="empty-search"><strong>暂时没有这个说法</strong><p>换一个更短、更口语的词试试。</p></div>`}</div></section>`;
+}
+
+function colloquialPrompt(item, pattern) {
+  return [`我想做“${item.phrase}”里这种意思：${pattern.localName}。`, `界面大概是这样：${pattern.summary}`, `适合的场景：${pattern.useWhen}`, `请留意：${pattern.avoidWhen}`, `具体交互要求：${pattern.promptExample}`].join("\n");
+}
+
+function colloquialPatternCard(item, pattern, index) {
+  return `<article class="colloquial-pattern-card"><div class="colloquial-pattern-heading"><span class="colloquial-pattern-number">${String(index + 1).padStart(2, "0")}</span><div><p class="fact-label">你可能想要这样的效果</p><h3>${escapeHtml(pattern.localName)}</h3><small>专业名称：${escapeHtml(pattern.term)}</small></div><span class="pattern-stamp" aria-hidden="true">${escapeHtml(familyById.get(pattern.family)?.icon ?? "✳")}</span></div><div class="colloquial-facts"><div><strong>大概长这样</strong><p>${escapeHtml(pattern.summary)}</p></div><div><strong>对用户有什么影响</strong><p>${escapeHtml(pattern.userEffect ?? pattern.contrast)}</p></div><div><strong>适合什么场景</strong><p>${escapeHtml(pattern.useWhen)}</p></div><div><strong>不适合时要留意</strong><p>${escapeHtml(pattern.avoidWhen)}</p></div></div><div class="colloquial-demo-heading"><strong>看看它怎么回应</strong><span class="demo-live"><i></i> LIVE HTML</span></div><div class="demo-stage colloquial-demo-stage" data-demo-id="${escapeHtml(pattern.demoId)}">${renderDemo(pattern)}</div><div class="colloquial-card-actions"><button type="button" class="copy-button" data-copy-colloquial="${escapeHtml(item.id)}" data-copy-colloquial-pattern="${escapeHtml(pattern.id)}">复制这段中文说法</button>${patternLink(pattern.id, "了解专业名称")}</div></article>`;
+}
+
+function renderColloquialDetail() {
+  const item = currentColloquial();
+  if (!item) return renderColloquialIndex();
+  const linkedCases = cases.filter((caseStudy) => (item.caseIds ?? []).includes(caseStudy.id));
+  const mappedPatterns = item.patternIds.map((id) => patternById.get(id)).filter(Boolean);
+  return `<section class="content-section colloquial-detail-content"><button class="back-link" type="button" data-page="colloquial">← 返回俗语列表</button><div class="colloquial-detail-intro"><span class="fact-label">你可能会这样说</span><h2>“${escapeHtml(item.phrase)}”</h2><div class="colloquial-alias-cloud">${(item.aliases ?? []).map((alias) => `<span>“${escapeHtml(alias)}”</span>`).join("")}</div><p>${escapeHtml(item.description)}</p><div class="colloquial-question"><span>先想一想</span><strong>${escapeHtml(item.question)}</strong></div></div><div class="colloquial-results-heading"><div><p class="eyebrow">ONE EVERYDAY WORD · MANY INTERACTIONS</p><h3>这句话可能对应 ${mappedPatterns.length} 种做法</h3><p>先看中文叫法和实际效果；专业名称放在下面，想了解时再点开。</p></div><span class="content-count">按用户感受来比较</span></div><div class="colloquial-pattern-grid">${mappedPatterns.map((pattern, index) => colloquialPatternCard(item, pattern, index)).join("")}</div>${linkedCases.length ? `<div class="colloquial-related-cases"><div><span class="fact-label">继续从具体需求来判断</span><h3>把你想做的事情说完整</h3></div><div>${linkedCases.map((caseStudy) => `<button type="button" class="related-case" data-case="${escapeHtml(caseStudy.id)}"><span>${escapeHtml(caseStudy.phrase)}</span><b>↗</b></button>`).join("")}</div></div>` : ""}</section>`;
 }
 
 function renderPatterns() {
@@ -173,7 +219,7 @@ function renderPatterns() {
   });
   if (!visible.some((pattern) => pattern.id === state.patternId) && visible.length) state.patternId = visible[0].id;
   const selected = visible.find((pattern) => pattern.id === state.patternId);
-  return `<section class="content-section patterns-content"><div class="section-heading"><div><p class="eyebrow">LOOK UP A PRECISE NAME</p><h2>术语索引</h2><p>知道一个名称？在这里查解释、适用场景、可操作示例和关联案例。</p></div><span class="content-count">${visible.length} / ${patterns.length} 个模式</span></div>
+  return `<section class="content-section patterns-content"><div class="section-heading"><div><p class="eyebrow">OPTIONAL TECHNICAL REFERENCE</p><h2>专业术语</h2><p>平时不用先记住这些名字。这里提供标准名称，方便进一步查资料或和开发者沟通。</p></div><span class="content-count">${visible.length} / ${patterns.length} 个名称</span></div>
     <label class="pattern-search"><span aria-hidden="true">⌕</span><input id="pattern-search-input" type="search" value="${escapeHtml(state.query)}" placeholder="搜中文名、英文名或常用说法…" /><kbd>/</kbd></label>
     <div class="pattern-layout"><aside class="pattern-list" aria-label="交互模式列表">${visible.length ? visible.map(renderPatternRow).join("") : `<p class="empty-state">没有找到匹配的术语。试试“复选框”“确认”或“自动消失”。</p>`}</aside><div class="pattern-detail-panel">${renderPatternDetail(selected)}</div></div>
   </section>`;
@@ -184,8 +230,9 @@ function render() {
   if (!root) return;
   root.setAttribute("aria-busy", "false");
   root.innerHTML = state.page === "explore" ? renderExplore()
-    : state.page === "cases" ? (state.caseId ? renderCaseDetail() : renderCases())
-      : renderPatterns();
+    : state.page === "colloquial" ? (state.colloquialId ? renderColloquialDetail() : renderColloquialIndex())
+      : state.page === "cases" ? (state.caseId ? renderCaseDetail() : renderCases())
+        : renderPatterns();
 }
 
 function notify(message) {
@@ -276,6 +323,15 @@ function handleDemoClick(event) {
 document.addEventListener("click", (event) => {
   const pageButton = event.target.closest("[data-page]");
   if (pageButton) { event.preventDefault(); navigate(pageButton.dataset.page); return; }
+  const colloquialIdButton = event.target.closest("[data-colloquial-id]");
+  if (colloquialIdButton) { state.query = ""; navigate("colloquial", colloquialIdButton.dataset.colloquialId); return; }
+  const colloquialButton = event.target.closest("[data-colloquial]");
+  if (colloquialButton) {
+    const item = findColloquial(colloquialButton.dataset.colloquial);
+    state.query = "";
+    navigate("colloquial", item?.id ?? "");
+    return;
+  }
   const familyButton = event.target.closest("[data-family]");
   if (familyButton) { state.familyId = familyButton.dataset.family; state.query = ""; navigate("cases"); return; }
   const familyFilter = event.target.closest("[data-family-filter]");
@@ -311,12 +367,20 @@ document.addEventListener("click", (event) => {
   }
   const copyPattern = event.target.closest("[data-copy-pattern]");
   if (copyPattern) { const pattern = patternById.get(copyPattern.dataset.copyPattern); if (pattern) copyText(pattern.promptExample); return; }
+  const copyColloquial = event.target.closest("[data-copy-colloquial]");
+  if (copyColloquial) {
+    const item = colloquialById.get(copyColloquial.dataset.copyColloquial);
+    const pattern = patternById.get(copyColloquial.dataset.copyColloquialPattern);
+    if (item && pattern) copyText(colloquialPrompt(item, pattern));
+    return;
+  }
   if (event.target.closest(".demo-stage")) handleDemoClick(event);
 });
 
 document.addEventListener("input", (event) => {
   if (event.target.id === "case-search-input") { state.query = event.target.value; const position = event.target.selectionStart; render(); const next = document.querySelector("#case-search-input"); next?.focus(); next?.setSelectionRange(position, position); }
   if (event.target.id === "pattern-search-input") { state.query = event.target.value; const position = event.target.selectionStart; render(); const next = document.querySelector("#pattern-search-input"); next?.focus(); next?.setSelectionRange(position, position); }
+  if (event.target.id === "colloquial-search-input") { state.query = event.target.value; const position = event.target.selectionStart; render(); const next = document.querySelector("#colloquial-search-input"); next?.focus(); next?.setSelectionRange(position, position); }
   if (event.target.matches("[data-demo-search]")) {
     const query = event.target.value.toLocaleLowerCase();
     event.target.closest(".demo-stage")?.querySelectorAll(".demo-result-list button").forEach((button) => { button.hidden = !button.textContent.toLocaleLowerCase().includes(query); });

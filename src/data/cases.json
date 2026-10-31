@@ -1,53 +1,997 @@
 [
   {
-    "id":"write-a-name","family":"input","title":"给用户一个地方写名字","phrase":"给个文本框，让用户写名字。","keywords":["昵称","标题","短文本","单行输入"],"goal":"让用户填写一段简短、由自己决定的文字。","context":"昵称、项目名、标题等一般只需要一行。","questions":[{"id":"length","prompt":"用户要写的内容通常有多长？","options":[{"id":"short","label":"很短，通常一行","hint":"例如昵称、标题、项目名"},{"id":"long","label":"比较长，可能要换行","hint":"例如说明、备注、反馈"}]}],"recommendations":[{"when":{"length":"short"},"primaryPatternId":"text-field","supportingPatternIds":[],"alternativePatternIds":["textarea"],"reason":"内容短且只需一行，Text Field 让填写和查看都更直接。"},{"when":{"length":"long"},"primaryPatternId":"textarea","supportingPatternIds":[],"alternativePatternIds":["text-field"],"reason":"内容可能超过一行或需要换行，Textarea 更适合较长输入。"}]
+    "id": "write-a-name",
+    "family": "input",
+    "title": "给用户一个地方写名字",
+    "phrase": "给个文本框，让用户写名字。",
+    "keywords": [
+      "昵称",
+      "标题",
+      "短文本",
+      "单行输入"
+    ],
+    "goal": "让用户填写一段简短、由自己决定的文字。",
+    "context": "昵称、项目名、标题等一般只需要一行。",
+    "questions": [
+      {
+        "id": "length",
+        "prompt": "用户要写的内容通常有多长？",
+        "options": [
+          {
+            "id": "short",
+            "label": "很短，通常一行",
+            "hint": "例如昵称、标题、项目名"
+          },
+          {
+            "id": "long",
+            "label": "比较长，可能要换行",
+            "hint": "例如说明、备注、反馈"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "length": "short"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "textarea"
+        ],
+        "reason": "内容短且只需一行，单行文本框 让填写和查看都更直接。"
+      },
+      {
+        "when": {
+          "length": "long"
+        },
+        "primaryPatternId": "textarea",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "内容可能超过一行或需要换行，多行文本框 更适合较长输入。"
+      }
+    ]
   },
   {
-    "id":"enter-or-choose","family":"input","title":"用户可以自己写，也可能选已有项目","phrase":"让用户填一个项目名称。","keywords":["现有项目","客户","候选项","自动补全","输入或选择"],"goal":"让用户提供一个有效项目名称，优先复用已有项目。","context":"项目列表会变长，也可能允许创建一个新名称。","questions":[{"id":"source","prompt":"用户应该从已有项目中选，还是可以写一个新名字？","options":[{"id":"free","label":"自由填写新名字","hint":"没有固定候选列表"},{"id":"existing","label":"从现有项目中挑选","hint":"候选项较多，最好能搜索"}]}],"recommendations":[{"when":{"source":"free"},"primaryPatternId":"text-field","supportingPatternIds":[],"alternativePatternIds":["combobox"],"reason":"没有既有候选值时，普通输入框更直接。"},{"when":{"source":"existing"},"primaryPatternId":"combobox","supportingPatternIds":[],"alternativePatternIds":["select"],"reason":"要从现有项目中选择且候选可能很多，可搜索选择框能边输入边缩小候选。"}]
+    "id": "enter-or-choose",
+    "family": "input",
+    "title": "用户可以自己写，也可能选已有项目",
+    "phrase": "让用户填一个项目名称。",
+    "keywords": [
+      "现有项目",
+      "客户",
+      "候选项",
+      "自动补全",
+      "输入或选择"
+    ],
+    "goal": "让用户提供一个有效项目名称，优先复用已有项目。",
+    "context": "项目列表会变长，也可能允许创建一个新名称。",
+    "questions": [
+      {
+        "id": "source",
+        "prompt": "用户应该从已有项目中选，还是可以写一个新名字？",
+        "options": [
+          {
+            "id": "free",
+            "label": "自由填写新名字",
+            "hint": "没有固定候选列表"
+          },
+          {
+            "id": "existing",
+            "label": "从现有项目中挑选",
+            "hint": "候选项较多，最好能搜索"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "source": "free"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "combobox"
+        ],
+        "reason": "没有既有候选值时，普通输入框更直接。"
+      },
+      {
+        "when": {
+          "source": "existing"
+        },
+        "primaryPatternId": "combobox",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "select"
+        ],
+        "reason": "要从现有项目中选择且候选可能很多，可搜索选择框能边输入边缩小候选。"
+      }
+    ]
   },
   {
-    "id":"private-or-public-input","family":"input","title":"输入内容要不要隐藏","phrase":"加一个输入框，让用户输入账号信息。","keywords":["密码","验证码","隐私","隐藏文字","显示密码"],"goal":"让用户安全地输入账号凭据或普通账号信息。","context":"界面需要考虑旁人可见性和密码管理器。","questions":[{"id":"sensitive","prompt":"输入的内容是否属于密码等敏感信息？","options":[{"id":"yes","label":"是，输入时应隐藏","hint":"例如密码或访问码"},{"id":"no","label":"不是，正常显示即可","hint":"例如用户名或邮箱"}]}],"recommendations":[{"when":{"sensitive":"yes"},"primaryPatternId":"password-field","supportingPatternIds":[],"alternativePatternIds":["text-field"],"reason":"敏感字符默认隐藏，并提供可访问的显示/隐藏控制。"},{"when":{"sensitive":"no"},"primaryPatternId":"text-field","supportingPatternIds":[],"alternativePatternIds":["password-field"],"reason":"普通文本保持可见，便于用户核对和修改。"}]
+    "id": "private-or-public-input",
+    "family": "input",
+    "title": "输入内容要不要隐藏",
+    "phrase": "加一个输入框，让用户输入账号信息。",
+    "keywords": [
+      "密码",
+      "验证码",
+      "隐私",
+      "隐藏文字",
+      "显示密码"
+    ],
+    "goal": "让用户安全地输入账号凭据或普通账号信息。",
+    "context": "界面需要考虑旁人可见性和密码管理器。",
+    "questions": [
+      {
+        "id": "sensitive",
+        "prompt": "输入的内容是否属于密码等敏感信息？",
+        "options": [
+          {
+            "id": "yes",
+            "label": "是，输入时应隐藏",
+            "hint": "例如密码或访问码"
+          },
+          {
+            "id": "no",
+            "label": "不是，正常显示即可",
+            "hint": "例如用户名或邮箱"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "sensitive": "yes"
+        },
+        "primaryPatternId": "password-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "敏感字符默认隐藏，并提供可访问的显示/隐藏控制。"
+      },
+      {
+        "when": {
+          "sensitive": "no"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "password-field"
+        ],
+        "reason": "普通文本保持可见，便于用户核对和修改。"
+      }
+    ]
   },
   {
-    "id":"find-or-select","family":"search","title":"在一堆内容里找一项","phrase":"让用户找一个客户。","keywords":["搜索框","查找客户","筛选候选","搜索并选择"],"goal":"让用户从已有客户记录中定位需要的内容。","context":"用户可能只想查看匹配结果，也可能需要选中其中一个客户。","questions":[{"id":"outcome","prompt":"找到内容后，用户要做什么？","options":[{"id":"browse","label":"查看或过滤一组结果","hint":"输入后列表跟着变化"},{"id":"pick","label":"选中其中一个候选值","hint":"选择结果要填回表单"}]}],"recommendations":[{"when":{"outcome":"browse"},"primaryPatternId":"search-field","supportingPatternIds":[],"alternativePatternIds":["combobox"],"reason":"目标是查找和筛选一组内容，Search Field 聚焦于结果列表。"},{"when":{"outcome":"pick"},"primaryPatternId":"combobox","supportingPatternIds":[],"alternativePatternIds":["search-field"],"reason":"用户需要把一个候选值选入表单，Combobox 把搜索和选择结合起来。"}]
+    "id": "find-or-select",
+    "family": "search",
+    "title": "在一堆内容里找一项",
+    "phrase": "让用户找一个客户。",
+    "keywords": [
+      "搜索框",
+      "查找客户",
+      "筛选候选",
+      "搜索并选择"
+    ],
+    "goal": "让用户从已有客户记录中定位需要的内容。",
+    "context": "用户可能只想查看匹配结果，也可能需要选中其中一个客户。",
+    "questions": [
+      {
+        "id": "outcome",
+        "prompt": "找到内容后，用户要做什么？",
+        "options": [
+          {
+            "id": "browse",
+            "label": "查看或过滤一组结果",
+            "hint": "输入后列表跟着变化"
+          },
+          {
+            "id": "pick",
+            "label": "选中其中一个候选值",
+            "hint": "选择结果要填回表单"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "outcome": "browse"
+        },
+        "primaryPatternId": "search-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "combobox"
+        ],
+        "reason": "目标是查找和筛选一组内容，搜索框 聚焦于结果列表。"
+      },
+      {
+        "when": {
+          "outcome": "pick"
+        },
+        "primaryPatternId": "combobox",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "search-field"
+        ],
+        "reason": "用户需要把一个候选值选入表单，可搜索的候选选择框 把搜索和选择结合起来。"
+      }
+    ]
   },
   {
-    "id":"choose-category","family":"selection","title":"从选项里选一个分类","phrase":"做个选择框，让用户选分类。","keywords":["单选","类型","套餐","下拉框","类别"],"goal":"让用户从互相排斥的类别中选择一个。","context":"选项数量和是否需要同时比较会影响呈现方式。","questions":[{"id":"count","prompt":"选项有多少？用户需要同时比较它们吗？","options":[{"id":"few","label":"只有几个，最好都看得见","hint":"例如 3 种账户类型"},{"id":"many","label":"选项不少，收起来更清爽","hint":"例如十几个地区"}]}],"recommendations":[{"when":{"count":"few"},"primaryPatternId":"radio-group","supportingPatternIds":[],"alternativePatternIds":["select","segmented-control"],"reason":"少量互斥选项同时展示，用户更容易比较后做出选择。"},{"when":{"count":"many"},"primaryPatternId":"select","supportingPatternIds":[],"alternativePatternIds":["combobox"],"reason":"选项多且只选一个，下拉选择能节省空间；候选更多时可再加搜索。"}]
+    "id": "choose-category",
+    "family": "selection",
+    "title": "从选项里选一个分类",
+    "phrase": "做个选择框，让用户选分类。",
+    "keywords": [
+      "单选",
+      "类型",
+      "套餐",
+      "下拉框",
+      "类别"
+    ],
+    "goal": "让用户从互相排斥的类别中选择一个。",
+    "context": "选项数量和是否需要同时比较会影响呈现方式。",
+    "questions": [
+      {
+        "id": "count",
+        "prompt": "选项有多少？用户需要同时比较它们吗？",
+        "options": [
+          {
+            "id": "few",
+            "label": "只有几个，最好都看得见",
+            "hint": "例如 3 种账户类型"
+          },
+          {
+            "id": "many",
+            "label": "选项不少，收起来更清爽",
+            "hint": "例如十几个地区"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "count": "few"
+        },
+        "primaryPatternId": "radio-group",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "select",
+          "segmented-control"
+        ],
+        "reason": "少量互斥选项同时展示，用户更容易比较后做出选择。"
+      },
+      {
+        "when": {
+          "count": "many"
+        },
+        "primaryPatternId": "select",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "combobox"
+        ],
+        "reason": "选项多且只选一个，下拉选择能节省空间；候选更多时可再加搜索。"
+      }
+    ]
   },
   {
-    "id":"choose-many-tags","family":"selection","title":"让用户勾选多个标签","phrase":"放几个选项，让用户勾一下。","keywords":["复选框","多选","标签","多选下拉"],"goal":"让用户从一组标签中选出一个或多个。","context":"用户可以多选，选项数量决定是否应全部展开。","questions":[{"id":"count","prompt":"选项是否少到可以全部直接展示？","options":[{"id":"few","label":"是，选项少而且需要看见","hint":"大约 2–6 个"},{"id":"many","label":"不是，选项很多或页面空间有限","hint":"希望收起并能快速查找"}]}],"recommendations":[{"when":{"count":"few"},"primaryPatternId":"checkbox-group","supportingPatternIds":[],"alternativePatternIds":["multi-select"],"reason":"少量可多选项全部可见，Checkbox Group 方便理解可选范围。"},{"when":{"count":"many"},"primaryPatternId":"multi-select","supportingPatternIds":["combobox"],"alternativePatternIds":["checkbox-group"],"reason":"多项候选收在紧凑控件中；搜索和已选标签帮助管理较长列表。"}]
+    "id": "choose-many-tags",
+    "family": "selection",
+    "title": "让用户勾选多个标签",
+    "phrase": "放几个选项，让用户勾一下。",
+    "keywords": [
+      "复选框",
+      "多选",
+      "标签",
+      "多选下拉"
+    ],
+    "goal": "让用户从一组标签中选出一个或多个。",
+    "context": "用户可以多选，选项数量决定是否应全部展开。",
+    "questions": [
+      {
+        "id": "count",
+        "prompt": "选项是否少到可以全部直接展示？",
+        "options": [
+          {
+            "id": "few",
+            "label": "是，选项少而且需要看见",
+            "hint": "大约 2–6 个"
+          },
+          {
+            "id": "many",
+            "label": "不是，选项很多或页面空间有限",
+            "hint": "希望收起并能快速查找"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "count": "few"
+        },
+        "primaryPatternId": "checkbox-group",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "multi-select"
+        ],
+        "reason": "少量可多选项全部可见，多选勾选项 方便理解可选范围。"
+      },
+      {
+        "when": {
+          "count": "many"
+        },
+        "primaryPatternId": "multi-select",
+        "supportingPatternIds": [
+          "combobox"
+        ],
+        "alternativePatternIds": [
+          "checkbox-group"
+        ],
+        "reason": "多项候选收在紧凑控件中；搜索和已选标签帮助管理较长列表。"
+      }
+    ]
   },
   {
-    "id":"setting-now-or-later","family":"selection","title":"一个可以开关的设置","phrase":"加个开关，让用户打开通知。","keywords":["立即生效","开关","复选框","稍后保存","偏好设置"],"goal":"让用户表达是否启用某个设置。","context":"关键区别是点击后立即生效，还是和其他表单内容一起提交。","questions":[{"id":"apply","prompt":"用户切换后，设置会马上生效吗？","options":[{"id":"now","label":"会，马上生效","hint":"例如开启提醒后立即开始接收"},{"id":"later","label":"不会，点击保存后才一起生效","hint":"属于一组待提交的表单设置"}]}],"recommendations":[{"when":{"apply":"now"},"primaryPatternId":"switch","supportingPatternIds":[],"alternativePatternIds":["checkbox"],"reason":"开关动作立即改变设置，Switch 能表达当前启用状态。"},{"when":{"apply":"later"},"primaryPatternId":"checkbox","supportingPatternIds":[],"alternativePatternIds":["switch"],"reason":"这是尚未提交的表单选择，Checkbox 与保存按钮的流程更一致。"}]
+    "id": "setting-now-or-later",
+    "family": "selection",
+    "title": "一个可以开关的设置",
+    "phrase": "加个开关，让用户打开通知。",
+    "keywords": [
+      "立即生效",
+      "开关",
+      "复选框",
+      "稍后保存",
+      "偏好设置"
+    ],
+    "goal": "让用户表达是否启用某个设置。",
+    "context": "关键区别是点击后立即生效，还是和其他表单内容一起提交。",
+    "questions": [
+      {
+        "id": "apply",
+        "prompt": "用户切换后，设置会马上生效吗？",
+        "options": [
+          {
+            "id": "now",
+            "label": "会，马上生效",
+            "hint": "例如开启提醒后立即开始接收"
+          },
+          {
+            "id": "later",
+            "label": "不会，点击保存后才一起生效",
+            "hint": "属于一组待提交的表单设置"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "apply": "now"
+        },
+        "primaryPatternId": "switch",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "checkbox"
+        ],
+        "reason": "开关动作立即改变设置，立即生效的设置开关 能表达当前启用状态。"
+      },
+      {
+        "when": {
+          "apply": "later"
+        },
+        "primaryPatternId": "checkbox",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "switch"
+        ],
+        "reason": "这是尚未提交的表单选择，单项勾选框 与保存按钮的流程更一致。"
+      }
+    ]
   },
   {
-    "id":"do-or-go","family":"action","title":"这个位置是执行操作还是去别处","phrase":"在这里加个按钮，打开订单详情。","keywords":["按钮","链接","查看详情","提交操作","导航"],"goal":"让用户清楚知道点击后是执行动作还是前往新位置。","context":"视觉上常被统称为按钮，但语义取决于点击结果。","questions":[{"id":"result","prompt":"点击后会发生什么？","options":[{"id":"action","label":"在当前页面执行或提交一件事","hint":"例如保存、删除、发送"},{"id":"navigate","label":"前往另一个页面或位置","hint":"例如打开订单详情页"}]}],"recommendations":[{"when":{"result":"action"},"primaryPatternId":"button","supportingPatternIds":[],"alternativePatternIds":["link"],"reason":"点击会改变数据或执行动作，应使用能表达操作的 Button。"},{"when":{"result":"navigate"},"primaryPatternId":"link","supportingPatternIds":[],"alternativePatternIds":["button"],"reason":"点击目标是一个页面或位置，Link 能保留导航语义和浏览器行为。"}]
+    "id": "do-or-go",
+    "family": "action",
+    "title": "这个位置是执行操作还是去别处",
+    "phrase": "在这里加个按钮，打开订单详情。",
+    "keywords": [
+      "按钮",
+      "链接",
+      "查看详情",
+      "提交操作",
+      "导航"
+    ],
+    "goal": "让用户清楚知道点击后是执行动作还是前往新位置。",
+    "context": "视觉上常被统称为按钮，但语义取决于点击结果。",
+    "questions": [
+      {
+        "id": "result",
+        "prompt": "点击后会发生什么？",
+        "options": [
+          {
+            "id": "action",
+            "label": "在当前页面执行或提交一件事",
+            "hint": "例如保存、删除、发送"
+          },
+          {
+            "id": "navigate",
+            "label": "前往另一个页面或位置",
+            "hint": "例如打开订单详情页"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "result": "action"
+        },
+        "primaryPatternId": "button",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "点击会改变数据或执行动作，应使用能表达操作的 按钮。"
+      },
+      {
+        "when": {
+          "result": "navigate"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "button"
+        ],
+        "reason": "点击目标是一个页面或位置，链接 能保留导航语义和浏览器行为。"
+      }
+    ]
   },
   {
-    "id":"tell-me-saved","family":"feedback","title":"保存后告诉用户结果","phrase":"点保存后提示一下。","keywords":["保存成功","toast","成功提示","状态保留"],"goal":"让用户知道保存操作已经完成。","context":"有时只需要确认一下，有时用户离开页面前仍需看到状态。","questions":[{"id":"duration","prompt":"用户之后还需要一直看见这个结果吗？","options":[{"id":"brief","label":"不用，短暂确认一下就够","hint":"例如复制成功"},{"id":"persistent","label":"需要，状态要留在页面上","hint":"例如资料已同步"}]}],"recommendations":[{"when":{"duration":"brief"},"primaryPatternId":"toast","supportingPatternIds":[],"alternativePatternIds":["inline-status"],"reason":"保存只是成功确认，无需用户决策，短暂 Toast 不会打断当前工作。"},{"when":{"duration":"persistent"},"primaryPatternId":"inline-status","supportingPatternIds":[],"alternativePatternIds":["toast","banner"],"reason":"结果持续影响当前页面，Inline Status 留在相关内容旁，之后仍可查看。"}]
+    "id": "tell-me-saved",
+    "family": "feedback",
+    "title": "保存后告诉用户结果",
+    "phrase": "点保存后提示一下。",
+    "keywords": [
+      "保存成功",
+      "toast",
+      "成功提示",
+      "状态保留"
+    ],
+    "goal": "让用户知道保存操作已经完成。",
+    "context": "有时只需要确认一下，有时用户离开页面前仍需看到状态。",
+    "questions": [
+      {
+        "id": "duration",
+        "prompt": "用户之后还需要一直看见这个结果吗？",
+        "options": [
+          {
+            "id": "brief",
+            "label": "不用，短暂确认一下就够",
+            "hint": "例如复制成功"
+          },
+          {
+            "id": "persistent",
+            "label": "需要，状态要留在页面上",
+            "hint": "例如资料已同步"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "duration": "brief"
+        },
+        "primaryPatternId": "toast",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "保存只是成功确认，无需用户决策，短暂 自动消失的轻提示 不会打断当前工作。"
+      },
+      {
+        "when": {
+          "duration": "persistent"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "toast",
+          "banner"
+        ],
+        "reason": "结果持续影响当前页面，页面内的持续状态提示 留在相关内容旁，之后仍可查看。"
+      }
+    ]
   },
   {
-    "id":"explain-form-error","family":"feedback","title":"表单出错后告诉用户哪里要改","phrase":"提交错了就把错误提示出来。","keywords":["表单错误","校验","必填项","错误汇总"],"goal":"帮助用户找到并修正没有通过的表单内容。","context":"单项错误可以贴近字段；多项错误需要全局导航。","questions":[{"id":"errors","prompt":"通常会有几处内容需要修正？","options":[{"id":"one","label":"一处，用户就在附近修改","hint":"例如邮箱格式不正确"},{"id":"many","label":"可能好几处，要让用户逐项查看","hint":"长表单提交失败"}]}],"recommendations":[{"when":{"errors":"one"},"primaryPatternId":"inline-validation","supportingPatternIds":[],"alternativePatternIds":["error-summary"],"reason":"错误紧挨着相关字段，用户知道原因后可以就地修正。"},{"when":{"errors":"many"},"primaryPatternId":"error-summary","supportingPatternIds":["inline-validation"],"alternativePatternIds":[],"reason":"表单顶部先给出错误总览并可跳转到字段，同时每个字段附近保留具体解释。"}]
+    "id": "explain-form-error",
+    "family": "feedback",
+    "title": "表单出错后告诉用户哪里要改",
+    "phrase": "提交错了就把错误提示出来。",
+    "keywords": [
+      "表单错误",
+      "校验",
+      "必填项",
+      "错误汇总"
+    ],
+    "goal": "帮助用户找到并修正没有通过的表单内容。",
+    "context": "单项错误可以贴近字段；多项错误需要全局导航。",
+    "questions": [
+      {
+        "id": "errors",
+        "prompt": "通常会有几处内容需要修正？",
+        "options": [
+          {
+            "id": "one",
+            "label": "一处，用户就在附近修改",
+            "hint": "例如邮箱格式不正确"
+          },
+          {
+            "id": "many",
+            "label": "可能好几处，要让用户逐项查看",
+            "hint": "长表单提交失败"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "errors": "one"
+        },
+        "primaryPatternId": "inline-validation",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "error-summary"
+        ],
+        "reason": "错误紧挨着相关字段，用户知道原因后可以就地修正。"
+      },
+      {
+        "when": {
+          "errors": "many"
+        },
+        "primaryPatternId": "error-summary",
+        "supportingPatternIds": [
+          "inline-validation"
+        ],
+        "alternativePatternIds": [],
+        "reason": "表单顶部先给出错误总览并可跳转到字段，同时每个字段附近保留具体解释。"
+      }
+    ]
   },
   {
-    "id":"something-pops-up","family":"overlay","title":"口头说“加个弹窗”时，先确认它要做什么","phrase":"这里加个弹窗。","keywords":["弹窗","提示框","确认框","modal","toast"],"goal":"展示反馈、承载一个小任务，或在重要操作前征求确认。","context":"“弹窗”描述的是视觉印象，具体交互要看用户需不需要行动。","questions":[{"id":"purpose","prompt":"出现内容后，用户需要做什么？","options":[{"id":"notice","label":"只看一条短暂结果，不用处理","hint":"例如“已复制”"},{"id":"task","label":"集中完成一个小任务","hint":"例如编辑昵称"},{"id":"confirm","label":"阅读重要后果并明确确认","hint":"例如不可恢复的删除"}]}],"recommendations":[{"when":{"purpose":"notice"},"primaryPatternId":"toast","supportingPatternIds":[],"alternativePatternIds":["banner"],"reason":"用户只需知道结果，不应为了普通反馈被迫关闭对话框。"},{"when":{"purpose":"task"},"primaryPatternId":"modal-dialog","supportingPatternIds":[],"alternativePatternIds":["drawer"],"reason":"这是需要短暂集中完成的任务；若任务很长或需参照背景，可考虑 Drawer。"},{"when":{"purpose":"confirm"},"primaryPatternId":"alert-dialog","supportingPatternIds":[],"alternativePatternIds":["modal-dialog"],"reason":"重要后果需要清楚说明，并让用户明确选择继续或取消。"}]
+    "id": "something-pops-up",
+    "family": "overlay",
+    "title": "口头说“加个弹窗”时，先确认它要做什么",
+    "phrase": "这里加个弹窗。",
+    "keywords": [
+      "弹窗",
+      "提示框",
+      "确认框",
+      "modal",
+      "toast"
+    ],
+    "goal": "展示反馈、承载一个小任务，或在重要操作前征求确认。",
+    "context": "“弹窗”描述的是视觉印象，具体交互要看用户需不需要行动。",
+    "questions": [
+      {
+        "id": "purpose",
+        "prompt": "出现内容后，用户需要做什么？",
+        "options": [
+          {
+            "id": "notice",
+            "label": "只看一条短暂结果，不用处理",
+            "hint": "例如“已复制”"
+          },
+          {
+            "id": "task",
+            "label": "集中完成一个小任务",
+            "hint": "例如编辑昵称"
+          },
+          {
+            "id": "confirm",
+            "label": "阅读重要后果并明确确认",
+            "hint": "例如不可恢复的删除"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "purpose": "notice"
+        },
+        "primaryPatternId": "toast",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "banner"
+        ],
+        "reason": "用户只需知道结果，不应为了普通反馈被迫关闭对话框。"
+      },
+      {
+        "when": {
+          "purpose": "task"
+        },
+        "primaryPatternId": "modal-dialog",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "drawer"
+        ],
+        "reason": "这是需要短暂集中完成的任务；若任务很长或需参照背景，可考虑 侧边详情面板。"
+      },
+      {
+        "when": {
+          "purpose": "confirm"
+        },
+        "primaryPatternId": "alert-dialog",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "modal-dialog"
+        ],
+        "reason": "重要后果需要清楚说明，并让用户明确选择继续或取消。"
+      }
+    ]
   },
   {
-    "id":"show-record-details","family":"overlay","title":"点一行后展开详情","phrase":"点订单后从旁边拉出详情。","keywords":["侧边抽屉","订单详情","详情面板","modal"],"goal":"让用户查看一条记录的更多信息。","context":"用户是否需要同时参考原列表会影响详情呈现位置。","questions":[{"id":"context","prompt":"打开详情时，用户还需要看着原来的列表吗？","options":[{"id":"keep","label":"需要，列表上下文很重要","hint":"例如逐个查看多个订单"},{"id":"focus","label":"不需要，希望专注处理详情","hint":"例如编辑一小组字段"}]}],"recommendations":[{"when":{"context":"keep"},"primaryPatternId":"drawer","supportingPatternIds":[],"alternativePatternIds":["modal-dialog"],"reason":"侧边抽屉保留列表在背景中的位置，便于连续浏览。"},{"when":{"context":"focus"},"primaryPatternId":"modal-dialog","supportingPatternIds":[],"alternativePatternIds":["drawer"],"reason":"用户要专注完成一项短任务，居中对话框能建立清晰的任务边界。"}]
+    "id": "show-record-details",
+    "family": "overlay",
+    "title": "点一行后展开详情",
+    "phrase": "点订单后从旁边拉出详情。",
+    "keywords": [
+      "侧边抽屉",
+      "订单详情",
+      "详情面板",
+      "modal"
+    ],
+    "goal": "让用户查看一条记录的更多信息。",
+    "context": "用户是否需要同时参考原列表会影响详情呈现位置。",
+    "questions": [
+      {
+        "id": "context",
+        "prompt": "打开详情时，用户还需要看着原来的列表吗？",
+        "options": [
+          {
+            "id": "keep",
+            "label": "需要，列表上下文很重要",
+            "hint": "例如逐个查看多个订单"
+          },
+          {
+            "id": "focus",
+            "label": "不需要，希望专注处理详情",
+            "hint": "例如编辑一小组字段"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "context": "keep"
+        },
+        "primaryPatternId": "drawer",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "modal-dialog"
+        ],
+        "reason": "侧边抽屉保留列表在背景中的位置，便于连续浏览。"
+      },
+      {
+        "when": {
+          "context": "focus"
+        },
+        "primaryPatternId": "modal-dialog",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "drawer"
+        ],
+        "reason": "用户要专注完成一项短任务，居中对话框能建立清晰的任务边界。"
+      }
+    ]
   },
   {
-    "id":"avatar-click","family":"overlay","title":"点击头像后显示信息还是操作","phrase":"点头像后弹出点东西。","keywords":["头像菜单","个人信息卡","Popover","Menu"],"goal":"从头像入口查看账户信息或执行相关操作。","context":"内容信息卡和可键盘导航的操作菜单是不同用途。","questions":[{"id":"content","prompt":"展开后主要展示什么？","options":[{"id":"actions","label":"一组可以执行的操作","hint":"例如个人设置、退出登录"},{"id":"info","label":"账户资料和少量补充信息","hint":"例如姓名、邮箱和状态"}]}],"recommendations":[{"when":{"content":"actions"},"primaryPatternId":"menu","supportingPatternIds":[],"alternativePatternIds":["popover"],"reason":"主要内容是一组操作，Menu 能提供清晰的菜单语义和键盘导航。"},{"when":{"content":"info"},"primaryPatternId":"popover","supportingPatternIds":[],"alternativePatternIds":["menu"],"reason":"需要展示头像附近的账户信息，Popover 可承载信息和少量相关入口。"}]
+    "id": "avatar-click",
+    "family": "overlay",
+    "title": "点击头像后显示信息还是操作",
+    "phrase": "点头像后弹出点东西。",
+    "keywords": [
+      "头像菜单",
+      "个人信息卡",
+      "Popover",
+      "Menu"
+    ],
+    "goal": "从头像入口查看账户信息或执行相关操作。",
+    "context": "内容信息卡和可键盘导航的操作菜单是不同用途。",
+    "questions": [
+      {
+        "id": "content",
+        "prompt": "展开后主要展示什么？",
+        "options": [
+          {
+            "id": "actions",
+            "label": "一组可以执行的操作",
+            "hint": "例如个人设置、退出登录"
+          },
+          {
+            "id": "info",
+            "label": "账户资料和少量补充信息",
+            "hint": "例如姓名、邮箱和状态"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "content": "actions"
+        },
+        "primaryPatternId": "menu",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "popover"
+        ],
+        "reason": "主要内容是一组操作，操作菜单 能提供清晰的菜单语义和键盘导航。"
+      },
+      {
+        "when": {
+          "content": "info"
+        },
+        "primaryPatternId": "popover",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "menu"
+        ],
+        "reason": "需要展示头像附近的账户信息，贴近按钮出现的信息卡 可承载信息和少量相关入口。"
+      }
+    ]
   },
   {
-    "id":"share-on-mobile","family":"overlay","title":"手机上点分享以后出现操作选项","phrase":"手机端点分享，从下面弹出几个选项。","keywords":["底部弹层","底部抽屉","移动端分享","分享菜单"],"goal":"让移动端用户选择一种分享方式。","context":"呈现方式应符合主要设备和选项内容。","questions":[{"id":"device","prompt":"这个交互主要发生在哪种设备上？","options":[{"id":"mobile","label":"手机，方便从底部够到","hint":"选项适合手指触控"},{"id":"desktop","label":"桌面网页，紧贴操作按钮展开","hint":"菜单项较短且有明确触发点"}]}],"recommendations":[{"when":{"device":"mobile"},"primaryPatternId":"bottom-sheet","supportingPatternIds":[],"alternativePatternIds":["menu"],"reason":"底部弹层适合移动端就近选择，并让每个触控目标更宽。"},{"when":{"device":"desktop"},"primaryPatternId":"menu","supportingPatternIds":[],"alternativePatternIds":["popover"],"reason":"桌面端短操作列表可以锚定按钮展开，并支持键盘逐项选择。"}]
+    "id": "share-on-mobile",
+    "family": "overlay",
+    "title": "手机上点分享以后出现操作选项",
+    "phrase": "手机端点分享，从下面弹出几个选项。",
+    "keywords": [
+      "底部弹层",
+      "底部抽屉",
+      "移动端分享",
+      "分享菜单"
+    ],
+    "goal": "让移动端用户选择一种分享方式。",
+    "context": "呈现方式应符合主要设备和选项内容。",
+    "questions": [
+      {
+        "id": "device",
+        "prompt": "这个交互主要发生在哪种设备上？",
+        "options": [
+          {
+            "id": "mobile",
+            "label": "手机，方便从底部够到",
+            "hint": "选项适合手指触控"
+          },
+          {
+            "id": "desktop",
+            "label": "桌面网页，紧贴操作按钮展开",
+            "hint": "菜单项较短且有明确触发点"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "device": "mobile"
+        },
+        "primaryPatternId": "bottom-sheet",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "menu"
+        ],
+        "reason": "底部弹层适合移动端就近选择，并让每个触控目标更宽。"
+      },
+      {
+        "when": {
+          "device": "desktop"
+        },
+        "primaryPatternId": "menu",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "popover"
+        ],
+        "reason": "桌面端短操作列表可以锚定按钮展开，并支持键盘逐项选择。"
+      }
+    ]
   },
   {
-    "id":"show-loading","family":"states","title":"加载时让用户知道页面状态","phrase":"加载的时候显示一下，不要空着。","keywords":["加载圈","骨架屏","进度条","loading"],"goal":"让用户理解内容或操作正在处理中。","context":"等待时长、内容布局和是否可计算进度决定加载样式。","questions":[{"id":"wait","prompt":"这段等待最像哪种情况？","options":[{"id":"quick","label":"很快完成的一个操作","hint":"例如保存按钮提交"},{"id":"layout","label":"页面内容正在加载，结构已知","hint":"例如文章列表"},{"id":"measurable","label":"任务进度可以计算出来","hint":"例如文件上传"}]}],"recommendations":[{"when":{"wait":"quick"},"primaryPatternId":"spinner","supportingPatternIds":[],"alternativePatternIds":["progress"],"reason":"短操作显示正在处理即可，不必制造不准确的百分比。"},{"when":{"wait":"layout"},"primaryPatternId":"skeleton","supportingPatternIds":[],"alternativePatternIds":["spinner"],"reason":"内容结构已知时，用对应版式的骨架占位减少突兀空白。"},{"when":{"wait":"measurable"},"primaryPatternId":"progress","supportingPatternIds":[],"alternativePatternIds":["spinner"],"reason":"任务可以测量进度时显示真实完成比例，并持续提供状态。"}]
+    "id": "show-loading",
+    "family": "states",
+    "title": "加载时让用户知道页面状态",
+    "phrase": "加载的时候显示一下，不要空着。",
+    "keywords": [
+      "加载圈",
+      "骨架屏",
+      "进度条",
+      "loading"
+    ],
+    "goal": "让用户理解内容或操作正在处理中。",
+    "context": "等待时长、内容布局和是否可计算进度决定加载样式。",
+    "questions": [
+      {
+        "id": "wait",
+        "prompt": "这段等待最像哪种情况？",
+        "options": [
+          {
+            "id": "quick",
+            "label": "很快完成的一个操作",
+            "hint": "例如保存按钮提交"
+          },
+          {
+            "id": "layout",
+            "label": "页面内容正在加载，结构已知",
+            "hint": "例如文章列表"
+          },
+          {
+            "id": "measurable",
+            "label": "任务进度可以计算出来",
+            "hint": "例如文件上传"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "wait": "quick"
+        },
+        "primaryPatternId": "spinner",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "progress"
+        ],
+        "reason": "短操作显示正在处理即可，不必制造不准确的百分比。"
+      },
+      {
+        "when": {
+          "wait": "layout"
+        },
+        "primaryPatternId": "skeleton",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "spinner"
+        ],
+        "reason": "内容结构已知时，用对应版式的骨架占位减少突兀空白。"
+      },
+      {
+        "when": {
+          "wait": "measurable"
+        },
+        "primaryPatternId": "progress",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "spinner"
+        ],
+        "reason": "任务可以测量进度时显示真实完成比例，并持续提供状态。"
+      }
+    ]
   },
   {
-    "id":"nothing-to-show","family":"states","title":"页面或搜索结果什么都没有","phrase":"这里一片空白时要显示点东西。","keywords":["空状态","无结果","没有数据","没搜到"],"goal":"解释当前没有内容，并告诉用户可以采取什么行动。","context":"首次还没有数据和搜索后没有匹配结果，需要不同引导。","questions":[{"id":"cause","prompt":"为什么当前看不到内容？","options":[{"id":"first","label":"用户还没有创建任何内容","hint":"例如新账号的项目列表"},{"id":"search","label":"搜索或筛选没有匹配项","hint":"用户已经输入关键词或条件"}]}],"recommendations":[{"when":{"cause":"first"},"primaryPatternId":"empty-state","supportingPatternIds":[],"alternativePatternIds":["no-results"],"reason":"这是第一次使用的空状态，应说明可以从哪里开始创建。"},{"when":{"cause":"search"},"primaryPatternId":"no-results","supportingPatternIds":[],"alternativePatternIds":["empty-state"],"reason":"用户已经主动查找；解释没有匹配并提供清除或修改条件的方式。"}]
+    "id": "nothing-to-show",
+    "family": "states",
+    "title": "页面或搜索结果什么都没有",
+    "phrase": "这里一片空白时要显示点东西。",
+    "keywords": [
+      "空状态",
+      "无结果",
+      "没有数据",
+      "没搜到"
+    ],
+    "goal": "解释当前没有内容，并告诉用户可以采取什么行动。",
+    "context": "首次还没有数据和搜索后没有匹配结果，需要不同引导。",
+    "questions": [
+      {
+        "id": "cause",
+        "prompt": "为什么当前看不到内容？",
+        "options": [
+          {
+            "id": "first",
+            "label": "用户还没有创建任何内容",
+            "hint": "例如新账号的项目列表"
+          },
+          {
+            "id": "search",
+            "label": "搜索或筛选没有匹配项",
+            "hint": "用户已经输入关键词或条件"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "cause": "first"
+        },
+        "primaryPatternId": "empty-state",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "no-results"
+        ],
+        "reason": "这是第一次使用的空状态，应说明可以从哪里开始创建。"
+      },
+      {
+        "when": {
+          "cause": "search"
+        },
+        "primaryPatternId": "no-results",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "empty-state"
+        ],
+        "reason": "用户已经主动查找；解释没有匹配并提供清除或修改条件的方式。"
+      }
+    ]
   },
   {
-    "id":"organize-sections","family":"browse","title":"把多块内容放到一个区域里","phrase":"这些内容分几块，点一下切换或者展开。","keywords":["标签页","折叠面板","tabs","accordion","分组内容"],"goal":"帮助用户浏览同一页面上的多组相关内容。","context":"并列切换和按需展开会带来不同的阅读节奏。","questions":[{"id":"reading","prompt":"用户怎样浏览这些内容更自然？","options":[{"id":"switch","label":"在同层内容之间来回切换","hint":"一次看一块，其他内容暂时隐藏"},{"id":"expand","label":"按需展开细节，可能同时打开多块","hint":"例如 FAQ 或设置说明"}]}],"recommendations":[{"when":{"reading":"switch"},"primaryPatternId":"tabs","supportingPatternIds":[],"alternativePatternIds":["accordion"],"reason":"内容互相平级且需要快速切换，用 Tabs 将当前区域限定在一个面板。"},{"when":{"reading":"expand"},"primaryPatternId":"accordion","supportingPatternIds":[],"alternativePatternIds":["tabs"],"reason":"用户想按需阅读长段细节，并可能同时查看多块，Accordion 更合适。"}]
+    "id": "organize-sections",
+    "family": "browse",
+    "title": "把多块内容放到一个区域里",
+    "phrase": "这些内容分几块，点一下切换或者展开。",
+    "keywords": [
+      "标签页",
+      "折叠面板",
+      "tabs",
+      "accordion",
+      "分组内容"
+    ],
+    "goal": "帮助用户浏览同一页面上的多组相关内容。",
+    "context": "并列切换和按需展开会带来不同的阅读节奏。",
+    "questions": [
+      {
+        "id": "reading",
+        "prompt": "用户怎样浏览这些内容更自然？",
+        "options": [
+          {
+            "id": "switch",
+            "label": "在同层内容之间来回切换",
+            "hint": "一次看一块，其他内容暂时隐藏"
+          },
+          {
+            "id": "expand",
+            "label": "按需展开细节，可能同时打开多块",
+            "hint": "例如 FAQ 或设置说明"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "reading": "switch"
+        },
+        "primaryPatternId": "tabs",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "accordion"
+        ],
+        "reason": "内容互相平级且需要快速切换，用 页签 将当前区域限定在一个面板。"
+      },
+      {
+        "when": {
+          "reading": "expand"
+        },
+        "primaryPatternId": "accordion",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "tabs"
+        ],
+        "reason": "用户想按需阅读长段细节，并可能同时查看多块，可展开内容块 更合适。"
+      }
+    ]
   }
 ]

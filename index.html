@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f7f7f3" />
-    <meta name="description" content="从新手产品经理的说法出发，找到合适的界面交互模式，再给 AI 一句更准确的指令。" />
+    <meta name="description" content="从你平时说的“弹框”“文本框”出发，看看这些说法可能对应哪些界面做法，再把需求说给 AI 听。" />
     <title>说准一点 · UI Words</title>
     <link rel="stylesheet" href="./src/styles.css" />
     <script type="module" src="./src/app.js"></script>
@@ -18,8 +18,9 @@
       </a>
       <nav class="main-nav" aria-label="主导航">
         <button class="nav-link active" type="button" data-page="explore">按需求找</button>
+        <button class="nav-link" type="button" data-page="colloquial">俗语 <span class="nav-count" id="colloquial-count"></span></button>
         <button class="nav-link" type="button" data-page="cases">案例库 <span class="nav-count" id="case-count"></span></button>
-        <button class="nav-link" type="button" data-page="patterns">术语索引</button>
+        <button class="nav-link" type="button" data-page="patterns">专业术语</button>
       </nav>
       <a class="topbar-cta" href="https://github.com/jinhefeng/ui-words-for-ai/blob/main/CONTRIBUTING.md"><span>参与共建</span><span aria-hidden="true">↗</span></a>
     </header>
@@ -29,20 +30,20 @@
         <div class="hero-copy">
           <p class="eyebrow"><span class="eyebrow-dot"></span> A FIELD GUIDE FOR AI CODING</p>
           <h1 id="hero-title">先说你想让用户做什么。<br /><em>术语，我们一起找。</em></h1>
-          <p class="hero-lede">“加个选择框”可能有好几种做法。说说用户的目标，回答一两个关键问题，再看案例、试用组件，最后带走一条更准确的 AI 指令。</p>
+          <p class="hero-lede">“弹框”“文本框”都是常见说法，但一个词可能对应好几种界面做法。先说你要做什么，或直接查熟悉的词，看看每种做法的样子、效果和适用场景。</p>
           <form class="hero-search" id="hero-search">
             <label class="sr-only" for="hero-query">用自己的话描述界面需求</label>
             <span aria-hidden="true">⌕</span>
             <input id="hero-query" type="search" placeholder="试试：让用户选一个分类…" autocomplete="off" />
             <button type="submit">找一找 <span aria-hidden="true">↗</span></button>
           </form>
-          <div class="hero-suggestions"><span>比如</span><button type="button" data-query="弹窗">加个弹窗</button><button type="button" data-query="文本框">给个文本框</button><button type="button" data-query="选择框">做个选择框</button></div>
+          <div class="hero-suggestions"><span>比如</span><button type="button" data-colloquial="弹框">弹框</button><button type="button" data-colloquial="文本框">文本框</button><button type="button" data-colloquial="选择框">选择框</button></div>
         </div>
         <div class="hero-art" aria-label="一个口语需求可以对应多个交互模式">
           <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
           <div class="art-note note-blur"><span>新手会说</span><strong>“加个选择框”</strong><i>?</i></div>
           <div class="art-arrow">↘</div>
-          <div class="art-note note-precise"><span>根据场景来选</span><strong>Radio · Select · Switch</strong><small>单选 · 搜索 · 立即生效</small></div>
+          <div class="art-note note-precise"><span>同一句话，可能有几种意思</span><strong>轻提示 · 任务框 · 详情面板</strong><small>短暂告知 · 集中处理 · 保留列表</small></div>
           <div class="art-cursor">✳</div>
           <span class="art-label label-01">START FROM THE USER GOAL</span>
           <span class="art-label label-02">FIND THE RIGHT PATTERN</span>
@@ -54,15 +55,16 @@
         <span class="step-connector" aria-hidden="true">→</span>
         <div><span class="step-number">02</span><p><strong>补上关键条件</strong><small>只回答会影响交互选择的问题。</small></p></div>
         <span class="step-connector" aria-hidden="true">→</span>
-        <div><span class="step-number">03</span><p><strong>比较多个做法</strong><small>看每种模式适合什么场景。</small></p></div>
+        <div><span class="step-number">03</span><p><strong>比较多种做法</strong><small>看看样子、效果和适用场景。</small></p></div>
         <span class="step-connector" aria-hidden="true">→</span>
         <div><span class="step-number">04</span><p><strong>试一试，再给 AI</strong><small>操作组件，复制更清楚的指令。</small></p></div>
       </section>
 
       <div class="page-tabs" role="tablist" aria-label="内容浏览方式">
         <button type="button" role="tab" aria-selected="true" class="page-tab active" data-page="explore">按需求找</button>
+        <button type="button" role="tab" aria-selected="false" class="page-tab" data-page="colloquial">俗语 <span id="tab-colloquial-count"></span></button>
         <button type="button" role="tab" aria-selected="false" class="page-tab" data-page="cases">浏览全部案例 <span id="tab-case-count"></span></button>
-        <button type="button" role="tab" aria-selected="false" class="page-tab" data-page="patterns">按术语查</button>
+        <button type="button" role="tab" aria-selected="false" class="page-tab" data-page="patterns">专业术语</button>
       </div>
 
       <div id="app-root" aria-live="polite" aria-busy="true">
@@ -76,7 +78,7 @@
       </section>
     </main>
 
-    <footer><a class="footer-brand" href="#top" data-page="explore">UI Words<span> / 说准一点</span></a><p>把界面说清楚，让 AI 写得更接近你想要的样子。</p><span class="footer-version">CASES FIRST · BUILD 01</span></footer>
+    <footer><a class="footer-brand" href="#top" data-page="explore">UI Words<span> / 说准一点</span></a><p>把界面说清楚，让 AI 写得更接近你想要的样子。</p><span class="footer-version">EVERYDAY WORDS FIRST · BUILD 02</span></footer>
     <div class="toast-region" id="toast-region" role="status" aria-live="polite" aria-atomic="true"></div>
   </body>
 </html>
