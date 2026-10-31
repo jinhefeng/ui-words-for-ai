@@ -20,7 +20,7 @@ Build a public, beginner-friendly tutorial that starts from novice product langu
 - Status: 进行中
 - Objective: 让读者从自己的口语需求进入，通过少量澄清问题比较多个模式，再操作 HTML 示例并生成精准指令。
 - Acceptance: 需求探索与俗语入口服务小白用户，专业术语为辅助查阅；推荐理由和分支可解释；示例、比较和中文优先的 AI 指令与内容数据关联；桌面和窄屏可用。
-- Children: buildless 静态网站框架、案例目录、俗语一对多索引、中文优先术语页、纯函数推荐逻辑、交互示例目录和复制指令已实现；响应式、键盘与屏幕阅读器人工验收仍待完成。
+- Children: buildless 静态网站框架、案例目录、俗语一对多索引、中文优先术语页、纯函数推荐逻辑、交互示例目录和复制指令已实现；俗语详情的解释按需展开并采用紧凑多列卡片；响应式、键盘与屏幕阅读器人工验收仍待完成。
 
 ### T3 — 公共项目初始化与交付
 - Status: 进行中
@@ -37,8 +37,8 @@ Build a public, beginner-friendly tutorial that starts from novice product langu
 ## 4. Current Focus
 - Task: T1 + T2
 - Parent path: Project initialization
-- Objective: 保持俗语详情“先看效果，再解释”的顺序，让新手从视觉差异理解不同做法。
-- Next action: 根据维护者和用户反馈继续扩充俗语、效果预览和真实案例。
+- Objective: 保持俗语详情“先看效果，再解释”的顺序，并在默认视图中提高可比较效果的数量；进一步收紧整站留白。
+- Next action: 发布并人工查看桌面、窄屏下的俗语详情，按反馈继续扩充俗语、效果预览和真实案例。
 
 ## 5. Decision Log
 | Date | Decision | Rationale | Impact |
@@ -51,10 +51,11 @@ Build a public, beginner-friendly tutorial that starts from novice product langu
 | 2026-10-31 | 项目采用传统静态站点，不引入数据库或应用后端 | 用户希望方便部署、分享和继续丰富内容 | HTML/CSS、原生 JavaScript 与仓库内 JSON 文件；不依赖 UI 框架、构建服务或远程 API |
 | 2026-10-31 | 增加“俗语”入口并优先展示中文表达，专业术语作为补充 | 用户指出“弹框”“文本框”等常用说法可能对应多种行为，新手需要先理解差异再学习标准名称 | 新增俗语到多个模式的静态映射；案例推荐和复制指令使用中文叫法优先 |
 | 2026-10-31 | 俗语详情采用“先看效果，再解释”的顺序 | 用户指出进入俗语后应先展示多种效果及名称，再解释每种效果；先读说明再看效果会颠倒学习顺序 | 每个候选先显示中文名称和可操作示例，再显示作用、影响、场景和 AI 说法；俗语辨析文字后置 |
+| 2026-10-31 | 俗语效果卡默认紧凑展示，详细解释由读者展开 | 用户要求一屏展示更多可能效果；说明文字可以在二次操作后再出现 | 采用响应式多列效果卡，先展示中文名称、标准名和可操作示例；“了解这个效果”展开影响、场景、注意点和中文 AI 说法；页面间距整体收紧 |
 
 ## 6. Knowledge Context
 - Constraints: 面向 AI Coding 新手；俗语是导航入口之一；一个俗语可对多个模式；使用中文语言名称优先，专业术语为补充；强调“先说清用户意图和交互，再选术语”。
-- Dependencies: GitHub 公开仓库 `https://github.com/jinhefeng/ui-words-for-ai` 是项目公开源码入口；GPT Sites 预览 Version 4 已发布并确认效果名称、交互预览先于解释文字。当前本地 Git HEAD 尚未与远端对齐，工作区保留了已有变更。
+- Dependencies: GitHub 公开仓库 `https://github.com/jinhefeng/ui-words-for-ai` 是项目公开源码入口；GPT Sites Version 6 已部署并完成桌面、手机视口检查。当前本地 Git HEAD 尚未与远端对齐，工作区保留了已有变更。
 - Relevant files: `docs/system-design.md`, `.engineering/architecture-baseline.md`, `.engineering/delivery-plan.md`, `README.md`, `src/`。
 - Open decisions: 项目许可证尚未选择。当前项目名为“说准一点 / UI Words”，GitHub 仓库为 `jinhefeng/ui-words-for-ai`。
 
@@ -68,6 +69,7 @@ Build a public, beginner-friendly tutorial that starts from novice product langu
 | 2026-10-31 | 增加 25 个俗语入口和一个中文叫法优先的浏览路径 | 把新手已有词汇连接到多种精确做法，让用户能边看效果边学习名称 | 新增 `colloquialisms.json`；模式目录扩展至 33 项；指令生成器不再把英文术语放在首位 |
 | 2026-10-31 | 将俗语对照、中文 AI 说法预览发布到公开仓库和 GPT Sites Version 3 | 让新手能先看清可直接复制的话，再决定采用哪种界面做法 | 网站可体验；后续继续按维护者和用户反馈扩展内容 |
 | 2026-10-31 | 根据反馈重排俗语详情并发布 GPT Sites Version 4 | 用户要求从俗语进入后先看到不同界面效果及名称，说明文字放在视觉预览之后；浏览器确认了新的页面顺序 | 候选卡先展示中文名和可操作预览，再展示解释、场景和 AI 说法；任务树结构不变 |
+| 2026-10-31 | 压缩俗语效果卡与全站间距并发布 GPT Sites Version 6 | 用户希望默认看到更多效果，解释由二次操作展开，并指出全站空隙过大 | 桌面效果卡改为三列、平板两列、窄屏单列；折叠说明保留场景、影响、注意点和中文 AI 说法；整体间距收紧，任务树结构不变 |
 
 ## 8. Detail Pointers
 - Format: v1 single-file
@@ -81,7 +83,7 @@ Build a public, beginner-friendly tutorial that starts from novice product langu
 - Round: R3
 - Frontier: T1, T2, T3
 - Granularity target: objective + output + acceptance
-- Exit condition: 俗语详情已改为效果先行，公开仓库文档和 GPT Sites Version 4 同步后，继续进入体验反馈与内容扩展。
+- Exit condition: 紧凑型效果先行页面同步到公开仓库和 GPT Sites Version 6，并完成主要浏览器预览后，继续进入体验反馈与内容扩展。
 
 ## 10. Technical Debt Queue
 | ID | Discovered in | Debt | Why deferred | Trigger / target round | Priority | Status |
