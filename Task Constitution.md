@@ -13,13 +13,13 @@ Build a public, beginner-friendly tutorial that starts from novice product langu
 - Status: 进行中
 - Objective: 从新手产品经理的口语表达和用户目标出发，建立“一种说法 → 澄清条件 → 多个精准交互模式”的内容体系。
 - Acceptance: 口语入口覆盖常见需求；含糊表达能映射到多个候选模式和可理解的判断条件；每个模式有解释、适用边界、示例和精准指令。
-- Children: 先设计输入、选择、反馈/浮层三组，再扩展到操作、导航、查找、内容状态等需求。
+- Children: 已建立 8 个小白需求族和 17 个种子案例；后续持续补充口语入口、区分问题、推荐分支和案例说明。
 
 ### T2 — 交互式教程原型
 - Status: 进行中
 - Objective: 让读者从自己的口语需求进入，通过少量澄清问题比较多个模式，再操作 HTML 示例并生成精准指令。
 - Acceptance: 需求探索是主入口，术语检索为辅助入口；推荐理由和分支可解释；示例、比较和指令与内容数据关联；桌面和窄屏可用。
-- Children: 使用静态优先架构；系统设计文档评审后再决定具体迁移实现。
+- Children: buildless 静态网站框架、案例目录、术语索引、纯函数推荐逻辑、交互示例目录和复制指令已实现；响应式、键盘与屏幕阅读器人工验收仍待完成。
 
 ### T3 — 公共项目初始化与交付
 - Status: 进行中
@@ -34,10 +34,10 @@ Build a public, beginner-friendly tutorial that starts from novice product langu
 - Children: 按需展开。
 
 ## 4. Current Focus
-- Task: T1 + T2
+- Task: T1 + T2 + T3
 - Parent path: Project initialization
-- Objective: 评审以新手口语和用户目标为入口的产品功能与技术架构。
-- Next action: 评审 `docs/system-design.md` 中的首期内容范围和 Astro 建议；获得技术方案确认后再开始重构。
+- Objective: 建好可持续扩充的案例优先网站框架，并交付首批有代表性的种子案例。
+- Next action: 维护者按新手视角检查案例分支与组件预览；后续扩展内容时沿用当前内容契约。
 
 ## 5. Decision Log
 | Date | Decision | Rationale | Impact |
@@ -46,6 +46,7 @@ Build a public, beginner-friendly tutorial that starts from novice product langu
 | 2026-10-31 | 以“弹窗”相关术语作为首轮交互样本 | 这是用户给出的典型模糊表达，可清楚展示精确术语的价值 | 保留并映射到口语需求族；首期不再只覆盖浮层 |
 | 2026-10-31 | 主内容从小白口语入口映射到多个交互模式；术语表降为辅助索引 | 用户要求以小白产品经理的视角组织内容，并强调一对多映射 | T1、T2 的范围和主导航调整；详细方案见 `docs/system-design.md` |
 | 2026-10-31 | 创建公开 GitHub 仓库 `jinhefeng/ui-words-for-ai` | 用户明确要求 public 项目 | 首版源文件同步到公开仓库；许可证仍未选择 |
+| 2026-10-31 | 先以 17 个种子案例搭建可扩展的网站框架 | 用户要求先建立网站入口和一批案例，后续持续补充内容 | 主流程从需求族进入案例、条件分支、组件预览和可编辑指令；采用静态 JSON 数据与原生模块 |
 
 ## 6. Knowledge Context
 - Constraints: 面向 AI Coding 新手；强调“先说清用户意图和交互，再选术语”，术语不是脱离情境的关键词清单。
@@ -59,6 +60,7 @@ Build a public, beginner-friendly tutorial that starts from novice product langu
 | 2026-10-31 | 初始化 mission、成功标准、三条主工作流及首版范围 | 用户请求启动面向新手的公开 AI Coding 术语教程项目 | T1, T2, T3 |
 | 2026-10-31 | 初始化静态交互教程并创建 public GitHub 仓库 | 交付首批术语、组件预览和公开维护入口 | T1, T2, T3 |
 | 2026-10-31 | 将新手口语到精准模式的一对多映射确立为产品主线 | 用户明确确认小白视角，并要求进一步设计产品功能与技术架构 | T1, T2 |
+| 2026-10-31 | 首期用 17 个真实说法展示 8 个需求族到 32 个交互模式的映射 | 先用实际案例搭出网站框架，未来独立增补内容 | 内容与页面逻辑分离；新增案例引用已有模式和受限分支数据 |
 
 ## 8. Detail Pointers
 - Format: v1 single-file
@@ -69,10 +71,10 @@ Build a public, beginner-friendly tutorial that starts from novice product langu
 - Work-package detail: `.engineering/delivery-plan.md`
 
 ## 9. Current Round
-- Round: R2
+- Round: R3
 - Frontier: T1, T2, T3
 - Granularity target: objective + output + acceptance
-- Exit condition: 产品入口、内容关系、架构边界和工作包达到可评审状态；随后由维护者确认首期范围和技术选型。
+- Exit condition: 17 个种子案例与网站框架已交付；之后通过维护者体验审阅确定内容修订和扩充优先级。
 
 ## 10. Technical Debt Queue
 | ID | Discovered in | Debt | Why deferred | Trigger / target round | Priority | Status |

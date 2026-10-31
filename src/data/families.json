@@ -1,0 +1,10 @@
+[
+  {"id":"input","label":"输入信息","icon":"⌨","description":"用户要填写、修改或搜索内容。"},
+  {"id":"selection","label":"选择和设定","icon":"◉","description":"用户要选一项、多项，或打开/关闭一个偏好。"},
+  {"id":"action","label":"执行操作或跳转","icon":"↗","description":"用户点击后要完成动作，或前往另一个位置。"},
+  {"id":"feedback","label":"告诉用户发生了什么","icon":"✳","description":"反馈成功、错误、提醒或下一步状态。"},
+  {"id":"overlay","label":"临时展示内容","icon":"▱","description":"短暂显示补充信息、操作菜单或需要处理的内容。"},
+  {"id":"browse","label":"浏览、切换和展开","icon":"⌁","description":"把内容分组、切换，或按需展开查看。"},
+  {"id":"search","label":"查找和整理","icon":"⌕","description":"从内容中搜索、筛选或排序。"},
+  {"id":"states","label":"加载、空白和结果状态","icon":"◌","description":"告诉用户页面正在加载、没有内容，或搜索没有结果。"}
+]

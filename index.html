@@ -4,74 +4,79 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f7f7f3" />
-    <meta name="description" content="把模糊的界面需求说准确，让 AI Coding 更容易一次做对。" />
+    <meta name="description" content="从新手产品经理的说法出发，找到合适的界面交互模式，再给 AI 一句更准确的指令。" />
     <title>说准一点 · UI Words</title>
     <link rel="stylesheet" href="./src/styles.css" />
     <script type="module" src="./src/app.js"></script>
   </head>
   <body>
+    <a class="skip-link" href="#app-root">跳到案例内容</a>
     <header class="topbar">
-      <a class="brand" href="#top" aria-label="说准一点 首页">
+      <a class="brand" href="#top" aria-label="说准一点 首页" data-page="explore">
         <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
         <span>UI Words <small>说准一点</small></span>
       </a>
-      <nav aria-label="主导航">
-        <a class="nav-link active" href="#library">术语库</a>
-        <a class="nav-link" href="#how-it-works">怎么用</a>
+      <nav class="main-nav" aria-label="主导航">
+        <button class="nav-link active" type="button" data-page="explore">按需求找</button>
+        <button class="nav-link" type="button" data-page="cases">案例库 <span class="nav-count" id="case-count"></span></button>
+        <button class="nav-link" type="button" data-page="patterns">术语索引</button>
       </nav>
-      <a class="topbar-cta" href="#library"><span>开始练习</span><span aria-hidden="true">↗</span></a>
+      <a class="topbar-cta" href="https://github.com/jinhefeng/ui-words-for-ai/blob/main/CONTRIBUTING.md"><span>参与共建</span><span aria-hidden="true">↗</span></a>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="eyebrow"><span class="eyebrow-dot"></span> A FIELD GUIDE FOR AI CODING</p>
-          <h1 id="hero-title">别只说“弹窗”。<br /><em>把你想要的说准。</em></h1>
-          <p class="hero-lede">Toast、Modal、Drawer……把模糊需求拆成 AI 能理解的界面语言。看例子、动手试，再复制一句更准确的指令。</p>
-          <a class="hero-link" href="#library">探索 7 个常见术语 <span aria-hidden="true">↓</span></a>
+          <h1 id="hero-title">先说你想让用户做什么。<br /><em>术语，我们一起找。</em></h1>
+          <p class="hero-lede">“加个选择框”可能有好几种做法。说说用户的目标，回答一两个关键问题，再看案例、试用组件，最后带走一条更准确的 AI 指令。</p>
+          <form class="hero-search" id="hero-search">
+            <label class="sr-only" for="hero-query">用自己的话描述界面需求</label>
+            <span aria-hidden="true">⌕</span>
+            <input id="hero-query" type="search" placeholder="试试：让用户选一个分类…" autocomplete="off" />
+            <button type="submit">找一找 <span aria-hidden="true">↗</span></button>
+          </form>
+          <div class="hero-suggestions"><span>比如</span><button type="button" data-query="弹窗">加个弹窗</button><button type="button" data-query="文本框">给个文本框</button><button type="button" data-query="选择框">做个选择框</button></div>
         </div>
-        <div class="hero-art" aria-label="从模糊需求到精确界面的示意图">
+        <div class="hero-art" aria-label="一个口语需求可以对应多个交互模式">
           <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
-          <div class="art-note note-blur"><span>模糊的说法</span><strong>“加个弹窗”</strong><i>???</i></div>
+          <div class="art-note note-blur"><span>新手会说</span><strong>“加个选择框”</strong><i>?</i></div>
           <div class="art-arrow">↘</div>
-          <div class="art-note note-precise"><span>更精确的指令</span><strong>Modal Dialog</strong><small>居中 · 阻断 · 等待确认</small></div>
+          <div class="art-note note-precise"><span>根据场景来选</span><strong>Radio · Select · Switch</strong><small>单选 · 搜索 · 立即生效</small></div>
           <div class="art-cursor">✳</div>
-          <span class="art-label label-01">01 / SAY WHAT HAPPENS</span>
-          <span class="art-label label-02">02 / NAME THE PATTERN</span>
+          <span class="art-label label-01">START FROM THE USER GOAL</span>
+          <span class="art-label label-02">FIND THE RIGHT PATTERN</span>
         </div>
       </section>
 
-      <section class="lesson-strip" id="how-it-works" aria-label="精确描述的三个步骤">
-        <div><span class="step-number">01</span><p><strong>说出用户要做什么</strong><small>看结果、做选择，还是继续当前任务？</small></p></div>
+      <section class="lesson-strip" id="how-it-works" aria-label="从需求找到交互模式的四个步骤">
+        <div><span class="step-number">01</span><p><strong>说出你的需求</strong><small>从产品经理平时会说的话开始。</small></p></div>
         <span class="step-connector" aria-hidden="true">→</span>
-        <div><span class="step-number">02</span><p><strong>描述交互行为</strong><small>出现在哪里？会不会阻断？如何关闭？</small></p></div>
+        <div><span class="step-number">02</span><p><strong>补上关键条件</strong><small>只回答会影响交互选择的问题。</small></p></div>
         <span class="step-connector" aria-hidden="true">→</span>
-        <div><span class="step-number">03</span><p><strong>选一个准确术语</strong><small>让 AI 把需求映射到合适的组件。</small></p></div>
+        <div><span class="step-number">03</span><p><strong>比较多个做法</strong><small>看每种模式适合什么场景。</small></p></div>
+        <span class="step-connector" aria-hidden="true">→</span>
+        <div><span class="step-number">04</span><p><strong>试一试，再给 AI</strong><small>操作组件，复制更清楚的指令。</small></p></div>
       </section>
 
-      <section class="library-section" id="library" aria-labelledby="library-title">
-        <div class="section-heading">
-          <div><p class="eyebrow">THE INTERACTION LIBRARY <span>· 01</span></p><h2 id="library-title">同样叫“弹出来”，<br /><em>交互可能完全不同。</em></h2></div>
-          <p class="heading-aside">选一个术语，看看它适合什么场景、和相近的交互有什么区别。<br />每个例子都可以直接点一点。</p>
-        </div>
-        <div class="library-toolbar">
-          <div class="filter-list" role="group" aria-label="按交互场景筛选" id="category-filters"></div>
-          <label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">搜索术语</span><input id="term-search" type="search" placeholder="搜索术语或场景…" autocomplete="off" /><kbd>/</kbd></label>
-        </div>
-        <div class="library-layout">
-          <div class="term-list" id="term-list" aria-live="polite"></div>
-          <article class="term-detail" id="term-detail" aria-live="polite" aria-label="术语详情"></article>
-        </div>
-      </section>
+      <div class="page-tabs" role="tablist" aria-label="内容浏览方式">
+        <button type="button" role="tab" aria-selected="true" class="page-tab active" data-page="explore">按需求找</button>
+        <button type="button" role="tab" aria-selected="false" class="page-tab" data-page="cases">浏览全部案例 <span id="tab-case-count"></span></button>
+        <button type="button" role="tab" aria-selected="false" class="page-tab" data-page="patterns">按术语查</button>
+      </div>
+
+      <div id="app-root" aria-live="polite" aria-busy="true">
+        <div class="loading-shell"><span class="loading-dot"></span><p>正在整理需求和案例…</p></div>
+      </div>
 
       <section class="closing-note">
         <span class="closing-stamp" aria-hidden="true">✳</span>
-        <div><p class="eyebrow">A SMALLER GAP BETWEEN YOU &amp; AI</p><h2>好指令从好观察开始。</h2><p>术语能帮你快速对齐，但最有用的信息始终是：用户做了什么、界面怎样回应、接下来会发生什么。</p></div>
-        <a href="#library" aria-label="返回术语库">↑</a>
+        <div><p class="eyebrow">A SMALLER GAP BETWEEN YOU &amp; AI</p><h2>好指令从好观察开始。</h2><p>先说明用户做什么、界面如何回应，再选择适合的模式和术语。</p></div>
+        <a href="#top" aria-label="返回顶部">↑</a>
       </section>
     </main>
 
-    <footer><a class="footer-brand" href="#top">UI Words<span> / 说准一点</span></a><p>把界面说清楚，让 AI 写得更接近你想要的样子。</p><span class="footer-version">FIELD NOTES · VOL. 01</span></footer>
+    <footer><a class="footer-brand" href="#top" data-page="explore">UI Words<span> / 说准一点</span></a><p>把界面说清楚，让 AI 写得更接近你想要的样子。</p><span class="footer-version">CASES FIRST · BUILD 01</span></footer>
     <div class="toast-region" id="toast-region" role="status" aria-live="polite" aria-atomic="true"></div>
   </body>
 </html>

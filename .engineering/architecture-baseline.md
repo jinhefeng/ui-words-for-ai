@@ -1,158 +1,82 @@
-# Architecture Baseline: 说准一点
+# 当前架构基线：说准一点
 
-- 状态：提案 v0.1，待维护者评审；当前代码仍是 buildless HTML/CSS/JavaScript 原型。
-- 目标：支持丰富的口语需求目录、多分支的一对多模式推荐、可复用交互示例和精准指令生成，同时保持静态托管。
-- 任务引用：Task Constitution T1、T2、T3。
+- 状态：静态首版实现基线 v0.2
+- 目标：从新手口语场景出发，通过条件分支展示多个合适的交互模式，允许读者操作示例并复制更准确的 AI 指令。
+- 产品设计：[`docs/system-design.md`](../docs/system-design.md)
+- 任务记录：[`Task Constitution.md`](../Task%20Constitution.md)
 
-## 上下文与约束
+## 设计约束
 
-- 范围：公开的中文优先教程网站，交互流程在浏览器端运行；内容以 Git 中的文件为源。
-- 主要用户：不知道标准 UI 名词的新手产品经理和 AI Coding 新手。
-- 约束：内容增长后仍能贡献和审阅；每条推荐关系可解释；窄屏、键盘和屏幕阅读器可用。
-- 隐私：无后端、无账号、无默认遥测；自由文本搜索与分支回答保留在本地。
-- 当前基线：`index.html`、`src/app.js`、`src/data/terms.js`、`src/styles.css`；现有页面是按术语浏览的首轮原型。
+- 主要用户是不熟悉 UI 术语的新手产品经理和 AI Coding 新手。
+- 内容以用户目标与场景组织；一个案例可以引用多个模式，一个模式可以被多个案例引用。
+- 条件缺失时应展示并列可能性；只有答案满足分支条件时才给出确定推荐。
+- 内容维护者主要改 JSON 文案和受限引用，不需要写决策代码。
+- 首版无账号、后端、数据库、模型 API 或遥测；搜索和回答留在浏览器中。
+- 目前交互示例是仓库中的本地代码，内容 JSON 只能指定已登记的 `demoId`。
 
-## 建议边界
+## 模块边界
 
-| Boundary | Responsibility | Owner | Depends on | Exposes |
-|---|---|---|---|---|
-| `content/` | 口语入口、问题、分支、模式说明、提示词模板 | 内容维护者 | 内容契约 C-001 | 静态内容集合 |
-| `content-schema/` | 校验字段、ID、引用和规则形状 | 工程维护者 | 内容契约 C-001 | 通过构建的类型化内容 |
-| `intent-engine/` | 根据选项计算候选模式与理由；在条件不足时继续询问 | 工程维护者 | 通过校验的内容 | 纯函数输入/输出 |
-| `site/` | 首页、需求探索、比较、术语索引、详细页面 | 工程维护者 | intent-engine、内容 | 静态 HTML 页面和交互入口 |
-| `prompt-builder/` | 从用户答案、模式模板和必要约束生成可编辑指令 | 工程维护者 | 内容契约 C-001 | 文本与可复制动作 |
-| `demo-runtime/` | 按 allowlist 装载可操作组件示例并隔离样式/脚本 | 示例维护者 | 示例契约 C-002 | 有标题的预览 iframe |
-| `static-build/` | 生成可部署到 GitHub Pages 的静态站点和搜索索引 | 工程维护者 | 上述模块 | `dist/` |
-
-依赖方向：页面读取内容并调用纯决策函数；决策函数不依赖页面或 DOM；内容描述 `demoId`，但不携带可执行脚本；示例运行在隔离的 iframe 中。
+| 模块 | 当前位置 | 责任 | 依赖边界 |
+|---|---|---|---|
+| 需求族 | `src/data/families.json` | 从“用户想做什么”划分主入口 | 只引用稳定的 `family.id` |
+| 案例内容 | `src/data/cases.json` | 保存新手说法、目标、场景、澄清问题和带理由的推荐分支 | 推荐引用模式 ID，不承载页面或可执行代码 |
+| 术语内容 | `src/data/patterns.json` | 保存模式名称、俗称、解释、适用边界、差异和指令示例 | 通过 `family`、`demoId` 与其他数据关联 |
+| 决策引擎 | `src/lib/decision-engine.js` | 以纯函数按答案筛选匹配分支 | 不读 DOM，不修改数据，也不调用网络 |
+| 示例注册表 | `src/lib/demo-catalog.js` | 将已知模式 ID 映射为原生 HTML 交互预览 | 只运行仓库内的受控示例；数据不能注入脚本 |
+| 指令生成器 | `src/lib/prompt-builder.js` | 组合目标、场景、推荐理由、模式和行为要求 | 不依赖模型服务；返回普通文本 |
+| 网站壳与路由 | `index.html`、`src/app.js`、`src/styles.css` | 导航、搜索、案例详情、术语索引、渲染和交互事件 | 调用数据与纯函数模块，不重复实现分支规则 |
 
 ```mermaid
 flowchart LR
-  Author[内容文件] --> Validator[内容校验与构建]
-  Validator --> PhraseData[静态需求与模式数据]
-  PhraseData --> Explorer[口语需求探索器]
-  Explorer --> Engine[确定性决策引擎]
-  Engine --> Compare[候选结果与比较]
-  Compare --> Prompt[指令生成器]
-  Compare --> Preview[预览宿主]
-  Preview --> Frame[沙箱 HTML 示例]
-  PhraseData --> Search[静态搜索索引]
-  Search --> Explorer
+  Families[需求族 JSON] --> Site[静态网站与轻量路由]
+  Cases[口语案例 JSON] --> Engine[纯函数决策引擎]
+  Patterns[术语模式 JSON] --> Site
+  Engine --> Site
+  Site --> Demo[本地 HTML 示例注册表]
+  Site --> Prompt[可编辑指令生成器]
 ```
 
-## 技术建议
+## 内容契约
 
-建议迁移到 **Astro + TypeScript，输出纯静态网站**，不引入 React/Vue 服务端、数据库或模型后端。
+### 案例
 
-- Astro 负责基于 Markdown/YAML 内容生成需求页、模式详情页、术语页和站点导航，适合内容密集、需要独立链接和搜索引擎可读的项目。
-- TypeScript 约束需求树、条件规则、模式卡和指令字段之间的接口。
-- Astro 原生 `<script>`/TypeScript 与少量 Web Components 承载需求探索、候选比较、搜索、复制和可访问交互；不为这些功能引入完整 UI 框架。
-- Git 中的 Markdown 保存解释性正文；YAML/JSON 保存有结构的关系、问题、选项、判断规则和提示词槽位。
-- 构建期检查引用目标、重复 ID、未处理分支、缺少示例、提示词缺字段和循环路径；无需生产数据库。
-- GitHub Pages 或兼容静态主机部署；路径应支持仓库子目录。
+`cases.json` 每个对象包含稳定 `id`、所属 `family`、新手 `phrase`、`goal`、`context`、可搜索 `keywords`、`questions` 和 `recommendations`。
 
-官方资料核对（2026-10-31）：Astro 内容集合的本地数据加载器支持 Markdown、MDX、Markdoc、YAML、TOML 和 JSON；构建输出默认 `static`；原生脚本支持浏览器交互和 TypeScript，也可用 Web Components 而不引入 UI 框架。具体页面、构建和编辑体验仍需在迁移样例中验证。
+- 问题使用 `{ id, prompt, options: [{ id, label, hint? }] }`。
+- 推荐分支使用 `{ when, primaryPatternId, supportingPatternIds, alternativePatternIds, reason }`。
+- `when` 是问题 ID 到选项 ID 的简单映射，例如 `{ "count": "few" }`。当前决策器以精确匹配所有条件的方式判断分支。
+- 若当前答案没有匹配规则，决策器返回该案例的所有推荐分支，让 UI 展示并列可能性。
 
-选择依据：当前 buildless 原型适合七个条目的展示，但内容扩展到数十个口语入口和模式后，纯手写 DOM 容易让内容、路由、决策规则和交互纠缠。Astro 可静态生成可链接的内容页面；无需把整个网站变成客户端应用。
+### 交互模式
 
-备选方案：
+每个 `patterns.json` 对象至少包含 `id`、`term`、`localName`、`family`、`aliases`、`summary`、`useWhen`、`avoidWhen`、`contrast`、`demoId` 和 `promptExample`。同一 Pattern ID 可从多个 Case 引用。
 
-- **继续原生 HTML/JS**：迁移成本最低，但 schema、分支页面、内容引用校验和长篇内容会逐渐变得难维护。可作为当前原型和迁移回退版本。
-- **React SPA**：交互状态生态成熟，但本项目无需全站客户端渲染；会让内容页面更依赖组件代码。
-- **Astro + React 全量 islands**：保留静态内容优点，但多引入一个 UI 框架；只有出现复杂多步骤交互且原生脚本难以维护时再考虑。
+### 示例
 
-## 组件复用决策
+`demoId` 必须在 `src/lib/demo-catalog.js` 中登记。示例使用本地可信代码；文案字段都作为文本转义后呈现，不允许内容作者在 JSON 中传入 HTML、脚本或 URL。
 
-| Component | Capability | Consumers | Decision | Reason |
-|---|---|---|---|---|
-| Intent Explorer | 按问题答案筛选推荐模式 | 首页、需求详情页 | create | 是产品主流程，现有术语列表没有等价责任 |
-| Pattern Comparison | 对照推荐理由、差别和示例 | 需求详情页 | create | 需要把相似模式的判据并列呈现 |
-| Prompt Builder | 编辑和复制结构化指令 | 需求详情、模式详情 | create | 多个页面共享一个稳定的数据输入和输出 |
-| Demo Frame | 载入隔离的示例页面并提供标题/重置 | 需求详情、模式详情 | create | 多个页面共用生命周期和安全边界 |
-| 术语列表样式/品牌 token | 保留现有颜色与视觉线索 | 术语索引、站点 shell | extend | 视觉可延续，主交互信息架构需要重做 |
+## 页面与数据流
 
-## 契约
+1. `index.html` 提供品牌、导航、首页说明、搜索入口和 `#app-root`。
+2. `src/app.js` 从相对路径加载 JSON，按 `#explore`、`#cases/:id` 和 `#patterns/:id` 等轻量 hash 状态渲染页面。
+3. 用户在案例详情中选择条件；`decision-engine.js` 根据 `when` 返回匹配的分支。
+4. UI 展示推荐模式、理由、对照模式以及对应的本地 HTML 示例。
+5. `prompt-builder.js` 组合内容，结果显示在可编辑文本框中，由用户发起复制。
 
-### C-001：口语需求与模式内容
+静态 JSON 使用浏览器 `fetch` 加载，本地开发需通过 HTTP 静态文件服务器打开（例如 `python3 -m http.server 8000`）。生产托管无需构建或服务器逻辑。相对路径可随 GitHub Pages 仓库路径部署。
 
-- 状态：提案，首个可用样本审阅后冻结。
-- Producer：`content/phrase-groups/` 和 `content/patterns/` 的内容作者。
-- Consumers：构建校验器、需求探索器、决策引擎、搜索索引、指令生成器、详情页。
-- Inputs：稳定 ID、口语表达/别名、目标、问题和选项、条件规则、模式引用、推荐理由、提示词字段。
-- Outputs：校验通过的静态集合；需求答案产生按解释排序的候选模式列表，包含 `patternId` 和 `reason`。
-- Compatibility：ID 一经公开即稳定；字段新增可选，删除/改名需更新所有引用和版本；未知模式引用令构建失败。
-- Verification：schema 校验和样例分支审阅；每个分支至少有一个可达场景。
-- Change rule：新增条件运算符需要同步决策引擎、schema、示例和迁移说明。
+## 当前验证与已知边界
 
-核心形状示例：
+- 首批内容规模：8 个需求族、17 个案例、32 个交互模式。
+- 当前没有构建期 schema / 断链校验；贡献时需要检查案例 ID、模式 ID、问题/选项引用和 `demoId`。
+- HTML 示例直接来自本地注册表，没有 iframe sandbox。若未来开放任意外部示例或贡献者代码，应先设计隔离策略，不能把内容 JSON 直接升级为 HTML 执行入口。
+- 推荐逻辑目前支持 AND 条件精确匹配，不支持复杂逻辑表达式、规则优先级或自动推荐新内容。
+- 路由是单页 hash 导航，不为每个案例生成独立 HTML 页面；如需搜索引擎索引或稳定分享链接，可评估静态生成。
+- 窄屏、键盘和屏幕阅读器仍需要人工走查；自动构建检查不能替代真实交互验收。
 
-```ts
-type PhraseGroup = {
-  id: string;
-  phrases: string[];
-  userGoal: string;
-  questions: Question[];
-  recommendations: Recommendation[];
-};
+## 扩展路径
 
-type Question = {
-  id: string;
-  prompt: string;
-  options: Array<{ id: string; label: string; hint?: string }>;
-};
-
-type Recommendation = {
-  when: Array<{ questionId: string; optionId: string }>;
-  primaryPatternId: string;
-  supportingPatternIds: string[];
-  reason: string;
-  alternativePatternIds: string[];
-};
-
-type Pattern = {
-  id: string;
-  term: string;
-  aliases: string[];
-  definition: string;
-  useWhen: string[];
-  avoidWhen: string[];
-  demoId: string;
-  promptTemplate: string;
-};
-```
-
-一个需求族引用多个推荐结果；每个结果可以由一个主要模式和零个或多个辅助模式组成。Pattern ID 在内容、搜索、示例注册和指令生成间共享。
-
-### C-002：示例注册与隔离
-
-- 状态：提案。
-- Producer：示例维护者提供 allowlisted `demoId` 和静态示例文件。
-- Consumers：预览宿主和模式详情。
-- Inputs：已知 demo ID、模式参数、可读标题；内容不得指定任意脚本或远程 URL。
-- Outputs：带有描述标题的沙箱 iframe；示例可在本框架内完成交互。
-- Compatibility：所有模式通过注册表选择 demo；缺失 ID 在构建期失败。
-- Verification：手动交互检查、键盘检查和窄屏检查；需要时检查 iframe sandbox 属性。
-- Change rule：跨 frame 通信先经过独立评审；初期避免该通信。
-
-## 技术依据
-
-- [Astro Content Collections](https://docs.astro.build/en/guides/content-collections/)：本地内容集合可从 Markdown、MDX、Markdoc、YAML、TOML 或 JSON 加载。
-- [Astro Output Configuration](https://docs.astro.build/en/reference/configuration-reference/#output)：默认输出模式为 `static`，可将页面预渲染为静态站点。
-- [Astro Scripts and Event Handling](https://docs.astro.build/en/guides/client-side-scripts/)：原生 `<script>` 支持交互、TypeScript 和 Web Components，无需 UI 框架。
-
-## 安全、隐私与无障碍
-
-- Markdown/YAML 内容当作不可信数据：渲染时转义文本，不允许通过内容字段注入 HTML 或脚本。
-- 示例按 `demoId` 白名单加载到 `sandbox="allow-scripts"` iframe，不给同源访问和顶层导航权限；默认不接收 frame 消息。
-- 搜索、分支答案、指令生成均在浏览器本地运行，不发送用户文本。
-- 每个预览有易理解的 iframe 标题；按钮、字段和错误状态有可访问名称；键盘可以到达并操作所有控件。
-- 显式显示 tooltip、toast、modal 和 drawer 的键盘与焦点行为；尊重 `prefers-reduced-motion`。
-
-## 迁移、回退和待决项
-
-1. 保留当前七项内容和品牌 CSS，先将七项映射到新 `Pattern` 模型，再做首页需求入口。
-2. 在一个新分支实现内容 schema 和一组示例数据；只有 schema 和一次端到端需求路径稳定后再替换 `index.html`。
-3. Astro 版本发布前保留上一版静态源码和 Git 提交；如果静态构建/路径/互动失败，回退到旧部署或恢复上一提交。
-4. 无持久化用户数据，无需数据库迁移；更换静态构建工具只需重新生成 `dist/`。
-
-待维护者确认：Astro 技术选型、首期内容数量与范围、是否现在开始从 buildless 原型迁移。开源许可证仍按 Task Constitution T3 单独决定。
+1. 新案例先扩展 `cases.json`，尽可能复用模式与现有预览。
+2. 新模式再扩展 `patterns.json` 和 demo 注册表。
+3. 当内容增长导致断链难以人工维护，添加构建期 schema 和引用验证，但保持 JSON 内容契约简单。
+4. 当需要独立可索引详情页或目录规模明显增长，再评估 Astro 等静态生成工具；保持无数据库、静态部署和内容易贡献的原则。
