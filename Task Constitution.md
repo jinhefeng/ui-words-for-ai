@@ -47,6 +47,7 @@ Build a public, beginner-friendly tutorial that starts from novice product langu
 | 2026-10-31 | 主内容从小白口语入口映射到多个交互模式；术语表降为辅助索引 | 用户要求以小白产品经理的视角组织内容，并强调一对多映射 | T1、T2 的范围和主导航调整；详细方案见 `docs/system-design.md` |
 | 2026-10-31 | 创建公开 GitHub 仓库 `jinhefeng/ui-words-for-ai` | 用户明确要求 public 项目 | 首版源文件同步到公开仓库；许可证仍未选择 |
 | 2026-10-31 | 先以 17 个种子案例搭建可扩展的网站框架 | 用户要求先建立网站入口和一批案例，后续持续补充内容 | 主流程从需求族进入案例、条件分支、组件预览和可编辑指令；采用静态 JSON 数据与原生模块 |
+| 2026-10-31 | 项目采用传统静态站点，不引入数据库或应用后端 | 用户希望方便部署、分享和继续丰富内容 | HTML/CSS、原生 JavaScript 与仓库内 JSON 文件；不依赖 UI 框架、构建服务或远程 API |
 
 ## 6. Knowledge Context
 - Constraints: 面向 AI Coding 新手；强调“先说清用户意图和交互，再选术语”，术语不是脱离情境的关键词清单。
