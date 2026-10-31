@@ -101,11 +101,12 @@ function openDialog(kind) {
   const body = ({
     sheet: `<p class="dialog-subtitle">选择一种分享方式</p><div class="share-options"><button data-action="toast">↗<span>复制链接</span></button><button data-action="toast">✉<span>邮件</span></button><button data-action="toast">•••<span>更多</span></button></div>`,
     drawer: `<p class="dialog-subtitle">ORD-2048 · 今天 10:42</p><div class="drawer-detail-row"><span>状态</span><strong>已发货</strong></div><div class="drawer-detail-row"><span>配送地址</span><strong>杭州市西湖区</strong></div><div class="drawer-detail-row"><span>预计送达</span><strong>11 月 2 日</strong></div>`,
-    modal: `<p class="dialog-subtitle">这个名字会显示在你的个人资料中。</p><label class="dialog-field">昵称<input value="Mina Chen" /></label><div class="dialog-actions"><button data-action="close-dialog">取消</button><button class="primary" data-action="close-dialog">保存</button></div>`,
-    "alert-dialog": `<p class="dialog-subtitle">删除后，项目及其所有文件都无法恢复。</p><div class="dialog-actions"><button data-action="close-dialog">取消</button><button class="destructive" data-action="confirm-delete">永久删除</button></div>`,
+    modal: `<p class="dialog-subtitle">这个名字会显示在你的个人资料中。</p><label class="dialog-field">昵称<input value="Mina Chen" autofocus /></label><div class="dialog-actions"><button data-action="close-dialog">取消</button><button class="primary" data-action="close-dialog">保存</button></div>`,
+    "alert-dialog": `<p class="dialog-subtitle">删除后，项目及其所有文件都无法恢复。</p><div class="dialog-actions"><button data-action="close-dialog" autofocus>取消</button><button class="destructive" data-action="confirm-delete">永久删除</button></div>`,
   })[kind];
   const dialog = document.createElement("dialog");
   dialog.className = `live-dialog ${dialogClass}`;
+  if (kind === "alert-dialog") dialog.setAttribute("role", "alertdialog");
   dialog.setAttribute("aria-labelledby", "live-dialog-title");
   dialog.innerHTML = `<div class="live-dialog-header"><span class="sheet-grip"></span><h2 id="live-dialog-title">${title}</h2><button type="button" aria-label="关闭">×</button></div>${body}`;
   document.body.append(dialog);
