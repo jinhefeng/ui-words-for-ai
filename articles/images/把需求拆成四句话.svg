@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">别让 AI 猜：把需求拆成四句话</title>
+  <desc id="desc">从“加个弹窗”出发，按目标、触发、行为和结果补全需求，形成 AI 能执行的具体说明。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F7F8F4"/>
+      <stop offset="1" stop-color="#EAF0E9"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#173B30" flood-opacity=".09"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" rx="30" fill="url(#bg)"/>
+  <circle cx="1090" cy="70" r="120" fill="#DCE9DF" opacity=".65"/>
+  <circle cx="85" cy="670" r="115" fill="#E4ECE4" opacity=".8"/>
+  <text x="72" y="94" fill="#183E32" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="42" font-weight="700">别让 AI 猜：把需求拆成四句话</text>
+  <text x="74" y="139" fill="#65766D" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">你不必先学会术语，先把用户要做的事说清楚。</text>
+
+  <rect x="72" y="184" width="240" height="116" rx="20" fill="#183E32" filter="url(#shadow)"/>
+  <text x="104" y="226" fill="#BBD4C4" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700" letter-spacing="2">原始说法</text>
+  <text x="104" y="271" fill="#FFFFFF" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="31" font-weight="700">“加个弹窗”</text>
+  <path d="M330 242h34m-10-10 10 10-10 10" fill="none" stroke="#769589" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="382" y="184" width="166" height="116" rx="18" fill="#FFFFFF"/>
+    <rect x="562" y="184" width="166" height="116" rx="18" fill="#FFFFFF"/>
+    <rect x="742" y="184" width="166" height="116" rx="18" fill="#FFFFFF"/>
+    <rect x="922" y="184" width="206" height="116" rx="18" fill="#FFFFFF"/>
+  </g>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+    <text x="402" y="218" fill="#43836A" font-size="15" font-weight="700">01 / 目标</text>
+    <text x="402" y="253" fill="#213D32" font-size="21" font-weight="700">用户要做什么？</text>
+    <text x="402" y="279" fill="#718078" font-size="15">确认取消订单</text>
+
+    <text x="582" y="218" fill="#43836A" font-size="15" font-weight="700">02 / 触发</text>
+    <text x="582" y="253" fill="#213D32" font-size="21" font-weight="700">什么时候出现？</text>
+    <text x="582" y="279" fill="#718078" font-size="15">点击“取消订单”后</text>
+
+    <text x="762" y="218" fill="#43836A" font-size="15" font-weight="700">03 / 行为</text>
+    <text x="762" y="253" fill="#213D32" font-size="21" font-weight="700">用户能怎么选？</text>
+    <text x="762" y="279" fill="#718078" font-size="15">再想想 / 确认取消</text>
+
+    <text x="942" y="218" fill="#43836A" font-size="15" font-weight="700">04 / 结果</text>
+    <text x="942" y="253" fill="#213D32" font-size="21" font-weight="700">操作后发生什么？</text>
+    <text x="942" y="279" fill="#718078" font-size="15">关闭、提交、反馈结果</text>
+  </g>
+
+  <path d="M465 318v24m0 0h570m-570 0v18m190-18v18m190-18v18m190-18v18" fill="none" stroke="#8FAC9C" stroke-width="3" stroke-linecap="round"/>
+  <g fill="#43836A"><circle cx="465" cy="342" r="5"/><circle cx="655" cy="342" r="5"/><circle cx="845" cy="342" r="5"/><circle cx="1035" cy="342" r="5"/></g>
+  <text x="74" y="397" fill="#183E32" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="17" font-weight="700" letter-spacing="1">把四个答案连起来，就是可执行的界面需求</text>
+  <rect x="72" y="426" width="1056" height="248" rx="24" fill="#FFFFFF" filter="url(#shadow)"/>
+  <rect x="72" y="426" width="12" height="248" rx="6" fill="#E6A34F"/>
+  <text x="112" y="474" fill="#A56A24" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700" letter-spacing="1">更清楚地告诉 AI</text>
+  <text x="112" y="526" fill="#263D33" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600">点击“取消订单”后先不要提交。请弹出确认界面，说明取消后无法恢复，</text>
+  <text x="112" y="565" fill="#263D33" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600">提供“再想想”和“确认取消”两个选项。前者关闭界面，后者提交取消并显示结果。</text>
+  <rect x="112" y="602" width="216" height="38" rx="19" fill="#EAF2EC"/>
+  <text x="134" y="627" fill="#32684F" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700">目标 + 触发 + 行为 + 结果</text>
+  <text x="1047" y="713" fill="#849188" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" text-anchor="end">说准一点 · UI Words</text>
+</svg>

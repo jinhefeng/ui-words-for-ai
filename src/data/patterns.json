@@ -15,7 +15,11 @@
     "contrast": "和 Textarea 的差别主要是内容长度；和 Combobox 的差别是不会提供候选项。",
     "demoId": "text-field",
     "promptExample": "添加带标签的单行文本框，用于填写昵称；清楚显示是否必填，并在失焦后提示输入错误。",
-    "userEffect": "内容保持可见，用户能直接核对；输入完成不等于已经保存。"
+    "userEffect": "内容保持可见，用户能直接核对；输入完成不等于已经保存。",
+    "sourceIds": [
+      "gov-components",
+      "uswds"
+    ]
   },
   {
     "id": "textarea",
@@ -33,13 +37,17 @@
     "contrast": "Text Field 通常只有一行；Textarea 支持多行，并可按内容调整高度。",
     "demoId": "textarea",
     "promptExample": "添加多行说明输入框，显示标签和剩余字符数；在窄屏下保持易读。",
-    "userEffect": "可以换行写长内容，但会占用更多页面空间，需要限制长度或高度。"
+    "userEffect": "可以换行写长内容，但会占用更多页面空间，需要限制长度或高度。",
+    "sourceIds": [
+      "gov-components",
+      "uswds"
+    ]
   },
   {
     "id": "password-field",
     "term": "Password Field",
     "localName": "隐藏内容的密码输入框",
-    "family": "input",
+    "family": "identity",
     "aliases": [
       "密码框",
       "隐藏输入"
@@ -50,7 +58,11 @@
     "contrast": "Text Field 默认显示文本；Password Field 还要考虑显示切换、自动填充和密码管理器支持。",
     "demoId": "password-field",
     "promptExample": "密码框默认隐藏字符，提供可访问的显示/隐藏按钮，并保留密码管理器自动填充。",
-    "userEffect": "旁人不容易看清输入内容；用户也可能输错，最好能主动显示核对。"
+    "userEffect": "旁人不容易看清输入内容；用户也可能输错，最好能主动显示核对。",
+    "sourceIds": [
+      "password",
+      "gov-components"
+    ]
   },
   {
     "id": "search-field",
@@ -68,7 +80,11 @@
     "contrast": "Combobox 把输入和选择候选值结合起来；Search Field 的核心结果是筛选或查找内容。",
     "demoId": "search-field",
     "promptExample": "搜索框输入时过滤当前列表，保留清除按钮，并明确显示无匹配结果的状态。",
-    "userEffect": "输入会缩小结果范围；没有匹配时要让用户知道怎样清除或改词。"
+    "userEffect": "输入会缩小结果范围；没有匹配时要让用户知道怎样清除或改词。",
+    "sourceIds": [
+      "uswds",
+      "apg"
+    ]
   },
   {
     "id": "combobox",
@@ -86,7 +102,11 @@
     "contrast": "Select 通常从现成选项中选；Combobox 提供输入过滤，且可能允许自由值。",
     "demoId": "combobox",
     "promptExample": "提供可键盘操作的可搜索选择框，显示候选项、无匹配状态和当前选中值。",
-    "userEffect": "用户边输入边挑已有候选；要明确是否允许输入候选列表以外的新值。"
+    "userEffect": "用户边输入边挑已有候选；要明确是否允许输入候选列表以外的新值。",
+    "sourceIds": [
+      "uswds",
+      "apg"
+    ]
   },
   {
     "id": "select",
@@ -104,7 +124,11 @@
     "contrast": "Radio Group 同时展示所有选项；Combobox 适合候选很多并需要搜索。",
     "demoId": "select",
     "promptExample": "提供一个有默认提示的单选下拉框，标清必填状态，并显示当前选项。",
-    "userEffect": "选项收起来更省空间，但用户需要点开后才能看清全部选项。"
+    "userEffect": "选项收起来更省空间，但用户需要点开后才能看清全部选项。",
+    "sourceIds": [
+      "uswds",
+      "apg"
+    ]
   },
   {
     "id": "radio-group",
@@ -122,7 +146,11 @@
     "contrast": "Checkbox Group 可多选；Select 会折叠选项以节省空间。",
     "demoId": "radio-group",
     "promptExample": "把少量互斥选项作为单选组同时展示，每项有清晰标签，键盘可以切换。",
-    "userEffect": "所有选项同时可见，方便比较；选项多时页面会变长。"
+    "userEffect": "所有选项同时可见，方便比较；选项多时页面会变长。",
+    "sourceIds": [
+      "uswds",
+      "apg"
+    ]
   },
   {
     "id": "segmented-control",
@@ -140,7 +168,11 @@
     "contrast": "Radio Group 用于填写一项选择；Segmented Control 更像对当前视图/模式的即时切换。",
     "demoId": "segmented-control",
     "promptExample": "用分段切换器在列表和网格两种视图间即时切换，并清楚显示当前选中项。",
-    "userEffect": "点选后立刻切换同一块内容的视图或模式；不适合很复杂的选择。"
+    "userEffect": "点选后立刻切换同一块内容的视图或模式；不适合很复杂的选择。",
+    "sourceIds": [
+      "gov-tabs",
+      "apg"
+    ]
   },
   {
     "id": "checkbox-group",
@@ -158,7 +190,11 @@
     "contrast": "Radio Group 只允许一个；Multi-select 更适合大量选项或紧凑布局。",
     "demoId": "checkbox-group",
     "promptExample": "把可多选的少量标签作为复选框组展示，说明是否至少选一个。",
-    "userEffect": "可同时勾选多项，选项一目了然；选项多时会挤占页面。"
+    "userEffect": "可同时勾选多项，选项一目了然；选项多时会挤占页面。",
+    "sourceIds": [
+      "uswds",
+      "apg"
+    ]
   },
   {
     "id": "multi-select",
@@ -176,7 +212,11 @@
     "contrast": "Checkbox Group 同时展示全部选项；Combobox 的重点是输入搜索，Multi-select 的重点是多个已选值。",
     "demoId": "multi-select",
     "promptExample": "提供可搜索的多选选择器，把已选值显示为可移除标签，并支持键盘操作。",
-    "userEffect": "多个已选值可以一起管理；候选多时需要搜索和方便移除的已选标签。"
+    "userEffect": "多个已选值可以一起管理；候选多时需要搜索和方便移除的已选标签。",
+    "sourceIds": [
+      "uswds",
+      "apg"
+    ]
   },
   {
     "id": "checkbox",
@@ -194,7 +234,11 @@
     "contrast": "Switch 常表示立即生效的开关；Checkbox 常属于待提交的表单选择。",
     "demoId": "checkbox",
     "promptExample": "在表单中添加未默认勾选的同意复选框，并在提交前验证是否已选择。",
-    "userEffect": "表达一个待提交的选择；未点保存前，用户通常不应以为设置已生效。"
+    "userEffect": "表达一个待提交的选择；未点保存前，用户通常不应以为设置已生效。",
+    "sourceIds": [
+      "uswds",
+      "apg"
+    ]
   },
   {
     "id": "switch",
@@ -212,7 +256,11 @@
     "contrast": "Checkbox 常用于表单提交；Switch 更像可立即生效的二态设置。",
     "demoId": "switch",
     "promptExample": "添加一个有明确开/关说明的通知开关，切换后立即更新状态，并通过屏幕阅读器播报。",
-    "userEffect": "当前开关状态一眼可见；用户会期待切换后马上生效。"
+    "userEffect": "当前开关状态一眼可见；用户会期待切换后马上生效。",
+    "sourceIds": [
+      "uswds",
+      "apg"
+    ]
   },
   {
     "id": "button",
@@ -230,7 +278,11 @@
     "contrast": "Link 用于导航；Button 用于执行动作。",
     "demoId": "button",
     "promptExample": "用有明确动词的按钮触发保存操作，提交期间禁用重复点击并反馈结果。",
-    "userEffect": "触发当前页面中的操作；等待时需防止重复提交并反馈结果。"
+    "userEffect": "触发当前页面中的操作；等待时需防止重复提交并反馈结果。",
+    "sourceIds": [
+      "gov-components",
+      "apg"
+    ]
   },
   {
     "id": "link",
@@ -248,7 +300,11 @@
     "contrast": "Button 执行操作；Link 导航到一个地址或位置。",
     "demoId": "link",
     "promptExample": "将“查看订单详情”呈现为有清楚目的地的链接，键盘聚焦时显示焦点样式。",
-    "userEffect": "明确带用户前往某个页面或位置；浏览器返回和复制链接等行为也更自然。"
+    "userEffect": "明确带用户前往某个页面或位置；浏览器返回和复制链接等行为也更自然。",
+    "sourceIds": [
+      "gov-nav",
+      "apg"
+    ]
   },
   {
     "id": "toast",
@@ -266,7 +322,11 @@
     "contrast": "Toast 会自动消失；Banner 持续留在页面中；Alert Dialog 会阻断并要求选择。",
     "demoId": "toast",
     "promptExample": "操作成功后在页面底部显示简短 轻提示，约 3 秒后消失，不阻断当前操作。",
-    "userEffect": "只短暂确认结果，不挡住当前任务；重要错误可能消失得太快。"
+    "userEffect": "只短暂确认结果，不挡住当前任务；重要错误可能消失得太快。",
+    "sourceIds": [
+      "uswds",
+      "gov-notify"
+    ]
   },
   {
     "id": "inline-status",
@@ -284,7 +344,11 @@
     "contrast": "Toast 自动消失；Inline Status 留在相关区域并保持上下文。",
     "demoId": "inline-status",
     "promptExample": "在资料表单下方显示持续可见的保存状态，文字和图标同时表达成功。",
-    "userEffect": "结果一直留在相关内容附近；会占一点空间，但用户之后仍能核对。"
+    "userEffect": "结果一直留在相关内容附近；会占一点空间，但用户之后仍能核对。",
+    "sourceIds": [
+      "gov-notify",
+      "status"
+    ]
   },
   {
     "id": "banner",
@@ -302,7 +366,11 @@
     "contrast": "Toast 短暂且轻；Banner 持续可见；Inline Validation 贴着出错字段。",
     "demoId": "banner",
     "promptExample": "在页面顶部显示可关闭的网络异常横幅，并提供重试操作。",
-    "userEffect": "全页都能看到重要提醒；提醒持续时会占据页面空间。"
+    "userEffect": "全页都能看到重要提醒；提醒持续时会占据页面空间。",
+    "sourceIds": [
+      "gov-notify",
+      "uswds"
+    ]
   },
   {
     "id": "inline-validation",
@@ -320,7 +388,11 @@
     "contrast": "Error Summary 汇总多个错误并链接字段；Tooltip 不适合作为错误信息的唯一呈现方式。",
     "demoId": "inline-validation",
     "promptExample": "邮箱格式不正确时，在邮箱字段下显示原因和修正建议，并将错误关联到输入框。",
-    "userEffect": "用户在出错字段旁立即看到原因和改法；适合能就地修正的问题。"
+    "userEffect": "用户在出错字段旁立即看到原因和改法；适合能就地修正的问题。",
+    "sourceIds": [
+      "gov-error",
+      "errors"
+    ]
   },
   {
     "id": "error-summary",
@@ -338,7 +410,11 @@
     "contrast": "Inline Validation 解释单字段错误；Error Summary 提供全表单概览和导航。",
     "demoId": "error-summary",
     "promptExample": "表单提交失败时，在表单顶部列出所有错误；点击每项后将焦点移到对应字段。",
-    "userEffect": "多项错误能集中浏览并跳到对应位置；仍需在具体字段旁解释如何改。"
+    "userEffect": "多项错误能集中浏览并跳到对应位置；仍需在具体字段旁解释如何改。",
+    "sourceIds": [
+      "gov-error",
+      "errors"
+    ]
   },
   {
     "id": "modal-dialog",
@@ -356,7 +432,10 @@
     "contrast": "Drawer 从屏幕边缘展开；Alert Dialog 专用于重要后果和决定。",
     "demoId": "modal-dialog",
     "promptExample": "打开居中的模态对话框编辑昵称；背景不可操作，提供取消和保存，支持 Esc 关闭并正确管理焦点。",
-    "userEffect": "用户集中处理一个小任务，背景暂时不能操作；任务太长时会打断原有工作。"
+    "userEffect": "用户集中处理一个小任务，背景暂时不能操作；任务太长时会打断原有工作。",
+    "sourceIds": [
+      "apg"
+    ]
   },
   {
     "id": "alert-dialog",
@@ -374,7 +453,10 @@
     "contrast": "Modal Dialog 可承载一般任务；Alert Dialog 聚焦重要后果和明确选择。",
     "demoId": "alert-dialog",
     "promptExample": "删除前显示不可恢复的后果，提供取消和危险操作按钮，默认焦点落在取消。",
-    "userEffect": "重要后果先被看见再作决定；每次都用确认框会让普通操作变慢。"
+    "userEffect": "重要后果先被看见再作决定；每次都用确认框会让普通操作变慢。",
+    "sourceIds": [
+      "apg"
+    ]
   },
   {
     "id": "drawer",
@@ -392,7 +474,10 @@
     "contrast": "Modal Dialog 位于页面中央；Drawer 从边缘展开，适合较长的上下文内容。",
     "demoId": "drawer",
     "promptExample": "点击列表行后从右侧打开详情抽屉，保留列表上下文；支持遮罩、关闭按钮和 Esc 收起。",
-    "userEffect": "详情从侧边进入，原列表仍可见；面板会盖住或压缩部分页面。"
+    "userEffect": "详情从侧边进入，原列表仍可见；面板会盖住或压缩部分页面。",
+    "sourceIds": [
+      "apg"
+    ]
   },
   {
     "id": "popover",
@@ -410,7 +495,11 @@
     "contrast": "Menu 提供一组操作；Popover 可包含更丰富的相关信息；Tooltip 只显示简短解释。",
     "demoId": "popover",
     "promptExample": "点击头像后在旁边显示账户信息和设置入口，点击外部或按 Esc 关闭。",
-    "userEffect": "补充内容靠近触发按钮；内容过长或靠近屏幕边缘时可能难读。"
+    "userEffect": "补充内容靠近触发按钮；内容过长或靠近屏幕边缘时可能难读。",
+    "sourceIds": [
+      "apg",
+      "uswds"
+    ]
   },
   {
     "id": "menu",
@@ -428,7 +517,10 @@
     "contrast": "Popover 是容器模式；Menu 是一组可键盘导航的操作项。",
     "demoId": "menu",
     "promptExample": "点击更多操作后显示可键盘导航的菜单项，选择操作或按 Esc 后关闭。",
-    "userEffect": "集中提供一组操作并支持键盘选择；它适合动作列表，不适合塞长篇内容。"
+    "userEffect": "集中提供一组操作并支持键盘选择；它适合动作列表，不适合塞长篇内容。",
+    "sourceIds": [
+      "apg"
+    ]
   },
   {
     "id": "bottom-sheet",
@@ -446,7 +538,10 @@
     "contrast": "Drawer 常从侧边展开；Bottom Sheet 从底部展开，适合移动端操作。",
     "demoId": "bottom-sheet",
     "promptExample": "移动端点分享后从底部展开分享渠道；支持关闭按钮、遮罩和 Esc。",
-    "userEffect": "手机上从底部展开，按钮更容易触达；面板可能遮住页面下方内容。"
+    "userEffect": "手机上从底部展开，按钮更容易触达；面板可能遮住页面下方内容。",
+    "sourceIds": [
+      "apg"
+    ]
   },
   {
     "id": "tabs",
@@ -464,7 +559,11 @@
     "contrast": "Accordion 可同时展开多个区块；Tabs 一次显示一个内容面板。",
     "demoId": "tabs",
     "promptExample": "用三个并列标签切换同一层级的内容面板，保持键盘方向键导航和当前选中状态。",
-    "userEffect": "只显示当前标签对应的内容，切换很快；用户一次看不到其他标签内容。"
+    "userEffect": "只显示当前标签对应的内容，切换很快；用户一次看不到其他标签内容。",
+    "sourceIds": [
+      "gov-tabs",
+      "apg"
+    ]
   },
   {
     "id": "accordion",
@@ -482,7 +581,11 @@
     "contrast": "Tabs 同时只显示一个面板；Accordion 可以让多个区块展开。",
     "demoId": "accordion",
     "promptExample": "把 FAQ 问题做成可展开面板，按钮状态可访问，键盘可逐项展开和收起。",
-    "userEffect": "内容按需展开，也可同时查看多个区块；长页面可能变得更长。"
+    "userEffect": "内容按需展开，也可同时查看多个区块；长页面可能变得更长。",
+    "sourceIds": [
+      "gov-accordion",
+      "apg-disclosure"
+    ]
   },
   {
     "id": "spinner",
@@ -500,7 +603,10 @@
     "contrast": "Skeleton 预览将出现的内容布局；Progress 显示可测量的完成比例。",
     "demoId": "spinner",
     "promptExample": "提交按钮等待时显示加载指示和“正在保存”，同时防止重复提交。",
-    "userEffect": "告诉用户正在等；不知道还要多久时不应伪造百分比。"
+    "userEffect": "告诉用户正在等；不知道还要多久时不应伪造百分比。",
+    "sourceIds": [
+      "uswds"
+    ]
   },
   {
     "id": "skeleton",
@@ -518,7 +624,10 @@
     "contrast": "Spinner 表示等待；Skeleton 让用户提前看到布局；Progress 显示完成比例。",
     "demoId": "skeleton",
     "promptExample": "加载列表时展示与真实卡片布局一致的骨架占位，减少页面跳动。",
-    "userEffect": "先展示将要出现的页面形状；真实布局应尽量贴近占位，避免跳动。"
+    "userEffect": "先展示将要出现的页面形状；真实布局应尽量贴近占位，避免跳动。",
+    "sourceIds": [
+      "uswds"
+    ]
   },
   {
     "id": "progress",
@@ -536,7 +645,10 @@
     "contrast": "Spinner 表示未知等待；Progress 显示可测量的完成状态。",
     "demoId": "progress",
     "promptExample": "上传文件时显示已完成百分比和取消操作，并在结束后播报完成状态。",
-    "userEffect": "显示真实完成比例或阶段；只有进度可测量时才应给百分比。"
+    "userEffect": "显示真实完成比例或阶段；只有进度可测量时才应给百分比。",
+    "sourceIds": [
+      "uswds"
+    ]
   },
   {
     "id": "empty-state",
@@ -554,7 +666,11 @@
     "contrast": "No Results 指搜索或筛选后没有匹配；Empty State 引导首次创建或开始使用。",
     "demoId": "empty-state",
     "promptExample": "首次没有项目时解释原因，展示“创建第一个项目”主操作。",
-    "userEffect": "说明为什么没有内容并给出开始入口；不能把搜索无结果误当成第一次使用。"
+    "userEffect": "说明为什么没有内容并给出开始入口；不能把搜索无结果误当成第一次使用。",
+    "sourceIds": [
+      "uswds",
+      "gov-components"
+    ]
   },
   {
     "id": "no-results",
@@ -572,7 +688,11 @@
     "contrast": "Empty State 引导用户首次创建；No Results 需要调整查询或清除筛选。",
     "demoId": "no-results",
     "promptExample": "搜索无结果时显示当前关键词，并提供清除搜索和查看全部项目的操作。",
-    "userEffect": "解释当前条件没有匹配，并提供恢复办法；不要让用户误以为数据已被删除。"
+    "userEffect": "解释当前条件没有匹配，并提供恢复办法；不要让用户误以为数据已被删除。",
+    "sourceIds": [
+      "uswds",
+      "gov-components"
+    ]
   },
   {
     "id": "tooltip",
@@ -591,13 +711,16 @@
     "contrast": "操作菜单提供可执行选项；信息卡承载更多内容；简短悬停说明不应成为唯一的信息来源。",
     "userEffect": "说明只在需要时出现，页面更简洁；手机和键盘用户也必须能找到同样的信息。",
     "demoId": "tooltip",
-    "promptExample": "把鼠标移到帮助图标或用键盘聚焦时，显示一句简短说明；在手机上也提供可点击查看的方式。"
+    "promptExample": "把鼠标移到帮助图标或用键盘聚焦时，显示一句简短说明；在手机上也提供可点击查看的方式。",
+    "sourceIds": [
+      "uswds"
+    ]
   },
   {
     "id": "date-input",
     "term": "Date Input",
     "localName": "分段填写日期",
-    "family": "input",
+    "family": "datetime",
     "aliases": [
       "日期字段",
       "日期输入",
@@ -609,13 +732,17 @@
     "contrast": "和日历选择器相比，分段日期输入适合熟悉的日期；日期字段要清楚提示格式，并允许键盘直接输入。",
     "demoId": "date-input",
     "promptExample": "为已知日期提供年月日分段输入，使用清晰的中文标签和格式示例；允许用户按键盘顺序填写，不要自动跳到下一个字段。",
-    "userEffect": "可直接输入熟悉的日期，不必翻日历；用户需要知道各字段顺序和日期格式。"
+    "userEffect": "可直接输入熟悉的日期，不必翻日历；用户需要知道各字段顺序和日期格式。",
+    "sourceIds": [
+      "date",
+      "uswds"
+    ]
   },
   {
     "id": "date-picker",
     "term": "Date Picker",
     "localName": "通过日历挑选日期",
-    "family": "input",
+    "family": "datetime",
     "aliases": [
       "日历选择器",
       "日历控件",
@@ -627,13 +754,17 @@
     "contrast": "和分段日期输入相比，日历选择器帮助比较日期上下文；仍要允许键盘输入，并提示日期格式。",
     "demoId": "date-picker",
     "promptExample": "提供单日期日历选择器，同时允许直接键盘输入；标明日期格式、不可选日期和当前选中值，不要选中后自动提交。",
-    "userEffect": "能看到日期与星期的关系，安排时间更直观；日历不应成为键盘录入的唯一方式。"
+    "userEffect": "能看到日期与星期的关系，安排时间更直观；日历不应成为键盘录入的唯一方式。",
+    "sourceIds": [
+      "date",
+      "uswds"
+    ]
   },
   {
     "id": "date-range-picker",
     "term": "Date Range Picker",
     "localName": "选择开始和结束日期",
-    "family": "input",
+    "family": "datetime",
     "aliases": [
       "日期范围选择器",
       "起止日期",
@@ -645,13 +776,17 @@
     "contrast": "两个独立日期字段可录入熟悉日期；范围选择器需要说明起止顺序、跨月行为和区间边界。",
     "demoId": "date-range-picker",
     "promptExample": "让用户选择开始和结束日期，清楚标示先后顺序与包含边界；保留直接输入方式，并在结束早于开始时给出明确错误。",
-    "userEffect": "可以一次检查完整区间；开始和结束日期的关系需要清楚表达。"
+    "userEffect": "可以一次检查完整区间；开始和结束日期的关系需要清楚表达。",
+    "sourceIds": [
+      "date",
+      "uswds"
+    ]
   },
   {
     "id": "file-upload",
     "term": "File Upload",
     "localName": "选择并上传文件",
-    "family": "input",
+    "family": "documents",
     "aliases": [
       "文件上传",
       "附件上传",
@@ -663,7 +798,11 @@
     "contrast": "文件选择控件负责让用户选文件；上传进度、校验、失败重试和保存位置还需要单独设计。",
     "demoId": "file-upload",
     "promptExample": "提供原生可键盘操作的文件选择控件，说明允许的格式、大小与是否可多选；显示所选文件名，并处理校验错误、上传进度和失败重试。",
-    "userEffect": "用户可以附上本地文件；必须事先知道格式和大小限制，失败时也要知道如何恢复。"
+    "userEffect": "用户可以附上本地文件；必须事先知道格式和大小限制，失败时也要知道如何恢复。",
+    "sourceIds": [
+      "gov-components",
+      "uswds"
+    ]
   },
   {
     "id": "character-count",
@@ -681,7 +820,10 @@
     "contrast": "计数提示辅助用户控制输入长度，真正提交时仍要验证并保留已填写内容；不要只靠实时数字报错。",
     "demoId": "character-count",
     "promptExample": "仅在确有内容长度上限时显示可访问的剩余字符数；输入超限时保留原文，并在提交时给出具体可修正的错误。",
-    "userEffect": "用户能预估剩余长度；界面应解释限制原因，且不能悄悄截断输入。"
+    "userEffect": "用户能预估剩余长度；界面应解释限制原因，且不能悄悄截断输入。",
+    "sourceIds": [
+      "uswds"
+    ]
   },
   {
     "id": "data-table",
@@ -699,7 +841,11 @@
     "contrast": "普通 HTML 表格表达静态行列关系；只有需要复杂单元格键盘导航或编辑时，才考虑交互式 grid。",
     "demoId": "data-table",
     "promptExample": "用语义化 HTML 表格展示同类记录，添加表格标题和列标题；移动端明确如何查看溢出列，不要为了外观随意加入 grid 键盘行为。",
-    "userEffect": "同列信息对齐，方便比较；列数过多时应精简字段或提供其他查看方式。"
+    "userEffect": "同列信息对齐，方便比较；列数过多时应精简字段或提供其他查看方式。",
+    "sourceIds": [
+      "uswds",
+      "apg"
+    ]
   },
   {
     "id": "collection-list",
@@ -718,7 +864,11 @@
     "contrast": "表格让同一字段对齐，便于横向比较；Collection 以标题和短摘要组织相关条目，适合逐项阅读。",
     "demoId": "collection-list",
     "promptExample": "用紧凑列表呈现相关内容，每项提供可访问的标题链接、简短说明和必要元数据；控制首屏条目数量，并为更大的结果集提供搜索或分页。",
-    "userEffect": "能快速扫读多条相关内容并打开详情；列表不宜无上限地变长。"
+    "userEffect": "能快速扫读多条相关内容并打开详情；列表不宜无上限地变长。",
+    "sourceIds": [
+      "uswds",
+      "apg"
+    ]
   },
   {
     "id": "pagination",
@@ -736,7 +886,10 @@
     "contrast": "筛选和排序应作用于完整结果集，然后回到第一页；分页与任务流程中的“下一步”不是一回事。",
     "demoId": "pagination",
     "promptExample": "对较大的结果集提供清楚的上一页、下一页和当前页提示；筛选或排序后从第一页显示，保留用户已选的筛选条件。",
-    "userEffect": "每次只需浏览一段结果，页面更轻；用户要知道总量、当前页和如何继续。"
+    "userEffect": "每次只需浏览一段结果，页面更轻；用户要知道总量、当前页和如何继续。",
+    "sourceIds": [
+      "gov-pagination"
+    ]
   },
   {
     "id": "filter-controls",
@@ -754,7 +907,10 @@
     "contrast": "搜索匹配文本内容；筛选按结构化属性限制结果。组合使用时应展示当前条件，并提供清除方式。",
     "demoId": "filter-controls",
     "promptExample": "让用户按可理解的属性筛选记录，清楚显示已选条件和结果数量，并提供逐项移除及清空筛选；筛选作用于整个结果集。",
-    "userEffect": "可以逐步缩小查看范围；条件过多时要帮助用户理解哪些条件正在生效。"
+    "userEffect": "可以逐步缩小查看范围；条件过多时要帮助用户理解哪些条件正在生效。",
+    "sourceIds": [
+      "uswds"
+    ]
   },
   {
     "id": "sort-control",
@@ -772,7 +928,10 @@
     "contrast": "排序只改变顺序，不减少结果数量；表头排序适合对表格列直接比较，独立排序控件更适合列表。",
     "demoId": "sort-control",
     "promptExample": "提供明确的排序字段和方向，显示当前排序方式；切换排序后保留搜索与筛选条件，并从结果集第一页开始。",
-    "userEffect": "重要记录可以排在前面；界面要让用户看出当前依据和方向。"
+    "userEffect": "重要记录可以排在前面；界面要让用户看出当前依据和方向。",
+    "sourceIds": [
+      "uswds"
+    ]
   },
   {
     "id": "step-indicator",
@@ -790,7 +949,10 @@
     "contrast": "步骤指示器补充线性流程的上一页/下一步导航，不是独立导航，也不能代替当前页面标题。",
     "demoId": "step-indicator",
     "promptExample": "在线性、多页面且至少包含三个高层阶段的任务中标明已完成、当前和后续步骤；另设上一页/下一步控件，保留前页输入，并为当前页提供标题。",
-    "userEffect": "用户知道走到哪里以及还剩什么；步骤名称应表达任务内容而不只写数字。"
+    "userEffect": "用户知道走到哪里以及还剩什么；步骤名称应表达任务内容而不只写数字。",
+    "sourceIds": [
+      "uswds"
+    ]
   },
   {
     "id": "task-list",
@@ -808,7 +970,11 @@
     "contrast": "任务清单展示可独立处理的工作项；步骤指示器展示单个线性流程当前走到哪一步。",
     "demoId": "task-list",
     "promptExample": "列出要完成的任务、当前状态和可返回的入口；区分已完成、进行中与尚未开始，不把状态只用颜色表示。",
-    "userEffect": "可以先看到全局待办并自行返回；任务之间关系和完成条件必须清晰。"
+    "userEffect": "可以先看到全局待办并自行返回；任务之间关系和完成条件必须清晰。",
+    "sourceIds": [
+      "gov-task-list",
+      "gov-task"
+    ]
   },
   {
     "id": "breadcrumb",
@@ -826,7 +992,11 @@
     "contrast": "面包屑表达站点层级，不记录用户实际浏览历史；它通常是辅助导航，不替代主导航。",
     "demoId": "breadcrumb",
     "promptExample": "在深层内容页显示可访问的层级导航，将父级位置作为链接，并标明当前位置；同时保留清楚的页面标题和主导航。",
-    "userEffect": "即使直接进入深层页面，用户也能看出它属于哪里；层级名称应与页面标题一致。"
+    "userEffect": "即使直接进入深层页面，用户也能看出它属于哪里；层级名称应与页面标题一致。",
+    "sourceIds": [
+      "gov-nav",
+      "apg"
+    ]
   },
   {
     "id": "status-tag",
@@ -844,7 +1014,11 @@
     "contrast": "状态标签附着于某条对象并可持续查看；轻提示反馈刚发生的事件，页面状态则描述当前区域整体情况。",
     "demoId": "status-tag",
     "promptExample": "在记录附近显示简短、稳定的状态文字；使用文字传达状态，不要只依赖颜色，并保证相同状态在不同页面叫法一致。",
-    "userEffect": "扫视时能快速识别记录状态；颜色只能辅助，不能取代可读标签。"
+    "userEffect": "扫视时能快速识别记录状态；颜色只能辅助，不能取代可读标签。",
+    "sourceIds": [
+      "gov-notify",
+      "uswds"
+    ]
   },
   {
     "id": "summary-list",
@@ -862,6 +1036,514 @@
     "contrast": "摘要清单用于复核已有答案；表格用于比较一组记录；确认对话框只适合需要打断并确认的重要后果。",
     "demoId": "summary-list",
     "promptExample": "提交前按字段和值列出用户刚填写的信息，给每项提供明确的修改入口；确认后保留已填内容并显示结果。",
-    "userEffect": "用户能在最终提交前检查关键细节；修改入口应回到对应字段而不清空其他答案。"
+    "userEffect": "用户能在最终提交前检查关键细节；修改入口应回到对应字段而不清空其他答案。",
+    "sourceIds": [
+      "gov-check",
+      "check"
+    ]
+  },
+  {
+    "id": "access-code",
+    "term": "Access code input",
+    "localName": "受邀访问码输入",
+    "family": "identity",
+    "aliases": [
+      "邀请码输入",
+      "访问代码"
+    ],
+    "summary": "输入服务方发给用户的一段代码，以进入受限服务或特定办理任务。",
+    "useWhen": "用户已收到服务专用访问码，必须用它进入某个调查、申请或受邀任务时。",
+    "avoidWhen": "用户要创建长期账户，或访问码被误当成身份认证的唯一依据时。",
+    "contrast": "访问码由服务方发给用户，用于进入特定任务；密码由用户创建和管理。",
+    "demoId": "access-code",
+    "promptExample": "说明访问码用途和安全处理方式；允许粘贴；明确代码长度；错误时给出重试或重新申请入口。",
+    "userEffect": "用户能知道代码从哪来、为什么需要；无效时也知道下一步。",
+    "sourceIds": [
+      "access-codes",
+      "password"
+    ]
+  },
+  {
+    "id": "account-creation",
+    "term": "Create accounts",
+    "localName": "创建账户流程",
+    "family": "identity",
+    "aliases": [
+      "注册流程",
+      "新用户注册"
+    ],
+    "summary": "帮助用户判断是否需要账户，并清楚地区分创建账户和登录已有账户。",
+    "useWhen": "用户需要定期访问或更新自己的服务数据，账户确实能提供持续价值时。",
+    "avoidWhen": "一次性办理也能安全完成，或账户会在用户尚未理解服务前增加不必要门槛时。",
+    "contrast": "创建账户是建立新凭据；登录是使用已有凭据。先让用户了解服务，再在必要时要求账户。",
+    "demoId": "account-creation",
+    "promptExample": "先说明为什么要创建账户，再提供清晰的创建步骤；把创建账户与登录分开，并避免重复填写信息。",
+    "userEffect": "用户明白自己是在创建新账户，也知道服务为什么需要它。",
+    "sourceIds": [
+      "account",
+      "gov-create-accounts"
+    ]
+  },
+  {
+    "id": "email-confirmation",
+    "term": "Email confirmation loop",
+    "localName": "确认邮箱地址",
+    "family": "identity",
+    "aliases": [
+      "邮箱验证",
+      "验证邮箱"
+    ],
+    "summary": "通过邮件中的链接或代码，确认用户当前能够访问该邮箱。",
+    "useWhen": "邮箱是密码重置或敏感通知的必要渠道，且填错会影响账户安全或服务访问时。",
+    "avoidWhen": "邮箱只是一般联系信息，或产品把邮箱确认误当成身份验证时。",
+    "contrast": "确认邮箱只能证明用户当时能访问该邮箱，不能单独证明现实身份。",
+    "demoId": "email-confirmation",
+    "promptExample": "说明确认邮件发往哪个地址；允许在合理情况下重发或更正；解释链接失效后如何继续。",
+    "userEffect": "用户知道要去哪里完成确认，回来后不会丢失原来的服务进度。",
+    "sourceIds": [
+      "gov-confirm-email",
+      "email"
+    ]
+  },
+  {
+    "id": "phone-verification",
+    "term": "Confirm a phone number",
+    "localName": "短信验证码验证手机号",
+    "family": "identity",
+    "aliases": [
+      "手机验证码",
+      "短信验证"
+    ],
+    "summary": "向用户提供的手机号发送短期安全码，再让用户输入以确认对该号码的访问。",
+    "useWhen": "用户登录或执行风险较高的账户操作，需要额外证明当前可访问该手机号时。",
+    "avoidWhen": "只是收集一般联系电话，或仅凭短信验证码就宣称完成了完整身份核验时。",
+    "contrast": "短信代码证明用户当前能接收该号码的短信；不要把它等同于身份认证。",
+    "demoId": "phone-verification",
+    "promptExample": "说明验证码用途和有效时限；允许重发并解释未收到时的处理；代码过期或错误时给出清楚恢复方式。",
+    "userEffect": "用户明白代码发到哪里、能做什么；号码输错时仍可修正。",
+    "sourceIds": [
+      "gov-confirm-phone",
+      "phone"
+    ]
+  },
+  {
+    "id": "session-expiry",
+    "term": "Extend a session",
+    "localName": "会话即将到期提醒",
+    "family": "identity",
+    "aliases": [
+      "登录快过期",
+      "延长登录"
+    ],
+    "summary": "在服务准备结束登录状态前提醒用户，并给出继续或安全退出的选择。",
+    "useWhen": "用户正在处理敏感信息或较长任务，超时会导致内容丢失或需要重新验证时。",
+    "avoidWhen": "没有会话时限，或提醒本身会打断正在进行的高优先级操作时。",
+    "contrast": "即将到期时可以让用户延长；已过期时应说明重新登录或恢复进度的方法。",
+    "demoId": "session-expiry",
+    "promptExample": "在到期前说明剩余时间和可选动作；给出延长会话按钮；过期时避免暴露或丢失未保存信息。",
+    "userEffect": "用户能预期何时退出，并知道继续办理或重新进入的路径。",
+    "sourceIds": [
+      "session",
+      "apg"
+    ]
+  },
+  {
+    "id": "save-and-exit",
+    "term": "Save and sign out",
+    "localName": "保存进度并退出",
+    "family": "identity",
+    "aliases": [
+      "先保存退出",
+      "之后再继续"
+    ],
+    "summary": "保存已完成内容，让用户离开后可以在之后安全地继续办理。",
+    "useWhen": "任务较长、用户可能需要查找材料，且服务支持可靠恢复时。",
+    "avoidWhen": "未说明保存范围、恢复方式或安全退出条件时。",
+    "contrast": "自动保存只说明数据何时写入；保存并退出还要解释退出方式和如何回来。",
+    "demoId": "save-and-exit",
+    "promptExample": "明确告诉用户已保存哪些内容、之后如何继续；让用户主动结束当前会话。",
+    "userEffect": "用户可以暂停办理，之后知道怎样找回进度。",
+    "sourceIds": [
+      "save",
+      "account"
+    ]
+  },
+  {
+    "id": "file-list",
+    "term": "Uploaded file list",
+    "localName": "已上传材料清单",
+    "family": "documents",
+    "aliases": [
+      "附件清单",
+      "已上传文件"
+    ],
+    "summary": "把已选或已上传的材料逐项列出，显示文件名称和当前处理状态。",
+    "useWhen": "用户需要核对多个文件，或需要替换、移除单个错误文件时。",
+    "avoidWhen": "只有一份短文件且无需查看上传结果时。",
+    "contrast": "清单帮助核对已选材料；任务清单则管理要完成的步骤，不能用一个替代另一个。",
+    "demoId": "file-list",
+    "promptExample": "逐项列出文件名和处理状态，并为每份材料提供明确的查看、替换或移除操作。",
+    "userEffect": "用户能确认哪些文件已收到，并修正单个文件而不用重新开始。",
+    "sourceIds": [
+      "gov-components",
+      "uswds",
+      "gov-task-list"
+    ],
+    "sourceNote": "本站依据文件上传、材料集合与任务清单指南归纳的教学组合，并非官方命名的独立组件。"
+  },
+  {
+    "id": "document-download",
+    "term": "Downloadable file link",
+    "localName": "带文件信息的下载链接",
+    "family": "documents",
+    "aliases": [
+      "下载回执",
+      "下载证明文件"
+    ],
+    "summary": "在下载入口附近说明文件用途、格式或大小，帮助用户判断要打开或保存的材料。",
+    "useWhen": "服务生成了回执、通知或指南文件，用户需要知道下载内容和格式时。",
+    "avoidWhen": "下载文件内容或身份验证要求不明确，或用户其实要浏览网页信息时。",
+    "contrast": "下载链接取得一个文件；普通页面链接则在服务里继续浏览。",
+    "demoId": "document-download",
+    "promptExample": "在链接文本中写清文件用途；可用时补充格式和大小；说明下载后要做什么。",
+    "userEffect": "用户点击前能预期拿到什么文件以及接下来如何使用。",
+    "sourceIds": [
+      "guide",
+      "uswds"
+    ],
+    "sourceNote": "本站依据内容组织与文件链接指引归纳的教学做法；具体格式、大小和可下载性需由服务确认。"
+  },
+  {
+    "id": "duration-input",
+    "term": "Duration input",
+    "localName": "时长分段输入",
+    "family": "datetime",
+    "aliases": [
+      "填持续时间",
+      "用了多久"
+    ],
+    "summary": "按时间单位分开询问持续多久，例如年、月、天或小时。",
+    "useWhen": "用户记得持续时间，而不是明确的开始和结束日期时。",
+    "avoidWhen": "用户必须提供某个具体日期或一段有确定起止日的时间范围时。",
+    "contrast": "时长表达经过多久；日期范围表达从哪天开始到哪天结束。",
+    "demoId": "duration-input",
+    "promptExample": "按业务实际需要选择时间单位；清楚说明每个单位；检查不合理组合并给出具体错误提示。",
+    "userEffect": "用户不必把持续时间反算成日期，填写结构也更易核对。",
+    "sourceIds": [
+      "duration"
+    ]
+  },
+  {
+    "id": "time-picker",
+    "term": "Time picker",
+    "localName": "预约时间选择",
+    "family": "datetime",
+    "aliases": [
+      "预约时刻选择",
+      "时间下拉选择"
+    ],
+    "summary": "在明确可选时刻中选择预约时间，并支持直接输入搜索候选项。",
+    "useWhen": "服务只接受一组固定、规则的未来预约时段，例如每半小时一个时段时。",
+    "avoidWhen": "用户回忆历史上的准确时刻，或可选时间并非固定间隔时。",
+    "contrast": "固定候选时段便于预约；自由输入更适合记录实际发生的时间。",
+    "demoId": "time-picker",
+    "promptExample": "明确可预约的时间范围和间隔；为控件提供标签；不要选中时间后自动提交。",
+    "userEffect": "用户能快速找到可选时段，也能看清时间所代表的日期与时区语境。",
+    "sourceIds": [
+      "uswds-time-picker"
+    ]
+  },
+  {
+    "id": "feedback-form",
+    "term": "Feedback form",
+    "localName": "服务反馈表单",
+    "family": "communication",
+    "aliases": [
+      "意见反馈表",
+      "评价服务"
+    ],
+    "summary": "收集用户对已完成服务的评价、问题或改进建议。",
+    "useWhen": "服务团队需要了解用户体验，且能说明反馈是否会得到回复时。",
+    "avoidWhen": "用户要处理一个具体未解决案件，或服务没有人负责查看反馈时。",
+    "contrast": "反馈通常是对服务的意见；联系表单用于请求帮助或解决具体问题。",
+    "demoId": "feedback-form",
+    "promptExample": "先说明反馈用途；只问必要的问题；把可选意见与必须提供的信息分清。",
+    "userEffect": "用户知道意见会发给谁、是否会收到回复，以及怎样描述体验。",
+    "sourceIds": [
+      "feedback",
+      "webform"
+    ]
+  },
+  {
+    "id": "contact-form",
+    "term": "Contact a service team",
+    "localName": "联系服务团队",
+    "family": "communication",
+    "aliases": [
+      "联系客服",
+      "联系服务人员"
+    ],
+    "summary": "说明可联系服务团队的渠道、开放时间和预期响应时间。",
+    "useWhen": "用户可能需要人工帮助，且服务能够维护渠道与响应承诺时。",
+    "avoidWhen": "联系方式会过时，或用户更需要立即自助解决的问题时。",
+    "contrast": "联系信息说明如何求助；反馈表单收集服务意见；两者的后续责任不同。",
+    "demoId": "contact-form",
+    "promptExample": "按用户需要排列电话、邮箱或在线消息渠道；说明开放时间、费用和预计回复时间。",
+    "userEffect": "用户能选择合适渠道，并知道什么时候能收到回应。",
+    "sourceIds": [
+      "gov-contact",
+      "webform"
+    ]
+  },
+  {
+    "id": "message-thread",
+    "term": "Send and reply to messages",
+    "localName": "持续往返的消息对话",
+    "family": "communication",
+    "aliases": [
+      "客服聊天记录",
+      "来回发消息"
+    ],
+    "summary": "把多轮消息放在同一会话中，让用户和服务人员都能查看前文和回复状态。",
+    "useWhen": "用户与服务团队需要围绕同一问题持续沟通，并保留对话上下文时。",
+    "avoidWhen": "只需要广播一次状态通知，或没有明确的回复负责人时。",
+    "contrast": "消息线程保留双向沟通；通知只提醒发生了变化，应提供返回对话的位置。",
+    "demoId": "message-thread",
+    "promptExample": "在同一问题下显示消息顺序、发送者和时间；区分已读或待回复状态；提供清楚的继续回复入口。",
+    "userEffect": "用户无需重新解释问题，也能知道对方是否回复。",
+    "sourceIds": [
+      "messages"
+    ]
+  },
+  {
+    "id": "cookie-preferences",
+    "term": "Control cookies",
+    "localName": "Cookie 偏好设置",
+    "family": "preferences",
+    "aliases": [
+      "Cookie 设置",
+      "管理 Cookie"
+    ],
+    "summary": "允许用户查看并调整非必要 Cookie 的开关，同时说明每类用途。",
+    "useWhen": "服务使用需要征得选择的可选 Cookie，并能尊重用户稍后更改的决定时。",
+    "avoidWhen": "所有 Cookie 被混在一个开关里，或拒绝后仍继续启用可选项目时。",
+    "contrast": "偏好页管理各类可选 Cookie；一次性横幅只负责告知或提供入口。",
+    "demoId": "cookie-preferences",
+    "promptExample": "逐类说明用途；把必要 Cookie 与可选 Cookie 区分；允许保存、拒绝或返回修改。",
+    "userEffect": "用户能理解选择影响，并在之后找到修改入口。",
+    "sourceIds": [
+      "cookies",
+      "uswds"
+    ]
+  },
+  {
+    "id": "language-selector",
+    "term": "Change language",
+    "localName": "服务语言切换",
+    "family": "preferences",
+    "aliases": [
+      "切换界面语言",
+      "选择服务语言"
+    ],
+    "summary": "让用户在服务流程中查看或更改当前使用的语言。",
+    "useWhen": "服务提供多种语言，用户可能需要随时切换或返回同一任务时。",
+    "avoidWhen": "切换后丢失当前答案，或不同语言版本内容没有同步维护时。",
+    "contrast": "语言选择会改变整项服务的内容表达；页面内的普通选项只改变当前问题答案。",
+    "demoId": "language-selector",
+    "promptExample": "在全服务可找到的位置显示语言选项；切换后保留当前步骤和已填内容；语言名称使用自称形式。",
+    "userEffect": "用户能用熟悉的语言理解任务，同时继续当前办理进度。",
+    "sourceIds": [
+      "language",
+      "gov-nav"
+    ]
+  },
+  {
+    "id": "notification-preferences",
+    "term": "Notification preferences",
+    "localName": "通知偏好设置",
+    "family": "preferences",
+    "aliases": [
+      "通知设置",
+      "管理消息提醒"
+    ],
+    "summary": "让用户选择接收哪些类型的提醒以及使用什么渠道。",
+    "useWhen": "服务确有多种可选提醒，并能按用户选择发送时。",
+    "avoidWhen": "法律或安全必须发送的通知被误作可关闭偏好时。",
+    "contrast": "立即生效的设置开关表示一个状态；通知偏好还需说明范围、渠道和保存规则。",
+    "demoId": "notification-preferences",
+    "promptExample": "按类别说明通知用途；分别显示可选渠道；注明保存方式和必须发送的安全通知。",
+    "userEffect": "用户知道哪些变化会提醒自己，并能调整可选通知。",
+    "sourceIds": [
+      "cookies",
+      "uswds"
+    ],
+    "sourceNote": "本站将 ONS Cookie 分类偏好流程与 USWDS 通用选择控件归纳为通知设置的教学组合；这些来源不定义哪些通知必须发送或可由用户关闭。此模式不是官方命名的独立通知组件。"
+  },
+  {
+    "id": "question-page",
+    "term": "Question page",
+    "localName": "单问题页面",
+    "family": "service-pages",
+    "aliases": [
+      "一个问题一页",
+      "每一步问一件事"
+    ],
+    "summary": "用一个清楚的问题和对应输入，帮助用户在当前步骤回答所需信息。",
+    "useWhen": "答案会决定服务下一步，或复杂表单需要拆成可理解的小任务时。",
+    "avoidWhen": "一次展示多个互不相关的问题会增加认知负担，或用户需要在概览页比较全部项目时。",
+    "contrast": "一个问题一页便于聚焦；多任务清单用于展示整段办理进度。",
+    "demoId": "question-page",
+    "promptExample": "每页问一个有明确用途的问题；标出返回上一步和继续操作；允许有效的不确定答案。",
+    "userEffect": "用户理解当前为什么要回答、如何修改之前的答案。",
+    "sourceIds": [
+      "gov-question-pages",
+      "question"
+    ]
+  },
+  {
+    "id": "suitability-check",
+    "term": "Check a service is suitable",
+    "localName": "服务适用性判断",
+    "family": "service-pages",
+    "aliases": [
+      "判断能不能申请",
+      "先看看我符不符合"
+    ],
+    "summary": "通过少量必要问题，帮助用户了解是否适合或有资格使用某项服务。",
+    "useWhen": "资格条件较复杂，用户需要在开始申请前了解结果或下一步时。",
+    "avoidWhen": "资格规则可在简短开始页说明，或问题会让用户重复提交申请所需信息时。",
+    "contrast": "适用性判断给出是否可以继续及原因；最终申请仍需要收集正式资料。",
+    "demoId": "suitability-check",
+    "promptExample": "先说明判断目的；逐步询问必要条件；显示判断依据和不适用时的替代路径。",
+    "userEffect": "用户能尽早判断是否值得继续办理，并知道结果原因。",
+    "sourceIds": [
+      "gov-suitable",
+      "question"
+    ]
+  },
+  {
+    "id": "check-answers-page",
+    "term": "Check answers page",
+    "localName": "提交前核对页面",
+    "family": "service-pages",
+    "aliases": [
+      "最终确认信息",
+      "提交前检查"
+    ],
+    "summary": "把用户此前填写的答案分组展示，并为每组提供明确的修改入口。",
+    "useWhen": "用户即将提交较重要的信息，需要确认已填写内容且能针对性修改时。",
+    "avoidWhen": "内容很少且无错误成本，或修改后会增加新问题却没有更新流程时。",
+    "contrast": "核对页侧重最终复查；普通摘要展示信息但未必支持修改和提交前确认。",
+    "demoId": "check-answers-page",
+    "promptExample": "提交前分组显示相关答案；每组提供有上下文的修改链接；修改后回到核对页并保留其他答案。",
+    "userEffect": "用户能发现错误并改正，不必重新走完整个流程。",
+    "sourceIds": [
+      "gov-check",
+      "check"
+    ]
+  },
+  {
+    "id": "confirmation-page",
+    "term": "Confirmation page",
+    "localName": "办理完成与后续说明页",
+    "family": "service-pages",
+    "aliases": [
+      "成功后显示结果",
+      "告诉我接下来怎么办"
+    ],
+    "summary": "确认用户已经提交或完成任务，并说明编号、处理时间和后续动作。",
+    "useWhen": "服务已经成功完成一个事务，需要提供凭证或解释接下来会发生什么时。",
+    "avoidWhen": "任务仍未提交，或系统只想短暂提示一个已保存状态时。",
+    "contrast": "完成页面表示任务结束；持续状态用于仍在处理中的项目。",
+    "demoId": "confirmation-page",
+    "promptExample": "写明已完成事项；展示可追溯编号和后续时间；提供常用支持或保存凭证的入口。",
+    "userEffect": "用户知道提交已成功、何时有下一步，以及需要帮助时如何联系。",
+    "sourceIds": [
+      "gov-confirmation-pages",
+      "confirm"
+    ]
+  },
+  {
+    "id": "hub-and-spoke",
+    "term": "Hub and Spoke",
+    "localName": "分章节任务总览",
+    "family": "service-pages",
+    "aliases": [
+      "分章节填写",
+      "先看所有部分再分别完成"
+    ],
+    "summary": "把一项较大的服务拆成可分别进入的章节，并显示各章节完成状态。",
+    "useWhen": "用户可以按任意顺序完成相互独立的章节，再返回总览统一提交时。",
+    "avoidWhen": "章节之间必须严格按顺序推进，或任务很短不需要总览页时。",
+    "contrast": "章节总览允许选择进入不同部分；步骤指示器强调固定顺序中的当前位置。",
+    "demoId": "hub-and-spoke",
+    "promptExample": "在总览页列出每个章节及状态；完成一节后返回总览；说明所有必需章节完成后如何提交。",
+    "userEffect": "用户能决定办理顺序并随时看见尚未完成的部分。",
+    "sourceIds": [
+      "hub",
+      "gov-task-list"
+    ]
+  },
+  {
+    "id": "service-status-page",
+    "term": "Service status or error page",
+    "localName": "服务级异常说明页",
+    "family": "service-pages",
+    "aliases": [
+      "服务维护页面",
+      "系统出错说明"
+    ],
+    "summary": "在整个服务不可用或暂时中断时，说明影响范围、当前状态和可行的等待或求助办法。",
+    "useWhen": "故障影响整项服务，用户无法靠改正某个输入继续时。",
+    "avoidWhen": "只有一个字段输入错误时；此时应使用字段提示并聚焦到相应输入。",
+    "contrast": "服务级错误说明系统状态和影响；字段错误说明用户怎样修正当前答案。",
+    "demoId": "service-status-page",
+    "promptExample": "用清楚标题说明服务故障；给出更新时间、受影响任务和预计下一步；避免让用户反复提交。",
+    "userEffect": "用户能判断问题来自服务并知道何时或如何继续。",
+    "sourceIds": [
+      "status",
+      "gov-error"
+    ]
+  },
+  {
+    "id": "service-guide",
+    "term": "Guide page",
+    "localName": "分主题指南页面",
+    "family": "service-pages",
+    "aliases": [
+      "帮助指南",
+      "分主题说明页面"
+    ],
+    "summary": "把相关说明拆分到可浏览的页面，并提供清楚的主题入口和返回路径。",
+    "useWhen": "信息较多、用户需要按主题或阶段逐步查阅时。",
+    "avoidWhen": "内容简短且可以直接放在任务页面，或指南结构会掩盖办理动作时。",
+    "contrast": "指南用于学习和查找内容；任务清单列出必须完成的办理步骤。",
+    "demoId": "service-guide",
+    "promptExample": "按用户问题组织页面；使用能说明内容的标题；提供相邻主题和返回服务任务的入口。",
+    "userEffect": "用户能找到所需说明，读完后知道怎样回到办理流程。",
+    "sourceIds": [
+      "guide",
+      "gov-nav"
+    ]
+  },
+  {
+    "id": "contact-options",
+    "term": "Contact options",
+    "localName": "联系渠道与可用时间",
+    "family": "communication",
+    "aliases": [
+      "客服电话",
+      "联系服务团队"
+    ],
+    "summary": "集中说明服务可用的电话、邮箱、在线消息等渠道及其开放时间。",
+    "useWhen": "用户要判断通过哪种渠道联系服务团队，并需要了解可用时间或预计回复时间时。",
+    "avoidWhen": "用户需要在服务中围绕具体问题持续发消息时，应用消息会话保留上下文。",
+    "contrast": "渠道列表帮助用户选择联系方式；联系表单则直接收集并发送一条具体请求。",
+    "demoId": "contact-options",
+    "promptExample": "按用户需要列出电话、邮箱或在线消息，并写明开放时间、费用和预计回复时长。",
+    "userEffect": "用户可选适合的求助方式，也能预期联系后多久会得到回应。",
+    "sourceIds": [
+      "gov-contact"
+    ]
   }
 ]

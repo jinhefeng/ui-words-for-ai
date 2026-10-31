@@ -1,13 +1,104 @@
 [
-  {"id":"input","label":"输入信息","icon":"⌨","description":"用户要填写、修改或搜索内容。"},
-  {"id":"selection","label":"选择和设定","icon":"◉","description":"用户要选一项、多项，或打开/关闭一个偏好。"},
-  {"id":"action","label":"执行操作或跳转","icon":"↗","description":"用户点击后要完成动作，或前往另一个位置。"},
-  {"id":"feedback","label":"告诉用户发生了什么","icon":"✳","description":"反馈成功、错误、提醒或下一步状态。"},
-  {"id":"overlay","label":"临时展示内容","icon":"▱","description":"短暂显示补充信息、操作菜单或需要处理的内容。"},
-  {"id":"browse","label":"浏览、切换和展开","icon":"⌁","description":"把内容分组、切换，或按需展开查看。"},
-  {"id":"search","label":"查找和整理","icon":"⌕","description":"从内容中搜索、筛选或排序。"},
-  {"id":"states","label":"加载、空白和结果状态","icon":"◌","description":"告诉用户页面正在加载、没有内容，或搜索没有结果。"},
-  {"id":"records","label":"查看和整理多条记录","icon":"▦","description":"用户要理解、比较、筛选、排序或改变一组重复记录。"},
-  {"id":"workflow","label":"完成分步骤的任务","icon":"≋","description":"用户要跨多个步骤或多项任务完成一件事。"},
-  {"id":"navigation","label":"知道自己在什么位置","icon":"⌂","description":"用户要理解页面层级，并返回上一级或相关位置。"}
+  {
+    "id": "input",
+    "label": "输入信息",
+    "icon": "⌨",
+    "description": "用户要填写、修改或搜索内容。"
+  },
+  {
+    "id": "selection",
+    "label": "选择和设定",
+    "icon": "◉",
+    "description": "用户要选一项、多项，或打开/关闭一个偏好。"
+  },
+  {
+    "id": "action",
+    "label": "执行操作或跳转",
+    "icon": "↗",
+    "description": "用户点击后要完成动作，或前往另一个位置。"
+  },
+  {
+    "id": "feedback",
+    "label": "告诉用户发生了什么",
+    "icon": "✳",
+    "description": "反馈成功、错误、提醒或下一步状态。"
+  },
+  {
+    "id": "overlay",
+    "label": "临时展示内容",
+    "icon": "▱",
+    "description": "短暂显示补充信息、操作菜单或需要处理的内容。"
+  },
+  {
+    "id": "browse",
+    "label": "浏览、切换和展开",
+    "icon": "⌁",
+    "description": "把内容分组、切换，或按需展开查看。"
+  },
+  {
+    "id": "search",
+    "label": "查找和整理",
+    "icon": "⌕",
+    "description": "从内容中搜索、筛选或排序。"
+  },
+  {
+    "id": "states",
+    "label": "加载、空白和结果状态",
+    "icon": "◌",
+    "description": "告诉用户页面正在加载、没有内容，或搜索没有结果。"
+  },
+  {
+    "id": "records",
+    "label": "查看和整理多条记录",
+    "icon": "▦",
+    "description": "用户要理解、比较、筛选、排序或改变一组重复记录。"
+  },
+  {
+    "id": "workflow",
+    "label": "完成分步骤的任务",
+    "icon": "≋",
+    "description": "用户要跨多个步骤或多项任务完成一件事。"
+  },
+  {
+    "id": "navigation",
+    "label": "知道自己在什么位置",
+    "icon": "⌂",
+    "description": "用户要理解页面层级，并返回上一级或相关位置。"
+  },
+  {
+    "id": "identity",
+    "label": "账户与身份验证",
+    "icon": "◉",
+    "description": "用户要创建或访问账户、证明联系方式，或安全地暂停并继续服务。"
+  },
+  {
+    "id": "documents",
+    "label": "文件与办理材料",
+    "icon": "▤",
+    "description": "用户要提交、检查、替换或取得支持办理的文件。"
+  },
+  {
+    "id": "datetime",
+    "label": "日期、时长与预约",
+    "icon": "◷",
+    "description": "用户要提供日期或持续时间，或安排一个可预约的时刻。"
+  },
+  {
+    "id": "communication",
+    "label": "联系、反馈与对话",
+    "icon": "↔",
+    "description": "用户要向服务方说明问题、获得帮助，或查看后续回复。"
+  },
+  {
+    "id": "preferences",
+    "label": "服务偏好与同意",
+    "icon": "⚙",
+    "description": "用户要管理 Cookie、语言或通知等可调整的服务设置。"
+  },
+  {
+    "id": "service-pages",
+    "label": "完整服务页面",
+    "icon": "▣",
+    "description": "服务要组织提问、资格判断、答案复核、完成结果或异常说明。"
+  }
 ]

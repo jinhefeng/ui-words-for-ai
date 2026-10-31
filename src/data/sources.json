@@ -203,5 +203,55 @@
     "id": "apg-disclosure",
     "label": "WAI-ARIA APG：Disclosure 展开/收起模式",
     "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/"
+  },
+  {
+    "id": "access-codes",
+    "label": "ONS 设计系统：访问码",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/access-codes"
+  },
+  {
+    "id": "gov-create-accounts",
+    "label": "GOV.UK 设计系统：创建账户",
+    "url": "https://design-system.service.gov.uk/patterns/create-accounts/"
+  },
+  {
+    "id": "gov-confirm-email",
+    "label": "GOV.UK 设计系统：确认邮箱地址",
+    "url": "https://design-system.service.gov.uk/patterns/confirm-an-email-address/"
+  },
+  {
+    "id": "gov-confirm-phone",
+    "label": "GOV.UK 设计系统：确认手机号",
+    "url": "https://design-system.service.gov.uk/patterns/confirm-a-phone-number/"
+  },
+  {
+    "id": "gov-contact",
+    "label": "GOV.UK 设计系统：联系服务团队",
+    "url": "https://design-system.service.gov.uk/patterns/contact-a-department-or-service-team/"
+  },
+  {
+    "id": "uswds-time-picker",
+    "label": "USWDS：时间选择器",
+    "url": "https://designsystem.digital.gov/components/time-picker/"
+  },
+  {
+    "id": "gov-question-pages",
+    "label": "GOV.UK 设计系统：问题页面",
+    "url": "https://design-system.service.gov.uk/patterns/question-pages/"
+  },
+  {
+    "id": "gov-confirmation-pages",
+    "label": "GOV.UK 设计系统：确认页面",
+    "url": "https://design-system.service.gov.uk/patterns/confirmation-pages/"
+  },
+  {
+    "id": "ons-pattern-index",
+    "label": "ONS 设计系统：服务任务模式目录",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns"
+  },
+  {
+    "id": "gov-pattern-index",
+    "label": "GOV.UK 设计系统：任务模式目录",
+    "url": "https://design-system.service.gov.uk/patterns/"
   }
 ]

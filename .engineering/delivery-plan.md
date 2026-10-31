@@ -18,6 +18,27 @@
 | WP-06 术语与案例内容 | 33 个模式、每模式关联中文叫法/标准名称/说明/边界/差异/提示词示例；种子案例覆盖八个需求族 | 首版实现 |
 | WP-07 维护入口与发布就绪 | README、贡献指南、架构基线和内容扩充方法 | 首版文档完成；许可证待项目所有者决定 |
 | WP-08 内容贡献帮助 | 网站内帮助页按需求入口、俗语、术语和具体场景解释文件位置、字段与内容关联，并链接完整贡献指南 | 已实现；浏览器体验待验收 |
+| WP-09 访问分析接入 | 可选接入 Umami Cloud 页面浏览统计、读者隐私说明和账户配置指南 | Website ID、三个域名和 Sites Version 15 已配置；GitHub Pages、自有服务器部署及线上核对待完成 |
+
+### WP-09 — Umami Cloud 访问分析
+
+- `package_id`: WP-09
+- `goal`: 维护者可在 Umami Cloud 后台查看正式站点的页面访问分析。
+- `owner`: 项目维护者
+- `scope`: `src/lib/analytics*.js`、`src/app.js`、`index.html`、相关隐私/架构/部署文档
+- `non_goals`: 自建后台、用户身份识别、搜索或提示词采集、点击事件埋点。
+- `dependencies`: Website ID 已配置；GitHub Pages 推送和 `ui.saveas.me` 部署仍待完成。
+- `acceptance`: 留空 Website ID 时无统计请求；填写 ID 后只在允许域名加载 tracker；hash 页面访问进入后台；DNT 和查询参数排除生效；页脚与配置说明揭示数据边界。
+- `status`: active
+- `blocker`: 线上 Realtime 验收尚未完成。Sites Version 15 已发布；GitHub Pages 仍需推送根目录改动，自有服务器仍需部署更新后的静态文件。
+- `task_refs`: T4.1
+
+## 契约与集成状态
+
+- `C-001` 页面访问统计契约见 [`architecture-baseline.md`](architecture-baseline.md)。
+- 发布顺序：创建 Umami Cloud 网站 → 确认正式域名 → 在对应发布源填写公开 Website ID → 发布静态站点 → 在 Umami Realtime 中确认首次访问和 hash 路由。
+- 回滚：将 Website ID 清空并重新发布即可停止统计脚本；教程内容和路由不依赖统计。
+- 当前门：代码接入、Website ID 配置及文档已完成；GitHub Pages 和自有服务器部署以及线上数据核对仍待完成。
 
 ## 后续扩展顺序
 

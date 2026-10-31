@@ -1,6 +1,6 @@
 # 当前架构基线：说准一点
 
-- 状态：静态首版实现基线 v0.3
+- 状态：静态站点 + 可选托管分析 v0.4
 - 目标：从新手口语场景出发，通过条件分支展示多个合适的交互模式，允许读者操作示例并复制更准确的 AI 指令。
 - 产品设计：[`docs/system-design.md`](../docs/system-design.md)
 - 任务记录：[`Task Constitution.md`](../Task%20Constitution.md)
@@ -11,7 +11,7 @@
 - 内容以用户目标与场景组织；一个案例可以引用多个模式，一个模式可以被多个案例引用。
 - 条件缺失时应展示并列可能性；只有答案满足分支条件时才给出确定推荐。
 - 内容维护者主要改 JSON 文案和受限引用，不需要写决策代码。
-- 首版无账号、后端、数据库、模型 API 或遥测；搜索和回答留在浏览器中。
+- 项目没有自有账号、应用后端、数据库或模型 API；搜索和需求回答留在浏览器中。可选的 Umami Cloud 页面访问统计由第三方托管。
 - 发布形态是普通静态文件：HTML、CSS、原生 JavaScript 与 JSON；不引入 UI 框架、构建流水线或服务端运行逻辑。
 - 目前交互示例是仓库中的本地代码，内容 JSON 只能指定已登记的 `demoId`。
 
@@ -27,6 +27,8 @@
 | 示例注册表 | `src/lib/demo-catalog.js` | 将已知模式 ID 映射为原生 HTML 交互预览 | 只运行仓库内的受控示例；数据不能注入脚本 |
 | 指令生成器 | `src/lib/prompt-builder.js` | 组合目标、场景、推荐理由、模式和行为要求 | 不依赖模型服务；返回普通文本 |
 | 网站壳与路由 | `index.html`、`src/app.js`、`src/styles.css` | 五入口导航、搜索、俗语索引和详情、场景详情、术语索引、内容帮助页、渲染和交互事件 | 调用数据与纯函数模块，不重复实现分支规则 |
+| 访问统计适配器 | `src/lib/analytics.js`、`src/lib/analytics-config.js` | 配置有效且域名匹配后加载 Umami Cloud tracker；未配置时不发起请求 | 只接入页面浏览，不发送搜索/提示词/控件输入；尊重 DNT，排除查询参数 |
+| 统计服务与后台 | Umami Cloud | 接收页面浏览事件，为维护者提供访问分析后台 | 由项目维护者创建账户和站点；数据处理按 Umami Cloud 当时适用条款 |
 
 ```mermaid
 flowchart LR
@@ -37,7 +39,19 @@ flowchart LR
   Engine --> Site
   Site --> Demo[本地 HTML 示例注册表]
   Site --> Prompt[可编辑指令生成器]
+  Site -->|可选页面浏览| Umami[Umami Cloud 统计与后台]
 ```
+
+## 页面访问统计契约 C-001
+
+- 状态：已冻结
+- 生产者：主站 `src/lib/analytics.js` 加载的 Umami tracker。
+- 消费者：由网站所有者控制的 Umami Cloud 项目和后台。
+- 输入：标准页面浏览；hash 路由用于区分内容页；当前 URL 查询参数不采集；浏览器 DNT 开启时不统计。
+- 输出：Umami 后台可见页面浏览、会话、来源、浏览器、设备和大致地区。
+- 隐私边界：不发送站内输入框内容、AI 指令、示例数据或自定义点击事件。Umami 以 IP 和浏览器信息计算匿名会话及地区；原始 IP 不作为标准分析记录字段，但第三方处理可能涉及运行/安全日志。
+- 兼容性：网站 ID 为空时关闭；允许域名以 `analytics-config.js` 为准；不改变无统计时的页面功能。
+- 验证：部署后在 Umami Realtime 面板核对首次加载及 hash 路由；需维护者配置网站 ID 后执行。
 
 ## 内容契约
 
@@ -74,7 +88,7 @@ flowchart LR
 4. UI 展示推荐模式、理由、对照模式以及对应的本地 HTML 示例。
 5. `prompt-builder.js` 组合内容，先呈现中文交互叫法、用户目标、场景、行为和注意点；结果显示在可编辑文本框中，由用户发起复制。
 
-静态 JSON 使用浏览器 `fetch` 加载，本地开发需通过 HTTP 静态文件服务器打开（例如 `python3 -m http.server 8000`）。这个本地文件服务器仅用于提供 HTML/CSS/JS/JSON 静态资源，不是应用后端。生产托管可直接提供这些文件，无需数据库、构建或服务器逻辑；相对路径可随 GitHub Pages 仓库路径部署。
+静态 JSON 使用浏览器 `fetch` 加载，本地开发需通过 HTTP 静态文件服务器打开（例如 `python3 -m http.server 8000`）。这个本地文件服务器仅用于提供 HTML/CSS/JS/JSON 静态资源，不是应用后端。生产主站仍可直接部署到 GitHub Pages；仅在统计配置完成后，页面会向 Umami Cloud 加载可选的第三方 tracker。
 
 ## 当前验证与已知边界
 
