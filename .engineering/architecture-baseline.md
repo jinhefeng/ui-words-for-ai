@@ -46,10 +46,12 @@ flowchart LR
 
 - Astro 负责基于 Markdown/YAML 内容生成需求页、模式详情页、术语页和站点导航，适合内容密集、需要独立链接和搜索引擎可读的项目。
 - TypeScript 约束需求树、条件规则、模式卡和指令字段之间的接口。
-- Astro 的轻量客户端脚本承载需求探索、候选比较、搜索、复制和可访问交互；只对真正需要状态的区块发出浏览器 JavaScript。
+- Astro 原生 `<script>`/TypeScript 与少量 Web Components 承载需求探索、候选比较、搜索、复制和可访问交互；不为这些功能引入完整 UI 框架。
 - Git 中的 Markdown 保存解释性正文；YAML/JSON 保存有结构的关系、问题、选项、判断规则和提示词槽位。
 - 构建期检查引用目标、重复 ID、未处理分支、缺少示例、提示词缺字段和循环路径；无需生产数据库。
 - GitHub Pages 或兼容静态主机部署；路径应支持仓库子目录。
+
+官方资料核对（2026-10-31）：Astro 内容集合的本地数据加载器支持 Markdown、MDX、Markdoc、YAML、TOML 和 JSON；构建输出默认 `static`；原生脚本支持浏览器交互和 TypeScript，也可用 Web Components 而不引入 UI 框架。具体页面、构建和编辑体验仍需在迁移样例中验证。
 
 选择依据：当前 buildless 原型适合七个条目的展示，但内容扩展到数十个口语入口和模式后，纯手写 DOM 容易让内容、路由、决策规则和交互纠缠。Astro 可静态生成可链接的内容页面；无需把整个网站变成客户端应用。
 
@@ -93,6 +95,12 @@ type PhraseGroup = {
   recommendations: Recommendation[];
 };
 
+type Question = {
+  id: string;
+  prompt: string;
+  options: Array<{ id: string; label: string; hint?: string }>;
+};
+
 type Recommendation = {
   when: Array<{ questionId: string; optionId: string }>;
   primaryPatternId: string;
@@ -125,6 +133,12 @@ type Pattern = {
 - Compatibility：所有模式通过注册表选择 demo；缺失 ID 在构建期失败。
 - Verification：手动交互检查、键盘检查和窄屏检查；需要时检查 iframe sandbox 属性。
 - Change rule：跨 frame 通信先经过独立评审；初期避免该通信。
+
+## 技术依据
+
+- [Astro Content Collections](https://docs.astro.build/en/guides/content-collections/)：本地内容集合可从 Markdown、MDX、Markdoc、YAML、TOML 或 JSON 加载。
+- [Astro Output Configuration](https://docs.astro.build/en/reference/configuration-reference/#output)：默认输出模式为 `static`，可将页面预渲染为静态站点。
+- [Astro Scripts and Event Handling](https://docs.astro.build/en/guides/client-side-scripts/)：原生 `<script>` 支持交互、TypeScript 和 Web Components，无需 UI 框架。
 
 ## 安全、隐私与无障碍
 

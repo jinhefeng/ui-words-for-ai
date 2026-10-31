@@ -109,22 +109,41 @@ id: choose-value
 phrases:
   - 加个选择框
   - 放几个选项让用户挑
+userGoal: 让用户从一组候选值中选择类别。
 questions:
   - id: cardinality
     prompt: 用户能选几个？
-    options: [one, many]
+    options:
+      - id: one
+        label: 只能选一个
+      - id: many
+        label: 可以选多个
   - id: optionVisibility
     prompt: 选项需要同时显示吗？
-    options: [visible, compact]
+    options:
+      - id: visible
+        label: 需要同时显示
+      - id: compact
+        label: 节省空间优先
 recommendations:
-  - when: { cardinality: one, optionVisibility: visible }
-    primaryPattern: radio-group
-    supportingPatterns: []
+  - when:
+      - questionId: cardinality
+        optionId: one
+      - questionId: optionVisibility
+        optionId: visible
+    primaryPatternId: radio-group
+    supportingPatternIds: []
     reason: 选项不多且必须同时看见，单选组更容易比较。
-  - when: { cardinality: one, optionVisibility: compact }
-    primaryPattern: select
-    supportingPatterns: []
+    alternativePatternIds: [select]
+  - when:
+      - questionId: cardinality
+        optionId: one
+      - questionId: optionVisibility
+        optionId: compact
+    primaryPatternId: select
+    supportingPatternIds: []
     reason: 用户只能选一项，且需要节省页面空间。
+    alternativePatternIds: [radio-group]
 ```
 
 推荐条件使用受限、可校验的字段和值，不允许内容作者写可执行 JavaScript。没有答案或多个答案仍符合时，界面显示尚未确定的条件或并列候选。
