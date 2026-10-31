@@ -1,25 +1,25 @@
 # Task Constitution
 
 ## 1. Mission
-Build a public, beginner-friendly tutorial library that teaches people how to describe UI precisely to AI coding tools, pairing each term with a clear explanation, a copyable instruction, and an interactive HTML example.
+Build a public, beginner-friendly tutorial that starts from novice product language and user goals, uses clarifying questions to map one vague request to multiple precise UI patterns, and pairs each pattern with an explanation, an interactive HTML example, and a copyable AI instruction.
 
 ## 2. Success Criteria
-- [ ] A newcomer can distinguish commonly confused UI terms and find the right one for a described need.
-- [ ] Each published term has a plain-language explanation, usage guidance, and a runnable interactive example.
+- [ ] A newcomer with no UI vocabulary can start from an everyday phrase and understand the questions that narrow the solution.
+- [ ] Ambiguous requests map to multiple relevant patterns with clear decision reasons; each pattern has a plain-language explanation, usage boundary, runnable example, and precise instruction.
 - [ ] The project has a usable public-repository structure, contribution guidance, and a recorded license/reuse boundary before inviting reuse.
 
 ## 3. Task Tree
 ### T1 — 术语体系与教程内容
 - Status: 进行中
-- Objective: 建立可扩展的分类和术语内容模型，先覆盖新手常说的“弹窗”。
-- Acceptance: 至少有一组边界清晰的术语，每项包含定义、使用时机、与相近术语的区别及精准指令。
-- Children: 当前轮先交付首批术语；更大范围在有证据后展开。
+- Objective: 从新手产品经理的口语表达和用户目标出发，建立“一种说法 → 澄清条件 → 多个精准交互模式”的内容体系。
+- Acceptance: 口语入口覆盖常见需求；含糊表达能映射到多个候选模式和可理解的判断条件；每个模式有解释、适用边界、示例和精准指令。
+- Children: 先设计输入、选择、反馈/浮层三组，再扩展到操作、导航、查找、内容状态等需求。
 
 ### T2 — 交互式教程原型
 - Status: 进行中
-- Objective: 让读者能浏览术语并直接操作 HTML 示例。
-- Acceptance: 可搜索和筛选术语；详情区能运行对应交互并复制精准指令；桌面和窄屏可用。
-- Children: 首版以内置静态数据与原生 Web API 实现。
+- Objective: 让读者从自己的口语需求进入，通过少量澄清问题比较多个模式，再操作 HTML 示例并生成精准指令。
+- Acceptance: 需求探索是主入口，术语检索为辅助入口；推荐理由和分支可解释；示例、比较和指令与内容数据关联；桌面和窄屏可用。
+- Children: 使用静态优先架构；系统设计文档评审后再决定具体迁移实现。
 
 ### T3 — 公共项目初始化与交付
 - Status: 进行中
@@ -34,22 +34,23 @@ Build a public, beginner-friendly tutorial library that teaches people how to de
 - Children: 按需展开。
 
 ## 4. Current Focus
-- Task: T1 + T2 + T3
+- Task: T1 + T2
 - Parent path: Project initialization
-- Objective: 形成可审阅的首版术语教程项目。
-- Next action: 浏览器人工走查七个示例；请维护者决定许可证后再声明复用权。
+- Objective: 评审以新手口语和用户目标为入口的产品功能与技术架构。
+- Next action: 评审 `docs/system-design.md` 中的首期内容范围和 Astro 建议；获得技术方案确认后再开始重构。
 
 ## 5. Decision Log
 | Date | Decision | Rationale | Impact |
 |---|---|---|---|
 | 2026-10-31 | 首版使用原生 HTML/CSS/JS 与静态术语数据 | 无需构建工具，新手可直接阅读和修改 | 便于 fork、学习和静态托管 |
-| 2026-10-31 | 以“弹窗”相关术语作为第一组内容 | 这是用户给出的典型模糊表达，可清楚展示精确术语的价值 | 首批覆盖 Toast、Modal、Alert Dialog、Drawer、Popover、Tooltip、Bottom Sheet |
+| 2026-10-31 | 以“弹窗”相关术语作为首轮交互样本 | 这是用户给出的典型模糊表达，可清楚展示精确术语的价值 | 保留并映射到口语需求族；首期不再只覆盖浮层 |
+| 2026-10-31 | 主内容从小白口语入口映射到多个交互模式；术语表降为辅助索引 | 用户要求以小白产品经理的视角组织内容，并强调一对多映射 | T1、T2 的范围和主导航调整；详细方案见 `docs/system-design.md` |
 | 2026-10-31 | 创建公开 GitHub 仓库 `jinhefeng/ui-words-for-ai` | 用户明确要求 public 项目 | 首版源文件同步到公开仓库；许可证仍未选择 |
 
 ## 6. Knowledge Context
 - Constraints: 面向 AI Coding 新手；强调“先说清用户意图和交互，再选术语”，术语不是脱离情境的关键词清单。
 - Dependencies: 本地 Git 工作区已与 GitHub 公开仓库 `https://github.com/jinhefeng/ui-words-for-ai` 的 `main` 分支同步，暂存树与远端提交核对一致。
-- Relevant files: `README.md`, `index.html`, `src/`, `Task Constitution.md`。
+- Relevant files: `docs/system-design.md`, `.engineering/architecture-baseline.md`, `.engineering/delivery-plan.md`, `README.md`, `src/`。
 - Open decisions: 项目许可证尚未选择。当前项目名为“说准一点 / UI Words”，GitHub 仓库为 `jinhefeng/ui-words-for-ai`。
 
 ## 7. Change History
@@ -57,19 +58,23 @@ Build a public, beginner-friendly tutorial library that teaches people how to de
 |---|---|---|---|
 | 2026-10-31 | 初始化 mission、成功标准、三条主工作流及首版范围 | 用户请求启动面向新手的公开 AI Coding 术语教程项目 | T1, T2, T3 |
 | 2026-10-31 | 初始化静态交互教程并创建 public GitHub 仓库 | 交付首批术语、组件预览和公开维护入口 | T1, T2, T3 |
+| 2026-10-31 | 将新手口语到精准模式的一对多映射确立为产品主线 | 用户明确确认小白视角，并要求进一步设计产品功能与技术架构 | T1, T2 |
 
 ## 8. Detail Pointers
 - Format: v1 single-file
 - Active branch detail: none
 - History: this file
+- Product design proposal: `docs/system-design.md`
+- Engineering baseline: `.engineering/architecture-baseline.md`
+- Work-package detail: `.engineering/delivery-plan.md`
 
 ## 9. Current Round
-- Round: R1
+- Round: R2
 - Frontier: T1, T2, T3
 - Granularity target: objective + output + acceptance
-- Exit condition: 三条主工作流均交付首个可审阅结果或明确记录外部阻塞。
+- Exit condition: 产品入口、内容关系、架构边界和工作包达到可评审状态；随后由维护者确认首期范围和技术选型。
 
 ## 10. Technical Debt Queue
 | ID | Discovered in | Debt | Why deferred | Trigger / target round | Priority | Status |
 |---|---|---|---|---|---|---|
-| D1 | T3 | 选择开源许可证与远程仓库归属 | 需项目所有者决定；公开可见不等于自动授予使用权 | 首次推送前 | 高 | 待处理 |
+| D1 | T3 | 选择许可证并记录复用边界 | 需项目所有者决定；公开可见不等于自动授予使用权 | 邀请外部复用或收贡献前 | 高 | 待决策 |
