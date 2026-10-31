@@ -37,7 +37,7 @@ Build a public, beginner-friendly tutorial library that teaches people how to de
 - Task: T1 + T2 + T3
 - Parent path: Project initialization
 - Objective: 形成可审阅的首版术语教程项目。
-- Next action: 完成原型、首批术语和公开维护文档，随后确定远程仓库与许可证。
+- Next action: 浏览器人工走查七个示例；请维护者决定许可证后再声明复用权。
 
 ## 5. Decision Log
 | Date | Decision | Rationale | Impact |
@@ -48,7 +48,7 @@ Build a public, beginner-friendly tutorial library that teaches people how to de
 
 ## 6. Knowledge Context
 - Constraints: 面向 AI Coding 新手；强调“先说清用户意图和交互，再选术语”，术语不是脱离情境的关键词清单。
-- Dependencies: 本地目录已初始化为 Git 项目；GitHub 公开仓库 `https://github.com/jinhefeng/ui-words-for-ai` 已创建，首批文件正在同步。
+- Dependencies: 本地 Git 工作区已与 GitHub 公开仓库 `https://github.com/jinhefeng/ui-words-for-ai` 的 `main` 分支同步，暂存树与远端提交核对一致。
 - Relevant files: `README.md`, `index.html`, `src/`, `Task Constitution.md`。
 - Open decisions: 项目许可证尚未选择。当前项目名为“说准一点 / UI Words”，GitHub 仓库为 `jinhefeng/ui-words-for-ai`。
 
