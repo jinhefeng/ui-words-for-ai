@@ -1,27 +1,1553 @@
 [
-  {"id":"popup","phrase":"弹框","aliases":["弹窗","弹出来一个东西","蹦出来一个框","弹出层","提示框","对话框","跳出来的框"],"description":"你说“弹框”时，可能是想通知用户、让用户做一件小事、要求确认重要后果，或从旁边查看详情。看起来都像“弹出来”，但对页面和用户的影响很不一样。","question":"出现后，用户需要做什么？","patternIds":["toast","banner","modal-dialog","alert-dialog","drawer","popover","menu","bottom-sheet"],"caseIds":["something-pops-up","show-record-details","share-on-mobile","tell-me-saved"]},
-  {"id":"popup-window","phrase":"弹窗","aliases":["弹出窗口","弹出来的窗口","跳窗","提示弹窗","操作弹窗"],"description":"“弹窗”只是描述它出现的样子，不足以说明用户要不要处理、背景能不能操作、消息会不会消失。先看它承担什么任务。","question":"它是短暂反馈、填写任务，还是重要确认？","patternIds":["toast","modal-dialog","alert-dialog","drawer","popover","bottom-sheet"],"caseIds":["something-pops-up","show-record-details"]},
-  {"id":"pop-something","phrase":"弹出来一个东西","aliases":["跳出来一个东西","出现一个框","冒出来一个提示"],"description":"这句话还没有说清出现的内容、停留多久以及用户要不要做选择。下面这些做法都可能符合，区别在于使用效果。","question":"用户看到后要不要停下来处理？","patternIds":["toast","banner","modal-dialog","alert-dialog","popover","menu"],"caseIds":["something-pops-up","tell-me-saved"]},
-  {"id":"text-box","phrase":"文本框","aliases":["文字框","输入文字的框","打字的框","写字的框"],"description":"“文本框”可能只要一行，也可能要写长说明、输入密码，或从已有选项里找一个值。先看用户要输入什么。","question":"用户是自由填写、输入较长内容，还是从现有值里找？","patternIds":["text-field","textarea","password-field","search-field","combobox"],"caseIds":["write-a-name","enter-or-choose","private-or-public-input","find-or-select"]},
-  {"id":"input-box","phrase":"输入框","aliases":["填写框","输入栏","给个地方输入","让用户填一下"],"description":"输入框不是只有一种。内容长度、是否敏感、是否在找已有内容，会改变更合适的做法。","question":"要输入的是短文字、长文字、秘密内容，还是搜索候选？","patternIds":["text-field","textarea","password-field","search-field","combobox"],"caseIds":["write-a-name","enter-or-choose","private-or-public-input","find-or-select"]},
-  {"id":"long-text-box","phrase":"大文本框","aliases":["长文本框","说明框","备注框","留言框","写一段话的框"],"description":"用户要写一段可以换行的内容时，单行输入框会显得局促；如果只写一个短名称，多行框又会占用不必要的空间。","question":"这段内容通常需要几行？","patternIds":["textarea","text-field"],"caseIds":["write-a-name"]},
-  {"id":"search-box","phrase":"搜索框","aliases":["搜一下的框","查找框","搜索栏","搜东西的地方"],"description":"有时搜索只是过滤一整组结果；有时用户搜索后还必须选中一个候选值。两者看起来相似，但结果用途不同。","question":"搜索后是浏览一组结果，还是把其中一项选回表单？","patternIds":["search-field","combobox"],"caseIds":["find-or-select"]},
-  {"id":"choice-box","phrase":"选择框","aliases":["选项框","让用户选一个","让用户选几个","做个选项","选东西的框"],"description":"“选择框”可能表示单选、多选、快速切换，或者马上生效的开关。选项数量和生效时机都会影响做法。","question":"只能选一个还是多个？选完马上生效吗？","patternIds":["radio-group","select","segmented-control","checkbox-group","multi-select","combobox","checkbox","switch"],"caseIds":["choose-category","choose-many-tags","setting-now-or-later"]},
-  {"id":"dropdown","phrase":"下拉框","aliases":["下拉菜单","下拉选择","点开后有选项","下拉列表"],"description":"下拉里可能是让用户选一个值、选多个值，或执行一项操作。外观相近，键盘行为和选中结果不同。","question":"用户要选一个值、多个值，还是执行一个动作？","patternIds":["select","combobox","multi-select","menu"],"caseIds":["choose-category","choose-many-tags","avatar-click"]},
-  {"id":"check-box","phrase":"勾选框","aliases":["打勾的框","小方框","点一下打勾","复选框","勾一下"],"description":"一个勾选框可能是表单中的一项，也可能是一组可多选项；如果切换后立即改变设置，用户通常会期待它像开关。","question":"这是待提交的选项，还是点了就立即生效的设置？","patternIds":["checkbox","checkbox-group","switch","radio-group"],"caseIds":["choose-many-tags","setting-now-or-later"]},
-  {"id":"toggle-switch","phrase":"开关","aliases":["开一下关一下","开关按钮","打开关闭","启用关闭"],"description":"开关看起来像简单的两态控件，但用户会据此判断是否已经立即生效。若还要点保存，普通勾选项通常更清楚。","question":"打开或关闭后，设置会马上改变吗？","patternIds":["switch","checkbox"],"caseIds":["setting-now-or-later"]},
-  {"id":"button","phrase":"按钮","aliases":["点一下的按钮","操作按钮","按钮链接","一个可点击的文字"],"description":"视觉上像按钮的东西，点击后可能执行动作，也可能只是跳转到另一页。让用户知道结果，才能选对语义。","question":"点下去会改变或提交数据，还是前往另一个页面？","patternIds":["button","link"],"caseIds":["do-or-go"]},
-  {"id":"notice","phrase":"提示","aliases":["通知一下","提醒一下","告诉用户一下","提示信息"],"description":"“提示”可能是转瞬即逝的成功反馈、留在页面上的状态、需要修正的错误，或重要提醒。关键是用户要不要行动，以及之后是否还需看见。","question":"用户需要修正、确认，还是只要知道结果？","patternIds":["toast","inline-status","banner","inline-validation","error-summary"],"caseIds":["tell-me-saved","explain-form-error"]},
-  {"id":"error-message","phrase":"错误提示","aliases":["报错","报错信息","告诉我哪里错了","提交失败提示"],"description":"一个字段的错误应贴着字段解释；多项错误要有总览；页面级故障则要说明整体状态。把所有错误都做成弹窗，会让用户难以找到并修复问题。","question":"错误发生在单个输入项、多处字段，还是整个页面？","patternIds":["inline-validation","error-summary","banner"],"caseIds":["explain-form-error"]},
-  {"id":"action-menu","phrase":"菜单","aliases":["更多菜单","点开出现选项","操作列表","头像菜单","三点菜单"],"description":"菜单通常是一组可以执行的动作；如果展开内容主要是资料或解释，它更像一张贴着触发点的信息卡。","question":"展开后主要是操作，还是补充信息？","patternIds":["menu","popover","select"],"caseIds":["avatar-click","share-on-mobile"]},
-  {"id":"detail-panel","phrase":"详情面板","aliases":["侧边详情","展开详情","详情弹出来","右边拉出详情","详情框"],"description":"查看详情可以保留列表上下文，也可以把用户带进一个专注的小任务；面板位置和背景是否可操作会改变感受。","question":"用户还需要看着原来的列表吗？","patternIds":["drawer","modal-dialog","popover"],"caseIds":["show-record-details"]},
-  {"id":"sidebar-drawer","phrase":"侧边栏","aliases":["从旁边拉出来","侧边抽屉","右侧滑出来","侧滑面板"],"description":"侧边栏有时是固定导航，有时只是临时展开的详情面板。这里先看临时查看详情和筛选的情形。","question":"它会一直留在页面上，还是点一下临时展开？","patternIds":["drawer","modal-dialog"],"caseIds":["show-record-details"]},
-  {"id":"tabs-label","phrase":"标签","aliases":["页签","标签页","选项卡","上面一排标签"],"description":"“标签”可能是用来切换不同内容的页签，也可能是用户可以勾选的分类标签。先想想用户点它之后会发生什么。","question":"点标签后是切换内容，还是把它作为一个可选值？","patternIds":["tabs","segmented-control","checkbox-group","multi-select"],"caseIds":["organize-sections","choose-many-tags"]},
-  {"id":"loading","phrase":"加载动画","aliases":["加载效果","转圈","加载占位","显示进度"],"description":"加载时可能不知道要等多久、知道页面结构但内容还没到，或可以计算已经完成多少。不同等待方式不要用同一种动画代替。","question":"等待时间可测量吗？页面布局是否已知？","patternIds":["spinner","skeleton","progress"],"caseIds":["show-loading"]},
-  {"id":"empty-screen","phrase":"空白页","aliases":["没东西的页面","没有数据","列表是空的","什么都没有"],"description":"用户第一次打开还没有创建内容，和搜索后没有匹配结果是两回事。一个要鼓励开始，一个要帮助调整搜索。","question":"是从来没有内容，还是搜索没有找到？","patternIds":["empty-state","no-results"],"caseIds":["nothing-to-show"]},
-  {"id":"saved-message","phrase":"保存成功提示","aliases":["保存后告诉我","保存好了提醒一下","提交成功","完成后通知"],"description":"有时用户只需要短暂确认；有时保存状态关系到接下来的工作，需要一直显示在表单附近。","question":"用户之后还要看见保存状态吗？","patternIds":["toast","inline-status","banner"],"caseIds":["tell-me-saved"]},
-  {"id":"avatar-popup","phrase":"点头像弹出东西","aliases":["头像点开","个人头像菜单","点击头像后展开","头像旁边出现选项"],"description":"头像附近可以出现操作列表，也可以展示账户资料。它们都从头像触发，但内容组织和键盘操作方式不同。","question":"主要要展示操作还是账户信息？","patternIds":["menu","popover","tooltip"],"caseIds":["avatar-click"]},
-  {"id":"mobile-layer","phrase":"手机弹层","aliases":["手机底部弹窗","从手机下面弹出","分享弹层","底部菜单"],"description":"手机上可从底部展开更容易触达的操作面板，也可以显示短小的菜单；面板大小和是否需要用户处理会影响选择。","question":"用户要选一组操作，还是完成较大的内容任务？","patternIds":["bottom-sheet","menu","modal-dialog"],"caseIds":["share-on-mobile"]},
-  {"id":"multiple-choice","phrase":"多选框","aliases":["多选","选多个","勾选几个选项","选几个标签"],"description":"少数选项可以全部展开让用户比较；选项很多时，收在紧凑选择器里更省空间，也更容易搜索。","question":"选项少到可以全部展示吗？","patternIds":["checkbox-group","multi-select","combobox"],"caseIds":["choose-many-tags"]},
-  {"id":"confirmation-box","phrase":"确认框","aliases":["确认弹窗","二次确认","确定要删除吗","警告弹窗"],"description":"普通操作不一定需要打断确认；如果后果重要或无法恢复，应明确说明后果，并让取消与继续都容易找到。","question":"操作后果能恢复吗？用户是否必须停下来确认？","patternIds":["alert-dialog","modal-dialog","toast"],"caseIds":["something-pops-up"]}
+  {
+    "id": "popup",
+    "phrase": "弹框",
+    "aliases": [
+      "弹窗",
+      "弹出来一个东西",
+      "蹦出来一个框",
+      "弹出层",
+      "提示框",
+      "对话框",
+      "跳出来的框"
+    ],
+    "description": "你说“弹框”时，可能是想通知用户、让用户做一件小事、要求确认重要后果，或从旁边查看详情。看起来都像“弹出来”，但对页面和用户的影响很不一样。",
+    "question": "出现后，用户需要做什么？",
+    "patternIds": [
+      "toast",
+      "banner",
+      "modal-dialog",
+      "alert-dialog",
+      "drawer",
+      "popover",
+      "menu",
+      "bottom-sheet"
+    ],
+    "caseIds": [
+      "something-pops-up",
+      "show-record-details",
+      "share-on-mobile",
+      "tell-me-saved"
+    ]
+  },
+  {
+    "id": "popup-window",
+    "phrase": "弹窗",
+    "aliases": [
+      "弹出窗口",
+      "弹出来的窗口",
+      "跳窗",
+      "提示弹窗",
+      "操作弹窗"
+    ],
+    "description": "“弹窗”只是描述它出现的样子，不足以说明用户要不要处理、背景能不能操作、消息会不会消失。先看它承担什么任务。",
+    "question": "它是短暂反馈、填写任务，还是重要确认？",
+    "patternIds": [
+      "toast",
+      "modal-dialog",
+      "alert-dialog",
+      "drawer",
+      "popover",
+      "bottom-sheet"
+    ],
+    "caseIds": [
+      "something-pops-up",
+      "show-record-details"
+    ]
+  },
+  {
+    "id": "pop-something",
+    "phrase": "弹出来一个东西",
+    "aliases": [
+      "跳出来一个东西",
+      "出现一个框",
+      "冒出来一个提示"
+    ],
+    "description": "这句话还没有说清出现的内容、停留多久以及用户要不要做选择。下面这些做法都可能符合，区别在于使用效果。",
+    "question": "用户看到后要不要停下来处理？",
+    "patternIds": [
+      "toast",
+      "banner",
+      "modal-dialog",
+      "alert-dialog",
+      "popover",
+      "menu"
+    ],
+    "caseIds": [
+      "something-pops-up",
+      "tell-me-saved"
+    ]
+  },
+  {
+    "id": "text-box",
+    "phrase": "文本框",
+    "aliases": [
+      "文字框",
+      "输入文字的框",
+      "打字的框",
+      "写字的框"
+    ],
+    "description": "“文本框”可能只要一行，也可能要写长说明、输入密码，或从已有选项里找一个值。先看用户要输入什么。",
+    "question": "用户是自由填写、输入较长内容，还是从现有值里找？",
+    "patternIds": [
+      "text-field",
+      "textarea",
+      "password-field",
+      "search-field",
+      "combobox"
+    ],
+    "caseIds": [
+      "write-a-name",
+      "enter-or-choose",
+      "private-or-public-input",
+      "find-or-select"
+    ]
+  },
+  {
+    "id": "input-box",
+    "phrase": "输入框",
+    "aliases": [
+      "填写框",
+      "输入栏",
+      "给个地方输入",
+      "让用户填一下"
+    ],
+    "description": "输入框不是只有一种。内容长度、是否敏感、是否在找已有内容，会改变更合适的做法。",
+    "question": "要输入的是短文字、长文字、秘密内容，还是搜索候选？",
+    "patternIds": [
+      "text-field",
+      "textarea",
+      "password-field",
+      "search-field",
+      "combobox"
+    ],
+    "caseIds": [
+      "write-a-name",
+      "enter-or-choose",
+      "private-or-public-input",
+      "find-or-select"
+    ]
+  },
+  {
+    "id": "long-text-box",
+    "phrase": "大文本框",
+    "aliases": [
+      "长文本框",
+      "说明框",
+      "备注框",
+      "留言框",
+      "写一段话的框"
+    ],
+    "description": "用户要写一段可以换行的内容时，单行输入框会显得局促；如果只写一个短名称，多行框又会占用不必要的空间。",
+    "question": "这段内容通常需要几行？",
+    "patternIds": [
+      "textarea",
+      "text-field"
+    ],
+    "caseIds": [
+      "write-a-name"
+    ]
+  },
+  {
+    "id": "search-box",
+    "phrase": "搜索框",
+    "aliases": [
+      "搜一下的框",
+      "查找框",
+      "搜索栏",
+      "搜东西的地方"
+    ],
+    "description": "有时搜索只是过滤一整组结果；有时用户搜索后还必须选中一个候选值。两者看起来相似，但结果用途不同。",
+    "question": "搜索后是浏览一组结果，还是把其中一项选回表单？",
+    "patternIds": [
+      "search-field",
+      "combobox"
+    ],
+    "caseIds": [
+      "find-or-select"
+    ]
+  },
+  {
+    "id": "choice-box",
+    "phrase": "选择框",
+    "aliases": [
+      "选项框",
+      "让用户选一个",
+      "让用户选几个",
+      "做个选项",
+      "选东西的框"
+    ],
+    "description": "“选择框”可能表示单选、多选、快速切换，或者马上生效的开关。选项数量和生效时机都会影响做法。",
+    "question": "只能选一个还是多个？选完马上生效吗？",
+    "patternIds": [
+      "radio-group",
+      "select",
+      "segmented-control",
+      "checkbox-group",
+      "multi-select",
+      "combobox",
+      "checkbox",
+      "switch"
+    ],
+    "caseIds": [
+      "choose-category",
+      "choose-many-tags",
+      "setting-now-or-later"
+    ]
+  },
+  {
+    "id": "dropdown",
+    "phrase": "下拉框",
+    "aliases": [
+      "下拉菜单",
+      "下拉选择",
+      "点开后有选项",
+      "下拉列表"
+    ],
+    "description": "下拉里可能是让用户选一个值、选多个值，或执行一项操作。外观相近，键盘行为和选中结果不同。",
+    "question": "用户要选一个值、多个值，还是执行一个动作？",
+    "patternIds": [
+      "select",
+      "combobox",
+      "multi-select",
+      "menu"
+    ],
+    "caseIds": [
+      "choose-category",
+      "choose-many-tags",
+      "avatar-click"
+    ]
+  },
+  {
+    "id": "check-box",
+    "phrase": "勾选框",
+    "aliases": [
+      "打勾的框",
+      "小方框",
+      "点一下打勾",
+      "复选框",
+      "勾一下"
+    ],
+    "description": "一个勾选框可能是表单中的一项，也可能是一组可多选项；如果切换后立即改变设置，用户通常会期待它像开关。",
+    "question": "这是待提交的选项，还是点了就立即生效的设置？",
+    "patternIds": [
+      "checkbox",
+      "checkbox-group",
+      "switch",
+      "radio-group"
+    ],
+    "caseIds": [
+      "choose-many-tags",
+      "setting-now-or-later"
+    ]
+  },
+  {
+    "id": "toggle-switch",
+    "phrase": "开关",
+    "aliases": [
+      "开一下关一下",
+      "开关按钮",
+      "打开关闭",
+      "启用关闭"
+    ],
+    "description": "开关看起来像简单的两态控件，但用户会据此判断是否已经立即生效。若还要点保存，普通勾选项通常更清楚。",
+    "question": "打开或关闭后，设置会马上改变吗？",
+    "patternIds": [
+      "switch",
+      "checkbox"
+    ],
+    "caseIds": [
+      "setting-now-or-later"
+    ]
+  },
+  {
+    "id": "button",
+    "phrase": "按钮",
+    "aliases": [
+      "点一下的按钮",
+      "操作按钮",
+      "按钮链接",
+      "一个可点击的文字"
+    ],
+    "description": "视觉上像按钮的东西，点击后可能执行动作，也可能只是跳转到另一页。让用户知道结果，才能选对语义。",
+    "question": "点下去会改变或提交数据，还是前往另一个页面？",
+    "patternIds": [
+      "button",
+      "link"
+    ],
+    "caseIds": [
+      "do-or-go"
+    ]
+  },
+  {
+    "id": "notice",
+    "phrase": "提示",
+    "aliases": [
+      "通知一下",
+      "提醒一下",
+      "告诉用户一下",
+      "提示信息"
+    ],
+    "description": "“提示”可能是转瞬即逝的成功反馈、留在页面上的状态、需要修正的错误，或重要提醒。关键是用户要不要行动，以及之后是否还需看见。",
+    "question": "用户需要修正、确认，还是只要知道结果？",
+    "patternIds": [
+      "toast",
+      "inline-status",
+      "banner",
+      "inline-validation",
+      "error-summary"
+    ],
+    "caseIds": [
+      "tell-me-saved",
+      "explain-form-error"
+    ]
+  },
+  {
+    "id": "error-message",
+    "phrase": "错误提示",
+    "aliases": [
+      "报错",
+      "报错信息",
+      "告诉我哪里错了",
+      "提交失败提示"
+    ],
+    "description": "一个字段的错误应贴着字段解释；多项错误要有总览；页面级故障则要说明整体状态。把所有错误都做成弹窗，会让用户难以找到并修复问题。",
+    "question": "错误发生在单个输入项、多处字段，还是整个页面？",
+    "patternIds": [
+      "inline-validation",
+      "error-summary",
+      "banner"
+    ],
+    "caseIds": [
+      "explain-form-error"
+    ]
+  },
+  {
+    "id": "action-menu",
+    "phrase": "菜单",
+    "aliases": [
+      "更多菜单",
+      "点开出现选项",
+      "操作列表",
+      "头像菜单",
+      "三点菜单"
+    ],
+    "description": "菜单通常是一组可以执行的动作；如果展开内容主要是资料或解释，它更像一张贴着触发点的信息卡。",
+    "question": "展开后主要是操作，还是补充信息？",
+    "patternIds": [
+      "menu",
+      "popover",
+      "select"
+    ],
+    "caseIds": [
+      "avatar-click",
+      "share-on-mobile"
+    ]
+  },
+  {
+    "id": "detail-panel",
+    "phrase": "详情面板",
+    "aliases": [
+      "侧边详情",
+      "展开详情",
+      "详情弹出来",
+      "右边拉出详情",
+      "详情框"
+    ],
+    "description": "查看详情可以保留列表上下文，也可以把用户带进一个专注的小任务；面板位置和背景是否可操作会改变感受。",
+    "question": "用户还需要看着原来的列表吗？",
+    "patternIds": [
+      "drawer",
+      "modal-dialog",
+      "popover"
+    ],
+    "caseIds": [
+      "show-record-details"
+    ]
+  },
+  {
+    "id": "sidebar-drawer",
+    "phrase": "侧边栏",
+    "aliases": [
+      "从旁边拉出来",
+      "侧边抽屉",
+      "右侧滑出来",
+      "侧滑面板"
+    ],
+    "description": "侧边栏有时是固定导航，有时只是临时展开的详情面板。这里先看临时查看详情和筛选的情形。",
+    "question": "它会一直留在页面上，还是点一下临时展开？",
+    "patternIds": [
+      "drawer",
+      "modal-dialog"
+    ],
+    "caseIds": [
+      "show-record-details"
+    ]
+  },
+  {
+    "id": "tabs-label",
+    "phrase": "标签",
+    "aliases": [
+      "页签",
+      "标签页",
+      "选项卡",
+      "上面一排标签"
+    ],
+    "description": "“标签”可能是用来切换不同内容的页签，也可能是用户可以勾选的分类标签。先想想用户点它之后会发生什么。",
+    "question": "点标签后是切换内容，还是把它作为一个可选值？",
+    "patternIds": [
+      "tabs",
+      "segmented-control",
+      "checkbox-group",
+      "multi-select"
+    ],
+    "caseIds": [
+      "organize-sections",
+      "choose-many-tags"
+    ]
+  },
+  {
+    "id": "loading",
+    "phrase": "加载动画",
+    "aliases": [
+      "加载效果",
+      "转圈",
+      "加载占位",
+      "显示进度"
+    ],
+    "description": "加载时可能不知道要等多久、知道页面结构但内容还没到，或可以计算已经完成多少。不同等待方式不要用同一种动画代替。",
+    "question": "等待时间可测量吗？页面布局是否已知？",
+    "patternIds": [
+      "spinner",
+      "skeleton",
+      "progress"
+    ],
+    "caseIds": [
+      "show-loading"
+    ]
+  },
+  {
+    "id": "empty-screen",
+    "phrase": "空白页",
+    "aliases": [
+      "没东西的页面",
+      "没有数据",
+      "列表是空的",
+      "什么都没有"
+    ],
+    "description": "用户第一次打开还没有创建内容，和搜索后没有匹配结果是两回事。一个要鼓励开始，一个要帮助调整搜索。",
+    "question": "是从来没有内容，还是搜索没有找到？",
+    "patternIds": [
+      "empty-state",
+      "no-results"
+    ],
+    "caseIds": [
+      "nothing-to-show"
+    ]
+  },
+  {
+    "id": "saved-message",
+    "phrase": "保存成功提示",
+    "aliases": [
+      "保存后告诉我",
+      "保存好了提醒一下",
+      "提交成功",
+      "完成后通知"
+    ],
+    "description": "有时用户只需要短暂确认；有时保存状态关系到接下来的工作，需要一直显示在表单附近。",
+    "question": "用户之后还要看见保存状态吗？",
+    "patternIds": [
+      "toast",
+      "inline-status",
+      "banner"
+    ],
+    "caseIds": [
+      "tell-me-saved"
+    ]
+  },
+  {
+    "id": "avatar-popup",
+    "phrase": "点头像弹出东西",
+    "aliases": [
+      "头像点开",
+      "个人头像菜单",
+      "点击头像后展开",
+      "头像旁边出现选项"
+    ],
+    "description": "头像附近可以出现操作列表，也可以展示账户资料。它们都从头像触发，但内容组织和键盘操作方式不同。",
+    "question": "主要要展示操作还是账户信息？",
+    "patternIds": [
+      "menu",
+      "popover",
+      "tooltip"
+    ],
+    "caseIds": [
+      "avatar-click"
+    ]
+  },
+  {
+    "id": "mobile-layer",
+    "phrase": "手机弹层",
+    "aliases": [
+      "手机底部弹窗",
+      "从手机下面弹出",
+      "分享弹层",
+      "底部菜单"
+    ],
+    "description": "手机上可从底部展开更容易触达的操作面板，也可以显示短小的菜单；面板大小和是否需要用户处理会影响选择。",
+    "question": "用户要选一组操作，还是完成较大的内容任务？",
+    "patternIds": [
+      "bottom-sheet",
+      "menu",
+      "modal-dialog"
+    ],
+    "caseIds": [
+      "share-on-mobile"
+    ]
+  },
+  {
+    "id": "multiple-choice",
+    "phrase": "多选框",
+    "aliases": [
+      "多选",
+      "选多个",
+      "勾选几个选项",
+      "选几个标签"
+    ],
+    "description": "少数选项可以全部展开让用户比较；选项很多时，收在紧凑选择器里更省空间，也更容易搜索。",
+    "question": "选项少到可以全部展示吗？",
+    "patternIds": [
+      "checkbox-group",
+      "multi-select",
+      "combobox"
+    ],
+    "caseIds": [
+      "choose-many-tags"
+    ]
+  },
+  {
+    "id": "confirmation-box",
+    "phrase": "确认框",
+    "aliases": [
+      "确认弹窗",
+      "二次确认",
+      "确定要删除吗",
+      "警告弹窗"
+    ],
+    "description": "普通操作不一定需要打断确认；如果后果重要或无法恢复，应明确说明后果，并让取消与继续都容易找到。",
+    "question": "操作后果能恢复吗？用户是否必须停下来确认？",
+    "patternIds": [
+      "alert-dialog",
+      "modal-dialog",
+      "toast"
+    ],
+    "caseIds": [
+      "something-pops-up"
+    ]
+  },
+  {
+    "id": "date-field",
+    "phrase": "日期框",
+    "aliases": [
+      "填日期",
+      "日期输入框",
+      "年月日输入"
+    ],
+    "description": "“日期框”可能让用户直接填写已知日期，也可能要通过日历挑选预约日期。要先看用户是否知道日期，以及星期或可用日期是否重要。",
+    "question": "用户是填写已经知道的日期，还是安排一个日期？",
+    "patternIds": [
+      "date-input",
+      "date-picker"
+    ],
+    "caseIds": [
+      "date-known-or-schedule"
+    ]
+  },
+  {
+    "id": "calendar-date",
+    "phrase": "日历选日期",
+    "aliases": [
+      "日历选择器",
+      "点日历挑日期",
+      "预约日期日历"
+    ],
+    "description": "日历能帮助比较星期和可选日期，但并不适合每一种日期问题；熟悉日期仍应能直接输入。",
+    "question": "用户需要查看日期的星期或可用安排吗？",
+    "patternIds": [
+      "date-picker",
+      "date-input"
+    ],
+    "caseIds": [
+      "date-known-or-schedule"
+    ]
+  },
+  {
+    "id": "date-range",
+    "phrase": "时间范围",
+    "aliases": [
+      "起止日期",
+      "开始和结束时间",
+      "选一段日期"
+    ],
+    "description": "“时间范围”通常包含开始和结束两个值，不能把它们当作互不相关的单日选择。",
+    "question": "这是一个日期还是一段连续区间？",
+    "patternIds": [
+      "date-range-picker",
+      "date-input"
+    ],
+    "caseIds": [
+      "choose-date-range"
+    ]
+  },
+  {
+    "id": "upload-file",
+    "phrase": "上传文件",
+    "aliases": [
+      "上传附件",
+      "选文件上传",
+      "添加文件"
+    ],
+    "description": "上传前先说明文件用途、格式和大小限制；如果只要引用已有文件，未必需要重复上传。",
+    "question": "产品必须接收文件内容吗？",
+    "patternIds": [
+      "file-upload",
+      "link"
+    ],
+    "caseIds": [
+      "attach-or-link-file"
+    ]
+  },
+  {
+    "id": "drop-file",
+    "phrase": "拖拽上传",
+    "aliases": [
+      "把文件拖进来",
+      "拖文件上传",
+      "拖进上传区域"
+    ],
+    "description": "拖拽可以是快捷方式，但不应成为唯一入口；键盘用户和触屏用户仍需要可见的文件选择按钮。",
+    "question": "用户能否通过常规按钮选择文件？",
+    "patternIds": [
+      "file-upload"
+    ],
+    "caseIds": [
+      "attach-or-link-file"
+    ]
+  },
+  {
+    "id": "upload-progress",
+    "phrase": "上传进度",
+    "aliases": [
+      "上传百分比",
+      "显示上传到多少",
+      "文件传输进度"
+    ],
+    "description": "上传时可以显示真实进度；如果系统拿不到可靠比例，就只告诉用户正在处理，不要编造百分比。",
+    "question": "系统能准确计算完成比例吗？",
+    "patternIds": [
+      "progress",
+      "spinner"
+    ],
+    "caseIds": [
+      "show-upload-progress"
+    ]
+  },
+  {
+    "id": "file-limit",
+    "phrase": "文件大小限制",
+    "aliases": [
+      "限制上传大小",
+      "只允许某些文件",
+      "文件格式限制"
+    ],
+    "description": "限制应在选择文件前说明；选错类型或超过大小时，错误要告诉用户怎样修改。",
+    "question": "用户需要在选择前知道哪些限制？",
+    "patternIds": [
+      "file-upload",
+      "inline-validation"
+    ],
+    "caseIds": [
+      "attach-or-link-file"
+    ]
+  },
+  {
+    "id": "character-counter",
+    "phrase": "字数统计",
+    "aliases": [
+      "字符计数",
+      "显示剩余字数",
+      "还可以写多少字"
+    ],
+    "description": "计数提示适用于确有字数上限的任务；没有实际限制时，持续变化的数字只会增加干扰。",
+    "question": "这段内容有必须遵守的长度上限吗？",
+    "patternIds": [
+      "character-count",
+      "textarea"
+    ],
+    "caseIds": [
+      "respect-response-length"
+    ]
+  },
+  {
+    "id": "character-limit",
+    "phrase": "字数限制",
+    "aliases": [
+      "最多写多少字",
+      "字符数上限",
+      "超字数提示"
+    ],
+    "description": "先确认限制来自真实要求，再决定是否显示剩余字符；提交时仍要保留原文并解释错误。",
+    "question": "用户超出上限时需要怎样修改？",
+    "patternIds": [
+      "character-count",
+      "inline-validation"
+    ],
+    "caseIds": [
+      "respect-response-length"
+    ]
+  },
+  {
+    "id": "required-field",
+    "phrase": "必填项",
+    "aliases": [
+      "必填字段",
+      "必须填写",
+      "不能为空的地方"
+    ],
+    "description": "必填信息要在用户开始填写前标清楚，提交时还应把错误放在对应输入附近。",
+    "question": "缺少这个内容会阻止用户完成任务吗？",
+    "patternIds": [
+      "text-field",
+      "inline-validation"
+    ],
+    "caseIds": [
+      "required-field-error"
+    ]
+  },
+  {
+    "id": "data-table",
+    "phrase": "数据表格",
+    "aliases": [
+      "记录表格",
+      "订单明细表",
+      "行列展示"
+    ],
+    "description": "表格适合同类记录按相同字段对齐比较；如果每条内容需要较长说明，逐项列表可能更好读。",
+    "question": "用户要对比字段，还是逐项阅读内容？",
+    "patternIds": [
+      "data-table",
+      "collection-list"
+    ],
+    "caseIds": [
+      "table-or-list"
+    ]
+  },
+  {
+    "id": "record-list",
+    "phrase": "记录列表",
+    "aliases": [
+      "一项一项展示",
+      "卡片列表",
+      "结果列表"
+    ],
+    "description": "逐项列表给标题、摘要和主要操作留出空间；字段固定且要比较多条记录时，表格通常更直观。",
+    "question": "用户需要并排比较很多相同字段吗？",
+    "patternIds": [
+      "collection-list",
+      "data-table"
+    ],
+    "caseIds": [
+      "table-or-list"
+    ]
+  },
+  {
+    "id": "filter-conditions",
+    "phrase": "筛选条件",
+    "aliases": [
+      "过滤条件",
+      "按状态筛选",
+      "按类别过滤"
+    ],
+    "description": "筛选通常使用状态、类别、日期等已知属性来缩小结果；当前生效的条件应可见并能清除。",
+    "question": "用户是按结构化属性筛选，还是输入关键词查找？",
+    "patternIds": [
+      "filter-controls",
+      "search-field"
+    ],
+    "caseIds": [
+      "search-or-structured-filter"
+    ]
+  },
+  {
+    "id": "search-filter",
+    "phrase": "搜索和筛选",
+    "aliases": [
+      "搜索加过滤",
+      "输入关键词再过滤",
+      "搜完再筛选"
+    ],
+    "description": "搜索匹配文字，筛选限定字段值。两者可以一起用，但要说明它们对哪些结果生效。",
+    "question": "主要需要匹配文字还是组合属性条件？",
+    "patternIds": [
+      "search-field",
+      "filter-controls"
+    ],
+    "caseIds": [
+      "search-or-structured-filter",
+      "filter-whole-result-set"
+    ]
+  },
+  {
+    "id": "sorting",
+    "phrase": "排序",
+    "aliases": [
+      "按时间排列",
+      "最新在前",
+      "按金额排序"
+    ],
+    "description": "排序改变记录顺序，不会排除记录；界面要显示当前依据和方向。",
+    "question": "用户要改变顺序还是缩小结果范围？",
+    "patternIds": [
+      "sort-control",
+      "filter-controls",
+      "data-table"
+    ],
+    "caseIds": [
+      "choose-sort-order"
+    ]
+  },
+  {
+    "id": "page-numbers",
+    "phrase": "页码",
+    "aliases": [
+      "页码导航",
+      "第几页",
+      "上一页下一页"
+    ],
+    "description": "页码用于分批浏览较大的结果集。结果很少时直接展示往往更省操作。",
+    "question": "一页展示全部结果会影响浏览或加载吗？",
+    "patternIds": [
+      "pagination",
+      "collection-list"
+    ],
+    "caseIds": [
+      "paginate-long-results"
+    ]
+  },
+  {
+    "id": "turn-page",
+    "phrase": "翻页",
+    "aliases": [
+      "下一页",
+      "上一页",
+      "切换结果页"
+    ],
+    "description": "翻页浏览的是同一份结果集；筛选和排序后，通常应从新结果的第一页开始。",
+    "question": "翻页时用户需要保留当前筛选条件吗？",
+    "patternIds": [
+      "pagination",
+      "filter-controls"
+    ],
+    "caseIds": [
+      "filter-then-page"
+    ]
+  },
+  {
+    "id": "bulk-action",
+    "phrase": "批量操作",
+    "aliases": [
+      "批量处理",
+      "一次操作多条",
+      "批量归档"
+    ],
+    "description": "批量操作要让用户看见选中数量和即将执行的范围；逐条需要判断的记录不适合强行批处理。",
+    "question": "用户会对多条记录执行同一个动作吗？",
+    "patternIds": [
+      "data-table",
+      "checkbox-group",
+      "button"
+    ],
+    "caseIds": [
+      "bulk-actions-on-records"
+    ]
+  },
+  {
+    "id": "select-many-rows",
+    "phrase": "选中多行",
+    "aliases": [
+      "表格勾选行",
+      "勾选几条记录",
+      "选中多个订单"
+    ],
+    "description": "表格行选择适合批量查看或操作；要显示已选数量，并避免“全选”含义不清。",
+    "question": "选择是为了批量处理，还是只比较几条记录？",
+    "patternIds": [
+      "data-table",
+      "checkbox-group"
+    ],
+    "caseIds": [
+      "bulk-actions-on-records"
+    ]
+  },
+  {
+    "id": "step-progress",
+    "phrase": "步骤条",
+    "aliases": [
+      "流程步骤",
+      "显示当前第几步",
+      "流程进度条"
+    ],
+    "description": "固定阶段适合用步骤名称和当前状态表达；可测量上传过程才适合显示百分比。",
+    "question": "流程是固定的几步，还是可以计算完成比例？",
+    "patternIds": [
+      "step-indicator",
+      "progress"
+    ],
+    "caseIds": [
+      "linear-progress-or-percentage"
+    ]
+  },
+  {
+    "id": "task-checklist",
+    "phrase": "任务清单",
+    "aliases": [
+      "待办清单",
+      "要做的几件事",
+      "任务状态列表"
+    ],
+    "description": "各项可以分开完成时，清单能让用户看到全局进度并回到未完成的任务。",
+    "question": "这些任务可以按自己的顺序处理吗？",
+    "patternIds": [
+      "task-list",
+      "step-indicator"
+    ],
+    "caseIds": [
+      "independent-tasks-or-steps"
+    ]
+  },
+  {
+    "id": "breadcrumb",
+    "phrase": "面包屑",
+    "aliases": [
+      "导航面包屑",
+      "页面路径",
+      "上级目录导航"
+    ],
+    "description": "面包屑展示固定的上级层级，不代表用户刚才从哪里进入，也不应取代主要导航。",
+    "question": "需要显示固定页面层级还是返回浏览历史？",
+    "patternIds": [
+      "breadcrumb",
+      "link"
+    ],
+    "caseIds": [
+      "location-or-history"
+    ]
+  },
+  {
+    "id": "current-location",
+    "phrase": "当前位置",
+    "aliases": [
+      "我在哪一层",
+      "当前目录路径",
+      "所在分类"
+    ],
+    "description": "深层页面可以显示父级路径，帮助从搜索或分享链接进入的用户理解位置。",
+    "question": "当前页是否属于稳定的多层结构？",
+    "patternIds": [
+      "breadcrumb",
+      "link"
+    ],
+    "caseIds": [
+      "location-or-history"
+    ]
+  },
+  {
+    "id": "record-status",
+    "phrase": "状态标签",
+    "aliases": [
+      "状态徽标",
+      "状态小标签",
+      "订单状态标记"
+    ],
+    "description": "持续状态应跟随对应记录展示，并用文字表达含义；颜色只能作为辅助线索。",
+    "question": "这个状态会在之后继续影响用户处理吗？",
+    "patternIds": [
+      "status-tag",
+      "inline-status",
+      "toast"
+    ],
+    "caseIds": [
+      "persistent-or-temporary-status"
+    ]
+  },
+  {
+    "id": "review-answers",
+    "phrase": "提交前核对",
+    "aliases": [
+      "提交前检查",
+      "核对填写内容",
+      "确认所有信息"
+    ],
+    "description": "多项答案要逐条列出并能回到对应位置修改；重要单项后果才需要打断确认。",
+    "question": "用户要核对多项内容，还是确认单个重要后果？",
+    "patternIds": [
+      "summary-list",
+      "alert-dialog"
+    ],
+    "caseIds": [
+      "review-answers-before-submit"
+    ]
+  },
+  {
+    "id": "summary-list",
+    "phrase": "摘要清单",
+    "aliases": [
+      "回答摘要",
+      "填写内容汇总",
+      "复核摘要"
+    ],
+    "description": "摘要清单成对展示字段和值，帮助用户提交前检查自己的回答。",
+    "question": "这是一组填写答案还是一批记录？",
+    "patternIds": [
+      "summary-list",
+      "data-table"
+    ],
+    "caseIds": [
+      "review-list-or-record-table"
+    ]
+  },
+  {
+    "id": "draft-save",
+    "phrase": "保存草稿",
+    "aliases": [
+      "草稿自动保存",
+      "保存编辑进度",
+      "草稿保存成功"
+    ],
+    "description": "长时间编辑时，用户可能需要持续确认最近保存时间；一次保存动作完成后也可以短暂反馈。",
+    "question": "用户是否需要持续确认草稿状态？",
+    "patternIds": [
+      "inline-status",
+      "toast",
+      "button"
+    ],
+    "caseIds": [
+      "draft-save-feedback"
+    ]
+  },
+  {
+    "id": "unsaved-warning",
+    "phrase": "离开前提醒",
+    "aliases": [
+      "未保存提醒",
+      "离开页面确认",
+      "改动没保存"
+    ],
+    "description": "只有确实会丢失未保存内容时才拦截离开；已经自动保存或没有修改时不应出现确认框。",
+    "question": "离开会丢失用户无法恢复的改动吗？",
+    "patternIds": [
+      "alert-dialog",
+      "inline-status"
+    ],
+    "caseIds": [
+      "unsaved-changes"
+    ]
+  },
+  {
+    "id": "undo-delete",
+    "phrase": "撤销删除",
+    "aliases": [
+      "删错了恢复",
+      "删除后撤回",
+      "撤销刚才操作"
+    ],
+    "description": "操作可恢复时可以给短暂撤销机会；无法恢复的高影响操作要先说明后果并要求确认。",
+    "question": "误删后还有恢复机会吗？",
+    "patternIds": [
+      "toast",
+      "alert-dialog"
+    ],
+    "caseIds": [
+      "delete-recoverable-or-final"
+    ]
+  },
+  {
+    "id": "no-match",
+    "phrase": "没有搜索结果",
+    "aliases": [
+      "搜不到",
+      "筛选后空了",
+      "没有匹配记录"
+    ],
+    "description": "搜索无结果不等于第一次使用。保留查询上下文，并帮助用户改词或清除筛选。",
+    "question": "这是新账户还没有内容，还是当前条件没有匹配？",
+    "patternIds": [
+      "no-results",
+      "empty-state"
+    ],
+    "caseIds": [
+      "empty-first-use-or-no-match"
+    ]
+  },
+  {
+    "id": "multi-step-form",
+    "phrase": "分步表单",
+    "aliases": [
+      "分几步填写",
+      "多步流程",
+      "一步一步提交"
+    ],
+    "description": "线性表单可以显示当前阶段，保留前一步输入并让用户回看；独立待办则应使用任务总览。",
+    "question": "用户是否必须按固定顺序完成各步？",
+    "patternIds": [
+      "step-indicator",
+      "task-list",
+      "button"
+    ],
+    "caseIds": [
+      "independent-tasks-or-steps"
+    ]
+  },
+  {
+    "id": "upload-area",
+    "phrase": "文件上传区域",
+    "aliases": [
+      "选择附件区域",
+      "点击上传文件",
+      "上传文件入口"
+    ],
+    "description": "文件选择入口需要可通过键盘使用，并明确允许的格式、数量和大小。拖放只能是额外捷径。",
+    "question": "上传的是本地文件，还是引用已有文件即可？",
+    "patternIds": [
+      "file-upload",
+      "link"
+    ],
+    "caseIds": [
+      "attach-or-link-file"
+    ]
+  },
+  {
+    "id": "autocomplete-suggestions",
+    "phrase": "输入时给我候选项",
+    "aliases": [
+      "自动补全",
+      "联想结果",
+      "边打边搜",
+      "输入建议"
+    ],
+    "description": "输入词是为了选中系统里已有的一项时，需要明确显示候选和选中结果；只查找内容则使用普通搜索。",
+    "question": "用户输入后是否必须选定一个已有对象？",
+    "patternIds": [
+      "combobox",
+      "search-field"
+    ],
+    "caseIds": [
+      "find-or-select",
+      "search-or-structured-filter"
+    ]
+  },
+  {
+    "id": "search-suggestions",
+    "phrase": "搜索建议列表",
+    "aliases": [
+      "搜索下拉结果",
+      "关键词候选",
+      "建议列表"
+    ],
+    "description": "建议列表应帮助用户选择一条真实匹配项，并展示足够信息避免选错同名记录。",
+    "question": "建议项被选中后会作为表单值，还是只打开搜索结果？",
+    "patternIds": [
+      "combobox",
+      "search-field"
+    ],
+    "caseIds": [
+      "find-or-select"
+    ]
+  },
+  {
+    "id": "phone-prefix",
+    "phrase": "手机号国家区号",
+    "aliases": [
+      "国际区号",
+      "电话号码前缀",
+      "国家代码"
+    ],
+    "description": "区号候选很多时，搜索名称、地区和号码前缀会比长下拉更容易查找。",
+    "question": "地区选项数量是否需要搜索？",
+    "patternIds": [
+      "combobox",
+      "select"
+    ],
+    "caseIds": [
+      "choose-category",
+      "enter-or-choose"
+    ]
+  },
+  {
+    "id": "login-password",
+    "phrase": "登录密码输入",
+    "aliases": [
+      "密码框",
+      "输入密码",
+      "密码显示按钮"
+    ],
+    "description": "密码默认隐藏，输入后需要可访问的显示控制；如果只是普通文本，不要使用密码遮蔽。",
+    "question": "用户是否需要临时查看密码来核对输入？",
+    "patternIds": [
+      "password-field",
+      "text-field"
+    ],
+    "caseIds": [
+      "private-or-public-input"
+    ]
+  },
+  {
+    "id": "appointment-date",
+    "phrase": "预约哪一天",
+    "aliases": [
+      "预约日期",
+      "选可用日期",
+      "约个时间"
+    ],
+    "description": "安排未来日期时，日历能展示星期与不可用日期，同时应保留键盘输入和日期格式说明。",
+    "question": "日期选择是否受可用日程或工作日影响？",
+    "patternIds": [
+      "date-picker",
+      "date-input"
+    ],
+    "caseIds": [
+      "date-known-or-schedule"
+    ]
+  },
+  {
+    "id": "date-interval",
+    "phrase": "起止日期区间",
+    "aliases": [
+      "开始结束日期",
+      "统计周期",
+      "日期段"
+    ],
+    "description": "区间输入需要分别标明开始和结束，保留边界，并在结束早于开始时指出如何修改。",
+    "question": "用户要选一个日期还是同时设置两个边界？",
+    "patternIds": [
+      "date-range-picker",
+      "date-picker"
+    ],
+    "caseIds": [
+      "choose-date-range"
+    ]
+  },
+  {
+    "id": "replace-attachment",
+    "phrase": "换成新版附件",
+    "aliases": [
+      "替换旧文件",
+      "更新合同",
+      "上传新版本"
+    ],
+    "description": "替换文件要标出当前文件名和将被替换的对象；需要历史版本时应把文件列为多个附件。",
+    "question": "旧版本是否应继续保留给用户查看？",
+    "patternIds": [
+      "file-upload",
+      "collection-list"
+    ],
+    "caseIds": [
+      "attach-or-link-file"
+    ]
+  },
+  {
+    "id": "upload-requirements",
+    "phrase": "上传前看格式和大小",
+    "aliases": [
+      "文件格式限制",
+      "附件大小上限",
+      "能上传什么文件"
+    ],
+    "description": "允许格式、单文件大小与数量上限应在文件选择前靠近入口说明，错误消息还要解释怎样修正。",
+    "question": "这些限制会不会影响用户选择要上传的文件？",
+    "patternIds": [
+      "file-upload",
+      "tooltip"
+    ],
+    "caseIds": [
+      "attach-or-link-file"
+    ]
+  },
+  {
+    "id": "edit-one-field",
+    "phrase": "点一下就改这个名字",
+    "aliases": [
+      "直接改标题",
+      "就地编辑",
+      "改完保存"
+    ],
+    "description": "一个短字段且频繁修改时可以就地编辑；需要验证多个字段时应进入完整表单并提供取消。",
+    "question": "用户要修改一个短字段还是整组相关资料？",
+    "patternIds": [
+      "text-field",
+      "button"
+    ],
+    "caseIds": [
+      "write-a-name",
+      "required-field-error"
+    ]
+  },
+  {
+    "id": "immediate-setting",
+    "phrase": "切换后马上生效",
+    "aliases": [
+      "开关即时保存",
+      "实时应用设置",
+      "点开就保存"
+    ],
+    "description": "开关暗示当前状态已经改变；若需要统一提交，应把选择标为待保存并给出明确保存反馈。",
+    "question": "切换是否立即影响产品设置？",
+    "patternIds": [
+      "switch",
+      "checkbox"
+    ],
+    "caseIds": [
+      "setting-now-or-later"
+    ]
+  },
+  {
+    "id": "save-still-running",
+    "phrase": "保存还在进行吗",
+    "aliases": [
+      "正在保存",
+      "保存中状态",
+      "等保存完成"
+    ],
+    "description": "短暂操作在附近显示等待状态；持续后台工作应保留可查看的状态和后续入口。",
+    "question": "等待的是一个短动作还是持续任务？",
+    "patternIds": [
+      "spinner",
+      "inline-status",
+      "progress"
+    ],
+    "caseIds": [
+      "show-loading",
+      "draft-save-feedback"
+    ]
+  },
+  {
+    "id": "page-load-failure",
+    "phrase": "页面加载失败了",
+    "aliases": [
+      "内容打不开",
+      "网络断了",
+      "加载后空白"
+    ],
+    "description": "页面级故障要说明受影响范围和恢复步骤；字段错误不能被误报成网络故障。",
+    "question": "故障是影响整个页面还是单条输入？",
+    "patternIds": [
+      "banner",
+      "no-results",
+      "inline-validation"
+    ],
+    "caseIds": [
+      "show-loading",
+      "nothing-to-show"
+    ]
+  },
+  {
+    "id": "skeleton-placeholder",
+    "phrase": "先显示内容占位",
+    "aliases": [
+      "骨架屏",
+      "灰色占位块",
+      "页面结构占位"
+    ],
+    "description": "内容结构已知时用占位保持版式稳定；单个短操作不需要整页骨架。",
+    "question": "用户在等待一页已知布局内容吗？",
+    "patternIds": [
+      "skeleton",
+      "spinner"
+    ],
+    "caseIds": [
+      "show-loading"
+    ]
+  },
+  {
+    "id": "table-too-crowded",
+    "phrase": "表格挤得看不清",
+    "aliases": [
+      "列太多",
+      "表格太宽",
+      "手机上显示不全"
+    ],
+    "description": "先确认用户需要横向比较哪些固定字段；逐条处理记录时可以改为简洁列表并在详情展示次要信息。",
+    "question": "用户主要要比较列，还是逐条处理记录？",
+    "patternIds": [
+      "data-table",
+      "collection-list"
+    ],
+    "caseIds": [
+      "table-or-list"
+    ]
+  },
+  {
+    "id": "mobile-order-list",
+    "phrase": "手机上看订单列表",
+    "aliases": [
+      "移动端订单",
+      "手机记录卡片",
+      "小屏列表"
+    ],
+    "description": "窄屏更适合突出状态、金额与主要动作；只有需要比较同一字段时才保留表格关系。",
+    "question": "移动端用户最常做的是逐条处理还是横向比较？",
+    "patternIds": [
+      "collection-list",
+      "data-table"
+    ],
+    "caseIds": [
+      "table-or-list"
+    ]
+  },
+  {
+    "id": "order-time-sort",
+    "phrase": "订单按最近时间排",
+    "aliases": [
+      "最新订单在前",
+      "按更新时间排序",
+      "从新到旧"
+    ],
+    "description": "排序会改变全部匹配记录的顺序，应让当前字段和升降方向保持可见。",
+    "question": "用户想重新排列所有订单还是只查看某些状态？",
+    "patternIds": [
+      "sort-control",
+      "filter-controls"
+    ],
+    "caseIds": [
+      "choose-sort-order"
+    ]
+  },
+  {
+    "id": "clear-all-filters",
+    "phrase": "清掉所有筛选条件",
+    "aliases": [
+      "恢复全部结果",
+      "重置过滤",
+      "显示全部订单"
+    ],
+    "description": "复合筛选需要一个清除全部入口，清除后展示完整集合并回到第一页。",
+    "question": "当前只有一个条件还是多个条件组合？",
+    "patternIds": [
+      "filter-controls",
+      "pagination"
+    ],
+    "caseIds": [
+      "filter-whole-result-set"
+    ]
+  },
+  {
+    "id": "go-to-result-page",
+    "phrase": "跳到第几页",
+    "aliases": [
+      "页码选择",
+      "回到上一页结果",
+      "显示第几项到第几项"
+    ],
+    "description": "需要定位或比较时展示页码、当前范围和总数；条件变化后重新从匹配结果第一页开始。",
+    "question": "用户是否需要回到具体位置或知道剩余数量？",
+    "patternIds": [
+      "pagination",
+      "collection-list"
+    ],
+    "caseIds": [
+      "paginate-long-results"
+    ]
+  },
+  {
+    "id": "select-all-orders",
+    "phrase": "把这些订单一起选中",
+    "aliases": [
+      "全选当前结果",
+      "批量勾选订单",
+      "选择多行"
+    ],
+    "description": "全选要说明作用于当前页还是所有筛选结果，批量操作前要显示选中数量和影响范围。",
+    "question": "选择范围是当前页面还是全部匹配结果？",
+    "patternIds": [
+      "data-table",
+      "checkbox-group",
+      "filter-controls"
+    ],
+    "caseIds": [
+      "bulk-actions-on-records"
+    ]
+  },
+  {
+    "id": "undo-after-delete",
+    "phrase": "删错了能撤回吗",
+    "aliases": [
+      "撤销刚才操作",
+      "恢复删除",
+      "回收站找回"
+    ],
+    "description": "可恢复的删除可以提供撤销或回收站入口；无法恢复的重要删除应先说明后果再确认。",
+    "question": "这次删除能从产品中恢复吗？",
+    "patternIds": [
+      "toast",
+      "alert-dialog"
+    ],
+    "caseIds": [
+      "delete-recoverable-or-final"
+    ]
+  },
+  {
+    "id": "collapse-long-explanation",
+    "phrase": "详细内容先收起来",
+    "aliases": [
+      "展开更多说明",
+      "收起长段内容",
+      "查看全文"
+    ],
+    "description": "补充信息可以按主题折叠；关键规则和会影响操作的重要提示不能藏在展开区域中。",
+    "question": "隐藏内容是否是完成任务的必要条件？",
+    "patternIds": [
+      "accordion",
+      "banner"
+    ],
+    "caseIds": [
+      "organize-sections"
+    ]
+  },
+  {
+    "id": "page-hierarchy-path",
+    "phrase": "显示我现在在哪一层",
+    "aliases": [
+      "目录导航路径",
+      "上级目录链接",
+      "页面所在位置"
+    ],
+    "description": "层级路径展示固定父级关系；返回上一步则依赖浏览历史，两者用途不同。",
+    "question": "用户要看固定父级还是返回刚才的位置？",
+    "patternIds": [
+      "breadcrumb",
+      "link"
+    ],
+    "caseIds": [
+      "location-or-history"
+    ]
+  },
+  {
+    "id": "workflow-current-step",
+    "phrase": "告诉我现在进行到哪一步",
+    "aliases": [
+      "步骤编号",
+      "流程总共几步",
+      "当前阶段"
+    ],
+    "description": "固定顺序的线性任务显示阶段名称和当前位置；可独立完成的事项应使用任务总览。",
+    "question": "步骤是否必须按固定顺序完成？",
+    "patternIds": [
+      "step-indicator",
+      "task-list"
+    ],
+    "caseIds": [
+      "linear-progress-or-percentage",
+      "independent-tasks-or-steps"
+    ]
+  }
 ]

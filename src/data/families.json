@@ -6,5 +6,8 @@
   {"id":"overlay","label":"临时展示内容","icon":"▱","description":"短暂显示补充信息、操作菜单或需要处理的内容。"},
   {"id":"browse","label":"浏览、切换和展开","icon":"⌁","description":"把内容分组、切换，或按需展开查看。"},
   {"id":"search","label":"查找和整理","icon":"⌕","description":"从内容中搜索、筛选或排序。"},
-  {"id":"states","label":"加载、空白和结果状态","icon":"◌","description":"告诉用户页面正在加载、没有内容，或搜索没有结果。"}
+  {"id":"states","label":"加载、空白和结果状态","icon":"◌","description":"告诉用户页面正在加载、没有内容，或搜索没有结果。"},
+  {"id":"records","label":"查看和整理多条记录","icon":"▦","description":"用户要理解、比较、筛选、排序或改变一组重复记录。"},
+  {"id":"workflow","label":"完成分步骤的任务","icon":"≋","description":"用户要跨多个步骤或多项任务完成一件事。"},
+  {"id":"navigation","label":"知道自己在什么位置","icon":"⌂","description":"用户要理解页面层级，并返回上一级或相关位置。"}
 ]

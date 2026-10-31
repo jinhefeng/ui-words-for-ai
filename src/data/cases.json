@@ -53,6 +53,10 @@
         ],
         "reason": "内容可能超过一行或需要换行，多行文本框 更适合较长输入。"
       }
+    ],
+    "journeyId": "collect-information",
+    "sourceIds": [
+      "names"
     ]
   },
   {
@@ -110,6 +114,10 @@
         ],
         "reason": "要从现有项目中选择且候选可能很多，可搜索选择框能边输入边缩小候选。"
       }
+    ],
+    "journeyId": "collect-information",
+    "sourceIds": [
+      "gov-components"
     ]
   },
   {
@@ -167,6 +175,10 @@
         ],
         "reason": "普通文本保持可见，便于用户核对和修改。"
       }
+    ],
+    "journeyId": "save-and-resume",
+    "sourceIds": [
+      "password"
     ]
   },
   {
@@ -223,6 +235,10 @@
         ],
         "reason": "用户需要把一个候选值选入表单，可搜索的候选选择框 把搜索和选择结合起来。"
       }
+    ],
+    "journeyId": "find-and-navigate",
+    "sourceIds": [
+      "uswds"
     ]
   },
   {
@@ -281,6 +297,10 @@
         ],
         "reason": "选项多且只选一个，下拉选择能节省空间；候选更多时可再加搜索。"
       }
+    ],
+    "journeyId": "decide-next-step",
+    "sourceIds": [
+      "gov-components"
     ]
   },
   {
@@ -339,6 +359,10 @@
         ],
         "reason": "多项候选收在紧凑控件中；搜索和已选标签帮助管理较长列表。"
       }
+    ],
+    "journeyId": "decide-next-step",
+    "sourceIds": [
+      "gov-components"
     ]
   },
   {
@@ -396,6 +420,10 @@
         ],
         "reason": "这是尚未提交的表单选择，单项勾选框 与保存按钮的流程更一致。"
       }
+    ],
+    "journeyId": "decide-next-step",
+    "sourceIds": [
+      "gov-components"
     ]
   },
   {
@@ -453,6 +481,10 @@
         ],
         "reason": "点击目标是一个页面或位置，链接 能保留导航语义和浏览器行为。"
       }
+    ],
+    "journeyId": "find-and-navigate",
+    "sourceIds": [
+      "apg"
     ]
   },
   {
@@ -510,6 +542,10 @@
         ],
         "reason": "结果持续影响当前页面，页面内的持续状态提示 留在相关内容旁，之后仍可查看。"
       }
+    ],
+    "journeyId": "review-and-submit",
+    "sourceIds": [
+      "gov-notify"
     ]
   },
   {
@@ -566,6 +602,11 @@
         "alternativePatternIds": [],
         "reason": "表单顶部先给出错误总览并可跳转到字段，同时每个字段附近保留具体解释。"
       }
+    ],
+    "journeyId": "recover-and-correct",
+    "sourceIds": [
+      "errors",
+      "gov-error"
     ]
   },
   {
@@ -639,6 +680,10 @@
         ],
         "reason": "重要后果需要清楚说明，并让用户明确选择继续或取消。"
       }
+    ],
+    "journeyId": "recover-and-correct",
+    "sourceIds": [
+      "apg"
     ]
   },
   {
@@ -695,6 +740,10 @@
         ],
         "reason": "用户要专注完成一项短任务，居中对话框能建立清晰的任务边界。"
       }
+    ],
+    "journeyId": "find-and-navigate",
+    "sourceIds": [
+      "apg"
     ]
   },
   {
@@ -751,6 +800,10 @@
         ],
         "reason": "需要展示头像附近的账户信息，贴近按钮出现的信息卡 可承载信息和少量相关入口。"
       }
+    ],
+    "journeyId": "communicate-and-follow-up",
+    "sourceIds": [
+      "apg"
     ]
   },
   {
@@ -807,6 +860,10 @@
         ],
         "reason": "桌面端短操作列表可以锚定按钮展开，并支持键盘逐项选择。"
       }
+    ],
+    "journeyId": "communicate-and-follow-up",
+    "sourceIds": [
+      "apg"
     ]
   },
   {
@@ -879,6 +936,10 @@
         ],
         "reason": "任务可以测量进度时显示真实完成比例，并持续提供状态。"
       }
+    ],
+    "journeyId": "review-and-submit",
+    "sourceIds": [
+      "uswds"
     ]
   },
   {
@@ -935,6 +996,10 @@
         ],
         "reason": "用户已经主动查找；解释没有匹配并提供清除或修改条件的方式。"
       }
+    ],
+    "journeyId": "find-and-navigate",
+    "sourceIds": [
+      "uswds"
     ]
   },
   {
@@ -992,6 +1057,6284 @@
         ],
         "reason": "用户想按需阅读长段细节，并可能同时查看多块，可展开内容块 更合适。"
       }
+    ],
+    "journeyId": "find-and-navigate",
+    "sourceIds": [
+      "gov-accordion",
+      "gov-tabs"
+    ]
+  },
+  {
+    "id": "date-known-or-schedule",
+    "family": "input",
+    "title": "用户填写已知日期还是挑选安排日期",
+    "phrase": "让用户选一个日期。",
+    "keywords": [
+      "日期",
+      "日历",
+      "生日",
+      "预约",
+      "排期"
+    ],
+    "goal": "让用户提供一个准确日期。",
+    "context": "生日和证件日期通常已经知道；预约日期可能需要对照星期和可预约区间。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户是填写已经知道的日期，还是从日历中安排一个日期？",
+        "options": [
+          {
+            "id": "known",
+            "label": "这是一个用户已经知道或能查到的日期",
+            "hint": "例如出生日期、证件签发日期"
+          },
+          {
+            "id": "schedule",
+            "label": "用户要安排一个日期",
+            "hint": "例如预约时间，需要看星期或可用日期"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "known"
+        },
+        "primaryPatternId": "date-input",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "date-picker"
+        ],
+        "reason": "用户能直接回忆或查到日期时，分段输入通常比翻日历更快。"
+      },
+      {
+        "when": {
+          "choice": "schedule"
+        },
+        "primaryPatternId": "date-picker",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "date-input"
+        ],
+        "reason": "挑选预约日期时，日历上下文能帮助比较星期和可用日期。"
+      }
+    ],
+    "journeyId": "collect-information",
+    "sourceIds": [
+      "date"
+    ]
+  },
+  {
+    "id": "choose-date-range",
+    "family": "input",
+    "title": "用户要选一天还是一段日期",
+    "phrase": "让用户选择开始和结束时间。",
+    "keywords": [
+      "日期范围",
+      "开始日期",
+      "结束日期",
+      "报表周期",
+      "起止时间"
+    ],
+    "goal": "让用户限定要查看或安排的日期范围。",
+    "context": "开始和结束的先后关系应清楚，不能让用户误把区间当成两个无关日期。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户要选一个日期，还是需要同时确定起止日期？",
+        "options": [
+          {
+            "id": "single",
+            "label": "只需要一个日期",
+            "hint": "开始和结束其实是同一天"
+          },
+          {
+            "id": "range",
+            "label": "需要一段连续时间",
+            "hint": "例如报表周期、出行日期"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "single"
+        },
+        "primaryPatternId": "date-input",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "date-picker"
+        ],
+        "reason": "只需要一个已知日期时，用单个日期字段即可。"
+      },
+      {
+        "when": {
+          "choice": "range"
+        },
+        "primaryPatternId": "date-range-picker",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "date-input"
+        ],
+        "reason": "需要一段连续时间时，应把开始和结束作为一个区间共同检查。"
+      }
+    ],
+    "journeyId": "prepare-and-complete",
+    "sourceIds": [
+      "uswds"
+    ]
+  },
+  {
+    "id": "attach-or-link-file",
+    "family": "input",
+    "title": "用户要上传本地文件还是引用已有文件",
+    "phrase": "让用户提供一份文件。",
+    "keywords": [
+      "文件",
+      "上传",
+      "附件",
+      "链接",
+      "复用文件"
+    ],
+    "goal": "让用户提供任务所需的文件内容。",
+    "context": "先确认产品是否必须接收文件本身；如果用户已有可访问文件，引用链接可能更轻便。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "系统需要接收本地文件内容，还是只需要打开已有文件？",
+        "options": [
+          {
+            "id": "upload",
+            "label": "必须从设备选择并提交文件",
+            "hint": "例如上传合同扫描件用于审核"
+          },
+          {
+            "id": "existing",
+            "label": "文件已存放在其他位置",
+            "hint": "只需保存一个可访问的链接"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "upload"
+        },
+        "primaryPatternId": "file-upload",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "只有确实要处理文件内容时才要求用户上传，并提前说明限制。"
+      },
+      {
+        "when": {
+          "choice": "existing"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "file-upload"
+        ],
+        "reason": "已有文件可访问时，收集链接比重复上传更直接。"
+      }
+    ],
+    "journeyId": "prepare-and-complete",
+    "sourceIds": [
+      "gov-components"
+    ]
+  },
+  {
+    "id": "respect-response-length",
+    "family": "input",
+    "title": "长回答是否真的需要字数上限",
+    "phrase": "给说明输入框加个字数限制。",
+    "keywords": [
+      "多行输入",
+      "字数限制",
+      "字符统计",
+      "长文本"
+    ],
+    "goal": "帮助用户提交符合真实要求的说明。",
+    "context": "只有后端、法律或任务本身确有上限时才限制长度；限制过短会让用户反复修改。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "这段文字是否存在必须遵守的真实长度上限？",
+        "options": [
+          {
+            "id": "required",
+            "label": "有明确的字数或字符上限",
+            "hint": "超出会导致无法提交或违反要求"
+          },
+          {
+            "id": "none",
+            "label": "没有明确的长度要求",
+            "hint": "只是希望用户尽量简短"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "required"
+        },
+        "primaryPatternId": "character-count",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "textarea"
+        ],
+        "reason": "有真实上限时，提前提示还能写多少，并在提交时说明如何修正。"
+      },
+      {
+        "when": {
+          "choice": "none"
+        },
+        "primaryPatternId": "textarea",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "character-count"
+        ],
+        "reason": "没有必要的限制时，不要添加持续变化的计数信息。"
+      }
+    ],
+    "journeyId": "collect-information",
+    "sourceIds": [
+      "gov-components"
+    ]
+  },
+  {
+    "id": "required-field-error",
+    "family": "input",
+    "title": "必填内容怎样说明和报错",
+    "phrase": "这些内容有些必填，有些可以不填。",
+    "keywords": [
+      "必填",
+      "选填",
+      "表单校验",
+      "必填项",
+      "错误提示"
+    ],
+    "goal": "帮助用户知道哪些内容必须提供，并在缺失时修正。",
+    "context": "必填标记应在输入前可见；错误出现时保留用户已经填写的其他内容。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户提交时缺少内容，界面需要做什么？",
+        "options": [
+          {
+            "id": "block",
+            "label": "该项是完成任务的必要信息",
+            "hint": "缺少时不能继续提交"
+          },
+          {
+            "id": "optional",
+            "label": "该项允许留空",
+            "hint": "只在用户填写后检查格式"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "block"
+        },
+        "primaryPatternId": "inline-validation",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "必填信息缺失会阻止提交，应贴着字段说明需要补什么。"
+      },
+      {
+        "when": {
+          "choice": "optional"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-validation"
+        ],
+        "reason": "允许留空时不要用必填错误拦住用户；只对已填写的值检查格式。"
+      }
+    ],
+    "journeyId": "recover-and-correct",
+    "sourceIds": [
+      "errors",
+      "gov-error"
+    ]
+  },
+  {
+    "id": "table-or-list",
+    "family": "records",
+    "title": "同一组记录应该用表格还是列表",
+    "phrase": "把这些订单做成一页方便查看。",
+    "keywords": [
+      "订单",
+      "表格",
+      "数据列表",
+      "卡片列表",
+      "比较记录"
+    ],
+    "goal": "帮助用户快速理解并比较一组订单。",
+    "context": "订单字段相同且需要横向比较时，表格更清楚；每条记录描述较长时，列表更容易阅读。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户最常要比较同一列信息，还是逐条阅读每条记录？",
+        "options": [
+          {
+            "id": "compare",
+            "label": "需要快速对比多条记录的相同字段",
+            "hint": "例如日期、金额、状态"
+          },
+          {
+            "id": "read",
+            "label": "每条记录有较长摘要或图片",
+            "hint": "重点是逐项阅读和查看主要操作"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "compare"
+        },
+        "primaryPatternId": "data-table",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "collection-list"
+        ],
+        "reason": "同一类记录要比较相同字段时，行列对齐更利于扫描。"
+      },
+      {
+        "when": {
+          "choice": "read"
+        },
+        "primaryPatternId": "collection-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "data-table"
+        ],
+        "reason": "内容长短不一或需展示摘要时，逐项列表比挤进很多列更易读。"
+      }
+    ],
+    "journeyId": "find-and-navigate",
+    "sourceIds": [
+      "apg",
+      "uswds"
+    ]
+  },
+  {
+    "id": "search-or-structured-filter",
+    "family": "records",
+    "title": "用户是在搜文字还是按条件缩小列表",
+    "phrase": "订单上加个筛选功能。",
+    "keywords": [
+      "订单筛选",
+      "搜索记录",
+      "状态过滤",
+      "日期过滤",
+      "关键词"
+    ],
+    "goal": "让用户更快找到需要处理的订单。",
+    "context": "搜索通常匹配用户输入的文字；筛选通常选择状态、日期或类别等已知属性。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户想输入关键词找内容，还是按已有字段组合条件？",
+        "options": [
+          {
+            "id": "text",
+            "label": "记得记录标题或关键词",
+            "hint": "输入部分名称就想匹配"
+          },
+          {
+            "id": "fields",
+            "label": "按状态、日期或类别筛选",
+            "hint": "通常会同时使用几个明确条件"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "text"
+        },
+        "primaryPatternId": "search-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "filter-controls"
+        ],
+        "reason": "目标是匹配文字时，搜索框可以直接缩小结果。"
+      },
+      {
+        "when": {
+          "choice": "fields"
+        },
+        "primaryPatternId": "filter-controls",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "search-field"
+        ],
+        "reason": "条件来自结构化字段时，筛选控件能表达每个条件并显示当前选择。"
+      }
+    ],
+    "journeyId": "find-and-navigate",
+    "sourceIds": [
+      "uswds"
+    ]
+  },
+  {
+    "id": "choose-sort-order",
+    "family": "records",
+    "title": "让用户按什么依据重新排列",
+    "phrase": "列表最好能按时间或金额排序。",
+    "keywords": [
+      "排序",
+      "最新记录",
+      "金额排序",
+      "升序",
+      "降序"
+    ],
+    "goal": "让用户把最相关的记录排在前面。",
+    "context": "独立列表适合提供一个清晰的排序选择；列密集表格也可以让用户直接点列标题排序。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户主要在列表中选排序方式，还是要对照表格列标题切换？",
+        "options": [
+          {
+            "id": "list",
+            "label": "用户先选择一个主要排序依据",
+            "hint": "例如最新、最早、金额最高"
+          },
+          {
+            "id": "columns",
+            "label": "用户会反复比较不同数据列",
+            "hint": "例如多列数字分别升序或降序"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "list"
+        },
+        "primaryPatternId": "sort-control",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "data-table"
+        ],
+        "reason": "独立排序控件能清楚显示当前列表依据和方向。"
+      },
+      {
+        "when": {
+          "choice": "columns"
+        },
+        "primaryPatternId": "data-table",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "sort-control"
+        ],
+        "reason": "用户围绕多个列比较时，表格列标题可就地体现当前排序。"
+      }
+    ],
+    "journeyId": "find-and-navigate",
+    "sourceIds": [
+      "uswds"
+    ]
+  },
+  {
+    "id": "paginate-long-results",
+    "family": "records",
+    "title": "结果很多时怎样分批浏览",
+    "phrase": "所有订单都放在一个页面里。",
+    "keywords": [
+      "很多结果",
+      "分页",
+      "翻页",
+      "大列表",
+      "加载性能"
+    ],
+    "goal": "让用户浏览完整结果，同时避免一次渲染过多记录。",
+    "context": "先用搜索或筛选缩小范围；当单页结果仍很长或大多数人只看前几页时，再分页。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "这些结果需要分成多页吗？",
+        "options": [
+          {
+            "id": "small",
+            "label": "结果通常很少，单页扫一遍更快",
+            "hint": "内容有明确主题或只有少量记录"
+          },
+          {
+            "id": "large",
+            "label": "结果很多或页面一次加载明显变慢",
+            "hint": "大多数人只看前几页"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "small"
+        },
+        "primaryPatternId": "collection-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "pagination"
+        ],
+        "reason": "少量结果直接展示更省操作，不要为了形式增加页码。"
+      },
+      {
+        "when": {
+          "choice": "large"
+        },
+        "primaryPatternId": "pagination",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "collection-list"
+        ],
+        "reason": "大结果集可分批浏览，避免一次构造过长页面。"
+      }
+    ],
+    "journeyId": "find-and-navigate",
+    "sourceIds": [
+      "gov-pagination"
+    ]
+  },
+  {
+    "id": "filter-whole-result-set",
+    "family": "records",
+    "title": "分页后筛选是否只作用于当前页",
+    "phrase": "翻页后再筛选当前页的订单。",
+    "keywords": [
+      "分页筛选",
+      "全部结果",
+      "筛选后翻页",
+      "当前页"
+    ],
+    "goal": "让用户在大量记录中准确定位符合条件的项目。",
+    "context": "筛选应应用于完整结果集，而不是只过滤当前页中已加载的条目；条件变化后从第一页开始。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "筛选条件应该搜索全部记录，还是只搜索当前显示的这一页？",
+        "options": [
+          {
+            "id": "all",
+            "label": "在全部记录中找匹配项",
+            "hint": "筛选后仍要继续浏览各页"
+          },
+          {
+            "id": "current",
+            "label": "只整理已经挑出的这一小批",
+            "hint": "当前页面本身就是完整集合"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "all"
+        },
+        "primaryPatternId": "filter-controls",
+        "supportingPatternIds": [
+          "pagination"
+        ],
+        "alternativePatternIds": [
+          "search-field"
+        ],
+        "reason": "先对全量结果应用条件，再分页显示匹配记录；条件改变时回到第一页。"
+      },
+      {
+        "when": {
+          "choice": "current"
+        },
+        "primaryPatternId": "filter-controls",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "pagination"
+        ],
+        "reason": "只有当前集合确实是完整任务范围时，才在这一小批记录中筛选。"
+      }
+    ],
+    "journeyId": "find-and-navigate",
+    "sourceIds": [
+      "gov-pagination"
+    ]
+  },
+  {
+    "id": "persistent-or-temporary-status",
+    "family": "feedback",
+    "title": "状态要留在记录旁还是短暂提醒",
+    "phrase": "告诉我订单处理成功了。",
+    "keywords": [
+      "订单状态",
+      "成功提示",
+      "状态标签",
+      "轻提示"
+    ],
+    "goal": "让用户确认刚才发生的变化，并了解记录当前状态。",
+    "context": "操作完成后如果记录仍有一个可查看的状态，就应标在对象旁；只需确认动作完成时可用短反馈。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户以后还需要看见这项记录的当前状态吗？",
+        "options": [
+          {
+            "id": "lasting",
+            "label": "状态会持续影响后续处理",
+            "hint": "例如处理中、待付款、已完成"
+          },
+          {
+            "id": "brief",
+            "label": "只要知道刚才的动作已完成",
+            "hint": "例如复制成功、偏好已保存"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "lasting"
+        },
+        "primaryPatternId": "status-tag",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "记录的状态需要在之后继续查看，应附着在对应记录上。"
+      },
+      {
+        "when": {
+          "choice": "brief"
+        },
+        "primaryPatternId": "toast",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "短暂操作反馈不需要永久占据页面位置。"
+      }
+    ],
+    "journeyId": "communicate-and-follow-up",
+    "sourceIds": [
+      "gov-notify"
+    ]
+  },
+  {
+    "id": "bulk-actions-on-records",
+    "family": "records",
+    "title": "用户是否需要同时处理多条记录",
+    "phrase": "可以一次选中几行一起操作。",
+    "keywords": [
+      "批量操作",
+      "多选行",
+      "表格勾选",
+      "批量删除"
+    ],
+    "goal": "帮助用户安全地对多条记录执行同一动作。",
+    "context": "用户需要知道当前选中了多少条，也要能在执行前核对动作范围。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户会一次处理多条记录，还是逐条进入详情处理？",
+        "options": [
+          {
+            "id": "bulk",
+            "label": "经常对多条同类记录执行同一操作",
+            "hint": "例如批量归档或导出"
+          },
+          {
+            "id": "single",
+            "label": "每条记录都需要单独判断",
+            "hint": "操作依赖该条记录的详细内容"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "bulk"
+        },
+        "primaryPatternId": "data-table",
+        "supportingPatternIds": [
+          "checkbox-group",
+          "button"
+        ],
+        "alternativePatternIds": [
+          "menu"
+        ],
+        "reason": "可比较的行内选择适合表格，并在批量操作前显示选中数量。"
+      },
+      {
+        "when": {
+          "choice": "single"
+        },
+        "primaryPatternId": "collection-list",
+        "supportingPatternIds": [
+          "button"
+        ],
+        "alternativePatternIds": [
+          "data-table"
+        ],
+        "reason": "逐条查看和操作时，不必为很少使用的批量行为增加选择控件。"
+      }
+    ],
+    "journeyId": "prepare-and-complete",
+    "sourceIds": [
+      "apg"
+    ]
+  },
+  {
+    "id": "location-or-history",
+    "family": "navigation",
+    "title": "返回上级位置还是回到刚才的页面",
+    "phrase": "在详情页放一个返回路径。",
+    "keywords": [
+      "面包屑",
+      "上级目录",
+      "返回",
+      "导航路径"
+    ],
+    "goal": "帮助用户在深层页面中理解上下文并继续浏览。",
+    "context": "层级路径回答“这页属于哪里”；浏览器返回回答“刚才从哪里来”。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "返回入口要表达固定的页面层级，还是回到用户上次浏览的位置？",
+        "options": [
+          {
+            "id": "hierarchy",
+            "label": "显示固定的父级目录结构",
+            "hint": "不同入口进入详情都应看见同样路径"
+          },
+          {
+            "id": "history",
+            "label": "回到用户刚才访问的页面",
+            "hint": "入口可能来自搜索、列表或外部链接"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "hierarchy"
+        },
+        "primaryPatternId": "breadcrumb",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "固定层级应使用路径导航，让父级位置可直接打开。"
+      },
+      {
+        "when": {
+          "choice": "history"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "breadcrumb"
+        ],
+        "reason": "用户想回到真实上一页时，应使用返回行为而不是伪造固定层级。"
+      }
+    ],
+    "journeyId": "find-and-navigate",
+    "sourceIds": [
+      "gov-nav"
+    ]
+  },
+  {
+    "id": "linear-progress-or-percentage",
+    "family": "workflow",
+    "title": "长任务显示步骤还是完成百分比",
+    "phrase": "显示这个流程还剩多少。",
+    "keywords": [
+      "流程进度",
+      "分步填写",
+      "进度百分比",
+      "当前步骤"
+    ],
+    "goal": "让用户判断一项尚未完成的任务进展。",
+    "context": "固定的几个阶段表达离散步骤；可测量且持续推进的工作更适合显示百分比。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "这个过程由固定的几步组成，还是完成比例可以连续测量？",
+        "options": [
+          {
+            "id": "steps",
+            "label": "由几个固定阶段组成",
+            "hint": "例如申请、核对、确认"
+          },
+          {
+            "id": "measured",
+            "label": "可以计算实际完成比例",
+            "hint": "例如文件上传或后台处理"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "steps"
+        },
+        "primaryPatternId": "step-indicator",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "progress"
+        ],
+        "reason": "离散任务应显示当前阶段和前后顺序，不必制造精确百分比。"
+      },
+      {
+        "when": {
+          "choice": "measured"
+        },
+        "primaryPatternId": "progress",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "step-indicator"
+        ],
+        "reason": "完成量可以计算时，用进度条表达已完成比例。"
+      }
+    ],
+    "journeyId": "prepare-and-complete",
+    "sourceIds": [
+      "gov-task-list"
+    ]
+  },
+  {
+    "id": "independent-tasks-or-steps",
+    "family": "workflow",
+    "title": "要显示待办总览还是线性流程",
+    "phrase": "列出所有还需要完成的事情。",
+    "keywords": [
+      "任务清单",
+      "步骤条",
+      "多个待办",
+      "流程导航"
+    ],
+    "goal": "帮助用户安排和完成一组相关任务。",
+    "context": "任务可分开完成时需要总览；单个流程必须按顺序走时需要当前位置提示。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "这些事项可以按自己的顺序完成，还是必须一步一步进行？",
+        "options": [
+          {
+            "id": "independent",
+            "label": "各项任务可单独完成或稍后回来",
+            "hint": "例如分别填写公司信息和联系人"
+          },
+          {
+            "id": "ordered",
+            "label": "一个任务要按固定顺序完成",
+            "hint": "例如填写、复核、提交"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "independent"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "step-indicator"
+        ],
+        "reason": "可独立处理的工作应显示整体清单和每项状态。"
+      },
+      {
+        "when": {
+          "choice": "ordered"
+        },
+        "primaryPatternId": "step-indicator",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "单一线性流程应说明当前步骤和后续顺序。"
+      }
+    ],
+    "journeyId": "decide-next-step",
+    "sourceIds": [
+      "gov-task-list"
+    ]
+  },
+  {
+    "id": "review-answers-before-submit",
+    "family": "workflow",
+    "title": "最终提交前是否需要逐项核对",
+    "phrase": "提交前把我填写的信息列出来。",
+    "keywords": [
+      "核对信息",
+      "摘要清单",
+      "确认提交",
+      "修改答案"
+    ],
+    "goal": "降低用户在重要提交中漏看错误信息的机会。",
+    "context": "需要展示本次填写的标签和值，并提供回到对应项目修改的入口。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "提交前用户是否需要核对多项已填写的信息？",
+        "options": [
+          {
+            "id": "review",
+            "label": "需要检查多项答案",
+            "hint": "例如预约时间、联系人和服务内容"
+          },
+          {
+            "id": "single",
+            "label": "只需确认一个重要后果",
+            "hint": "例如确认永久删除"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "review"
+        },
+        "primaryPatternId": "summary-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "alert-dialog"
+        ],
+        "reason": "多项答案应按字段和值逐项呈现，并能回到对应字段修改。"
+      },
+      {
+        "when": {
+          "choice": "single"
+        },
+        "primaryPatternId": "alert-dialog",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "summary-list"
+        ],
+        "reason": "只有需要确认的重要后果时才用打断式对话框说明后果。"
+      }
+    ],
+    "journeyId": "review-and-submit",
+    "sourceIds": [
+      "gov-check"
+    ]
+  },
+  {
+    "id": "draft-save-feedback",
+    "family": "feedback",
+    "title": "保存结果要不要一直显示在页面",
+    "phrase": "保存草稿后告诉我保存成功。",
+    "keywords": [
+      "保存草稿",
+      "保存状态",
+      "自动保存",
+      "成功通知"
+    ],
+    "goal": "让用户了解草稿是否已保存并能放心继续编辑。",
+    "context": "长时间编辑的页面可能需要保留最近保存状态；一次简单操作通常只需短反馈。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "保存状态对接下来的工作仍然重要吗？",
+        "options": [
+          {
+            "id": "lasting",
+            "label": "用户需要随时确认当前草稿保存状态",
+            "hint": "例如离开前要知道最近保存时间"
+          },
+          {
+            "id": "brief",
+            "label": "只需确认这一次保存已经完成",
+            "hint": "保存后会进入下一步"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "lasting"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "toast"
+        ],
+        "reason": "持续影响用户信心的保存状态应留在编辑内容附近。"
+      },
+      {
+        "when": {
+          "choice": "brief"
+        },
+        "primaryPatternId": "toast",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "一次性完成确认可短暂反馈，避免长期占位。"
+      }
+    ],
+    "journeyId": "save-and-resume",
+    "sourceIds": [
+      "save"
+    ]
+  },
+  {
+    "id": "delete-recoverable-or-final",
+    "family": "feedback",
+    "title": "删除后可以撤销还是无法恢复",
+    "phrase": "删除后让用户知道结果。",
+    "keywords": [
+      "删除",
+      "撤销删除",
+      "永久删除",
+      "确认框"
+    ],
+    "goal": "减少误删，同时不让低风险操作频繁打断用户。",
+    "context": "可撤销删除可以先执行并给短暂恢复机会；无法恢复的高影响删除应先说明后果。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "误操作后能恢复吗？",
+        "options": [
+          {
+            "id": "recoverable",
+            "label": "可以从回收站或撤销操作恢复",
+            "hint": "误删后有恢复窗口"
+          },
+          {
+            "id": "final",
+            "label": "操作不可恢复或影响很大",
+            "hint": "删除会永久移除数据"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "recoverable"
+        },
+        "primaryPatternId": "toast",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "alert-dialog"
+        ],
+        "reason": "可恢复操作通常可完成后提供撤销入口，避免每次都强制确认。"
+      },
+      {
+        "when": {
+          "choice": "final"
+        },
+        "primaryPatternId": "alert-dialog",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "toast"
+        ],
+        "reason": "不可逆操作应在执行前解释影响并明确提供取消选项。"
+      }
+    ],
+    "journeyId": "review-and-submit",
+    "sourceIds": [
+      "apg"
+    ]
+  },
+  {
+    "id": "unsaved-changes",
+    "family": "feedback",
+    "title": "离开页面前是否需要提醒未保存内容",
+    "phrase": "没保存时提醒我不要离开。",
+    "keywords": [
+      "未保存提醒",
+      "离开页面",
+      "草稿内容",
+      "取消离开"
+    ],
+    "goal": "避免用户意外丢失尚未保存的编辑内容。",
+    "context": "有实质内容尚未保存时才提醒；已经保存或没有改动时不要打断导航。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "当前是否有用户无法恢复的未保存改动？",
+        "options": [
+          {
+            "id": "changed",
+            "label": "有尚未保存且离开会丢失的内容",
+            "hint": "修改后需要明确保存"
+          },
+          {
+            "id": "safe",
+            "label": "改动已自动保存或没有改动",
+            "hint": "离开不会丢失内容"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "changed"
+        },
+        "primaryPatternId": "alert-dialog",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "banner"
+        ],
+        "reason": "离开会丢失内容时，应给用户留下保存、放弃或继续编辑的明确选择。"
+      },
+      {
+        "when": {
+          "choice": "safe"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "alert-dialog"
+        ],
+        "reason": "内容已保存时可显示保存状态，不要多余地拦截用户离开。"
+      }
+    ],
+    "journeyId": "recover-and-correct",
+    "sourceIds": [
+      "save"
+    ]
+  },
+  {
+    "id": "empty-first-use-or-no-match",
+    "family": "states",
+    "title": "列表空白是因为还没内容还是搜不到",
+    "phrase": "列表空着时告诉我怎么开始。",
+    "keywords": [
+      "空状态",
+      "搜索无结果",
+      "没有记录",
+      "第一次使用"
+    ],
+    "goal": "说明当前列表没有内容的原因，并指引用户下一步。",
+    "context": "初次使用时需要创建第一条内容；搜索无匹配时应帮助用户修改关键词或筛选。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "当前是从未有过记录，还是搜索条件没有匹配项？",
+        "options": [
+          {
+            "id": "first",
+            "label": "这是新账户或第一次打开",
+            "hint": "还没有创建任何内容"
+          },
+          {
+            "id": "filtered",
+            "label": "已经有内容但当前条件找不到",
+            "hint": "搜索或筛选后结果为零"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "first"
+        },
+        "primaryPatternId": "empty-state",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "no-results"
+        ],
+        "reason": "首次使用的空状态要说明价值并给出开始入口。"
+      },
+      {
+        "when": {
+          "choice": "filtered"
+        },
+        "primaryPatternId": "no-results",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "empty-state"
+        ],
+        "reason": "搜索无结果时应保留搜索上下文，并帮助用户调整条件。"
+      }
+    ],
+    "journeyId": "find-and-navigate",
+    "sourceIds": [
+      "uswds"
+    ]
+  },
+  {
+    "id": "show-upload-progress",
+    "family": "states",
+    "title": "上传进度能不能准确计算",
+    "phrase": "上传文件时显示加载状态。",
+    "keywords": [
+      "上传进度",
+      "文件上传",
+      "百分比",
+      "等待上传"
+    ],
+    "goal": "让用户知道上传仍在进行以及何时完成。",
+    "context": "只有能够准确计算已上传字节或阶段时才显示百分比；未知时长不应制造假进度。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "系统能准确计算已完成的上传比例吗？",
+        "options": [
+          {
+            "id": "known",
+            "label": "可以计算真实完成比例",
+            "hint": "传输过程持续报告实际字节数"
+          },
+          {
+            "id": "unknown",
+            "label": "无法测量，只能知道仍在处理",
+            "hint": "时长短或服务没有进度信息"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "known"
+        },
+        "primaryPatternId": "progress",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "spinner"
+        ],
+        "reason": "真实比例有助于用户判断进度和剩余工作。"
+      },
+      {
+        "when": {
+          "choice": "unknown"
+        },
+        "primaryPatternId": "spinner",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "progress"
+        ],
+        "reason": "没有可测量比例时，用简洁等待提示，不要显示虚构数字。"
+      }
+    ],
+    "journeyId": "prepare-and-complete",
+    "sourceIds": [
+      "gov-components"
+    ]
+  },
+  {
+    "id": "filter-then-page",
+    "family": "records",
+    "title": "筛选后的多页结果怎样继续浏览",
+    "phrase": "筛选之后让我继续翻页。",
+    "keywords": [
+      "筛选分页",
+      "结果总数",
+      "页码",
+      "保留筛选"
+    ],
+    "goal": "在较大的记录集中先找匹配项，再逐页浏览结果。",
+    "context": "筛选条件属于整个结果集；翻页时应保留条件，条件改变则从匹配结果第一页开始。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "筛选后仍有许多结果需要分页吗？",
+        "options": [
+          {
+            "id": "many",
+            "label": "筛选结果仍有多页",
+            "hint": "用户需要在匹配项中逐页查找"
+          },
+          {
+            "id": "few",
+            "label": "筛选后只剩少量结果",
+            "hint": "一页能全部看完"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "many"
+        },
+        "primaryPatternId": "pagination",
+        "supportingPatternIds": [
+          "filter-controls"
+        ],
+        "alternativePatternIds": [
+          "collection-list"
+        ],
+        "reason": "筛选应用于全部记录，分页展示匹配结果，并保留已选条件。"
+      },
+      {
+        "when": {
+          "choice": "few"
+        },
+        "primaryPatternId": "filter-controls",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "pagination"
+        ],
+        "reason": "结果已足够少时直接展示即可，不要保留空页码控件。"
+      }
+    ],
+    "journeyId": "find-and-navigate",
+    "sourceIds": [
+      "gov-pagination"
+    ]
+  },
+  {
+    "id": "review-list-or-record-table",
+    "family": "workflow",
+    "title": "用户要核对答案还是比较多条记录",
+    "phrase": "把提交内容整理成表格给我看。",
+    "keywords": [
+      "核对答案",
+      "表格摘要",
+      "订单列表",
+      "复核提交"
+    ],
+    "goal": "让用户在做出操作前看懂需要确认的信息。",
+    "context": "用户自己的回答摘要与一组不同记录的对比表虽然外观相近，但任务目的不同。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "内容是同一位用户填写的答案，还是一组独立记录？",
+        "options": [
+          {
+            "id": "answers",
+            "label": "展示这次任务刚填写的字段和值",
+            "hint": "每项可能需要回去修改"
+          },
+          {
+            "id": "records",
+            "label": "比较多个对象的相同属性",
+            "hint": "例如订单、客户或商品"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "answers"
+        },
+        "primaryPatternId": "summary-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "data-table"
+        ],
+        "reason": "复核回答要按问题和值成对展示，并提供对应的修改入口。"
+      },
+      {
+        "when": {
+          "choice": "records"
+        },
+        "primaryPatternId": "data-table",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "summary-list"
+        ],
+        "reason": "跨记录比较相同字段时，表格行列能帮助用户对照。"
+      }
+    ],
+    "journeyId": "review-and-submit",
+    "sourceIds": [
+      "gov-check"
+    ]
+  },
+  {
+    "id": "address-book-or-free-entry",
+    "family": "input",
+    "journeyId": "collect-information",
+    "title": "从地址簿选地址还是自行填写",
+    "phrase": "“用户既可能选已有地址，也可能自己补录。”",
+    "keywords": [
+      "地址",
+      "邮编",
+      "海外地址",
+      "地址查询"
+    ],
+    "goal": "让用户提供可用于后续联系或服务办理的地址。",
+    "context": "官方地址模式强调地址结构、校验和地区差异；关键在于能否可靠匹配已有地址。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "地址已有标准记录，还是需要用户补录特殊/海外地址？",
+        "options": [
+          {
+            "id": "a",
+            "label": "从可验证的地址建议中选择"
+          },
+          {
+            "id": "b",
+            "label": "按清楚的字段自行填写"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "combobox",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "textarea"
+        ],
+        "reason": "地址库覆盖充分且建议可核实时，搜索并选择能减少重复输入。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "textarea",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "combobox"
+        ],
+        "reason": "地址格式多样或需要补充非标准地址时，应保留可自行填写的路径。"
+      }
+    ],
+    "sourceIds": [
+      "address"
+    ]
+  },
+  {
+    "id": "multiple-addresses-for-household",
+    "family": "input",
+    "journeyId": "collect-information",
+    "title": "同一人需要填写多个居住地址",
+    "phrase": "“一个人可能有现住址，也有需要单独申报的其他地址。”",
+    "keywords": [
+      "多个地址",
+      "居住地址",
+      "邮寄地址",
+      "重复记录"
+    ],
+    "goal": "分别收集具有不同用途的地址，避免把多段信息混在一处。",
+    "context": "地址可能用于居住、邮寄或某段时间的居住记录；标签要说明用途。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户只需提供当前一处地址，还是需要分别记录多处？",
+        "options": [
+          {
+            "id": "a",
+            "label": "只填一处当前地址"
+          },
+          {
+            "id": "b",
+            "label": "逐条添加并标明用途"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "单一当前地址只需聚焦一个地址问题。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "多处地址有各自用途或时间范围时，分条管理更容易核对。"
+      }
+    ],
+    "sourceIds": [
+      "address"
+    ]
+  },
+  {
+    "id": "date-of-event-or-booking",
+    "family": "input",
+    "journeyId": "collect-information",
+    "title": "记录已发生日期还是预约日期",
+    "phrase": "“用户要填事件发生的日期，也可能要挑一个可预约的日期。”",
+    "keywords": [
+      "已知日期",
+      "预约日期",
+      "日历",
+      "日期输入"
+    ],
+    "goal": "让日期输入方式配合日期是否已知以及是否要查看可选日期。",
+    "context": "ONS 日期模式聚焦已知日期；需要浏览日历或可预约日期时，交互目标不同。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "日期已经确定，还是需要浏览日历来选一个可用日期？",
+        "options": [
+          {
+            "id": "a",
+            "label": "填写已知日期"
+          },
+          {
+            "id": "b",
+            "label": "从日历中选择可用日期"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "date-input",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "date-picker"
+        ],
+        "reason": "已知日期用直接输入更快，也更适合熟悉日期的用户。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "date-picker",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "date-input"
+        ],
+        "reason": "需要看星期、可用日期或日历上下文时，日历选择更有帮助。"
+      }
+    ],
+    "sourceIds": [
+      "date"
+    ]
+  },
+  {
+    "id": "duration-or-date-range",
+    "family": "input",
+    "journeyId": "collect-information",
+    "title": "收集经过时长还是起止日期",
+    "phrase": "“用户需要告诉我们用了多久，还是从哪天到哪天？”",
+    "keywords": [
+      "时长",
+      "日期范围",
+      "起止日期",
+      "时间段"
+    ],
+    "goal": "避免把持续时间与具体时间段混成一种输入。",
+    "context": "ONS 分别提供时长与日期模式；两类答案代表不同数据含义。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "服务关心一个时长数值，还是两个明确的起止日期？",
+        "options": [
+          {
+            "id": "a",
+            "label": "填写时长数值"
+          },
+          {
+            "id": "b",
+            "label": "分别填写开始和结束日期"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "date-range-picker"
+        ],
+        "reason": "只关心经过多久时，数值输入更直接。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "date-range-picker",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "需要判断具体日期边界时，起止日期能保留时间段信息。"
+      }
+    ],
+    "sourceIds": [
+      "duration"
+    ]
+  },
+  {
+    "id": "exact-amount-or-estimate",
+    "family": "input",
+    "journeyId": "collect-information",
+    "title": "收集精确数字还是大致区间",
+    "phrase": "“金额必须精确填写，还是用户只能估算一个范围？”",
+    "keywords": [
+      "金额",
+      "数量",
+      "估算",
+      "滑块"
+    ],
+    "goal": "选择适合数字精度和用户确定程度的输入方式。",
+    "context": "数字模式建议明确单位、可接受范围和校验；连续刻度只适用于允许估算的场景。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "结果需要精确数值，还是只需表达大致水平？",
+        "options": [
+          {
+            "id": "a",
+            "label": "输入精确数字和单位"
+          },
+          {
+            "id": "b",
+            "label": "选择一个估算范围"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "segmented-control"
+        ],
+        "reason": "需要精确计算、审核或留存时，文本输入更可控且可读。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "segmented-control",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "只需快速估算且允许近似值时，滑块可以表达范围，但不适合精确金额。"
+      }
+    ],
+    "sourceIds": [
+      "numeric"
+    ]
+  },
+  {
+    "id": "contact-method-one-or-many",
+    "family": "selection",
+    "journeyId": "collect-information",
+    "title": "用户可以留一种还是多种联系方式",
+    "phrase": "“用户可以选一个联系方式，也可能希望同时留下电话和邮箱。”",
+    "keywords": [
+      "联系偏好",
+      "电话",
+      "邮箱",
+      "单选",
+      "多选"
+    ],
+    "goal": "正确表达联系人可接受的联系方式数量。",
+    "context": "电话和邮箱的采集分别有官方模式；选择组件应先明确单选还是多选。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户必须只选一种，还是可以勾选几种？",
+        "options": [
+          {
+            "id": "a",
+            "label": "只能选择一种方式"
+          },
+          {
+            "id": "b",
+            "label": "可以同时选择多种方式"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "radio-group",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "checkbox-group"
+        ],
+        "reason": "互斥条件用单选能明确选择结果。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "checkbox-group",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "radio-group"
+        ],
+        "reason": "允许组合偏好时，多选能保留用户的多个联系方式意愿。"
+      }
+    ],
+    "sourceIds": [
+      "phone"
+    ]
+  },
+  {
+    "id": "verify-contact-or-record-only",
+    "family": "input",
+    "journeyId": "collect-information",
+    "title": "只记录联系方式还是要验证归属",
+    "phrase": "“填了邮箱或电话以后，系统还要确认这是用户能收到消息的地址吗？”",
+    "keywords": [
+      "邮箱验证",
+      "短信验证码",
+      "联系方式",
+      "身份验证"
+    ],
+    "goal": "把联系方式录入与控制权验证区分开。",
+    "context": "ONS 有联系方式采集指引；服务若要确认用户可访问该地址，还需独立验证步骤。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "只需记录联系方式，还是需要用户输入收到的验证码来验证？",
+        "options": [
+          {
+            "id": "a",
+            "label": "填写联系方式即可"
+          },
+          {
+            "id": "b",
+            "label": "输入发送到联系方式的验证码"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "password-field"
+        ],
+        "reason": "仅用于联系时，常规文本输入并给出格式指引即可。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "password-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "需证明用户能访问邮箱或电话时，验证码是单独的验证任务，不能只靠输入框占位说明。"
+      }
+    ],
+    "sourceIds": [
+      "email"
+    ]
+  },
+  {
+    "id": "security-secret-or-access-code",
+    "family": "input",
+    "journeyId": "collect-information",
+    "title": "录入秘密凭据还是服务访问码",
+    "phrase": "“用户填的是自己的密码，还是服务发给他的访问代码？”",
+    "keywords": [
+      "密码",
+      "访问码",
+      "安全输入",
+      "代码"
+    ],
+    "goal": "明确数据敏感度和代码来源，再决定输入的可见性与解释。",
+    "context": "ONS 分别描述密码与访问码；访问码应说明在哪里取得及丢失后如何处理。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "内容是需要保密的密码，还是需核对但不应误输的访问码？",
+        "options": [
+          {
+            "id": "a",
+            "label": "输入密码并默认隐藏"
+          },
+          {
+            "id": "b",
+            "label": "输入访问码并说明获取方式"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "password-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "口令需要默认隐藏，并提供安全、可操作的显示控制。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "password-field"
+        ],
+        "reason": "服务发放的代码通常要便于核对，并说明代码来源、格式和补发方式。"
+      }
+    ],
+    "sourceIds": [
+      "password"
+    ]
+  },
+  {
+    "id": "relationship-options-or-free-description",
+    "family": "input",
+    "journeyId": "collect-information",
+    "title": "收集家庭成员关系类别",
+    "phrase": "“用户要说明家庭成员之间的关系，还是描述一个系统没有列出的关系？”",
+    "keywords": [
+      "家庭成员",
+      "关系",
+      "亲属",
+      "其他说明"
+    ],
+    "goal": "在结构化统计与表达真实复杂关系之间取得平衡。",
+    "context": "ONS 的关系模式强调清楚定义家庭成员关系并覆盖不同家庭结构。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "关系类别已被服务完整定义，还是需要用户补充不在列表中的情况？",
+        "options": [
+          {
+            "id": "a",
+            "label": "从明确的关系类别中选择"
+          },
+          {
+            "id": "b",
+            "label": "提供其他关系说明"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "select",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "textarea"
+        ],
+        "reason": "类别稳定且可覆盖时，结构化选择便于理解和统计。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "textarea",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "select"
+        ],
+        "reason": "现实关系超出选项时，应给出解释或补充方式，避免强迫错误归类。"
+      }
+    ],
+    "sourceIds": [
+      "relationships"
+    ]
+  },
+  {
+    "id": "feedback-rating-or-story",
+    "family": "input",
+    "journeyId": "collect-information",
+    "title": "收集一次评分还是开放意见",
+    "phrase": "“用户只需评价这次服务，还是要说明具体经历？”",
+    "keywords": [
+      "反馈",
+      "评分",
+      "意见",
+      "问卷"
+    ],
+    "goal": "让反馈形式匹配用户需要表达的信息量。",
+    "context": "ONS 将反馈作为实际网页表单任务；闭合选项适合短评价，长叙述需要文本空间。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "只需要结构化评价，还是需要用户讲述具体情况？",
+        "options": [
+          {
+            "id": "a",
+            "label": "选择评分或固定选项"
+          },
+          {
+            "id": "b",
+            "label": "写下具体经历和建议"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "radio-group",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "textarea"
+        ],
+        "reason": "只要可统计的总体评价时，固定选项降低填写负担。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "textarea",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "radio-group"
+        ],
+        "reason": "需要理解具体经历或改进建议时，开放文本能保留上下文。"
+      }
+    ],
+    "sourceIds": [
+      "feedback"
+    ]
+  },
+  {
+    "id": "check-service-before-start",
+    "family": "selection",
+    "journeyId": "decide-next-step",
+    "title": "先判断适用性还是直接开始填写",
+    "phrase": "“先问几句确认用户能不能办，再让大家进入表单。”",
+    "keywords": [
+      "资格判断",
+      "适用条件",
+      "服务入口",
+      "分流"
+    ],
+    "goal": "在收集完整信息前确认用户是否应继续本服务。",
+    "context": "GOV.UK 将 suitability 作为明确服务模式；不适用时要解释替代去向。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "回答会决定是否适用本服务，还是所有人都直接办理？",
+        "options": [
+          {
+            "id": "a",
+            "label": "先回答适用条件问题"
+          },
+          {
+            "id": "b",
+            "label": "直接进入服务表单"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "radio-group",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "button"
+        ],
+        "reason": "结果影响是否继续办理时，先用明确问题判断并解释不同结果。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "button",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "radio-group"
+        ],
+        "reason": "若没有分流条件且用户都要办理，直接开始可避免多余关卡。"
+      }
+    ],
+    "sourceIds": [
+      "gov-suitable"
+    ]
+  },
+  {
+    "id": "conditional-follow-up-question",
+    "family": "selection",
+    "journeyId": "decide-next-step",
+    "title": "根据上一答案决定是否追问",
+    "phrase": "“只有选择了某种情况的用户，才需要回答后续问题。”",
+    "keywords": [
+      "条件题",
+      "分支问题",
+      "动态表单",
+      "追问"
+    ],
+    "goal": "避免用户看到与自身情况无关的追问。",
+    "context": "结构化问题页面应以用户能理解的题目和必要提示组织内容。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "这道追问是否只对某些答案有意义？",
+        "options": [
+          {
+            "id": "a",
+            "label": "只在相关答案后显示追问"
+          },
+          {
+            "id": "b",
+            "label": "所有人都回答同一问题"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "radio-group",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "追问只与部分用户相关时，应基于先前答案显示并解释原因。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "radio-group"
+        ],
+        "reason": "问题对所有人都必要时，统一询问并保持流程清晰。"
+      }
+    ],
+    "sourceIds": [
+      "question"
+    ]
+  },
+  {
+    "id": "few-vs-large-answer-set",
+    "family": "selection",
+    "journeyId": "decide-next-step",
+    "title": "选项很少还是候选很多",
+    "phrase": "“一眼能看完的选项和几百个候选，别都用同一种选择方式。”",
+    "keywords": [
+      "很多选项",
+      "搜索选择",
+      "单选列表",
+      "候选项"
+    ],
+    "goal": "让用户在选项规模较大时仍能找到目标。",
+    "context": "USWDS 将 combo box 用于较大选项集合；GOV.UK 组件目录列出 radios、select 等不同选择组件。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户需要在少量答案中比较，还是要从长列表搜索？",
+        "options": [
+          {
+            "id": "a",
+            "label": "少量选项，需要同时看见"
+          },
+          {
+            "id": "b",
+            "label": "大量选项，需要搜索定位"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "radio-group",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "combobox"
+        ],
+        "reason": "少量互斥答案同时可见，方便比较差异。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "combobox",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "radio-group"
+        ],
+        "reason": "候选很多时可搜索的选择框能缩短查找，但要保留键盘可用性和无匹配反馈。"
+      }
+    ],
+    "sourceIds": [
+      "uswds"
+    ]
+  },
+  {
+    "id": "single-or-multiple-answer",
+    "family": "selection",
+    "journeyId": "decide-next-step",
+    "title": "回答互斥问题还是勾选多个条件",
+    "phrase": "“这个问题只能选一个答案，还是可以同时成立好几项？”",
+    "keywords": [
+      "单选",
+      "多选",
+      "条件",
+      "勾选"
+    ],
+    "goal": "让选择控件表达真实答案关系。",
+    "context": "单选与复选含义不同；官方组件指南分别定义一项选择和多个选择。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "答案之间互斥吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "答案只能选一个"
+          },
+          {
+            "id": "b",
+            "label": "多个答案可以同时成立"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "radio-group",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "checkbox-group"
+        ],
+        "reason": "互斥结果应清楚限制为单项。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "checkbox-group",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "radio-group"
+        ],
+        "reason": "可以同时成立的条件应允许多选，并说明是否必须至少选一项。"
+      }
+    ],
+    "sourceIds": [
+      "gov-components"
+    ]
+  },
+  {
+    "id": "fixed-options-or-other-answer",
+    "family": "selection",
+    "journeyId": "decide-next-step",
+    "title": "选项覆盖所有情况还是要留补充入口",
+    "phrase": "“列表里可能没有用户的情况，要不要留一个‘其他’？”",
+    "keywords": [
+      "其他",
+      "自定义答案",
+      "补充说明",
+      "选项覆盖"
+    ],
+    "goal": "避免选项不完整时迫使用户选错。",
+    "context": "问题设计指引强调让用户理解问题并提供正确答案；选项是否穷尽会影响输入方式。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "选项已经覆盖真实情况，还是用户可能需要描述其他情况？",
+        "options": [
+          {
+            "id": "a",
+            "label": "只从完整、明确的选项中选择"
+          },
+          {
+            "id": "b",
+            "label": "提供其他选项和补充说明"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "select",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "textarea"
+        ],
+        "reason": "选项穷尽且答案需要标准化时，固定选项更一致。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "textarea",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "select"
+        ],
+        "reason": "必须保留例外情况时，要允许说明并明确说明何时填写。"
+      }
+    ],
+    "sourceIds": [
+      "question"
+    ]
+  },
+  {
+    "id": "optional-or-mandatory-question",
+    "family": "input",
+    "journeyId": "decide-next-step",
+    "title": "用固定选项回答还是用自己的话描述",
+    "phrase": "“用户是从清楚的答案里选，还是需要自己描述情况？”",
+    "keywords": [
+      "开放题",
+      "封闭题",
+      "问卷",
+      "答题方式",
+      "文字描述"
+    ],
+    "goal": "让答题方式适合信息是否能被预先分类。",
+    "context": "ONS 问题页模式支持结构化问题；当答案类别明确时便于选择，复杂经历则需要用户自己的文字。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "答案能由有限、清楚的选项完整表达吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "能，答案来自预先定义的选项"
+          },
+          {
+            "id": "b",
+            "label": "不能，需要用户描述具体情况"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "radio-group",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "textarea"
+        ],
+        "reason": "答案范围固定且互斥时，显示选项让用户直接比较并选择。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "textarea",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "radio-group"
+        ],
+        "reason": "答案需要背景、经历或例外说明时，留出空间让用户用自己的话表达。"
+      }
+    ],
+    "sourceIds": [
+      "question"
+    ]
+  },
+  {
+    "id": "ordered-or-independent-questions",
+    "family": "workflow",
+    "journeyId": "decide-next-step",
+    "title": "问题必须按顺序还是可按需完成",
+    "phrase": "“各部分可以任意顺序填写，还是前一步决定下一步？”",
+    "keywords": [
+      "任务顺序",
+      "独立任务",
+      "线性流程",
+      "问卷"
+    ],
+    "goal": "根据任务依赖组织分组办理和线性步骤。",
+    "context": "ONS Hub and Spoke 适用于用户按偏好分段完成；固定顺序任务则需显示流程位置。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "各部分互相独立吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "可按任意顺序完成各部分"
+          },
+          {
+            "id": "b",
+            "label": "必须按先后顺序完成"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "step-indicator"
+        ],
+        "reason": "相互独立的任务适合显示总览、状态和未完成事项。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "step-indicator",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "存在依赖或明确先后时，步骤指示能告诉用户当前位置。"
+      }
+    ],
+    "sourceIds": [
+      "hub"
+    ]
+  },
+  {
+    "id": "cookie-consent-options",
+    "family": "selection",
+    "journeyId": "decide-next-step",
+    "title": "决定同意还是拒绝非必要 Cookies",
+    "phrase": "“想让用户选择分析类 Cookie，也要能拒绝。”",
+    "keywords": [
+      "Cookies",
+      "隐私",
+      "同意",
+      "拒绝"
+    ],
+    "goal": "呈现可理解的同意选择并保存偏好。",
+    "context": "ONS 有 Cookie 设置模式；GOV.UK 指出非必要 Cookie 应提供接受或拒绝路径。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "服务是否使用非必要 Cookie？",
+        "options": [
+          {
+            "id": "a",
+            "label": "只有必要 Cookie，只需说明"
+          },
+          {
+            "id": "b",
+            "label": "存在非必要 Cookie，允许接受或拒绝"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "checkbox-group"
+        ],
+        "reason": "只使用必要 Cookie 时，不要求额外同意步骤；清楚说明并提供 Cookie 设置页面入口即可。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "checkbox-group",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "存在非必要存储时，应提供同样清楚的接受和拒绝选择，并记录用户的决定。"
+      }
+    ],
+    "sourceIds": [
+      "cookies"
+    ]
+  },
+  {
+    "id": "language-before-or-during-service",
+    "family": "browse",
+    "journeyId": "decide-next-step",
+    "title": "在开始前选择语言还是随时切换",
+    "phrase": "“多语言服务里，用户进入后还能不能换语言？”",
+    "keywords": [
+      "语言切换",
+      "多语言",
+      "导航",
+      "选择"
+    ],
+    "goal": "确保用户能找到并理解语言切换的入口。",
+    "context": "ONS 的语言模式强调服务中可切换语言；具体放置要匹配整个服务体验。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户是否可能在办理过程中需要改用另一种语言？",
+        "options": [
+          {
+            "id": "a",
+            "label": "全程提供可见的语言切换"
+          },
+          {
+            "id": "b",
+            "label": "只在开始前选择一次语言"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "menu",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "select"
+        ],
+        "reason": "用户需要随时切换时，导航内的语言入口更容易重新找到。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "select",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "menu"
+        ],
+        "reason": "仅在开始前选择会让后续误选语言难以纠正，应确认不会阻断用户理解。"
+      }
+    ],
+    "sourceIds": [
+      "language"
+    ]
+  },
+  {
+    "id": "question-page-or-section-overview",
+    "family": "workflow",
+    "journeyId": "decide-next-step",
+    "title": "先看分组总览还是直接回答单题",
+    "phrase": "“问题很多，我想先告诉用户有哪几部分。”",
+    "keywords": [
+      "问卷分组",
+      "章节总览",
+      "单题页面",
+      "调查"
+    ],
+    "goal": "让用户理解问卷结构和每个部分的目的。",
+    "context": "ONS 提供问卷分组介绍页、重复段落过渡页和问题页，分别处理不同结构任务。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户需要规划多个独立部分，还是只需回答当前一题？",
+        "options": [
+          {
+            "id": "a",
+            "label": "先看各部分和完成状态"
+          },
+          {
+            "id": "b",
+            "label": "聚焦当前问题逐步前进"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "step-indicator"
+        ],
+        "reason": "部分可独立填写或返回时，总览能帮助规划。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "step-indicator",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "单一、连续的问题流适合显示当前步骤而非额外总览。"
+      }
+    ],
+    "sourceIds": [
+      "section"
+    ]
+  },
+  {
+    "id": "branching-result-or-calculation",
+    "family": "selection",
+    "journeyId": "decide-next-step",
+    "title": "答案用于指路还是计算结果",
+    "phrase": "“用户回答几个问题后，是给他下一步信息，还是算出一个金额？”",
+    "keywords": [
+      "问答分支",
+      "推荐结果",
+      "资格计算",
+      "用户引导"
+    ],
+    "goal": "确认互动任务是否属于基于答案的内容导航。",
+    "context": "DfE 的 Get to an answer 可做问题分支和结果引导，但明确不适用于计算或外部数据资格判断。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "结果是相关信息/行动指引，还是需要计算或外部数据验证？",
+        "options": [
+          {
+            "id": "a",
+            "label": "把用户引导到相关说明或行动"
+          },
+          {
+            "id": "b",
+            "label": "结果需计算或校验外部数据"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "radio-group",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "少量答案决定信息去向时，问题分支可把用户带到相关结果。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "radio-group"
+        ],
+        "reason": "涉及计算或外部资格验证时，应使用可验证的计算/业务服务，不能伪装成简单问答。"
+      }
+    ],
+    "sourceIds": [
+      "question"
+    ]
+  },
+  {
+    "id": "upload-local-evidence-or-link-existing",
+    "family": "input",
+    "journeyId": "prepare-and-complete",
+    "title": "上传本地文件还是引用已有资料",
+    "phrase": "“用户要提交证明，也可能已有一份线上文件链接。”",
+    "keywords": [
+      "上传证明",
+      "文件链接",
+      "附件",
+      "材料"
+    ],
+    "goal": "选择实际能让服务取得所需材料的方式。",
+    "context": "GOV.UK File upload 要求先确认上传确为任务所需并说明限制；已有资料可直接链接时不必重复上传。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "服务需要接收文件本身，还是只需访问已有资料？",
+        "options": [
+          {
+            "id": "a",
+            "label": "从设备上传文件"
+          },
+          {
+            "id": "b",
+            "label": "提供已有资料的链接"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "file-upload",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "服务需要保存和校验材料时，使用文件上传并说明格式、大小与错误恢复。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "file-upload"
+        ],
+        "reason": "材料已公开或系统可直接访问时，链接能避免冗余文件副本。"
+      }
+    ],
+    "sourceIds": [
+      "gov-components"
+    ]
+  },
+  {
+    "id": "one-proof-or-many-documents",
+    "family": "input",
+    "journeyId": "prepare-and-complete",
+    "title": "提交一份证明还是多份材料",
+    "phrase": "“要上传一份身份证明，也可能要交多份不同用途的材料。”",
+    "keywords": [
+      "多文件",
+      "证明材料",
+      "附件数量",
+      "材料清单"
+    ],
+    "goal": "提前说明文件数量、用途与每个文件的要求。",
+    "context": "文件数量与分组会改变用户准备材料的方式；上传页要明确限制和错误处理。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "只有一份文件，还是每类材料都要分别提交？",
+        "options": [
+          {
+            "id": "a",
+            "label": "选择并上传一份文件"
+          },
+          {
+            "id": "b",
+            "label": "按材料类别逐项上传多份文件"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "file-upload",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "单文件要求要让限制和上传结果清晰可见。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "file-upload"
+        ],
+        "reason": "多份材料有不同用途时，按任务项分开能防止漏交。"
+      }
+    ],
+    "sourceIds": [
+      "gov-components"
+    ]
+  },
+  {
+    "id": "application-evidence-checklist",
+    "family": "workflow",
+    "journeyId": "prepare-and-complete",
+    "title": "材料可以任意准备还是有固定顺序",
+    "phrase": "“用户要准备好几份材料，我想显示哪些做完了。”",
+    "keywords": [
+      "材料清单",
+      "证明",
+      "待办",
+      "完成状态"
+    ],
+    "goal": "帮助用户看到必需材料总数和当前完成状态。",
+    "context": "GOV.UK 任务清单适用于可独立办理的事项，并展示已完成/未完成状态。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "材料之间彼此独立吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "可独立准备，用户自己安排顺序"
+          },
+          {
+            "id": "b",
+            "label": "必须按服务指定步骤依次准备"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "step-indicator"
+        ],
+        "reason": "独立材料适合清单总览和逐项状态。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "step-indicator",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "存在顺序依赖时，用步骤提示并说明当前需要做什么。"
+      }
+    ],
+    "sourceIds": [
+      "gov-task-list"
+    ]
+  },
+  {
+    "id": "repeat-household-members",
+    "family": "workflow",
+    "journeyId": "prepare-and-complete",
+    "title": "为每个家庭成员分别填写信息",
+    "phrase": "“家庭里每个人都要填相同一组信息，人数也不固定。”",
+    "keywords": [
+      "家庭成员",
+      "重复信息",
+      "添加成员",
+      "多人"
+    ],
+    "goal": "支持按成员重复收集信息并便于检查是否漏填。",
+    "context": "ONS 家庭关系模式强调成员关系和多样家庭结构；重复问卷可以用过渡说明减少突然跳题。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "成员人数固定且很少，还是用户可能添加多位成员？",
+        "options": [
+          {
+            "id": "a",
+            "label": "固定人数，一页内完成"
+          },
+          {
+            "id": "b",
+            "label": "人数不定，逐位添加并查看状态"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "固定且简单的成员信息可在明确分组中收集。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "人数不定或每位都有多项信息时，逐项任务状态便于继续和纠错。"
+      }
+    ],
+    "sourceIds": [
+      "relationships"
+    ]
+  },
+  {
+    "id": "repeat-visit-records",
+    "family": "workflow",
+    "journeyId": "prepare-and-complete",
+    "title": "同一调查里记录多次访问",
+    "phrase": "“用户可能要登记好几次访问，每次回答的问题相同。”",
+    "keywords": [
+      "重复问卷",
+      "多次记录",
+      "访问次数",
+      "逐项填写"
+    ],
+    "goal": "清楚区分每次重复记录的开始、填写和完成状态。",
+    "context": "ONS 重复调查过渡页用于把重复子任务与常规问题区分开。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "记录次数固定且用户能一次填完，还是每次记录要独立处理？",
+        "options": [
+          {
+            "id": "a",
+            "label": "一次性填写固定几条"
+          },
+          {
+            "id": "b",
+            "label": "逐条新增并分别检查完成状态"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "textarea",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "固定少量记录可以在一页按清楚标签分组。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "textarea"
+        ],
+        "reason": "次数不定或每条都需单独验证时，任务列表和逐条入口更可控。"
+      }
+    ],
+    "sourceIds": [
+      "interstitial"
+    ]
+  },
+  {
+    "id": "many-sections-in-any-order",
+    "family": "workflow",
+    "journeyId": "prepare-and-complete",
+    "title": "用户按自己顺序完成多个章节",
+    "phrase": "“各章节可以任意顺序填写，完成后再统一提交。”",
+    "keywords": [
+      "章节",
+      "多部分表单",
+      "顺序",
+      "问卷"
+    ],
+    "goal": "提供章节总览、完成状态和返回入口。",
+    "context": "ONS Hub and Spoke 明确支持用户按偏好逐段完成问卷。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "章节彼此独立，还是前一章节决定后续内容？",
+        "options": [
+          {
+            "id": "a",
+            "label": "章节相互独立，顺序自由"
+          },
+          {
+            "id": "b",
+            "label": "章节有依赖，必须按顺序"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "step-indicator"
+        ],
+        "reason": "独立章节适合总览式入口，并标出状态。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "step-indicator",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "线性依赖适合步骤提示，防止跳过必要前置条件。"
+      }
+    ],
+    "sourceIds": [
+      "hub"
+    ]
+  },
+  {
+    "id": "long-survey-part-introduction",
+    "family": "workflow",
+    "journeyId": "prepare-and-complete",
+    "title": "进入新问卷章节前解释该部分",
+    "phrase": "“每部分内容差很多，用户需要知道接下来要准备什么。”",
+    "keywords": [
+      "章节介绍",
+      "调查说明",
+      "准备信息",
+      "表单"
+    ],
+    "goal": "在复杂章节开头给必要背景和预期。",
+    "context": "ONS 有问卷分组介绍页，用于说明章节上下文；提示应服务于用户理解而非解释界面。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "进入新部分时需要上下文或准备说明吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "需要简短章节介绍"
+          },
+          {
+            "id": "b",
+            "label": "不需要额外说明，直接回答"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "banner",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "step-indicator"
+        ],
+        "reason": "重要准备要求放在相关章节开始前，用户更容易按上下文理解。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "step-indicator",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "banner"
+        ],
+        "reason": "没有额外信息时直接进入问题，避免增加无意义关卡。"
+      }
+    ],
+    "sourceIds": [
+      "section"
+    ]
+  },
+  {
+    "id": "schedule-period-or-duration",
+    "family": "input",
+    "journeyId": "prepare-and-complete",
+    "title": "计划一段时间还是记录所需时长",
+    "phrase": "“用户要选工作起止日期，还是填一个活动持续了几小时？”",
+    "keywords": [
+      "日期区间",
+      "时长",
+      "排班",
+      "时间"
+    ],
+    "goal": "让用户填写时间数据的单位和含义一目了然。",
+    "context": "ONS 分别提供日期与时长收集模式；两者不能因为都是“时间”就混用。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "问题关心具体日期区间还是经过的数量？",
+        "options": [
+          {
+            "id": "a",
+            "label": "选开始和结束日期"
+          },
+          {
+            "id": "b",
+            "label": "填写时长和单位"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "date-range-picker",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "需要核对实际日历边界时，明确起止日期更适合。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "date-range-picker"
+        ],
+        "reason": "只关心持续数量时，带单位的时长输入更精确。"
+      }
+    ],
+    "sourceIds": [
+      "duration"
+    ]
+  },
+  {
+    "id": "download-one-file-or-browse-resources",
+    "family": "browse",
+    "journeyId": "prepare-and-complete",
+    "title": "下载单个文件还是浏览一组资料",
+    "phrase": "“用户要取一份确认书，也可能要找到多份指导材料。”",
+    "keywords": [
+      "下载文件",
+      "资料目录",
+      "指导材料",
+      "附件"
+    ],
+    "goal": "避免把单文件下载与目录式浏览做成一样的列表。",
+    "context": "ONS Guide 提供主题指南结构；相关内容集合可逐项浏览，单项下载则明确文件链接。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "目标文件已经明确，还是用户需要在一组资料中挑选？",
+        "options": [
+          {
+            "id": "a",
+            "label": "直接打开或下载指定文件"
+          },
+          {
+            "id": "b",
+            "label": "浏览相关资料目录后再选择"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "collection-list"
+        ],
+        "reason": "文件固定且目标明确时，直接链接最短。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "collection-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "多份资料有不同主题、说明或元数据时，集合列表便于比较。"
+      }
+    ],
+    "sourceIds": [
+      "guide"
+    ]
+  },
+  {
+    "id": "group-related-tasks-for-planning",
+    "family": "records",
+    "journeyId": "prepare-and-complete",
+    "title": "把任务按办理主题分组",
+    "phrase": "“待办不少，分组后用户能看清每部分要做什么。”",
+    "keywords": [
+      "任务分组",
+      "任务状态",
+      "多个事项",
+      "清单"
+    ],
+    "goal": "按用户理解的主题组织多个任务及状态。",
+    "context": "GOV.UK 任务清单建议任务较多时按有意义的主题分组，并使用简短任务名称。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户需要看到任务完成状态，还是主要浏览一组相关内容？",
+        "options": [
+          {
+            "id": "a",
+            "label": "显示带状态的办理任务"
+          },
+          {
+            "id": "b",
+            "label": "只浏览相关内容入口"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "collection-list"
+        ],
+        "reason": "需要完成并跟踪状态的事项应使用任务清单。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "collection-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "只需阅读或打开相关条目时，集合列表更轻量。"
+      }
+    ],
+    "sourceIds": [
+      "gov-task-list"
+    ]
+  },
+  {
+    "id": "final-check-before-send",
+    "family": "workflow",
+    "journeyId": "review-and-submit",
+    "title": "提交申请前检查全部答案",
+    "phrase": "“最后让用户看一次刚才填的内容，再正式提交。”",
+    "keywords": [
+      "检查答案",
+      "确认申请",
+      "提交前",
+      "复核"
+    ],
+    "goal": "给用户提交前纠正答案的机会。",
+    "context": "GOV.UK Check answers 建议在小到中等事务的确认页呈现分组答案，并保留定向修改入口。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户是否需要在最终提交前核对整份资料？",
+        "options": [
+          {
+            "id": "a",
+            "label": "先检查答案并按项修改"
+          },
+          {
+            "id": "b",
+            "label": "信息简单且可直接提交"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "summary-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "button"
+        ],
+        "reason": "信息多或提交后难以修改时，检查页能帮助用户发现错误并返回修改。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "button",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "summary-list"
+        ],
+        "reason": "如果任务只有一个简单、可逆的动作，直接提交更省步骤。"
+      }
+    ],
+    "sourceIds": [
+      "gov-check"
+    ]
+  },
+  {
+    "id": "check-large-form-by-section",
+    "family": "workflow",
+    "journeyId": "review-and-submit",
+    "title": "大型申请每节检查还是最后统一检查",
+    "phrase": "“表单很长，每节都有不同负责人，我要不要每节结束先确认？”",
+    "keywords": [
+      "大型表单",
+      "分节检查",
+      "复核页",
+      "申请"
+    ],
+    "goal": "把复核位置与事务规模和章节责任匹配。",
+    "context": "GOV.UK 指出大型事务可考虑每节检查；具体方式应通过用户研究判断。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "事务是短表单，还是由多个大型独立部分组成？",
+        "options": [
+          {
+            "id": "a",
+            "label": "最后统一检查全部答案"
+          },
+          {
+            "id": "b",
+            "label": "每个大型部分结束时检查"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "summary-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "短到中等事务通常可在确认页集中复核。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "summary-list"
+        ],
+        "reason": "多个大型部分或由不同人完成时，章节级复核可尽早发现错误。"
+      }
+    ],
+    "sourceIds": [
+      "gov-check"
+    ]
+  },
+  {
+    "id": "review-repeated-entries-before-submit",
+    "family": "records",
+    "journeyId": "review-and-submit",
+    "title": "提交前比较多条同类安排",
+    "phrase": "“用户录入了几场预约，要确认日期、地点和人员都对应。”",
+    "keywords": [
+      "重复项目",
+      "预约安排",
+      "比较记录",
+      "提交审核"
+    ],
+    "goal": "让同类重复条目能逐项核对，也能横向比较。",
+    "context": "GOV.UK Summary card 适合同类项目核对；数据表适合共同列下的记录比较。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户主要核对每条的答案，还是比较多条记录的字段？",
+        "options": [
+          {
+            "id": "a",
+            "label": "逐条查看并修改每项摘要"
+          },
+          {
+            "id": "b",
+            "label": "用共同字段并排比较多条记录"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "summary-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "data-table"
+        ],
+        "reason": "每条信息长度和字段不完全一致时，摘要卡更适合逐项检查。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "data-table",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "summary-list"
+        ],
+        "reason": "条目字段相同且比较关系重要时，表格能支持横向对照。"
+      }
+    ],
+    "sourceIds": [
+      "gov-check"
+    ]
+  },
+  {
+    "id": "show-skipped-optional-answers",
+    "family": "workflow",
+    "journeyId": "review-and-submit",
+    "title": "核对页怎样呈现被跳过的可选题",
+    "phrase": "“用户跳过了不必回答的问题，复核时要不要明确告诉他没填？”",
+    "keywords": [
+      "未填写",
+      "不适用",
+      "可选问题",
+      "答案摘要"
+    ],
+    "goal": "让未提供与条件不相关的内容保持可区分。",
+    "context": "GOV.UK Check answers 明确建议可选题未填时显示“未提供”，仅展示与用户相关的部分。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "问题适用于用户但被跳过，还是因分支而不适用？",
+        "options": [
+          {
+            "id": "a",
+            "label": "标明此项未提供"
+          },
+          {
+            "id": "b",
+            "label": "不显示不适用的分支"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "summary-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "accordion"
+        ],
+        "reason": "适用但未回答时标明未提供，可以让用户确认这是有意跳过。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "accordion",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "summary-list"
+        ],
+        "reason": "条件不相关时隐藏该组，避免展示让用户困惑的空白项目。"
+      }
+    ],
+    "sourceIds": [
+      "gov-check"
+    ]
+  },
+  {
+    "id": "change-one-answer-and-return-to-review",
+    "family": "action",
+    "journeyId": "review-and-submit",
+    "title": "从复核页修改一项后回到复核页",
+    "phrase": "“用户点‘修改邮箱’，保存后直接回到整份答案检查。”",
+    "keywords": [
+      "修改答案",
+      "返回复核",
+      "保留内容",
+      "修改链接"
+    ],
+    "goal": "避免用户修改一项后被迫重走完整表单。",
+    "context": "GOV.UK 要求 Change 链接说明具体字段，保存后返回检查页且保留已填答案。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "修改是否只涉及一项，并能直接回到复核页？",
+        "options": [
+          {
+            "id": "a",
+            "label": "逐项修改后返回答案复核"
+          },
+          {
+            "id": "b",
+            "label": "修改会改变条件并产生额外追问"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "step-indicator"
+        ],
+        "reason": "单项修改应保留其他答案并回到检查页。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "step-indicator",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "若更改会引出新问题，先补问相关内容再回到总览。"
+      }
+    ],
+    "sourceIds": [
+      "gov-check"
+    ]
+  },
+  {
+    "id": "explicit-final-action-label",
+    "family": "action",
+    "journeyId": "review-and-submit",
+    "title": "最终提交按钮说明具体后果",
+    "phrase": "“不要只写‘提交’，要说清提交什么。”",
+    "keywords": [
+      "提交按钮",
+      "保存草稿",
+      "确认动作",
+      "按钮文案"
+    ],
+    "goal": "减少用户误把保存、继续和正式送出混淆的风险。",
+    "context": "GOV.UK Check answers 建议按钮明确说出正在执行的动作。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "点击后是最终送出还是仅保存草稿？",
+        "options": [
+          {
+            "id": "a",
+            "label": "明确写出最终发送/申请动作"
+          },
+          {
+            "id": "b",
+            "label": "明确写出保存草稿动作"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "button",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "button"
+        ],
+        "reason": "最终提交按钮应说清会送出什么，尤其提交不可撤回时。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "button",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "button"
+        ],
+        "reason": "草稿保存也要准确标出保存，避免让用户以为已经完成申请。"
+      }
+    ],
+    "sourceIds": [
+      "gov-check"
+    ]
+  },
+  {
+    "id": "confirm-irreversible-action",
+    "family": "overlay",
+    "journeyId": "review-and-submit",
+    "title": "高后果操作需要二次确认吗",
+    "phrase": "“一旦送出就无法撤回，用户是否需要确认后果？”",
+    "keywords": [
+      "不可撤销",
+      "删除",
+      "正式提交",
+      "确认框"
+    ],
+    "goal": "只在后果重大且无法轻易恢复时增加确认。",
+    "context": "官方模式强调清楚说明事务是否完成；高后果操作的确认要直接写出结果和取消路径。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "动作是否不可逆或会造成明显损失？",
+        "options": [
+          {
+            "id": "a",
+            "label": "不可逆，需要清楚说明后果"
+          },
+          {
+            "id": "b",
+            "label": "可撤销，可直接执行并提供撤销"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "alert-dialog",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "button"
+        ],
+        "reason": "不可逆且后果重要时，聚焦说明后果并提供明确取消。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "button",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "alert-dialog"
+        ],
+        "reason": "可轻易撤销的动作不宜频繁拦截，应直接执行并提供恢复路径。"
+      }
+    ],
+    "sourceIds": [
+      "apg"
+    ]
+  },
+  {
+    "id": "submission-processing-or-instant",
+    "family": "states",
+    "journeyId": "review-and-submit",
+    "title": "提交后需要等待处理吗",
+    "phrase": "“用户点了提交，服务端可能还要处理一会。”",
+    "keywords": [
+      "异步提交",
+      "正在处理",
+      "确认页面",
+      "进度"
+    ],
+    "goal": "在确认收到请求与确认处理完成之间保持准确。",
+    "context": "确认页面应说明提交成功和接下来会发生什么；异步处理时不能假报最终完成。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "系统已完成操作，还是仍在后台处理？",
+        "options": [
+          {
+            "id": "a",
+            "label": "立即完成并确认结果"
+          },
+          {
+            "id": "b",
+            "label": "仍在处理中并说明等待状态"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "progress"
+        ],
+        "reason": "操作已完成时用持续可见结果说明成功和后续步骤。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "progress",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "仍在处理时显示真实等待状态，只有可测量时才报告完成比例。"
+      }
+    ],
+    "sourceIds": [
+      "confirm"
+    ]
+  },
+  {
+    "id": "submission-receipt-or-next-action",
+    "family": "states",
+    "journeyId": "review-and-submit",
+    "title": "提交成功后是否还要继续操作",
+    "phrase": "“显示申请编号，并告诉用户下一步下载回执或等待通知。”",
+    "keywords": [
+      "确认编号",
+      "下载回执",
+      "下一步",
+      "提交成功"
+    ],
+    "goal": "同时确认收到请求并提供服务后续动作。",
+    "context": "ONS 确认页需要说明提交结果；必要时给用户可完成的后续入口。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "提交后是否有必须保留或执行的后续任务？",
+        "options": [
+          {
+            "id": "a",
+            "label": "只需确认成功"
+          },
+          {
+            "id": "b",
+            "label": "还要展示编号、下载或下一步"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "操作完成且无后续任务时，简短确认可保持界面清楚。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "有需要继续办理或留存的信息时，持续呈现编号并给明确链接。"
+      }
+    ],
+    "sourceIds": [
+      "confirm"
+    ]
+  },
+  {
+    "id": "relevant-answers-only",
+    "family": "records",
+    "journeyId": "review-and-submit",
+    "title": "复核页只展示与用户有关的内容",
+    "phrase": "“根据前面答案，核对页不要把完全无关的章节也塞进来。”",
+    "keywords": [
+      "条件分支",
+      "答案复核",
+      "相关章节",
+      "申请"
+    ],
+    "goal": "减少无关摘要并准确呈现适用答案。",
+    "context": "GOV.UK Check answers 指出只呈现用户相关部分；修改回答后要补问因此出现的问题。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "某组问题因分支条件完全不适用于此用户吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "仅展示已走过的相关章节"
+          },
+          {
+            "id": "b",
+            "label": "展示所有可能章节并标明不适用"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "summary-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "隐藏真正不适用的内容，令复核集中在用户提供的答案。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "summary-list"
+        ],
+        "reason": "如果需要呈现仍待完成的章节，应用清单状态，而不要混入答案摘要。"
+      }
+    ],
+    "sourceIds": [
+      "gov-check"
+    ]
+  },
+  {
+    "id": "confirmation-after-feedback",
+    "family": "feedback",
+    "journeyId": "review-and-submit",
+    "title": "提交反馈后需要确认哪些信息",
+    "phrase": "“反馈提交后，用户想知道是否收到，也可能要等待回复。”",
+    "keywords": [
+      "反馈确认",
+      "回复",
+      "服务结果",
+      "收件"
+    ],
+    "goal": "准确说明已收到反馈以及是否会获得回复。",
+    "context": "ONS 确认页面提供任务结束时的结果说明；消息流程则适合需要继续对话的支持请求。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "反馈只是单向建议，还是用户期待专人回复？",
+        "options": [
+          {
+            "id": "a",
+            "label": "只确认收到反馈"
+          },
+          {
+            "id": "b",
+            "label": "说明回复渠道和预计后续"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "banner"
+        ],
+        "reason": "单向反馈提交后用页面内确认即可。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "banner",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "若用户需要处理回应或等待答复，应说明查看渠道和后续安排。"
+      }
+    ],
+    "sourceIds": [
+      "confirm"
+    ]
+  },
+  {
+    "id": "save-sign-out-or-keep-working",
+    "family": "workflow",
+    "journeyId": "save-and-resume",
+    "title": "保存退出还是保存后继续办理",
+    "phrase": "“保存按钮要表达是离开服务，还是只保存当前进度。”",
+    "keywords": [
+      "保存退出",
+      "稍后继续",
+      "草稿",
+      "保存状态"
+    ],
+    "goal": "减少保存状态和退出动作之间的误解。",
+    "context": "ONS Save and sign out 模式支持保存进度、退出并稍后返回。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户点击后会离开当前办理流程吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "保存并退出，之后再继续"
+          },
+          {
+            "id": "b",
+            "label": "保存当前内容并留在本页"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "button",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "要暂停并结束当前会话时，明确说明已保存并退出。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "button"
+        ],
+        "reason": "若只是自动/手动保存，留在当前流程并给持续状态反馈。"
+      }
+    ],
+    "sourceIds": [
+      "save"
+    ]
+  },
+  {
+    "id": "automatic-or-manual-save",
+    "family": "feedback",
+    "journeyId": "save-and-resume",
+    "title": "进度自动保存还是由用户主动保存",
+    "phrase": "“用户可能担心内容丢失，要看见保存到哪里了。”",
+    "keywords": [
+      "自动保存",
+      "手动保存",
+      "草稿",
+      "进度"
+    ],
+    "goal": "明确服务何时保存以及保存是否成功。",
+    "context": "保存继续模式必须说明进度已保存，并让用户知道如何返回。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户应主动决定保存时机，还是系统自动保存？",
+        "options": [
+          {
+            "id": "a",
+            "label": "用户主动保存再离开"
+          },
+          {
+            "id": "b",
+            "label": "系统自动保存并提示状态"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "button",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "用户主动保存离开时要提供明确操作和确认。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "button"
+        ],
+        "reason": "自动保存应及时报告成功/失败，但不要把短暂提示误当成持久状态。"
+      }
+    ],
+    "sourceIds": [
+      "save"
+    ]
+  },
+  {
+    "id": "session-expiry-warning",
+    "family": "overlay",
+    "journeyId": "save-and-resume",
+    "title": "会话即将过期如何处理",
+    "phrase": "“用户还在填资料，闲置一段时间后会被登出。”",
+    "keywords": [
+      "会话超时",
+      "过期提醒",
+      "延长会话",
+      "登录状态"
+    ],
+    "goal": "在会话过期前告知用户并允许安全续期。",
+    "context": "ONS 模式要求会话过期前警告，并让用户延长可用时间。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户还有时间继续填写并可安全延长会话吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "有时间，选择延长会话"
+          },
+          {
+            "id": "b",
+            "label": "已过期，需要重新验证身份"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "modal-dialog",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "即将到期且可续期时给清楚的倒计时和延长入口。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "modal-dialog"
+        ],
+        "reason": "已经过期时解释如何安全重新进入，不要显示无法兑现的“继续”按钮。"
+      }
+    ],
+    "sourceIds": [
+      "session"
+    ]
+  },
+  {
+    "id": "account-needed-or-anonymous-use",
+    "family": "input",
+    "journeyId": "save-and-resume",
+    "title": "使用服务是否必须先创建账户",
+    "phrase": "“有些事项只有保存历史才需要账户，不要把游客挡在门外。”",
+    "keywords": [
+      "创建账户",
+      "游客办理",
+      "注册要求",
+      "登录"
+    ],
+    "goal": "仅在账户能满足真实服务需要时要求注册。",
+    "context": "ONS 账户模式面向确需访问账户或被邀请参与的情境；登录也会增加用户步骤。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "如果没有账户，用户还能完成当前任务吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "任务必须依赖账户记录"
+          },
+          {
+            "id": "b",
+            "label": "任务可直接完成，账户可选"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "password-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "需要保存敏感记录或重新访问时，可以清楚说明为何创建账户。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "password-field"
+        ],
+        "reason": "不需要账户即可办完时，提供直接开始入口可减少障碍。"
+      }
+    ],
+    "sourceIds": [
+      "account"
+    ]
+  },
+  {
+    "id": "access-code-or-password-sign-in",
+    "family": "input",
+    "journeyId": "save-and-resume",
+    "title": "用服务发来的访问码还是用户密码登录",
+    "phrase": "“用户拿到邀请代码，也可能是在账户里输入自己设置的密码。”",
+    "keywords": [
+      "访问码",
+      "密码登录",
+      "邀请",
+      "认证"
+    ],
+    "goal": "区分邀请/调查代码与常规账户认证。",
+    "context": "ONS 分别维护访问码和密码模式；代码要解释来源，密码要安全隐藏。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "凭据由服务发放并绑定邀请，还是由用户创建的账户密码？",
+        "options": [
+          {
+            "id": "a",
+            "label": "输入服务发来的访问码"
+          },
+          {
+            "id": "b",
+            "label": "输入账户密码"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "password-field"
+        ],
+        "reason": "发放的访问码需说明在哪里找、遗失怎么办，并便于核对。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "password-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "账户密码默认隐藏并提供有助于正确输入的说明。"
+      }
+    ],
+    "sourceIds": [
+      "password"
+    ]
+  },
+  {
+    "id": "verify-email-or-phone",
+    "family": "input",
+    "journeyId": "save-and-resume",
+    "title": "验证邮箱还是验证手机",
+    "phrase": "“确认用户有权访问提供的邮箱或手机。”",
+    "keywords": [
+      "邮箱确认",
+      "电话确认",
+      "验证码",
+      "联系方式验证"
+    ],
+    "goal": "通过用户能收到的渠道验证联系方式。",
+    "context": "ONS 有电子邮件和电话号码采集模式；GOV.UK 也区分确认邮箱与电话的服务任务。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "服务需要通过哪个渠道将验证码发送给用户？",
+        "options": [
+          {
+            "id": "a",
+            "label": "通过电子邮件验证"
+          },
+          {
+            "id": "b",
+            "label": "通过短信或电话验证"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "先清楚收集邮箱地址，再说明验证码与重发路径。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "先清楚收集电话号码，并说明国家/地区格式与验证码接收方式。"
+      }
+    ],
+    "sourceIds": [
+      "email"
+    ]
+  },
+  {
+    "id": "remember-session-on-device",
+    "family": "selection",
+    "journeyId": "save-and-resume",
+    "title": "是否在这台设备保持登录",
+    "phrase": "“用户是否要勾选‘记住我’，共享设备上又该怎么办？”",
+    "keywords": [
+      "记住登录",
+      "共享设备",
+      "保持登录",
+      "隐私"
+    ],
+    "goal": "让长期登录的便利与设备隐私风险由用户理解后选择。",
+    "context": "密码与账户模式需要清楚解释登录体验；偏好应避免被默认为长期授权。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "这是用户自己的设备，还是可能由他人共用？",
+        "options": [
+          {
+            "id": "a",
+            "label": "短期个人设备，提供保持登录选择"
+          },
+          {
+            "id": "b",
+            "label": "公共/共用设备，默认不保留会话"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "checkbox",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "长期个人设备可以明确提供可撤销的保持登录偏好。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "checkbox"
+        ],
+        "reason": "共享设备不应默认为保留会话，应说明退出会清除访问状态。"
+      }
+    ],
+    "sourceIds": [
+      "account"
+    ]
+  },
+  {
+    "id": "resume-one-or-many-drafts",
+    "family": "records",
+    "journeyId": "save-and-resume",
+    "title": "返回一份草稿还是选择多份未完成事项",
+    "phrase": "“用户可能有几份未完成的申请，回来时要先选哪份。”",
+    "keywords": [
+      "继续办理",
+      "多个草稿",
+      "未完成申请",
+      "恢复记录"
+    ],
+    "goal": "清楚展示可继续的草稿及其状态。",
+    "context": "Save and sign out 用于继续办理；当可继续项不唯一时需提供可辨认的列表。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户通常只有一份未完成记录吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "直接继续唯一草稿"
+          },
+          {
+            "id": "b",
+            "label": "列出多份草稿供用户选择"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "button",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "collection-list"
+        ],
+        "reason": "只有一份草稿时，直接恢复并告知上次保存时间更简单。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "collection-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "button"
+        ],
+        "reason": "草稿多份时展示标题、状态和更新时间，让用户辨认要继续哪一项。"
+      }
+    ],
+    "sourceIds": [
+      "save"
+    ]
+  },
+  {
+    "id": "return-after-saved-progress",
+    "family": "feedback",
+    "journeyId": "save-and-resume",
+    "title": "重新进入服务时是否告知恢复点",
+    "phrase": "“用户回来后不知道上次保存在哪里，最好告诉他从哪继续。”",
+    "keywords": [
+      "继续上次进度",
+      "恢复",
+      "草稿位置",
+      "任务状态"
+    ],
+    "goal": "恢复原有进度而不让用户从头开始。",
+    "context": "ONS 保存退出模式要求用户能够返回继续之前的服务。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "系统能可靠识别最后完成的任务吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "恢复到可确认的上次进度"
+          },
+          {
+            "id": "b",
+            "label": "无法恢复时显示章节清单重新选择"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "能可靠恢复时说明恢复点并直接继续。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "不能确定单一恢复点时，让用户从状态清楚的任务清单选择，避免假设。"
+      }
+    ],
+    "sourceIds": [
+      "save"
+    ]
+  },
+  {
+    "id": "save-progress-before-timeout",
+    "family": "workflow",
+    "journeyId": "save-and-resume",
+    "title": "长表单在会话结束前如何保留进度",
+    "phrase": "“长申请可能超时，用户先保存还是系统定时保存？”",
+    "keywords": [
+      "长表单",
+      "会话过期",
+      "进度保存",
+      "表单中断"
+    ],
+    "goal": "避免会话超时导致用户重填大量内容。",
+    "context": "ONS 会话和保存模式分别处理续期和后续继续；项目需明确两者怎样配合。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "超时时草稿能否安全保存？",
+        "options": [
+          {
+            "id": "a",
+            "label": "支持保存后稍后继续"
+          },
+          {
+            "id": "b",
+            "label": "不允许恢复，提前说明时限"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "modal-dialog"
+        ],
+        "reason": "能安全持久保存时给保存状态和续办路径。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "modal-dialog",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "若出于安全或业务限制不能保存，必须提前告诉用户并警告过期风险。"
+      }
+    ],
+    "sourceIds": [
+      "session"
+    ]
+  },
+  {
+    "id": "field-error-or-service-problem",
+    "family": "feedback",
+    "journeyId": "recover-and-correct",
+    "title": "是输入错误还是服务出故障",
+    "phrase": "“不要让用户看到红色校验错误，却其实是服务器坏了。”",
+    "keywords": [
+      "字段错误",
+      "服务器错误",
+      "表单",
+      "故障"
+    ],
+    "goal": "把用户可修正问题与服务不可控故障分开处理。",
+    "context": "GOV.UK 错误消息适用于用户能修正的无效/缺失答案；服务故障应解释服务状态。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "问题由用户填写的信息导致，还是服务本身无法完成？",
+        "options": [
+          {
+            "id": "a",
+            "label": "用户可按提示修正输入"
+          },
+          {
+            "id": "b",
+            "label": "服务发生故障，用户无法自行修复"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "inline-validation",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "banner"
+        ],
+        "reason": "输入问题应靠近字段说明具体怎样修正并保留已填答案。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "banner",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-validation"
+        ],
+        "reason": "服务故障要说明受影响范围、是否保存进度和可采取的下一步。"
+      }
+    ],
+    "sourceIds": [
+      "errors"
+    ]
+  },
+  {
+    "id": "one-error-or-error-summary",
+    "family": "feedback",
+    "journeyId": "recover-and-correct",
+    "title": "只有一个字段报错还是多个地方出错",
+    "phrase": "“几个地方都有问题，是否需要页首的错误列表？”",
+    "keywords": [
+      "多个错误",
+      "错误汇总",
+      "字段提示",
+      "定位"
+    ],
+    "goal": "帮助用户发现错误并定位到可修正的位置。",
+    "context": "GOV.UK 对字段错误与错误摘要提供配套指引；错误摘要适合汇总页面错误。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "页面上只有单个问题，还是有多个可独立修正的问题？",
+        "options": [
+          {
+            "id": "a",
+            "label": "只在问题旁给出具体提示"
+          },
+          {
+            "id": "b",
+            "label": "页面顶部汇总错误并链接到字段"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "inline-validation",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "error-summary"
+        ],
+        "reason": "单一错误贴近问题能让用户马上知道该改哪里。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "error-summary",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-validation"
+        ],
+        "reason": "多项错误同时存在时，页首摘要帮助用户发现全部问题并跳到对应位置。"
+      }
+    ],
+    "sourceIds": [
+      "gov-error"
+    ]
+  },
+  {
+    "id": "format-error-or-not-eligible",
+    "family": "feedback",
+    "journeyId": "recover-and-correct",
+    "title": "格式不正确还是用户不符合条件",
+    "phrase": "“年龄没填对和不符合办理条件，不该显示成同一种报错。”",
+    "keywords": [
+      "资格不符",
+      "格式错误",
+      "申请结果",
+      "表单纠错"
+    ],
+    "goal": "区分可修改的格式问题与基于条件的服务结果。",
+    "context": "GOV.UK 错误指导明确不把资格或权限判断当作字段错误。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户能通过修改输入解决吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "可以修正日期或格式后重试"
+          },
+          {
+            "id": "b",
+            "label": "条件不满足，需要解释结果和替代方案"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "inline-validation",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "banner"
+        ],
+        "reason": "格式、缺项等可修正问题应说明怎样改，且保留原答案。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-validation"
+        ],
+        "reason": "不符合资格不是输入错误，应在结果页解释判断依据，并说明用户还能采取什么行动。"
+      }
+    ],
+    "sourceIds": [
+      "gov-error"
+    ]
+  },
+  {
+    "id": "invalid-file-type-or-missing-file",
+    "family": "input",
+    "journeyId": "recover-and-correct",
+    "title": "没有上传文件还是文件格式不支持",
+    "phrase": "“用户没选文件和选了不接受的文件，提示要不同。”",
+    "keywords": [
+      "上传错误",
+      "文件类型",
+      "缺少附件",
+      "重新上传"
+    ],
+    "goal": "明确指出文件上传失败原因和可恢复步骤。",
+    "context": "文件上传模式要求提前列出类型、大小、数量限制并给出具体错误恢复方法。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户完全没有选文件，还是所选文件不符合要求？",
+        "options": [
+          {
+            "id": "a",
+            "label": "提醒选择必需文件"
+          },
+          {
+            "id": "b",
+            "label": "说明格式/大小限制并重新选择"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "inline-validation",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "file-upload"
+        ],
+        "reason": "缺少必需文件时，直接说明要选择哪类材料。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "file-upload",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-validation"
+        ],
+        "reason": "文件不合要求时保留上下文并明确接受的类型、大小和替换方式。"
+      }
+    ],
+    "sourceIds": [
+      "gov-components"
+    ]
+  },
+  {
+    "id": "page-not-found-or-service-unavailable",
+    "family": "feedback",
+    "journeyId": "recover-and-correct",
+    "title": "页面不存在还是整项服务暂不可用",
+    "phrase": "“某个链接失效，和服务正在维护应该给用户不同出口。”",
+    "keywords": [
+      "404",
+      "服务维护",
+      "不可用",
+      "错误页"
+    ],
+    "goal": "提供与故障范围相称的解释和恢复路径。",
+    "context": "ONS 错误与状态页模式分别告知页面问题或整项服务问题。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "只有当前链接失效，还是整个服务暂时无法使用？",
+        "options": [
+          {
+            "id": "a",
+            "label": "解释当前页面无法找到并回到相关位置"
+          },
+          {
+            "id": "b",
+            "label": "说明服务不可用和稍后重试/联系方法"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "banner"
+        ],
+        "reason": "页面级问题要给返回上级或搜索替代路径。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "banner",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "服务整体中断要说明影响范围、进度保护和可期待的恢复信息。"
+      }
+    ],
+    "sourceIds": [
+      "status"
+    ]
+  },
+  {
+    "id": "session-expired-or-action-needed",
+    "family": "overlay",
+    "journeyId": "recover-and-correct",
+    "title": "会话过期后让用户重登还是续期",
+    "phrase": "“如果还有时间就延长；已过期就需要安全重新验证。”",
+    "keywords": [
+      "会话续期",
+      "重新登录",
+      "会话失效",
+      "提醒"
+    ],
+    "goal": "避免提示用户执行已经无法完成的会话操作。",
+    "context": "ONS 会话模式要求过期前警告并可延长；已结束的会话应走重新登录路径。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "当前会话仍有效吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "仍有效，立即延长"
+          },
+          {
+            "id": "b",
+            "label": "已结束，重新验证后恢复"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "modal-dialog",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "过期前应给清楚期限并让用户继续当前操作。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "modal-dialog"
+        ],
+        "reason": "失效后说明安全登录和草稿恢复办法，不应继续显示无效按钮。"
+      }
+    ],
+    "sourceIds": [
+      "session"
+    ]
+  },
+  {
+    "id": "global-outage-or-record-specific-problem",
+    "family": "states",
+    "journeyId": "recover-and-correct",
+    "title": "服务级问题还是某条记录处理失败",
+    "phrase": "“全站服务出问题要全局说明，单条申请失败则留在那条记录旁。”",
+    "keywords": [
+      "服务中断",
+      "记录失败",
+      "持续状态",
+      "错误范围"
+    ],
+    "goal": "让用户知道问题影响谁和具体什么内容。",
+    "context": "错误/状态页面处理服务级故障；记录级结果可在具体记录旁持续呈现。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "问题影响整个服务，还是仅当前记录？",
+        "options": [
+          {
+            "id": "a",
+            "label": "整项服务暂时受影响"
+          },
+          {
+            "id": "b",
+            "label": "仅这一条记录需要处理"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "banner",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "广泛中断要让各页面用户都能看到状态说明。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "banner"
+        ],
+        "reason": "单条记录异常应贴近记录展示原因和下一步，不误报全局故障。"
+      }
+    ],
+    "sourceIds": [
+      "status"
+    ]
+  },
+  {
+    "id": "resume-after-interruption-or-restart",
+    "family": "workflow",
+    "journeyId": "recover-and-correct",
+    "title": "中断后继续上次任务还是重新开始",
+    "phrase": "“用户离开了一会儿，服务应该恢复进度而不是清空。”",
+    "keywords": [
+      "中断恢复",
+      "继续填写",
+      "数据丢失",
+      "重启"
+    ],
+    "goal": "中断后尽量保留可恢复答案并说明无法恢复的部分。",
+    "context": "ONS 保存退出和错误状态模式要求分别提供继续路径与清楚故障信息。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "服务器能确认草稿有效且保存了吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "可恢复，继续已有进度"
+          },
+          {
+            "id": "b",
+            "label": "不可恢复，说明原因并给重启入口"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "button"
+        ],
+        "reason": "恢复数据明确时显示进度状态并从原位置继续。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "button",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "未保存成功时不要声称恢复；给重新开始入口并说明哪些内容丢失。"
+      }
+    ],
+    "sourceIds": [
+      "save"
+    ]
+  },
+  {
+    "id": "retry-or-contact-support",
+    "family": "action",
+    "journeyId": "recover-and-correct",
+    "title": "用户可以自行重试还是需要联系服务团队",
+    "phrase": "“服务器错误可能重试就好，权限或账户问题可能要找支持。”",
+    "keywords": [
+      "重试",
+      "联系支持",
+      "错误恢复",
+      "服务异常"
+    ],
+    "goal": "为用户提供可执行的下一步，而不是只显示错误代码。",
+    "context": "ONS 错误状态页要求解释问题；ONS 网页表单模式支持用户联系服务团队。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户重试是否安全且有机会解决？",
+        "options": [
+          {
+            "id": "a",
+            "label": "可以安全重试"
+          },
+          {
+            "id": "b",
+            "label": "需要支持人员介入"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "button",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "操作可安全重复时给明确重试按钮并说明会不会重复提交。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "button"
+        ],
+        "reason": "需要人工处理时提供合适联系入口和应附带的信息。"
+      }
+    ],
+    "sourceIds": [
+      "status"
+    ]
+  },
+  {
+    "id": "warn-before-losing-unsaved-work",
+    "family": "feedback",
+    "journeyId": "recover-and-correct",
+    "title": "离开页面前是否提醒未保存内容",
+    "phrase": "“用户可能点了返回，但表单里有没保存的答案。”",
+    "keywords": [
+      "未保存内容",
+      "离开提醒",
+      "数据丢失",
+      "返回"
+    ],
+    "goal": "在丢失不可恢复内容前让用户决定留下或离开。",
+    "context": "保存模式和校验模式都要求保留用户信息；离开提示只应覆盖真正无法保存的改动。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "当前更改是否已可靠保存或可恢复？",
+        "options": [
+          {
+            "id": "a",
+            "label": "未保存且无法恢复，先确认离开"
+          },
+          {
+            "id": "b",
+            "label": "已保存或可撤销，直接离开"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "alert-dialog",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "无法恢复的编辑可能丢失时，确认框要说清后果并提供留在页面的选择。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "alert-dialog"
+        ],
+        "reason": "内容已保存时不应拦截导航，显示状态即可。"
+      }
+    ],
+    "sourceIds": [
+      "save"
+    ]
+  },
+  {
+    "id": "search-no-match-or-no-records-yet",
+    "family": "search",
+    "journeyId": "recover-and-correct",
+    "title": "没有搜索结果还是用户还没建任何记录",
+    "phrase": "“空白列表可能是第一次使用，也可能是筛选太窄。”",
+    "keywords": [
+      "列表空白",
+      "首次使用",
+      "无搜索结果",
+      "空状态"
+    ],
+    "goal": "区分系统初始状态与用户搜索无匹配。",
+    "context": "空状态与无结果属于不同任务；前者引导创建，后者帮助调整查询。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "该用户从未创建记录，还是查询后没有匹配项？",
+        "options": [
+          {
+            "id": "a",
+            "label": "第一次使用，给出创建第一条记录的入口"
+          },
+          {
+            "id": "b",
+            "label": "查询无匹配，建议清除条件或改词"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "empty-state",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "no-results"
+        ],
+        "reason": "初次空白应解释可以从哪里开始创建。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "no-results",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "empty-state"
+        ],
+        "reason": "查询无结果应保留搜索词并给调整或清除筛选的办法。"
+      }
+    ],
+    "sourceIds": [
+      "gov-components"
+    ]
+  },
+  {
+    "id": "tabs-for-quick-switch-or-accordion-for-reading",
+    "family": "browse",
+    "journeyId": "find-and-navigate",
+    "title": "用户快速切换内容还是依次展开阅读",
+    "phrase": "“分类很多时用页签，长段说明可能要按需展开。”",
+    "keywords": [
+      "页签",
+      "折叠面板",
+      "内容切换",
+      "展开"
+    ],
+    "goal": "根据切换速度、同时阅读需要与内容数量组织同页内容。",
+    "context": "GOV.UK 和 WAI APG 区分页签切换与 disclosure；官方指引提醒隐藏内容会增加查找成本。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户经常快速切换且一次只看一组吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "快速切换互斥面板"
+          },
+          {
+            "id": "b",
+            "label": "需要逐段展开并可同时阅读"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "tabs",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "accordion"
+        ],
+        "reason": "互斥内容需要快速在固定几组之间切换时，页签更紧凑。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "accordion",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "tabs"
+        ],
+        "reason": "用户可能需要看多组内容且段落不长时，折叠区允许逐项展开。"
+      }
+    ],
+    "sourceIds": [
+      "gov-tabs"
+    ]
+  },
+  {
+    "id": "guide-pages-or-collection",
+    "family": "browse",
+    "journeyId": "find-and-navigate",
+    "title": "用户按主题理解内容还是找具体条目",
+    "phrase": "“有一组步骤说明，也有很多独立文章要找。”",
+    "keywords": [
+      "指南",
+      "文章集合",
+      "帮助内容",
+      "目录"
+    ],
+    "goal": "组织关联内容，使用户能先理解主题或直接找条目。",
+    "context": "ONS Guide 用于展示相关页面帮助理解主题；News/Collection 适合按类别浏览条目。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "内容需要按连续主题引导理解吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "围绕主题组织指南和章节"
+          },
+          {
+            "id": "b",
+            "label": "展示可独立浏览的条目集合"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "accordion",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "collection-list"
+        ],
+        "reason": "有解释脉络时按章节组织，让用户沿主题学习。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "collection-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "accordion"
+        ],
+        "reason": "条目彼此独立、用户要比较标题或时间时，集合列表更清楚。"
+      }
+    ],
+    "sourceIds": [
+      "guide"
+    ]
+  },
+  {
+    "id": "latest-updates-or-topic-library",
+    "family": "records",
+    "journeyId": "find-and-navigate",
+    "title": "用户想看最新动态还是按类别找资料",
+    "phrase": "“同一栏目里有新闻更新和常用主题，排列方式不同。”",
+    "keywords": [
+      "最新消息",
+      "主题分类",
+      "新闻",
+      "资料库"
+    ],
+    "goal": "匹配用户预期的浏览顺序。",
+    "context": "ONS 新闻模式强调新闻条目与分类；集合页适合浏览一组相关条目。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户来到这里主要想知道最新发布，还是找某个主题？",
+        "options": [
+          {
+            "id": "a",
+            "label": "按发布时间看最新消息"
+          },
+          {
+            "id": "b",
+            "label": "按主题类别浏览资料"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "sort-control",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "collection-list"
+        ],
+        "reason": "时效性是首要目标时，最新内容优先展示并标明时间。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "collection-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "sort-control"
+        ],
+        "reason": "稳定知识库应按主题分类和清晰标题，而非强行按新旧排序。"
+      }
+    ],
+    "sourceIds": [
+      "news"
+    ]
+  },
+  {
+    "id": "hierarchy-or-transaction-progress",
+    "family": "navigation",
+    "journeyId": "find-and-navigate",
+    "title": "页面是层级位置还是流程进度",
+    "phrase": "“当前位置可以是上级路径，也可以是办理到第几步。”",
+    "keywords": [
+      "面包屑",
+      "步骤进度",
+      "层级",
+      "办理流程"
+    ],
+    "goal": "避免用面包屑代替线性事务进度。",
+    "context": "GOV.UK 说明 breadcrumbs 用于多层网站结构，不用于显示线性事务进度。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户需要知道页面父级，还是服务流程的当前步骤？",
+        "options": [
+          {
+            "id": "a",
+            "label": "显示页面层级和上级入口"
+          },
+          {
+            "id": "b",
+            "label": "显示流程当前位置和总步骤"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "breadcrumb",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "step-indicator"
+        ],
+        "reason": "多层内容网站中，面包屑帮助回到父级。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "step-indicator",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "breadcrumb"
+        ],
+        "reason": "事务流程中，步骤指示显示进度，面包屑容易误导层级关系。"
+      }
+    ],
+    "sourceIds": [
+      "gov-nav"
+    ]
+  },
+  {
+    "id": "recurring-multi-task-service-or-linear-journey",
+    "family": "navigation",
+    "journeyId": "find-and-navigate",
+    "title": "服务有多个常用任务还是单一办理流程",
+    "phrase": "“导航菜单和任务清单不是一回事。”",
+    "keywords": [
+      "服务导航",
+      "多任务",
+      "办理流程",
+      "任务清单"
+    ],
+    "goal": "选择能支持实际任务结构的全局入口。",
+    "context": "GOV.UK 导航模式建议多任务、重复使用且没有固定顺序时用服务导航；端到端事务用任务清单。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户会反复进入多个独立任务吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "需要在多个独立服务功能间切换"
+          },
+          {
+            "id": "b",
+            "label": "只完成一段有明确终点的事务"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "menu",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "多个常用功能且顺序不固定时，全局服务导航更合适。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "menu"
+        ],
+        "reason": "有明确完整流程和待完成状态时，任务清单比导航更易理解。"
+      }
+    ],
+    "sourceIds": [
+      "gov-nav"
+    ]
+  },
+  {
+    "id": "long-page-sections-or-separate-pages",
+    "family": "browse",
+    "journeyId": "find-and-navigate",
+    "title": "连续长内容还是一组可独立查阅的页面",
+    "phrase": "“内容是一篇连续指南，还是几项能独立查看的主题？”",
+    "keywords": [
+      "长页面",
+      "目录锚点",
+      "拆页",
+      "章节"
+    ],
+    "goal": "在页内定位与独立页面浏览之间选择。",
+    "context": "指南页面适合沿主题理解连续内容；主题各自独立、需要单独分享或返回时，应将入口组织为清楚的集合。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "这些内容需要按同一条叙述连续阅读吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "需要，章节前后相连"
+          },
+          {
+            "id": "b",
+            "label": "不需要，每项可以独立查阅"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "collection-list"
+        ],
+        "reason": "连续长文提供页内章节链接，用户能跳到目标位置并保留整体上下文。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "collection-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "主题彼此独立时，按标题和简短说明组织成集合，方便直接进入和分享。"
+      }
+    ],
+    "sourceIds": [
+      "guide"
+    ]
+  },
+  {
+    "id": "compare-records-or-read-items",
+    "family": "records",
+    "journeyId": "find-and-navigate",
+    "title": "用户需要横向比较还是逐条浏览",
+    "phrase": "“要比较各方案的同一组数值，也可能只是阅读每篇资料。”",
+    "keywords": [
+      "表格",
+      "列表",
+      "比较",
+      "记录"
+    ],
+    "goal": "按记录共同字段和内容关系选择呈现结构。",
+    "context": "WAI APG 区分静态表格与可交互 Grid；USWDS Table 用于比较共同列。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "记录是否共享相同字段，且比较列值很重要？",
+        "options": [
+          {
+            "id": "a",
+            "label": "共同列字段，横向比较"
+          },
+          {
+            "id": "b",
+            "label": "标题和摘要为主，逐条阅读"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "data-table",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "collection-list"
+        ],
+        "reason": "共同字段对比有助于发现差异时，使用表格并提供列标题。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "collection-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "data-table"
+        ],
+        "reason": "主要阅读标题、摘要、元数据时，列表比密集表格更适合。"
+      }
+    ],
+    "sourceIds": [
+      "uswds"
+    ]
+  },
+  {
+    "id": "supporting-detail-or-always-visible-content",
+    "family": "browse",
+    "journeyId": "find-and-navigate",
+    "title": "一组相关说明要一直展示还是按需展开",
+    "phrase": "“一组说明对所有人都重要，还是只有部分用户需要打开看？”",
+    "keywords": [
+      "补充说明",
+      "折叠",
+      "详情",
+      "帮助内容"
+    ],
+    "goal": "根据说明内容的数量和重要性决定如何呈现。",
+    "context": "GOV.UK 建议先尝试简化内容；折叠可以帮助少数用户查找补充说明，但不应隐藏完成任务必需的信息。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "这部分是用户完成任务必须阅读的内容吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "是，所有用户都需要看到"
+          },
+          {
+            "id": "b",
+            "label": "不是，只对部分用户有帮助"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "collection-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "accordion"
+        ],
+        "reason": "关键说明应直接组织成可浏览的内容，不能因为页面拥挤而折叠隐藏。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "accordion",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "collection-list"
+        ],
+        "reason": "少数人需要的简短补充信息可按需展开，但标题要说明里面有什么。"
+      }
+    ],
+    "sourceIds": [
+      "gov-accordion"
+    ]
+  },
+  {
+    "id": "service-search-or-global-search",
+    "family": "navigation",
+    "journeyId": "find-and-navigate",
+    "title": "按关键词搜内容还是按条件缩小结果",
+    "phrase": "“用户要搜一段文字，还是按日期、类型等条件筛选结果？”",
+    "keywords": [
+      "站内搜索",
+      "关键词",
+      "筛选条件",
+      "结果范围"
+    ],
+    "goal": "让用户用符合目标的方式从当前服务里找到内容。",
+    "context": "服务内搜索需要明确搜索范围；当用户知道关键词时适合文本搜索，已知分类、状态或日期时可提供结构化筛选。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户是否已经知道要搜的词？",
+        "options": [
+          {
+            "id": "a",
+            "label": "知道名称或关键词"
+          },
+          {
+            "id": "b",
+            "label": "不知道词语，但知道分类、状态或日期"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "search-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "filter-controls"
+        ],
+        "reason": "用户能提供名称或关键词时，文本搜索可以直接匹配内容。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "filter-controls",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "search-field"
+        ],
+        "reason": "用户知道条件但不记得具体名称时，结构化筛选能逐步缩小完整结果集。"
+      }
+    ],
+    "sourceIds": [
+      "gov-nav"
+    ]
+  },
+  {
+    "id": "filter-many-categories-or-page-by-page",
+    "family": "records",
+    "journeyId": "find-and-navigate",
+    "title": "列表大到需要筛选还是只需翻页",
+    "phrase": "“几百条记录可以按条件过滤；小目录没必要堆一屏。”",
+    "keywords": [
+      "筛选",
+      "分页",
+      "大列表",
+      "结果浏览"
+    ],
+    "goal": "根据结果规模提供筛选或分页浏览。",
+    "context": "GOV.UK 分页说明分页应作用于完整集合，并在筛选/排序改变后回到第一页。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户主要要缩小匹配范围，还是按顺序浏览全部结果？",
+        "options": [
+          {
+            "id": "a",
+            "label": "按条件缩小整组结果"
+          },
+          {
+            "id": "b",
+            "label": "保留完整结果并逐页浏览"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "filter-controls",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "pagination"
+        ],
+        "reason": "有明确条件可快速排除大部分结果时，筛选能减少查找范围。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "pagination",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "filter-controls"
+        ],
+        "reason": "结果集合可顺序浏览时，手动分页保持位置和数量清晰，不需无限滚动。"
+      }
+    ],
+    "sourceIds": [
+      "gov-pagination"
+    ]
+  },
+  {
+    "id": "contact-form-or-message-thread",
+    "family": "feedback",
+    "journeyId": "communicate-and-follow-up",
+    "title": "一次性联系还是要来回对话",
+    "phrase": "“用户给服务团队发信后，可能需要对方继续回复。”",
+    "keywords": [
+      "联系表单",
+      "消息线程",
+      "服务支持",
+      "回复"
+    ],
+    "goal": "选择能承载单次反馈或连续沟通的形式。",
+    "context": "ONS 分别提供 Send a web form 与 Send and reply to messages 模式。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "服务只需接收一条请求，还是需要用户持续查看和回复？",
+        "options": [
+          {
+            "id": "a",
+            "label": "单次提交，确认收到即可"
+          },
+          {
+            "id": "b",
+            "label": "需要往返沟通并保留上下文"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "textarea",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "collection-list"
+        ],
+        "reason": "一次性反馈可用简洁表单收集信息并确认收到。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "collection-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "textarea"
+        ],
+        "reason": "持续支持需要按时间展示双方消息和回复状态。"
+      }
+    ],
+    "sourceIds": [
+      "messages"
+    ]
+  },
+  {
+    "id": "support-category-before-message",
+    "family": "input",
+    "journeyId": "communicate-and-follow-up",
+    "title": "先选问题类型还是直接描述困难",
+    "phrase": "“客服收到不同类型问题要分派给不同团队。”",
+    "keywords": [
+      "客服分类",
+      "问题类型",
+      "联系表单",
+      "工单"
+    ],
+    "goal": "让用户能快速说明问题，同时避免表单字段过多。",
+    "context": "ONS 网页表单适用于联系服务团队；问题分类应能帮助路由并使用用户理解的名称。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "问题类别是否稳定且会改变处理团队？",
+        "options": [
+          {
+            "id": "a",
+            "label": "需要分类分派，再写具体内容"
+          },
+          {
+            "id": "b",
+            "label": "类别不影响处理，直接描述"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "select",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "textarea"
+        ],
+        "reason": "类别真实改变路由时，先让用户选择少量清楚类别。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "textarea",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "select"
+        ],
+        "reason": "类别只是内部管理而非用户目标时，直接描述更自然。"
+      }
+    ],
+    "sourceIds": [
+      "webform"
+    ]
+  },
+  {
+    "id": "rating-or-contact-request",
+    "family": "feedback",
+    "journeyId": "communicate-and-follow-up",
+    "title": "提交总体评价还是请求服务团队联系",
+    "phrase": "“只收一次体验评价，还是用户期待有人联系他？”",
+    "keywords": [
+      "服务评价",
+      "联系请求",
+      "回访",
+      "客户支持"
+    ],
+    "goal": "分开处理服务评价与需要人工跟进的支持请求。",
+    "context": "ONS 将 Feedback 与 Send a web form 作为不同任务；联系请求需要适当的回信渠道和后续预期。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户提交后是否期待服务团队回复？",
+        "options": [
+          {
+            "id": "a",
+            "label": "不需要回复，只想提供评价"
+          },
+          {
+            "id": "b",
+            "label": "需要回复，希望有人处理问题"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "radio-group",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "只收集评价时使用结构化选项即可，不要额外收集个人联系方式。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "radio-group"
+        ],
+        "reason": "需要回应时，应收集能联系用户的渠道，并说明联系方式的用途。"
+      }
+    ],
+    "sourceIds": [
+      "feedback"
+    ]
+  },
+  {
+    "id": "optional-or-required-comment",
+    "family": "feedback",
+    "journeyId": "communicate-and-follow-up",
+    "title": "评分后意见是选填还是必须写",
+    "phrase": "“用户打分后，不要无理由强制写一段意见。”",
+    "keywords": [
+      "选填意见",
+      "必填反馈",
+      "问卷",
+      "评论"
+    ],
+    "goal": "减少无关填写负担，同时让必要调查得到完整回答。",
+    "context": "ONS Question 指南支持明确标记可选/必须问题；反馈模式要说明所需信息。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "缺少文字意见会阻止服务完成必要调查吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "意见可选，明确允许跳过"
+          },
+          {
+            "id": "b",
+            "label": "答案确实必要，再明确必填原因"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "textarea",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-validation"
+        ],
+        "reason": "意见只用于帮助改进时，可选能减少退出。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "inline-validation",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "textarea"
+        ],
+        "reason": "必要性有明确业务理由时应说明用途并给具体校验提示。"
+      }
+    ],
+    "sourceIds": [
+      "question"
+    ]
+  },
+  {
+    "id": "service-wide-update-or-personal-result",
+    "family": "feedback",
+    "journeyId": "communicate-and-follow-up",
+    "title": "通知全体用户还是告知当前用户自己的结果",
+    "phrase": "“维护通知和个人申请结果不要混成同一种横幅。”",
+    "keywords": [
+      "服务公告",
+      "个人结果",
+      "提醒",
+      "状态"
+    ],
+    "goal": "让消息的范围、持续时间与影响对象一致。",
+    "context": "GOV.UK Notification banner 面向与当前页面操作无关、影响服务/用户的提醒；个人状态应贴近具体记录。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "消息是服务范围的提醒，还是当前用户的记录结果？",
+        "options": [
+          {
+            "id": "a",
+            "label": "有期限/范围的服务通知"
+          },
+          {
+            "id": "b",
+            "label": "与当前记录绑定的个人状态"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "banner",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "服务级维护或截止提醒可以使用通知条，但应谨慎使用。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "banner"
+        ],
+        "reason": "用户自己的处理状态应与记录放在一起并持续可见。"
+      }
+    ],
+    "sourceIds": [
+      "gov-notify"
+    ]
+  },
+  {
+    "id": "confirmation-or-actionable-message",
+    "family": "feedback",
+    "journeyId": "communicate-and-follow-up",
+    "title": "提交后只告知成功还是给可执行后续",
+    "phrase": "“光写‘已提交’不够；如果要补材料，要给入口。”",
+    "keywords": [
+      "已提交",
+      "补材料",
+      "确认",
+      "后续任务"
+    ],
+    "goal": "把确认与用户下一步需要做的事连起来。",
+    "context": "ONS Confirmation page 用于说明结果；任务清单用于持续管理剩余事项。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "提交后是否还有用户需要完成的任务？",
+        "options": [
+          {
+            "id": "a",
+            "label": "任务结束，只确认收到"
+          },
+          {
+            "id": "b",
+            "label": "还需补充材料或继续处理"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "无后续动作时，简洁确认即可。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "仍有办理事项时列出未完成任务和入口，不能只显示成功 toast。"
+      }
+    ],
+    "sourceIds": [
+      "confirm"
+    ]
+  },
+  {
+    "id": "reply-notification-or-inbox",
+    "family": "records",
+    "journeyId": "communicate-and-follow-up",
+    "title": "回复来了只发提醒还是提供完整消息位置",
+    "phrase": "“通知只是告诉用户有回复，消息内容要能回到服务里查看。”",
+    "keywords": [
+      "新回复",
+      "站内信",
+      "通知",
+      "对话"
+    ],
+    "goal": "区分消息提醒与消息存档/往返对话。",
+    "context": "ONS 消息模式以会话线程展示双方内容；通知不应替代真实消息记录。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户是否需要安全地查看和继续回复消息？",
+        "options": [
+          {
+            "id": "a",
+            "label": "只提醒有更新并链接到记录"
+          },
+          {
+            "id": "b",
+            "label": "在服务里显示消息线程和回复入口"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "banner",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "collection-list"
+        ],
+        "reason": "提醒应简短且链接回需要处理的记录。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "collection-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "banner"
+        ],
+        "reason": "持续沟通要保留消息上下文、发送方和时间顺序。"
+      }
+    ],
+    "sourceIds": [
+      "messages"
+    ]
+  },
+  {
+    "id": "callback-or-email-follow-up",
+    "family": "input",
+    "journeyId": "communicate-and-follow-up",
+    "title": "用户希望电话回访还是邮件回复",
+    "phrase": "“联系偏好要按用户能接收的渠道留下不同信息。”",
+    "keywords": [
+      "电话回访",
+      "邮件回复",
+      "联系渠道",
+      "联系方式"
+    ],
+    "goal": "收集与回访渠道匹配的联系方式并说明回复方式。",
+    "context": "ONS 分别提供电话和邮箱收集指导；服务应说明将如何使用联系方式。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户期望的回访渠道是什么？",
+        "options": [
+          {
+            "id": "a",
+            "label": "电话回访，收集电话号码"
+          },
+          {
+            "id": "b",
+            "label": "邮件回复，收集邮箱地址"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "选择电话时收集电话号码并解释联系时间/用途。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "text-field",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "text-field"
+        ],
+        "reason": "选择邮件时收集邮箱并解释回信会发送到该地址。"
+      }
+    ],
+    "sourceIds": [
+      "phone"
+    ]
+  },
+  {
+    "id": "urgent-service-problem-or-general-feedback",
+    "family": "feedback",
+    "journeyId": "communicate-and-follow-up",
+    "title": "紧急服务问题还是一般体验建议",
+    "phrase": "“密码登录失败要给求助路径，一般建议可以慢慢处理。”",
+    "keywords": [
+      "紧急支持",
+      "反馈建议",
+      "登录失败",
+      "联系渠道"
+    ],
+    "goal": "根据紧迫程度和用户任务提供不同支持入口。",
+    "context": "ONS 错误状态页要求说明服务问题；反馈表单适合一般体验意见，不应承载紧急故障响应。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "用户当前任务被阻断或有时限吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "任务被阻断，需要即时支持路径"
+          },
+          {
+            "id": "b",
+            "label": "一般建议，可使用反馈表单"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "link",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "textarea"
+        ],
+        "reason": "阻断办理时优先显示可行替代操作或联系支持渠道。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "textarea",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "link"
+        ],
+        "reason": "非紧急意见用反馈表单即可，并说明是否会收到回复。"
+      }
+    ],
+    "sourceIds": [
+      "status"
+    ]
+  },
+  {
+    "id": "processing-status-or-final-answer",
+    "family": "states",
+    "journeyId": "communicate-and-follow-up",
+    "title": "处理进度是否已到最终结果",
+    "phrase": "“审批中和已经批准，不能都显示成成功。”",
+    "keywords": [
+      "审批进度",
+      "状态标签",
+      "申请结果",
+      "处理中"
+    ],
+    "goal": "准确区分已收件、处理中与最终决定。",
+    "context": "ONS 状态页说明问题状态；确认页说明提交接收，不能用接收代替最终处理结果。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "服务只是收到申请，还是已有最终决定？",
+        "options": [
+          {
+            "id": "a",
+            "label": "处理中，保留可查看的状态"
+          },
+          {
+            "id": "b",
+            "label": "已有最终结果并说明后续"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "status-tag",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "inline-status"
+        ],
+        "reason": "处理中应显示当前状态、下一次更新预期及可执行入口。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "inline-status",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "status-tag"
+        ],
+        "reason": "已有结果时明确结果并给相关下一步，不能只用“完成”笼统带过。"
+      }
+    ],
+    "sourceIds": [
+      "status"
+    ]
+  },
+  {
+    "id": "multiple-support-requests-or-single-contact",
+    "family": "workflow",
+    "journeyId": "communicate-and-follow-up",
+    "title": "一个联系请求还是多条支持事务",
+    "phrase": "“用户可能同时有几个问题，是否每个问题都要跟踪状态？”",
+    "keywords": [
+      "多个请求",
+      "工单状态",
+      "支持事项",
+      "服务团队"
+    ],
+    "goal": "帮助用户分别查看支持事项和对应回复。",
+    "context": "消息线程与任务清单都能帮助处理多个未结事项，按对话还是办理任务区分。",
+    "questions": [
+      {
+        "id": "choice",
+        "prompt": "各问题需要独立状态和单独回复吗？",
+        "options": [
+          {
+            "id": "a",
+            "label": "单一问题，保持一条沟通记录"
+          },
+          {
+            "id": "b",
+            "label": "多项独立请求，分别跟踪状态"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "when": {
+          "choice": "a"
+        },
+        "primaryPatternId": "textarea",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "task-list"
+        ],
+        "reason": "同一问题需要补充上下文时留在一条消息线程中。"
+      },
+      {
+        "when": {
+          "choice": "b"
+        },
+        "primaryPatternId": "task-list",
+        "supportingPatternIds": [],
+        "alternativePatternIds": [
+          "textarea"
+        ],
+        "reason": "彼此独立的请求有不同处理进度时分成任务并显示状态。"
+      }
+    ],
+    "sourceIds": [
+      "messages"
     ]
   }
 ]

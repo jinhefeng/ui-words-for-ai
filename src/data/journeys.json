@@ -1,0 +1,42 @@
+[
+  {
+    "id": "collect-information",
+    "label": "收集必要信息",
+    "description": "从身份、联系方式、地址、时间和意见等任务出发，判断应该怎样提问和输入。"
+  },
+  {
+    "id": "decide-next-step",
+    "label": "判断适用条件与下一步",
+    "description": "根据资格、答案和偏好决定用户接下来该看什么、选什么或继续回答什么。"
+  },
+  {
+    "id": "prepare-and-complete",
+    "label": "准备材料并完成事项",
+    "description": "围绕上传材料、重复任务、分组办理和进度安排，组织一段可完成的服务流程。"
+  },
+  {
+    "id": "review-and-submit",
+    "label": "复核内容并提交",
+    "description": "提交前检查已填内容，支持有针对性的修改，并明确提交结果和后续动作。"
+  },
+  {
+    "id": "save-and-resume",
+    "label": "保存、验证身份与继续",
+    "description": "处理账户、验证码、会话时限和草稿，让用户能安全地开始、暂停和继续。"
+  },
+  {
+    "id": "recover-and-correct",
+    "label": "纠错与异常恢复",
+    "description": "区分用户能修正的输入问题与服务端故障，并提供保留进度的恢复路径。"
+  },
+  {
+    "id": "find-and-navigate",
+    "label": "查找信息并找到位置",
+    "description": "组织指南、消息和页面层级，帮助用户浏览、比较与返回。"
+  },
+  {
+    "id": "communicate-and-follow-up",
+    "label": "联系、反馈与后续跟进",
+    "description": "从提交反馈、寻求帮助到查看回复，说明沟通入口和结果如何呈现。"
+  }
+]

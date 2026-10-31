@@ -1,0 +1,207 @@
+[
+  {
+    "id": "address",
+    "label": "ONS 设计系统：收集地址",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/addresses"
+  },
+  {
+    "id": "date",
+    "label": "ONS 设计系统：收集日期",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/dates"
+  },
+  {
+    "id": "duration",
+    "label": "ONS 设计系统：收集时长",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/durations"
+  },
+  {
+    "id": "email",
+    "label": "ONS 设计系统：收集电子邮件地址",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/email-addresses"
+  },
+  {
+    "id": "feedback",
+    "label": "ONS 设计系统：收集反馈",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/feedback"
+  },
+  {
+    "id": "names",
+    "label": "ONS 设计系统：收集姓名",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/names"
+  },
+  {
+    "id": "numeric",
+    "label": "ONS 设计系统：收集数字",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/numeric-values"
+  },
+  {
+    "id": "phone",
+    "label": "ONS 设计系统：收集电话号码",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/phone-numbers"
+  },
+  {
+    "id": "relationships",
+    "label": "ONS 设计系统：收集家庭关系",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/relationships"
+  },
+  {
+    "id": "password",
+    "label": "ONS 设计系统：收集密码",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/passwords"
+  },
+  {
+    "id": "language",
+    "label": "ONS 设计系统：切换语言",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/change-language"
+  },
+  {
+    "id": "check",
+    "label": "ONS 设计系统：检查答案",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/check-answers"
+  },
+  {
+    "id": "cookies",
+    "label": "ONS 设计系统：控制 Cookies",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/cookies-settings"
+  },
+  {
+    "id": "errors",
+    "label": "ONS 设计系统：修正错误",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/correct-errors"
+  },
+  {
+    "id": "session",
+    "label": "ONS 设计系统：延长会话",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/extend-session"
+  },
+  {
+    "id": "save",
+    "label": "ONS 设计系统：保存并退出",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/save-and-sign-out"
+  },
+  {
+    "id": "webform",
+    "label": "ONS 设计系统：发送网页表单",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/send-a-web-form"
+  },
+  {
+    "id": "messages",
+    "label": "ONS 设计系统：发送和回复消息",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/send-and-reply-to-messages"
+  },
+  {
+    "id": "account",
+    "label": "ONS 设计系统：创建账户",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/create-an-account"
+  },
+  {
+    "id": "confirm",
+    "label": "ONS 设计系统：确认页面",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/confirmation-page"
+  },
+  {
+    "id": "status",
+    "label": "ONS 设计系统：错误与状态页面",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/error-status-pages"
+  },
+  {
+    "id": "guide",
+    "label": "ONS 设计系统：指南页面",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/guide"
+  },
+  {
+    "id": "hub",
+    "label": "ONS 设计系统：Hub and Spoke 问卷",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/hub-and-spoke"
+  },
+  {
+    "id": "news",
+    "label": "ONS 设计系统：新闻页面",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/news"
+  },
+  {
+    "id": "question",
+    "label": "ONS 设计系统：问题页面",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/question"
+  },
+  {
+    "id": "interstitial",
+    "label": "ONS 设计系统：重复问卷的过渡页",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/survey-interstitial-page"
+  },
+  {
+    "id": "section",
+    "label": "ONS 设计系统：问卷分组介绍页",
+    "url": "https://service-manual.ons.gov.uk/design-system/patterns/survey-section-introduction-page"
+  },
+  {
+    "id": "gov-suitable",
+    "label": "GOV.UK Design System：判断服务是否适用",
+    "url": "https://design-system.service.gov.uk/patterns/check-a-service-is-suitable/"
+  },
+  {
+    "id": "gov-task",
+    "label": "GOV.UK Design System：完成多项任务",
+    "url": "https://design-system.service.gov.uk/patterns/complete-multiple-tasks/"
+  },
+  {
+    "id": "gov-check",
+    "label": "GOV.UK Design System：提交前检查答案",
+    "url": "https://design-system.service.gov.uk/patterns/check-answers/"
+  },
+  {
+    "id": "gov-pagination",
+    "label": "GOV.UK Design System：分页",
+    "url": "https://design-system.service.gov.uk/components/pagination/"
+  },
+  {
+    "id": "gov-accordion",
+    "label": "GOV.UK Design System：折叠内容",
+    "url": "https://design-system.service.gov.uk/components/accordion/"
+  },
+  {
+    "id": "gov-tabs",
+    "label": "GOV.UK Design System：页签",
+    "url": "https://design-system.service.gov.uk/components/tabs/"
+  },
+  {
+    "id": "gov-nav",
+    "label": "GOV.UK Design System：服务导航",
+    "url": "https://design-system.service.gov.uk/patterns/navigate-a-service/"
+  },
+  {
+    "id": "gov-task-list",
+    "label": "GOV.UK Design System：任务清单",
+    "url": "https://design-system.service.gov.uk/components/task-list/"
+  },
+  {
+    "id": "gov-notify",
+    "label": "GOV.UK Design System：通知条",
+    "url": "https://design-system.service.gov.uk/components/notification-banner/"
+  },
+  {
+    "id": "gov-error",
+    "label": "GOV.UK Design System：错误提示",
+    "url": "https://design-system.service.gov.uk/components/error-message/"
+  },
+  {
+    "id": "gov-components",
+    "label": "GOV.UK Design System：组件目录",
+    "url": "https://design-system.service.gov.uk/components/"
+  },
+  {
+    "id": "uswds",
+    "label": "USWDS：组件目录",
+    "url": "https://designsystem.digital.gov/components/"
+  },
+  {
+    "id": "apg",
+    "label": "WAI-ARIA APG：交互模式",
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/"
+  },
+  {
+    "id": "apg-disclosure",
+    "label": "WAI-ARIA APG：Disclosure 展开/收起模式",
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/"
+  }
+]
