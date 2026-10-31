@@ -56,6 +56,8 @@ flowchart LR
 
 `colloquialisms.json` 对象使用稳定 `id`、`phrase`、`aliases`、`description`、`question`、`patternIds` 和 `caseIds`。一个俗语可关联多个模式；一个模式也可从多个俗语入口进入。俗语入口负责解释这些说法没有错，只是范围较宽，并用一个新手容易回答的问题帮助比较。
 
+俗语详情按“效果名称 → 可操作 HTML 预览 → 效果解释与适用边界 → 中文 AI 说法”呈现；俗语释义和区分问题放在多种效果之后，避免读者先读术语说明再猜实际样子。
+
 ### 示例
 
 `demoId` 必须在 `src/lib/demo-catalog.js` 中登记。示例使用本地可信代码；文案字段都作为文本转义后呈现，不允许内容作者在 JSON 中传入 HTML、脚本或 URL。
