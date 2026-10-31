@@ -36,6 +36,7 @@ jobs:
           cp index.html _site/index.html
           cp -R src _site/src
           sed -i "s#src/styles.css#src/styles.css?v=${GITHUB_SHA}#; s#src/app.js#src/app.js?v=${GITHUB_SHA}#" _site/index.html
+          sed -i "s#./data/families.json#./data/families.json?v=${GITHUB_SHA}#; s#./data/cases.json#./data/cases.json?v=${GITHUB_SHA}#; s#./data/patterns.json#./data/patterns.json?v=${GITHUB_SHA}#; s#./data/colloquialisms.json#./data/colloquialisms.json?v=${GITHUB_SHA}#; s#./data/journeys.json#./data/journeys.json?v=${GITHUB_SHA}#; s#./data/sources.json#./data/sources.json?v=${GITHUB_SHA}#" _site/src/app.js
           touch _site/.nojekyll
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
