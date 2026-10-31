@@ -6,7 +6,7 @@ Build a public, beginner-friendly tutorial library that teaches people how to de
 ## 2. Success Criteria
 - [ ] A newcomer can distinguish commonly confused UI terms and find the right one for a described need.
 - [ ] Each published term has a plain-language explanation, usage guidance, and a runnable interactive example.
-- [ ] The project has a usable public-repository structure, contribution guidance, and an explicit license decision before publication.
+- [ ] The project has a usable public-repository structure, contribution guidance, and a recorded license/reuse boundary before inviting reuse.
 
 ## 3. Task Tree
 ### T1 — 术语体系与教程内容
@@ -25,7 +25,7 @@ Build a public, beginner-friendly tutorial library that teaches people how to de
 - Status: 进行中
 - Objective: 建立适合公开维护的仓库文件、说明和贡献入口，并明确公开发布步骤。
 - Acceptance: 本地 Git 项目、清晰 README、贡献说明和许可证决策记录齐备；远程地址与可见性可验证。
-- Children: 仓库托管账号/名称和许可证仍待确定后才能完成远程发布。
+- Children: 许可证仍待项目所有者决定；公开仓库和首版文件已创建并同步。
 
 ### T4 — 零星项目 / Miscellaneous
 - Status: 未开始
